@@ -27,11 +27,25 @@ export function CategorySidebar() {
     // Actually, I should check if we can fetch facets from search results.
     // But sidebar is global.
 
-    // TEMPORARY FIX: Empty the hardcoded list to reflect DB state.
     const CATEGORIES: string[] = [
-        "Peynir", // Only valid category for now
-        // "Süt",
-        // ... others commented out ...
+        "Süt",
+        "Peynir",
+        "Yoğurt",
+        "Tereyağı",
+        "Yumurta",
+        "Sıvı Yağ",
+        "Çay",
+        "Kahve",
+        "Şeker",
+        "Un",
+        "Makarna",
+        "Bakliyat",
+        "Zeytin",
+        "Bal & Reçel",
+        "Kırmızı Et",
+        "Beyaz Et",
+        "Atıştırmalık",
+        "Temizlik"
     ];
 
     return (

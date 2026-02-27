@@ -45,6 +45,9 @@ export default function RootLayout({
                 <a href="/" className="text-xl font-bold text-blue-600 hover:opacity-80 transition-opacity">
                   Market Karşılaştırma
                 </a>
+                <a href="/alarms" className="hidden md:block text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+                  🔔 Fiyat Alarmları
+                </a>
                 <NotificationCenter />
               </div>
               {/* Future: Add Search Bar or Menu here */}
