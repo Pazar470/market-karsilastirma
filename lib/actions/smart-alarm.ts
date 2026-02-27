@@ -66,7 +66,8 @@ export async function createSmartAlarm(prevStateOrFormData: any, formDataOrUndef
                 targetPrice,
                 tags,
                 excludedProductIds,
-                isActive: true
+                isActive: true,
+                userId: 'beta-user-1' // Geçici dummy user ID
             }
         });
 

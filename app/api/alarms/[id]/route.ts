@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 export async function PATCH(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
         const body = await request.json();
@@ -17,8 +17,9 @@ export async function PATCH(
         if (targetPrice !== undefined) updateData.targetPrice = parseFloat(targetPrice);
         if (name !== undefined) updateData.name = name;
 
+        const resolvedParams = await params;
         const alarm = await prisma.smartAlarm.update({
-            where: { id: params.id },
+            where: { id: resolvedParams.id },
             data: updateData
         });
 
@@ -31,11 +32,12 @@ export async function PATCH(
 
 export async function DELETE(
     request: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
     try {
+        const resolvedParams = await params;
         await prisma.smartAlarm.delete({
-            where: { id: params.id }
+            where: { id: resolvedParams.id }
         });
 
         return NextResponse.json({ message: 'Alarm deleted' });

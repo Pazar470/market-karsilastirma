@@ -55,7 +55,8 @@ export async function POST(request: Request) {
                 tags: JSON.stringify(tags || []),
                 includedProductIds: JSON.stringify(includedProductIds || []),
                 excludedProductIds: JSON.stringify(excludedProductIds || []),
-                isAllProducts: isAllProducts !== undefined ? isAllProducts : true
+                isAllProducts: isAllProducts !== undefined ? isAllProducts : true,
+                userId: 'beta-user-1' // Geçici dummy user ID, asıl auth gelene kadar
             }
         });
 

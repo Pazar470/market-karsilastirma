@@ -4,8 +4,8 @@ import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
-import { upsertProduct } from './db-utils.ts';
-import { parseQuantity } from './utils.ts';
+import { upsertProduct } from './db-utils';
+import { parseQuantity } from './utils';
 
 const prisma = new PrismaClient();
 
@@ -127,10 +127,12 @@ async function scrapeSok(cat: any, market: any) {
     const html = await res.text();
     const $ = cheerio.load(html);
 
-    $('div[class*="PLPProductListing_PLPCardsWrapper"] a[href*="-p-"]').each(async (_, el) => {
+    const elements = $('div[class*="PLPProductListing_PLPCardsWrapper"] a[href*="-p-"]').toArray();
+
+    for (const el of elements) {
         const text = $(el).text().trim();
         const priceMatch = text.match(/(\d{1,3}(?:[.]\d{3})*(?:,\d{1,2})?)\s*(?:₺|TL)/i);
-        if (!priceMatch) return;
+        if (!priceMatch) continue;
         const price = parseFloat(priceMatch[1].replace(/\./g, '').replace(',', '.'));
         const name = text.replace(priceMatch[0], '').trim();
         const qty = parseQuantity(name);
@@ -145,5 +147,5 @@ async function scrapeSok(cat: any, market: any) {
             quantityAmount: qty.amount || undefined,
             quantityUnit: qty.unit || undefined
         }, market.id, dbId);
-    });
+    }
 }

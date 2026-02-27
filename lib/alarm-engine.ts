@@ -79,7 +79,8 @@ export async function checkAlarmsAfterScrape() {
                             data: {
                                 title: 'Yeni Ürün Keşfedildi',
                                 message: `"${alarm.name}" alarmınız için uygun yeni bir ürün bulundu: ${product.name}`,
-                                alarmId: alarm.id
+                                alarmId: alarm.id,
+                                userId: alarm.userId // Alarm kime aitse bildirim de ona gider
                             }
                         });
                     }
@@ -102,7 +103,8 @@ export async function checkAlarmsAfterScrape() {
                         data: {
                             title: 'Fiyat Düştü! 🎯',
                             message: `${product.name} ürünü istediğiniz fiyatın altına düştü: ${unitPrice.toFixed(2)} ₺`,
-                            alarmId: alarm.id
+                            alarmId: alarm.id,
+                            userId: alarm.userId
                         }
                     });
                 }

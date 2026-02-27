@@ -1,6 +1,6 @@
 
 import { PrismaClient } from '@prisma/client';
-import { getMappedCategory } from './category-mapper.ts';
+import { getMappedCategory } from './category-mapper';
 
 const prisma = new PrismaClient();
 
