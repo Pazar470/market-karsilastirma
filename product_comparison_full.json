@@ -1,0 +1,273 @@
+{
+  "Alive (A101 Brand)": {
+    "id": "12003075",
+    "isEnabled": true,
+    "images": [
+      {
+        "id": "yerliUretim",
+        "isExternal": false,
+        "imageType": "badge",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+      },
+      {
+        "id": "IeYP879Upy",
+        "isExternal": false,
+        "imageType": "product",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/IeYP879Upy_256x256.png"
+      }
+    ],
+    "attributes": {
+      "returnDay": 15,
+      "rank": 5,
+      "brand": "TARABYA",
+      "HEMEN_maxQty": 8,
+      "categoryRank": 512001,
+      "netWeight": 700,
+      "depolamaKosulu": "Soğuk(+4)",
+      "name": "Tarabya Tam Yağlı Dilimli Tost Peyniri 700 G",
+      "SLOT_minQty": 1,
+      "salesUnitOfMeasure": "ADT",
+      "HEMEN_minQty": 1,
+      "seoUrl": "https://www.a101.com.tr/kapida/sut-urunleri-kahvaltilik/tarabya-tam-yagli-dilimli-tost-peyniri-700-g_p-12003075",
+      "baseUnitOfMeasure": "ADT",
+      "isShowInDS": true,
+      "SLOT_maxQty": 10,
+      "nitelikAdi": "GrupSpot",
+      "barcodes": [
+        "8699118067153"
+      ],
+      "grossWeight": 766,
+      "stepper": 1,
+      "hediye": true
+    },
+    "interests": [],
+    "categories": [
+      {
+        "id": "C05",
+        "name": "Süt Ürünleri, Kahvaltılık",
+        "parentId": "master"
+      },
+      {
+        "id": "C0512",
+        "name": "Kaşar Peyniri",
+        "parentId": "master"
+      }
+    ],
+    "campaigns": [],
+    "price": {
+      "normal": 22500,
+      "discounted": 22500,
+      "normalStr": "₺225,00",
+      "discountedStr": "₺225,00"
+    },
+    "stock": 100,
+    "isBlacklisted": false,
+    "rS": 0
+  },
+  "Zombie/Suspect": {
+    "id": "12003149",
+    "isEnabled": true,
+    "images": [
+      {
+        "id": "yerliUretim",
+        "isExternal": false,
+        "imageType": "badge",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+      },
+      {
+        "id": "7SffzxhyOu",
+        "isExternal": false,
+        "imageType": "product",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/7SffzxhyOu_256x256.png"
+      }
+    ],
+    "attributes": {
+      "returnDay": 15,
+      "rank": 63,
+      "brand": "OTAT",
+      "HEMEN_maxQty": 8,
+      "categoryRank": 512022,
+      "netWeight": 2000,
+      "depolamaKosulu": "Soğuk(+4)",
+      "name": "Otat Vadim Yarım Yağlı Tost Peynir 2 Kg",
+      "SLOT_minQty": 1,
+      "salesUnitOfMeasure": "ADT",
+      "HEMEN_minQty": 1,
+      "seoUrl": "https://www.a101.com.tr/kapida/sut-urunleri-kahvaltilik/otat-vadim-yarim-yagli-tost-peynir-2-kg_p-12003149",
+      "baseUnitOfMeasure": "ADT",
+      "isShowInDS": true,
+      "SLOT_maxQty": 10,
+      "nitelikAdi": "GrupSpot",
+      "barcodes": [
+        "8696813010804"
+      ],
+      "grossWeight": 2083,
+      "stepper": 1,
+      "hediye": true
+    },
+    "interests": [],
+    "categories": [
+      {
+        "id": "C05",
+        "name": "Süt Ürünleri, Kahvaltılık",
+        "parentId": "master"
+      },
+      {
+        "id": "C0512",
+        "name": "Kaşar Peyniri",
+        "parentId": "master"
+      }
+    ],
+    "campaigns": [],
+    "price": {
+      "normal": 32900,
+      "discounted": 32900,
+      "normalStr": "₺329,00",
+      "discountedStr": "₺329,00"
+    },
+    "stock": 100,
+    "isBlacklisted": false,
+    "rS": 0
+  },
+  "Neutral 1": {
+    "id": "12002289",
+    "isEnabled": true,
+    "images": [
+      {
+        "id": "ubx34VqmMX",
+        "imageType": "product",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/ubx34VqmMX_256x256.png",
+        "isExternal": false
+      },
+      {
+        "id": "yerliUretim",
+        "imageType": "badge",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png",
+        "isExternal": false
+      }
+    ],
+    "attributes": {
+      "returnDay": 15,
+      "rank": 13,
+      "brand": "İÇİM",
+      "HEMEN_maxQty": 8,
+      "categoryRank": 512049,
+      "netWeight": 700,
+      "depolamaKosulu": "Soğuk(+4)",
+      "name": "İçim Tost Peyniri 700 G",
+      "SLOT_minQty": 1,
+      "salesUnitOfMeasure": "ADT",
+      "HEMEN_minQty": 1,
+      "seoUrl": "https://www.a101.com.tr/kapida/sut-urunleri-kahvaltilik/icim-tost-peyniri-700-g_p-12002289",
+      "baseUnitOfMeasure": "ADT",
+      "isShowInDS": true,
+      "SLOT_maxQty": 10,
+      "nitelikAdi": "Regüler",
+      "barcodes": [
+        "8692971431321"
+      ],
+      "grossWeight": 720,
+      "stepper": 1,
+      "hediye": true
+    },
+    "categories": [
+      {
+        "id": "C05",
+        "name": "Süt Ürünleri, Kahvaltılık",
+        "parentId": "master"
+      },
+      {
+        "id": "C0512",
+        "name": "Kaşar Peyniri",
+        "parentId": "master"
+      }
+    ],
+    "campaigns": [],
+    "price": {
+      "normal": 34900,
+      "normalStr": "₺349,00",
+      "discounted": 34900,
+      "discountedStr": "₺349,00"
+    },
+    "stock": 100,
+    "isBlacklisted": false,
+    "rS": 0
+  },
+  "Neutral 2": {
+    "id": "12001507",
+    "isEnabled": true,
+    "images": [
+      {
+        "id": "1HLMGxKqqn",
+        "isExternal": false,
+        "imageType": "product",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/1HLMGxKqqn_256x256.png"
+      },
+      {
+        "id": "yerliUretim",
+        "isExternal": false,
+        "imageType": "badge",
+        "tags": [],
+        "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+      }
+    ],
+    "attributes": {
+      "returnDay": 15,
+      "incrementInfo": "<!DOCTYPE html>\r\r\r\r\r\n<html>\r\r\r\r\r\n<head>\r\r\r\r\r\n</head>\r\r\r\r\r\n<body>\r\r\r\r\r\n<p>1</p>\r\r\r\r\r\n</body>\r\r\r\r\r\n</html>",
+      "returnConditions": "",
+      "collections": [
+        "aldin-aldin-gida"
+      ],
+      "brand": "PINAR",
+      "HEMEN_maxQty": 8,
+      "categoryRank": 512029,
+      "netWeight": 200,
+      "depolamaKosulu": "Soğuk(+4)",
+      "name": "Pınar Dilimli Tost Peyniri 200 G",
+      "SLOT_minQty": 1,
+      "salesUnitOfMeasure": "ADT",
+      "HEMEN_minQty": 1,
+      "seoUrl": "https://www.a101.com.tr/kapida/sut-urunleri-kahvaltilik/pinar-dilimli-tost-peyniri-200-g_p-12001507",
+      "baseUnitOfMeasure": "ADT",
+      "isShowInDS": true,
+      "SLOT_maxQty": 10,
+      "nitelikAdi": "GrupSpot",
+      "barcodes": [
+        "8690565007334"
+      ],
+      "grossWeight": 220,
+      "stepper": 1,
+      "hediye": true
+    },
+    "interests": [],
+    "categories": [
+      {
+        "id": "C05",
+        "name": "Süt Ürünleri, Kahvaltılık",
+        "parentId": "master"
+      },
+      {
+        "id": "C0512",
+        "name": "Kaşar Peyniri",
+        "parentId": "master"
+      }
+    ],
+    "campaigns": [],
+    "price": {
+      "normal": 8200,
+      "normalStr": "₺82,00",
+      "discounted": 8200,
+      "discountedStr": "₺82,00"
+    },
+    "stock": 100,
+    "isBlacklisted": false,
+    "rS": 0
+  }
+}

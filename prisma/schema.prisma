@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id            String         @id @default(uuid())
+  username      String         @unique
+  pin           String // 4 hane
+  alarms        SmartAlarm[]
+  notifications Notification[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Product {
+  id             String   @id @default(uuid())
+  marketKey      String?  @unique // Market bazlı benzersiz anahtar (Genelde ürün linki)
+  name           String // Normalize edilmiş isim
+  barcode        String? // Varsa evrensel eşleştirici
+  imageUrl       String?
+  category       String?
+  quantityAmount Float? // 0.2, 1, 1.5 gibi
+  quantityUnit   String? // kg, l, ad gibi
+  isSuspicious   Boolean  @default(false)
+  tags           String? // JSON string array: ["Biber", "Acı"]
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  prices         Price[]
+
+  // Master Category Relation
+  categoryId     String?
+  masterCategory Category? @relation(fields: [categoryId], references: [id])
+}
+
+model Category {
+  id          String       @id @default(uuid())
+  name        String
+  slug        String       @unique
+  parentId    String?
+  parent      Category?    @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children    Category[]   @relation("CategoryHierarchy")
+  products    Product[]
+  smartAlarms SmartAlarm[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Market {
+  id        String   @id @default(uuid())
+  name      String   @unique // A101, BİM, vb.
+  url       String // website idi, url olarak güncellendi
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  prices    Price[]
+}
+
+model Price {
+  id         String   @id @default(uuid())
+  amount     Decimal
+  currency   String   @default("TRY")
+  date       DateTime @default(now())
+  productUrl String? // O marketteki linki
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id])
+  marketId   String
+  market     Market   @relation(fields: [marketId], references: [id])
+
+  @@index([date])
+  @@index([productId])
+  @@index([marketId])
+}
+
+model SmartAlarm {
+  id          String   @id @default(uuid())
+  name        String // Display Name (e.g. "Kaşar Peyniri")
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  targetPrice Float // Desired Unit Price
+  unitType    String   @default("KG") // KG, L, ADET
+
+  // User Relation
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // JSON Filters/Selections
+  tags               String @default("[]") // JSON string: ["tam-yagli", "dilimli"]
+  includedProductIds String @default("[]") // JSON string: ["uuid1", "uuid2"] - Explicitly selected
+  excludedProductIds String @default("[]") // JSON string: ["uuid3", "uuid4"] - Explicitly removed
+  pendingProductIds  String @default("[]") // JSON string: ["uuid5", "uuid6"] - Found by engine, waiting for user approval
+  isAllProducts      Boolean @default(true) // If true, follows new products in category matching tags
+
+  isActive       Boolean   @default(true)
+  lastNotifiedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  notifications Notification[]
+}
+
+model Notification {
+  id      String @id @default(uuid())
+  title   String
+  message String
+  isRead  Boolean @default(false)
+
+  // Alarm Relation
+  alarmId String?
+  alarm   SmartAlarm? @relation(fields: [alarmId], references: [id], onDelete: SetNull)
+
+  // User Relation
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+}

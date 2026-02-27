@@ -1,0 +1,66 @@
+{
+  "id": "13002841",
+  "isEnabled": true,
+  "images": [
+    {
+      "id": "yerliUretim",
+      "isExternal": false,
+      "imageType": "badge",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+    },
+    {
+      "id": "Tc-PhTBlzj",
+      "isExternal": false,
+      "imageType": "product",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/Tc-PhTBlzj_256x256.png"
+    }
+  ],
+  "attributes": {
+    "returnDay": 15,
+    "brand": "COLA TURKA",
+    "HEMEN_maxQty": 8,
+    "categoryRank": 801018,
+    "netWeight": 2500,
+    "depolamaKosulu": "Gıda",
+    "name": "Cola Turka 2,5 L",
+    "SLOT_minQty": 1,
+    "salesUnitOfMeasure": "ADT",
+    "HEMEN_minQty": 1,
+    "seoUrl": "https://www.a101.com.tr/kapida/su-icecek/cola-turka-25-l_p-13002841",
+    "baseUnitOfMeasure": "ADT",
+    "isShowInDS": true,
+    "SLOT_maxQty": 10,
+    "nitelikAdi": "Regüler",
+    "barcodes": [
+      "8697520101021"
+    ],
+    "grossWeight": 2600,
+    "stepper": 1,
+    "hediye": true
+  },
+  "interests": [],
+  "categories": [
+    {
+      "id": "C08",
+      "name": "Su, İçecek",
+      "parentId": "master"
+    },
+    {
+      "id": "C0801",
+      "name": "Gazlı İçecekler",
+      "parentId": "master"
+    }
+  ],
+  "campaigns": [],
+  "price": {
+    "normal": 7000,
+    "discounted": 7000,
+    "normalStr": "₺70,00",
+    "discountedStr": "₺70,00"
+  },
+  "stock": 100,
+  "isBlacklisted": false,
+  "rS": 0
+}

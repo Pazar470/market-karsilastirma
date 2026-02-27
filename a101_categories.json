@@ -1,0 +1,566 @@
+{
+  "market": "A101",
+  "totalLeafCategories": 112,
+  "categories": [
+    {
+      "id": "C0101",
+      "name": "Meyve",
+      "path": "Meyve & Sebze > Meyve"
+    },
+    {
+      "id": "C0102",
+      "name": "Sebze",
+      "path": "Meyve & Sebze > Sebze"
+    },
+    {
+      "id": "C0103",
+      "name": "Yeşillik",
+      "path": "Meyve & Sebze > Yeşillik"
+    },
+    {
+      "id": "C0401",
+      "name": "Kırmızı Et",
+      "path": "Et & Tavuk & Şarküteri > Kırmızı Et"
+    },
+    {
+      "id": "C0402",
+      "name": "Beyaz Et",
+      "path": "Et & Tavuk & Şarküteri > Beyaz Et"
+    },
+    {
+      "id": "C0403",
+      "name": "Deniz Ürünleri",
+      "path": "Et & Tavuk & Şarküteri > Deniz Ürünleri"
+    },
+    {
+      "id": "C0404",
+      "name": "Şarküteri",
+      "path": "Et & Tavuk & Şarküteri > Şarküteri"
+    },
+    {
+      "id": "C0502",
+      "name": "Süt",
+      "path": "Süt & Kahvaltılık > Süt"
+    },
+    {
+      "id": "C0503",
+      "name": "Yumurta",
+      "path": "Süt & Kahvaltılık > Yumurta"
+    },
+    {
+      "id": "C0501",
+      "name": "Beyaz Peynir",
+      "path": "Süt & Kahvaltılık > Beyaz Peynir"
+    },
+    {
+      "id": "C0512",
+      "name": "Kaşar Peyniri",
+      "path": "Süt & Kahvaltılık > Kaşar Peyniri"
+    },
+    {
+      "id": "C0513",
+      "name": "Sürülebilir Peynir",
+      "path": "Süt & Kahvaltılık > Sürülebilir Peynir"
+    },
+    {
+      "id": "C0514",
+      "name": "Yöresel Peynir",
+      "path": "Süt & Kahvaltılık > Yöresel Peynir"
+    },
+    {
+      "id": "C0505",
+      "name": "Yoğurt",
+      "path": "Süt & Kahvaltılık > Yoğurt"
+    },
+    {
+      "id": "C0504",
+      "name": "Zeytin",
+      "path": "Süt & Kahvaltılık > Zeytin"
+    },
+    {
+      "id": "C0509",
+      "name": "Tereyağ, Margarin",
+      "path": "Süt & Kahvaltılık > Tereyağ, Margarin"
+    },
+    {
+      "id": "C0507",
+      "name": "Sürülebilir Ürünler",
+      "path": "Süt & Kahvaltılık > Sürülebilir Ürünler"
+    },
+    {
+      "id": "C0511",
+      "name": "Helva, Tahin, Pekmez",
+      "path": "Süt & Kahvaltılık > Helva, Tahin, Pekmez"
+    },
+    {
+      "id": "C0510",
+      "name": "Bal, Reçel",
+      "path": "Süt & Kahvaltılık > Bal, Reçel"
+    },
+    {
+      "id": "C0508",
+      "name": "Kahvaltılık Gevrek",
+      "path": "Süt & Kahvaltılık > Kahvaltılık Gevrek"
+    },
+    {
+      "id": "C0506",
+      "name": "Kaymak, Krema",
+      "path": "Süt & Kahvaltılık > Kaymak, Krema"
+    },
+    {
+      "id": "C0201",
+      "name": "Ekmek",
+      "path": "Fırın & Pastane > Ekmek"
+    },
+    {
+      "id": "C0203",
+      "name": "Unlu Mamüller",
+      "path": "Fırın & Pastane > Unlu Mamüller"
+    },
+    {
+      "id": "C0202",
+      "name": "Hamur Pasta Malzemeleri",
+      "path": "Fırın & Pastane > Hamur Pasta Malzemeleri"
+    },
+    {
+      "id": "C0701",
+      "name": "Sıvı Yağlar",
+      "path": "Temel Gıda > Sıvı Yağlar"
+    },
+    {
+      "id": "C0702",
+      "name": "Bakliyat",
+      "path": "Temel Gıda > Bakliyat"
+    },
+    {
+      "id": "C0703",
+      "name": "Şeker",
+      "path": "Temel Gıda > Şeker"
+    },
+    {
+      "id": "C0704",
+      "name": "Konserve",
+      "path": "Temel Gıda > Konserve"
+    },
+    {
+      "id": "C0705",
+      "name": "Un",
+      "path": "Temel Gıda > Un"
+    },
+    {
+      "id": "C0706",
+      "name": "Makarna, Noodle",
+      "path": "Temel Gıda > Makarna, Noodle"
+    },
+    {
+      "id": "C0713",
+      "name": "Erişte, Mantı",
+      "path": "Temel Gıda > Erişte, Mantı"
+    },
+    {
+      "id": "C0707",
+      "name": "Ketçap, Mayonez, Soslar, Sirkeler",
+      "path": "Temel Gıda > Ketçap, Mayonez, Soslar, Sirkeler"
+    },
+    {
+      "id": "C0709",
+      "name": "Tuz, Baharat, Harç",
+      "path": "Temel Gıda > Tuz, Baharat, Harç"
+    },
+    {
+      "id": "C0708",
+      "name": "Salça",
+      "path": "Temel Gıda > Salça"
+    },
+    {
+      "id": "C0710",
+      "name": "Hazır Çorbalar",
+      "path": "Temel Gıda > Hazır Çorbalar"
+    },
+    {
+      "id": "C0711",
+      "name": "Turşu",
+      "path": "Temel Gıda > Turşu"
+    },
+    {
+      "id": "C0712",
+      "name": "Bulyonlar",
+      "path": "Temel Gıda > Bulyonlar"
+    },
+    {
+      "id": "C0605",
+      "name": "Çikolata",
+      "path": "Atıştırmalık > Çikolata"
+    },
+    {
+      "id": "C0609",
+      "name": "Gofret",
+      "path": "Atıştırmalık > Gofret"
+    },
+    {
+      "id": "C0601",
+      "name": "Bisküvi, Kraker",
+      "path": "Atıştırmalık > Bisküvi, Kraker"
+    },
+    {
+      "id": "C0610",
+      "name": "Kek",
+      "path": "Atıştırmalık > Kek"
+    },
+    {
+      "id": "C0607",
+      "name": "Cips",
+      "path": "Atıştırmalık > Cips"
+    },
+    {
+      "id": "C0606",
+      "name": "Kuruyemiş, Kuru Meyve",
+      "path": "Atıştırmalık > Kuruyemiş, Kuru Meyve"
+    },
+    {
+      "id": "C0604",
+      "name": "Sakız, Şekerleme",
+      "path": "Atıştırmalık > Sakız, Şekerleme"
+    },
+    {
+      "id": "C0608",
+      "name": "Sağlıklı Atıştırmalıklar",
+      "path": "Atıştırmalık > Sağlıklı Atıştırmalıklar"
+    },
+    {
+      "id": "C0801",
+      "name": "Gazlı İçecekler",
+      "path": "Su & İçecek > Gazlı İçecekler"
+    },
+    {
+      "id": "C0802",
+      "name": "Gazsız İçecekler",
+      "path": "Su & İçecek > Gazsız İçecekler"
+    },
+    {
+      "id": "C0807",
+      "name": "Ayran, Kefir",
+      "path": "Su & İçecek > Ayran, Kefir"
+    },
+    {
+      "id": "C0804",
+      "name": "Maden Suyu",
+      "path": "Su & İçecek > Maden Suyu"
+    },
+    {
+      "id": "C0803",
+      "name": "Çay",
+      "path": "Su & İçecek > Çay"
+    },
+    {
+      "id": "C0809",
+      "name": "Kahve",
+      "path": "Su & İçecek > Kahve"
+    },
+    {
+      "id": "C0806",
+      "name": "Bitki Çayları",
+      "path": "Su & İçecek > Bitki Çayları"
+    },
+    {
+      "id": "C0805",
+      "name": "Su",
+      "path": "Su & İçecek > Su"
+    },
+    {
+      "id": "C0808",
+      "name": "Enerji İçeceği",
+      "path": "Su & İçecek > Enerji İçeceği"
+    },
+    {
+      "id": "C1002",
+      "name": "Dondurulmuş Gıda",
+      "path": "Hazır Yemek & Meze > Dondurulmuş Gıda"
+    },
+    {
+      "id": "C1001",
+      "name": "Pratik Yemekler",
+      "path": "Hazır Yemek & Meze > Pratik Yemekler"
+    },
+    {
+      "id": "C1004",
+      "name": "Meze",
+      "path": "Hazır Yemek & Meze > Meze"
+    },
+    {
+      "id": "C1005",
+      "name": "Sandviç, Dürümler",
+      "path": "Hazır Yemek & Meze > Sandviç, Dürümler"
+    },
+    {
+      "id": "C1006",
+      "name": "Hazır Tatlılar",
+      "path": "Hazır Yemek & Meze > Hazır Tatlılar"
+    },
+    {
+      "id": "C1003",
+      "name": "Dondurulmuş Tatlı",
+      "path": "Hazır Yemek & Meze > Dondurulmuş Tatlı"
+    },
+    {
+      "id": "C1007",
+      "name": "Kuru Tatlılar",
+      "path": "Hazır Yemek & Meze > Kuru Tatlılar"
+    },
+    {
+      "id": "C0901",
+      "name": "Tekli Ürünler",
+      "path": "Dondurulmuş Ürünler > Tekli Ürünler"
+    },
+    {
+      "id": "C0902",
+      "name": "Kap Ürünler",
+      "path": "Dondurulmuş Ürünler > Kap Ürünler"
+    },
+    {
+      "id": "C1102",
+      "name": "Bulaşık",
+      "path": "Temizlik > Bulaşık"
+    },
+    {
+      "id": "C1101",
+      "name": "Çamaşır",
+      "path": "Temizlik > Çamaşır"
+    },
+    {
+      "id": "C1103",
+      "name": "Genel Temizlik",
+      "path": "Temizlik > Genel Temizlik"
+    },
+    {
+      "id": "C1104",
+      "name": "Haşere Öldürücüler",
+      "path": "Temizlik > Haşere Öldürücüler"
+    },
+    {
+      "id": "C1105",
+      "name": "Temizlik Malzemeleri",
+      "path": "Temizlik > Temizlik Malzemeleri"
+    },
+    {
+      "id": "C1106",
+      "name": "Oda Kokuları",
+      "path": "Temizlik > Oda Kokuları"
+    },
+    {
+      "id": "C1202",
+      "name": "Saç Bakım",
+      "path": "Kişisel Bakım > Saç Bakım"
+    },
+    {
+      "id": "C1203",
+      "name": "Duş, Banyo, Sabun",
+      "path": "Kişisel Bakım > Duş, Banyo, Sabun"
+    },
+    {
+      "id": "C1201",
+      "name": "Ağız Bakım Ürünleri",
+      "path": "Kişisel Bakım > Ağız Bakım Ürünleri"
+    },
+    {
+      "id": "C1204",
+      "name": "Hijyenik Ped",
+      "path": "Kişisel Bakım > Hijyenik Ped"
+    },
+    {
+      "id": "C1209",
+      "name": "Parfüm, Deodorant",
+      "path": "Kişisel Bakım > Parfüm, Deodorant"
+    },
+    {
+      "id": "C1205",
+      "name": "Cilt Bakımı",
+      "path": "Kişisel Bakım > Cilt Bakımı"
+    },
+    {
+      "id": "C1210",
+      "name": "Ağda Epilasyon",
+      "path": "Kişisel Bakım > Ağda Epilasyon"
+    },
+    {
+      "id": "C1206",
+      "name": "Makyaj",
+      "path": "Kişisel Bakım > Makyaj"
+    },
+    {
+      "id": "C1207",
+      "name": "Erkek Bakım",
+      "path": "Kişisel Bakım > Erkek Bakım"
+    },
+    {
+      "id": "C1208",
+      "name": "Sağlık Ürünleri",
+      "path": "Kişisel Bakım > Sağlık Ürünleri"
+    },
+    {
+      "id": "C1211",
+      "name": "Kolonya",
+      "path": "Kişisel Bakım > Kolonya"
+    },
+    {
+      "id": "C1212",
+      "name": "Güneş Bakım",
+      "path": "Kişisel Bakım > Güneş Bakım"
+    },
+    {
+      "id": "C1301",
+      "name": "Tuvalet Kağıdı",
+      "path": "Kağıt Ürünleri > Tuvalet Kağıdı"
+    },
+    {
+      "id": "C1303",
+      "name": "Kağıt Havlu",
+      "path": "Kağıt Ürünleri > Kağıt Havlu"
+    },
+    {
+      "id": "C1302",
+      "name": "Kağıt Peçete, Mendil",
+      "path": "Kağıt Ürünleri > Kağıt Peçete, Mendil"
+    },
+    {
+      "id": "C1304",
+      "name": "Islak Mendil",
+      "path": "Kağıt Ürünleri > Islak Mendil"
+    },
+    {
+      "id": "C1810",
+      "name": "Televizyon",
+      "path": "Elektronik > Televizyon"
+    },
+    {
+      "id": "C1809",
+      "name": "Beyaz Eşya",
+      "path": "Elektronik > Beyaz Eşya"
+    },
+    {
+      "id": "C1806",
+      "name": "Telefon Aksesuarları",
+      "path": "Elektronik > Telefon Aksesuarları"
+    },
+    {
+      "id": "C1807",
+      "name": "Küçük Elektrikli Ev Aletleri",
+      "path": "Elektronik > Küçük Elektrikli Ev Aletleri"
+    },
+    {
+      "id": "C1808",
+      "name": "Elektrikli Kişisel Bakım",
+      "path": "Elektronik > Elektrikli Kişisel Bakım"
+    },
+    {
+      "id": "C1802",
+      "name": "Isıtma, Soğutma",
+      "path": "Elektronik > Isıtma, Soğutma"
+    },
+    {
+      "id": "C1812",
+      "name": "Bilgisayar",
+      "path": "Elektronik > Bilgisayar"
+    },
+    {
+      "id": "C1813",
+      "name": "Bilgisayar Aksesuarları",
+      "path": "Elektronik > Bilgisayar Aksesuarları"
+    },
+    {
+      "id": "C1811",
+      "name": "Ses & Görüntü Sistemleri",
+      "path": "Elektronik > Ses & Görüntü Sistemleri"
+    },
+    {
+      "id": "C1804",
+      "name": "Pil",
+      "path": "Elektronik > Pil"
+    },
+    {
+      "id": "C1803",
+      "name": "Kablo, Priz, Adaptör",
+      "path": "Elektronik > Kablo, Priz, Adaptör"
+    },
+    {
+      "id": "C1801",
+      "name": "Ampul, Aydınlatma",
+      "path": "Elektronik > Ampul, Aydınlatma"
+    },
+    {
+      "id": "C1401",
+      "name": "Bebek Bezi",
+      "path": "Anne & Bebek > Bebek Bezi"
+    },
+    {
+      "id": "C1402",
+      "name": "Bebek Beslenme",
+      "path": "Anne & Bebek > Bebek Beslenme"
+    },
+    {
+      "id": "C1403",
+      "name": "Islak Havlu",
+      "path": "Anne & Bebek > Islak Havlu"
+    },
+    {
+      "id": "C1404",
+      "name": "Bebek Banyo",
+      "path": "Anne & Bebek > Bebek Banyo"
+    },
+    {
+      "id": "C1502",
+      "name": "Mutfak Gereçleri",
+      "path": "Ev & Yaşam > Mutfak Gereçleri"
+    },
+    {
+      "id": "C1509",
+      "name": "Kullan At Ürünler",
+      "path": "Ev & Yaşam > Kullan At Ürünler"
+    },
+    {
+      "id": "C1501",
+      "name": "Ev Gereçleri, Dekorasyon",
+      "path": "Ev & Yaşam > Ev Gereçleri, Dekorasyon"
+    },
+    {
+      "id": "C1505",
+      "name": "Giyim, Aksesuar",
+      "path": "Ev & Yaşam > Giyim, Aksesuar"
+    },
+    {
+      "id": "C1503",
+      "name": "Spor Hobi Ürünleri",
+      "path": "Ev & Yaşam > Spor Hobi Ürünleri"
+    },
+    {
+      "id": "C1504",
+      "name": "Seyahat Ürünleri",
+      "path": "Ev & Yaşam > Seyahat Ürünleri"
+    },
+    {
+      "id": "C1506",
+      "name": "Bahçe Malzemeleri",
+      "path": "Ev & Yaşam > Bahçe Malzemeleri"
+    },
+    {
+      "id": "C1507",
+      "name": "Nalburiye, Hırdavat",
+      "path": "Ev & Yaşam > Nalburiye, Hırdavat"
+    },
+    {
+      "id": "C1511",
+      "name": "Oyuncak",
+      "path": "Ev & Yaşam > Oyuncak"
+    },
+    {
+      "id": "C1510",
+      "name": "Kitap, Kırtasiye",
+      "path": "Ev & Yaşam > Kitap, Kırtasiye"
+    },
+    {
+      "id": "C1508",
+      "name": "Oto Ürünleri, Aksesuarları",
+      "path": "Ev & Yaşam > Oto Ürünleri, Aksesuarları"
+    }
+  ]
+}

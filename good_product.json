@@ -1,0 +1,92 @@
+{
+  "id": "12003241",
+  "isEnabled": true,
+  "images": [
+    {
+      "id": "yerliUretim",
+      "isExternal": false,
+      "imageType": "badge",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+    },
+    {
+      "id": "lTAMMImofR",
+      "isExternal": false,
+      "imageType": "product",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/lTAMMImofR_256x256.png"
+    }
+  ],
+  "attributes": {
+    "returnDay": 15,
+    "rank": 3,
+    "brand": "TORKU",
+    "HEMEN_maxQty": 5,
+    "categoryRank": 502000,
+    "netWeight": 4000,
+    "depolamaKosulu": "Gıda",
+    "name": "Torku %0,5 Yağlı Süt 4x1 L",
+    "SLOT_minQty": 1,
+    "salesUnitOfMeasure": "ADT",
+    "HEMEN_minQty": 1,
+    "seoUrl": "https://www.a101.com.tr/kapida/sut-urunleri-kahvaltilik/torku-05-yagli-sut-4x1-l_p-12003241",
+    "baseUnitOfMeasure": "ADT",
+    "isShowInDS": true,
+    "SLOT_maxQty": 5,
+    "nitelikAdi": "KasaAktivitesi",
+    "barcodes": [
+      "8680181149884"
+    ],
+    "grossWeight": 4363,
+    "stepper": 1,
+    "hediye": true
+  },
+  "interests": [],
+  "categories": [
+    {
+      "id": "C05",
+      "name": "Süt Ürünleri, Kahvaltılık",
+      "parentId": "master"
+    },
+    {
+      "id": "C0502",
+      "name": "Süt",
+      "parentId": "master"
+    }
+  ],
+  "campaigns": [
+    {
+      "name": "10 TL ve Üzeri Alışverişe Torku %0,5 Yağlı Süt 4x1 Lt 119,5 TL (12003241)",
+      "description": "10 TL ve Üzeri Alışverişe Torku %0,5 Yağlı Süt 4x1 Lt 119,5 TL (12003241)",
+      "id": "35387"
+    }
+  ],
+  "promotion": {
+    "code": "Z010",
+    "name": "10-tl-urunleri",
+    "badgeId": "promotion-10-tl-urunleri-1",
+    "badgeType": "priced",
+    "source": "SAP",
+    "qty": 1,
+    "price": 19950,
+    "discountedPrice": 11950,
+    "profit": 8000,
+    "startDate": 1769806800000,
+    "endDate": 1773435599999,
+    "priceStr": "₺199,50",
+    "discountedPriceStr": "₺119,50",
+    "badgeURL": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/promotion-10-tl-urunleri-1_256x256.png",
+    "importDate": 1771967061646,
+    "type": "singlePriced",
+    "imageURL": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/10-tl-urunleri_256x256.png"
+  },
+  "price": {
+    "normal": 19950,
+    "discounted": 19950,
+    "normalStr": "₺199,50",
+    "discountedStr": "₺199,50"
+  },
+  "stock": 100,
+  "isBlacklisted": false,
+  "rS": 0
+}

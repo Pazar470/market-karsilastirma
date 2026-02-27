@@ -1,0 +1,68 @@
+{
+  "id": "13002464",
+  "isEnabled": true,
+  "images": [
+    {
+      "id": "yerliUretim",
+      "isExternal": false,
+      "imageType": "badge",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+    },
+    {
+      "id": "6zNDn7j9x4",
+      "isExternal": false,
+      "imageType": "product",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/6zNDn7j9x4_256x256.png"
+    }
+  ],
+  "attributes": {
+    "returnDay": 15,
+    "rank": 63,
+    "brand": "COLA TURKA",
+    "HEMEN_maxQty": 8,
+    "categoryRank": 801059,
+    "netWeight": 3000,
+    "depolamaKosulu": "Gıda",
+    "name": "Cola Turka Kola 3 L",
+    "SLOT_minQty": 1,
+    "salesUnitOfMeasure": "ADT",
+    "HEMEN_minQty": 1,
+    "seoUrl": "https://www.a101.com.tr/kapida/icecek/cola-turka-kola-3-l_p-13002464",
+    "baseUnitOfMeasure": "ADT",
+    "isShowInDS": true,
+    "SLOT_maxQty": 10,
+    "nitelikAdi": "GrupSpot",
+    "barcodes": [
+      "8690504514701",
+      "8697520101090"
+    ],
+    "grossWeight": 3100,
+    "stepper": 1,
+    "hediye": true
+  },
+  "interests": [],
+  "categories": [
+    {
+      "id": "C08",
+      "name": "İçecek",
+      "parentId": "master"
+    },
+    {
+      "id": "C0801",
+      "name": "Gazlı İçecekler",
+      "parentId": "master"
+    }
+  ],
+  "campaigns": [],
+  "price": {
+    "normal": 4950,
+    "discounted": 4950,
+    "normalStr": "₺49,50",
+    "discountedStr": "₺49,50"
+  },
+  "stock": 100,
+  "isBlacklisted": false,
+  "rS": 0
+}
