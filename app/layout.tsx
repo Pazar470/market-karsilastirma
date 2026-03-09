@@ -42,11 +42,11 @@ export default function RootLayout({
         <BasketProvider>
           <header className="bg-white border-b sticky top-0 z-50">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-              <div className="flex items-center gap-6">
+              <div className="flex items-center gap-4">
                 <a href="/" className="text-xl font-bold text-blue-600 hover:opacity-80 transition-opacity">
                   Market Karşılaştırma
                 </a>
-                <a href="/alarms" className="hidden md:block text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
+                <a href="/alarms" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
                   🔔 Fiyat Alarmları
                 </a>
                 <NotificationCenter />

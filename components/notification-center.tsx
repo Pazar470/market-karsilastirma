@@ -62,10 +62,10 @@ export function NotificationCenter() {
             {isOpen && (
                 <>
                     <div
-                        className="fixed inset-0 z-40 bg-transparent"
+                        className="fixed inset-0 z-40 bg-black/20"
                         onClick={() => setIsOpen(false)}
                     />
-                    <div className="absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="fixed inset-x-3 top-20 md:top-auto md:right-4 md:left-auto md:inset-y-auto md:mt-3 w-auto md:w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                         <div className="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/50">
                             <h3 className="font-bold text-gray-800">Bildirimler</h3>
                             <div className="flex gap-3">

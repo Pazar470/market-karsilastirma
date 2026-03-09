@@ -4,9 +4,14 @@ import { useBasket } from '@/context/basket-context';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export function FloatingBasketSummary() {
     const { items, totalItems } = useBasket();
+    const pathname = usePathname();
+
+    // Alarm ve admin sayfalarında sabit sepet özeti form butonlarını kapatabiliyor; orada gizle.
+    if (pathname.startsWith('/alarms') || pathname.startsWith('/admin')) return null;
 
     // if (totalItems === 0) return null;
 

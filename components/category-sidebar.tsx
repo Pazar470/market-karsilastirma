@@ -23,6 +23,7 @@ export function CategorySidebar() {
     const [categorySearch, setCategorySearch] = useState('');
     const [expanded, setExpanded] = useState<Set<string>>(new Set());
     const [loading, setLoading] = useState(true);
+    const [isMobileOpen, setIsMobileOpen] = useState(false);
 
     useEffect(() => {
         fetch('/api/categories/tree')
@@ -66,10 +67,20 @@ export function CategorySidebar() {
 
     const filteredTree = useMemo(() => {
         const q = categorySearch.trim().toLowerCase();
-        if (!q) return tree;
-        return tree
-            .map((node) => filterNode(node, q))
-            .filter((n): n is CategoryNode => n !== null);
+        const base = !q
+            ? tree
+            : tree
+                .map((node) => filterNode(node, q))
+                .filter((n): n is CategoryNode => n !== null);
+
+        // "Diğer" kök kategorisini her zaman en alta al
+        return [...base].sort((a, b) => {
+            const aIsOther = (a.name || '').toLowerCase() === 'diğer';
+            const bIsOther = (b.name || '').toLowerCase() === 'diğer';
+            if (aIsOther && !bIsOther) return 1;
+            if (!aIsOther && bIsOther) return -1;
+            return (a.name || '').localeCompare(b.name || '');
+        });
     }, [tree, categorySearch]);
 
     const renderNode = (node: CategoryNode, depth: number, isLeaf: boolean) => {
@@ -107,15 +118,23 @@ export function CategorySidebar() {
                 </div>
                 {hasChildren && isExpanded && (
                     <div className="space-y-0.5">
-                        {node.children.map((child) => renderNode(child, depth + 1, !(child.children?.length)))}
+                        {[...node.children]
+                            .sort((a, b) => {
+                                const aIsOther = (a.name || '').toLowerCase() === 'diğer';
+                                const bIsOther = (b.name || '').toLowerCase() === 'diğer';
+                                if (aIsOther && !bIsOther) return 1;
+                                if (!aIsOther && bIsOther) return -1;
+                                return (a.name || '').localeCompare(b.name || '');
+                            })
+                            .map((child) => renderNode(child, depth + 1, !(child.children?.length)))}
                     </div>
                 )}
             </div>
         );
     };
 
-    return (
-        <div className="w-full md:w-64 flex-shrink-0 bg-white rounded-lg border p-4 h-fit">
+    const sidebarContent = (
+        <div className="bg-white rounded-lg border p-4 h-full">
             <h3 className="font-semibold mb-4 text-lg">Kategoriler</h3>
             <div className="relative mb-3">
                 <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -128,7 +147,7 @@ export function CategorySidebar() {
                 />
             </div>
             <p className="text-xs text-gray-500 mb-3">
-                Kategorilerdeki oluşabilecek yanlışlıklar marketlerin kendi kategorilerinden kaynaklanabilir; bazı ürünler yanlış kategori altında görünebilir.
+                Kategoriler marketlerin kendi sitelerinden alınır; bazı ürünler yanlış kategoride görünebilir.
             </p>
             <div className="h-[calc(100vh-320px)] overflow-y-auto pr-2">
                 <div className="space-y-1">
@@ -157,5 +176,51 @@ export function CategorySidebar() {
                 </div>
             </div>
         </div>
+    );
+
+    return (
+        <>
+            {/* Mobil: buton + tam ekran açılır menü */}
+            <div className="md:hidden mb-4">
+                <Button
+                    variant="outline"
+                    className="w-full justify-between"
+                    onClick={() => setIsMobileOpen(true)}
+                >
+                    <span>Kategoriler</span>
+                    <ChevronRight className="h-4 w-4" />
+                </Button>
+                {isMobileOpen && (
+                    <div className="fixed inset-0 z-40 bg-black/40 flex">
+                        <div className="w-11/12 max-w-xs h-full bg-white shadow-2xl animate-in slide-in-from-left duration-200">
+                            <div className="flex items-center justify-between px-4 py-3 border-b">
+                                <span className="font-semibold text-gray-800">Kategoriler</span>
+                                <button
+                                    type="button"
+                                    className="text-sm text-gray-500 hover:text-gray-800"
+                                    onClick={() => setIsMobileOpen(false)}
+                                >
+                                    Kapat
+                                </button>
+                            </div>
+                            <div className="p-4 h-[calc(100%-48px)] overflow-y-auto">
+                                {sidebarContent}
+                            </div>
+                        </div>
+                        <button
+                            type="button"
+                            className="flex-1"
+                            onClick={() => setIsMobileOpen(false)}
+                            aria-label="Kategorileri kapat"
+                        />
+                    </div>
+                )}
+            </div>
+
+            {/* Masaüstü: sabit sidebar */}
+            <div className="hidden md:block w-64 flex-shrink-0 h-fit">
+                {sidebarContent}
+            </div>
+        </>
     );
 }

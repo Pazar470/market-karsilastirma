@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { cn } from '@/lib/utils';
 import { Search } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -213,7 +214,7 @@ export function ProductSearch() {
                         <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                         <Input
                             type="search"
-                            placeholder="Ürün ara (örn: Kaşar, Süt)..."
+                            placeholder="Ürün ara..."
                             className="pl-8"
                             value={query}
                             onChange={handleInputChange}
@@ -277,32 +278,14 @@ export function ProductSearch() {
                 </div>
             )}
 
-            {/* Facets / Filters */}
-            {facets.length > 0 && (
-                <div className="flex flex-wrap gap-2 pb-2">
-                    <span className="text-sm font-medium text-gray-500 py-1">Kategoriler:</span>
-                    {facets.slice(0, 10).map((facet) => {
-                        const isSelected = urlCategory.includes(facet.name);
-                        return (
-                            <Badge
-                                key={facet.name}
-                                variant={isSelected ? "default" : "secondary"}
-                                className={`cursor-pointer hover:opacity-80 transition-opacity ${isSelected ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'}`}
-                                onClick={() => toggleCategory(facet.name)}
-                            >
-                                {facet.name.split('>').pop()?.trim()} <span className="ml-1 opacity-60 text-xs">({facet.count})</span>
-                            </Badge>
-                        );
-                    })}
-                </div>
-            )}
+            {/* Facets / Filters: mobilde karmaşıklık yaratıyor, şimdilik gizli */}
 
             {loading ? (
                 <div className="text-center py-10">Yükleniyor...</div>
             ) : products.length === 0 ? (
                 <div className="text-center py-10 text-muted-foreground">Ürün bulunamadı.</div>
             ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
                     {products.map((product) => {
                         const priceInfo = product.prices[0];
                         return (
@@ -364,8 +347,19 @@ export function ProductSearch() {
                                     </div>
                                     <CardHeader className="p-4 pb-2">
                                         <div className="flex justify-between items-start mb-1">
-                                            <div className="text-xs font-semibold text-blue-600">
-                                                {priceInfo?.market.name || 'Bilinmiyor'}
+                                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold
+                                                bg-blue-50 text-blue-700">
+                                                <span
+                                                    className={cn(
+                                                        'inline-block h-3 w-3 rounded-sm',
+                                                        priceInfo?.market.name === 'A101' && 'bg-cyan-500',
+                                                        priceInfo?.market.name === 'Migros' && 'bg-orange-500',
+                                                        priceInfo?.market.name === 'Şok' && 'bg-yellow-400',
+                                                        priceInfo?.market.name === 'BİM' && 'bg-red-500',
+                                                        (!priceInfo?.market.name || !['A101', 'Migros', 'Şok', 'BİM'].includes(priceInfo.market.name)) && 'bg-gray-400'
+                                                    )}
+                                                />
+                                                <span>{priceInfo?.market.name || 'Market'}</span>
                                             </div>
                                         </div>
 
