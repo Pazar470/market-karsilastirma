@@ -12,10 +12,10 @@ function pathFromLeafToRoot(
     byId: Map<string, { id: string; name: string; parentId: string | null }>
 ): string[] {
     const path: string[] = [];
-    let cur = byId.get(categoryId);
+    let cur: { id: string; name: string; parentId: string | null } | undefined = byId.get(categoryId);
     while (cur) {
         path.push(cur.name);
-        cur = cur.parentId ? byId.get(cur.parentId) ?? null : null;
+        cur = cur.parentId ? byId.get(cur.parentId) : undefined;
     }
     return path.reverse();
 }

@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import crypto from 'crypto';
 
-const COOKIE_NAME = 'user_session';
+import { USER_SESSION_COOKIE_NAME as COOKIE_NAME } from './session-constants';
 const MAX_AGE = 60 * 60 * 24 * 30; // 30 gün
 
 function getSecret(): string {
@@ -61,7 +61,7 @@ export async function getSessionFromCookie(): Promise<SessionPayload | null> {
 }
 
 /** Middleware'de sadece cookie var mı kontrolü (doğrulama API'de yapılır). */
-export const USER_SESSION_COOKIE_NAME = COOKIE_NAME;
+export { USER_SESSION_COOKIE_NAME } from './session-constants';
 
 /** API'de: session yoksa 401 Response döner, varsa null (devam edebilirsin) ve session bilgisi. */
 export async function requireUserSession(): Promise<{ userId: string; username: string } | Response> {

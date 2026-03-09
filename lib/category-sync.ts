@@ -12,7 +12,7 @@ export async function getRootCategoryName(prisma: PrismaClient, categoryId: stri
     const all = await prisma.category.findMany({ select: { id: true, name: true, parentId: true } });
     const byId = new Map(all.map((c) => [c.id, c]));
     let cur = byId.get(categoryId);
-    while (cur?.parentId) cur = byId.get(cur.parentId) ?? null;
+    while (cur?.parentId) cur = byId.get(cur.parentId);
     return cur?.name ?? null;
 }
 
