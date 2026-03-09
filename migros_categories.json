@@ -1,0 +1,5220 @@
+{
+  "market": "Migros",
+  "totalLeafCategories": 869,
+  "categories": [
+    {
+      "id": 20000000072311,
+      "name": "Tüm İndirimli Ürünler",
+      "prettyName": "tum-indirimli-urunler-dt-0",
+      "path": "Tüm İndirimli Ürünler"
+    },
+    {
+      "id": 20000000073584,
+      "name": "Yaşam & Beslenme Tarzı",
+      "prettyName": "beslenme-yasam-tarzi-ptt-1",
+      "path": "Yaşam & Beslenme Tarzı"
+    },
+    {
+      "id": 20000000072310,
+      "name": "Sadece Migros'ta",
+      "prettyName": "sadece-migrosta-ptt-2",
+      "path": "Sadece Migros'ta"
+    },
+    {
+      "id": 20000000072420,
+      "name": "Migroskop",
+      "prettyName": "migroskop-urunleri-dt-3",
+      "path": "Migroskop"
+    },
+    {
+      "id": 20000000073889,
+      "name": "Ramazan Paketi",
+      "prettyName": "ramazan-paketi-c-120a1",
+      "path": "Ramazan > Ramazan Paketi"
+    },
+    {
+      "id": 20000000071887,
+      "name": "Ramazan Paketi",
+      "prettyName": "ramazan-paketi-c-118cf",
+      "path": "Ramazan > Ramazan Paketi"
+    },
+    {
+      "id": 20000000073883,
+      "name": "Ramazan Pidesi",
+      "prettyName": "ramazan-pidesi-c-1209b",
+      "path": "Ramazan > Ramazan Pidesi"
+    },
+    {
+      "id": 20000000073884,
+      "name": "İftar",
+      "prettyName": "iftar-c-1209c",
+      "path": "Ramazan > İftar"
+    },
+    {
+      "id": 20000000073885,
+      "name": "Sahur",
+      "prettyName": "sahur-c-1209d",
+      "path": "Ramazan > Sahur"
+    },
+    {
+      "id": 20000000073886,
+      "name": "İçecekler",
+      "prettyName": "icecekler-c-1209e",
+      "path": "Ramazan > İçecekler"
+    },
+    {
+      "id": 20000000073887,
+      "name": "Tatlılar",
+      "prettyName": "tatlilar-c-1209f",
+      "path": "Ramazan > Tatlılar"
+    },
+    {
+      "id": 20000000001002,
+      "name": "Egzotik Meyveler",
+      "prettyName": "egzotik-meyveler-c-3ea",
+      "path": "Meyve, Sebze > Meyve > Egzotik Meyveler"
+    },
+    {
+      "id": 20000000001004,
+      "name": "Narenciye",
+      "prettyName": "narenciye-c-3ec",
+      "path": "Meyve, Sebze > Meyve > Narenciye"
+    },
+    {
+      "id": 20000000001005,
+      "name": "Sert Meyveler",
+      "prettyName": "sert-meyveler-c-3ed",
+      "path": "Meyve, Sebze > Meyve > Sert Meyveler"
+    },
+    {
+      "id": 20000000001006,
+      "name": "Yumuşak Meyveler",
+      "prettyName": "yumusak-meyveler-c-3ee",
+      "path": "Meyve, Sebze > Meyve > Yumuşak Meyveler"
+    },
+    {
+      "id": 20000000001007,
+      "name": "Kabuklu Kuruyemiş",
+      "prettyName": "kabuklu-kuruyemis-c-3ef",
+      "path": "Meyve, Sebze > Meyve > Kabuklu Kuruyemiş"
+    },
+    {
+      "id": 20000000001009,
+      "name": "Doğranmış, Ayıklanmış Sebzeler",
+      "prettyName": "dogranmis-ayiklanmis-sebzeler-c-3f1",
+      "path": "Meyve, Sebze > Sebze > Doğranmış, Ayıklanmış Sebzeler"
+    },
+    {
+      "id": 20000000001010,
+      "name": "Egzotik Sebzeler",
+      "prettyName": "egzotik-sebzeler-c-3f2",
+      "path": "Meyve, Sebze > Sebze > Egzotik Sebzeler"
+    },
+    {
+      "id": 20000000001011,
+      "name": "Kuru Sebzeler",
+      "prettyName": "kuru-sebzeler-c-3f3",
+      "path": "Meyve, Sebze > Sebze > Kuru Sebzeler"
+    },
+    {
+      "id": 20000000001012,
+      "name": "Mevsim Sebzeleri",
+      "prettyName": "mevsim-sebzeleri-c-3f4",
+      "path": "Meyve, Sebze > Sebze > Mevsim Sebzeleri"
+    },
+    {
+      "id": 20000000001013,
+      "name": "Otlar, Yeşillikler",
+      "prettyName": "otlar-yesillikler-c-3f5",
+      "path": "Meyve, Sebze > Sebze > Otlar, Yeşillikler"
+    },
+    {
+      "id": 20000000001014,
+      "name": "Patates, Soğan, Sarımsak",
+      "prettyName": "patates-sogan-sarimsak-c-3f6",
+      "path": "Meyve, Sebze > Sebze > Patates, Soğan, Sarımsak"
+    },
+    {
+      "id": 20000000001018,
+      "name": "Dana Eti",
+      "prettyName": "dana-eti-c-3fa",
+      "path": "Et, Tavuk, Balık > Kırmızı Et > Dana Eti"
+    },
+    {
+      "id": 20000000001019,
+      "name": "Kuzu Eti",
+      "prettyName": "kuzu-eti-c-3fb",
+      "path": "Et, Tavuk, Balık > Kırmızı Et > Kuzu Eti"
+    },
+    {
+      "id": 20000000001021,
+      "name": "Sakatat",
+      "prettyName": "sakatat-c-3fd",
+      "path": "Et, Tavuk, Balık > Kırmızı Et > Sakatat"
+    },
+    {
+      "id": 20000000010287,
+      "name": "Dondurulmuş Kırmızı Et",
+      "prettyName": "dondurulmus-kirmizi-et-c-282f",
+      "path": "Et, Tavuk, Balık > Kırmızı Et > Dondurulmuş Kırmızı Et"
+    },
+    {
+      "id": 20000000073690,
+      "name": "Pişmeye Hazır Kırmızı Et",
+      "prettyName": "pismeye-hazir-kirmizi-et-c-11fda",
+      "path": "Et, Tavuk, Balık > Kırmızı Et > Pişmeye Hazır Kırmızı Et"
+    },
+    {
+      "id": 20000000001337,
+      "name": "Kırmızı Et Diğer",
+      "prettyName": "kirmizi-et-diger-c-539",
+      "path": "Et, Tavuk, Balık > Kırmızı Et > Kırmızı Et Diğer"
+    },
+    {
+      "id": 20000000001022,
+      "name": "Piliç",
+      "prettyName": "pilic-c-3fe",
+      "path": "Et, Tavuk, Balık > Beyaz Et > Piliç"
+    },
+    {
+      "id": 20000000001023,
+      "name": "Hindi",
+      "prettyName": "hindi-c-3ff",
+      "path": "Et, Tavuk, Balık > Beyaz Et > Hindi"
+    },
+    {
+      "id": 20000000001026,
+      "name": "Mevsim Balıkları",
+      "prettyName": "mevsim-baliklari-c-402",
+      "path": "Et, Tavuk, Balık > Balık, Deniz Ürünleri > Mevsim Balıkları"
+    },
+    {
+      "id": 20000000001027,
+      "name": "Hazır Deniz Ürünleri",
+      "prettyName": "hazir-deniz-urunleri-c-403",
+      "path": "Et, Tavuk, Balık > Balık, Deniz Ürünleri > Hazır Deniz Ürünleri"
+    },
+    {
+      "id": 20000000010288,
+      "name": "Dondurulmuş Deniz Ürünleri",
+      "prettyName": "dondurulmus-deniz-urunleri-c-2830",
+      "path": "Et, Tavuk, Balık > Balık, Deniz Ürünleri > Dondurulmuş Deniz Ürünleri"
+    },
+    {
+      "id": 20000000010013,
+      "name": "Dana Sucuk",
+      "prettyName": "dana-sucuk-c-271d",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Sucuk > Dana Sucuk"
+    },
+    {
+      "id": 20000000010014,
+      "name": "Piliç Sucuk",
+      "prettyName": "pilic-sucuk-c-271e",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Sucuk > Piliç Sucuk"
+    },
+    {
+      "id": 20000000010015,
+      "name": "Hindi Sucuk",
+      "prettyName": "hindi-sucuk-c-271f",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Sucuk > Hindi Sucuk"
+    },
+    {
+      "id": 20000000070361,
+      "name": "Dana Salam",
+      "prettyName": "dana-salam-c-112d9",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Salam > Dana Salam"
+    },
+    {
+      "id": 20000000070365,
+      "name": "Piliç Salam",
+      "prettyName": "pilic-salam-c-112dd",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Salam > Piliç Salam"
+    },
+    {
+      "id": 20000000070363,
+      "name": "Hindi Salam",
+      "prettyName": "hindi-salam-c-112db",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Salam > Hindi Salam"
+    },
+    {
+      "id": 20000000070362,
+      "name": "Diğer Salam",
+      "prettyName": "diger-salam-c-112da",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Salam > Diğer Salam"
+    },
+    {
+      "id": 20000000010016,
+      "name": "Dana Sosis",
+      "prettyName": "dana-sosis-c-2720",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Sosis > Dana Sosis"
+    },
+    {
+      "id": 20000000010017,
+      "name": "Piliç Sosis",
+      "prettyName": "pilic-sosis-c-2721",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Sosis > Piliç Sosis"
+    },
+    {
+      "id": 20000000010018,
+      "name": "Hindi Sosis",
+      "prettyName": "hindi-sosis-c-2722",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Sosis > Hindi Sosis"
+    },
+    {
+      "id": 20000000070366,
+      "name": "Dana Jambon",
+      "prettyName": "dana-jambon-c-112de",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Jambon > Dana Jambon"
+    },
+    {
+      "id": 20000000070370,
+      "name": "Piliç Jambon",
+      "prettyName": "pilic-jambon-c-112e2",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Jambon > Piliç Jambon"
+    },
+    {
+      "id": 20000000070368,
+      "name": "Hindi Jambon",
+      "prettyName": "hindi-jambon-c-112e0",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Jambon > Hindi Jambon"
+    },
+    {
+      "id": 20000000070367,
+      "name": "Diğer Jambon",
+      "prettyName": "diger-jambon-c-112df",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Jambon > Diğer Jambon"
+    },
+    {
+      "id": 20000000010021,
+      "name": "Dana Pastırma",
+      "prettyName": "dana-pastirma-c-2725",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Pastırma > Dana Pastırma"
+    },
+    {
+      "id": 20000000010022,
+      "name": "Diğer Pastırma",
+      "prettyName": "diger-pastirma-c-2726",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Pastırma > Diğer Pastırma"
+    },
+    {
+      "id": 20000000070371,
+      "name": "Dana Füme",
+      "prettyName": "dana-fume-c-112e3",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Füme Et > Dana Füme"
+    },
+    {
+      "id": 20000000070372,
+      "name": "Hindi Füme",
+      "prettyName": "hindi-fume-c-112e4",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Füme Et > Hindi Füme"
+    },
+    {
+      "id": 20000000070375,
+      "name": "Piliç Füme",
+      "prettyName": "pilic-fume-c-112e7",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Füme Et > Piliç Füme"
+    },
+    {
+      "id": 20000000001324,
+      "name": "Hazır Ürünler",
+      "prettyName": "hazir-urunler-c-52c",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Hazır Ürünler"
+    },
+    {
+      "id": 20000000010979,
+      "name": "Dana Kavurma",
+      "prettyName": "dana-kavurma-c-2ae3",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Kavurma > Dana Kavurma"
+    },
+    {
+      "id": 20000000001032,
+      "name": "Diğer Et Şarküteri",
+      "prettyName": "diger-et-sarkuteri-c-408",
+      "path": "Et, Tavuk, Balık > Et Şarküteri > Diğer Et Şarküteri"
+    },
+    {
+      "id": 20000000001033,
+      "name": "Günlük Süt",
+      "prettyName": "gunluk-sut-c-409",
+      "path": "Süt, Kahvaltılık > Süt > Günlük Süt"
+    },
+    {
+      "id": 20000000001034,
+      "name": "Uzun Ömürlü Süt",
+      "prettyName": "uzun-omurlu-sut-c-40a",
+      "path": "Süt, Kahvaltılık > Süt > Uzun Ömürlü Süt"
+    },
+    {
+      "id": 20000000010033,
+      "name": "İnek Peyniri",
+      "prettyName": "inek-peyniri-c-2731",
+      "path": "Süt, Kahvaltılık > Peynir > Beyaz Peynir > İnek Peyniri"
+    },
+    {
+      "id": 20000000010034,
+      "name": "Koyun Peyniri",
+      "prettyName": "koyun-peyniri-c-2732",
+      "path": "Süt, Kahvaltılık > Peynir > Beyaz Peynir > Koyun Peyniri"
+    },
+    {
+      "id": 20000000010035,
+      "name": "Süzme Peynir",
+      "prettyName": "suzme-peynir-c-2733",
+      "path": "Süt, Kahvaltılık > Peynir > Beyaz Peynir > Süzme Peynir"
+    },
+    {
+      "id": 20000000010036,
+      "name": "Tulum Peyniri",
+      "prettyName": "tulum-peyniri-c-2734",
+      "path": "Süt, Kahvaltılık > Peynir > Beyaz Peynir > Tulum Peyniri"
+    },
+    {
+      "id": 20000000010037,
+      "name": "Keçi Peyniri",
+      "prettyName": "keci-peyniri-c-2735",
+      "path": "Süt, Kahvaltılık > Peynir > Beyaz Peynir > Keçi Peyniri"
+    },
+    {
+      "id": 20000000010042,
+      "name": "Eski Kaşar",
+      "prettyName": "eski-kasar-c-273a",
+      "path": "Süt, Kahvaltılık > Peynir > Kaşar Peyniri > Eski Kaşar"
+    },
+    {
+      "id": 20000000010043,
+      "name": "Taze Kaşar",
+      "prettyName": "taze-kasar-c-273b",
+      "path": "Süt, Kahvaltılık > Peynir > Kaşar Peyniri > Taze Kaşar"
+    },
+    {
+      "id": 20000000010039,
+      "name": "Krem Peynir",
+      "prettyName": "krem-peynir-c-2737",
+      "path": "Süt, Kahvaltılık > Peynir > Krem Peynir"
+    },
+    {
+      "id": 20000000010040,
+      "name": "Üçgen & Burger Peynir",
+      "prettyName": "ucgen-burger-peynir-c-2738",
+      "path": "Süt, Kahvaltılık > Peynir > Üçgen & Burger Peynir"
+    },
+    {
+      "id": 20000000010046,
+      "name": "Yerli Yöresel Peynir",
+      "prettyName": "yerli-yoresel-peynir-c-273e",
+      "path": "Süt, Kahvaltılık > Peynir > Yerli Yöresel Peynir"
+    },
+    {
+      "id": 20000000010045,
+      "name": "Yabancı Yöresel Peynir",
+      "prettyName": "yabanci-yoresel-peynir-c-273d",
+      "path": "Süt, Kahvaltılık > Peynir > Yabancı Yöresel Peynir"
+    },
+    {
+      "id": 20000000010047,
+      "name": "Quark Peyniri",
+      "prettyName": "quark-peyniri-c-273f",
+      "path": "Süt, Kahvaltılık > Peynir > Quark Peyniri"
+    },
+    {
+      "id": 20000000001039,
+      "name": "Kaymaklı Yoğurt",
+      "prettyName": "kaymakli-yogurt-c-40f",
+      "path": "Süt, Kahvaltılık > Yoğurt > Kaymaklı Yoğurt"
+    },
+    {
+      "id": 20000000001040,
+      "name": "Sade Yoğurt",
+      "prettyName": "sade-yogurt-c-410",
+      "path": "Süt, Kahvaltılık > Yoğurt > Sade Yoğurt"
+    },
+    {
+      "id": 20000000072312,
+      "name": "Yoğurt Mayası",
+      "prettyName": "yogurt-mayasi-c-11a78",
+      "path": "Süt, Kahvaltılık > Yoğurt > Yoğurt Mayası"
+    },
+    {
+      "id": 20000000001041,
+      "name": "Süzme, Çeşnili Yoğurt",
+      "prettyName": "suzme-cesnili-yogurt-c-411",
+      "path": "Süt, Kahvaltılık > Yoğurt > Süzme, Çeşnili Yoğurt"
+    },
+    {
+      "id": 20000000010056,
+      "name": "Meyveli Yoğurt",
+      "prettyName": "meyveli-yogurt-c-2748",
+      "path": "Süt, Kahvaltılık > Yoğurt > Meyveli Yoğurt"
+    },
+    {
+      "id": 20000000010057,
+      "name": "Diğer Yoğurtlar",
+      "prettyName": "diger-yogurtlar-c-2749",
+      "path": "Süt, Kahvaltılık > Yoğurt > Diğer Yoğurtlar"
+    },
+    {
+      "id": 20000000001043,
+      "name": "Tereyağı",
+      "prettyName": "tereyagi-c-413",
+      "path": "Süt, Kahvaltılık > Tereyağı"
+    },
+    {
+      "id": 20000000010061,
+      "name": "Kase Margarin",
+      "prettyName": "kase-margarin-c-274d",
+      "path": "Süt, Kahvaltılık > Margarin > Kase Margarin"
+    },
+    {
+      "id": 20000000010062,
+      "name": "Paket Margarin",
+      "prettyName": "paket-margarin-c-274e",
+      "path": "Süt, Kahvaltılık > Margarin > Paket Margarin"
+    },
+    {
+      "id": 20000000000112,
+      "name": "Yumurta",
+      "prettyName": "yumurta-c-70",
+      "path": "Süt, Kahvaltılık > Yumurta"
+    },
+    {
+      "id": 20000000001048,
+      "name": "Siyah Zeytin",
+      "prettyName": "siyah-zeytin-c-418",
+      "path": "Süt, Kahvaltılık > Zeytin > Siyah Zeytin"
+    },
+    {
+      "id": 20000000010074,
+      "name": "Biberli Yeşil Zeytin",
+      "prettyName": "biberli-yesil-zeytin-c-275a",
+      "path": "Süt, Kahvaltılık > Zeytin > Yeşil Zeytin > Biberli Yeşil Zeytin"
+    },
+    {
+      "id": 20000000010075,
+      "name": "Çizik Yeşil Zeytin",
+      "prettyName": "cizik-yesil-zeytin-c-275b",
+      "path": "Süt, Kahvaltılık > Zeytin > Yeşil Zeytin > Çizik Yeşil Zeytin"
+    },
+    {
+      "id": 20000000010076,
+      "name": "Kokteyl Yeşil Zeytin",
+      "prettyName": "kokteyl-yesil-zeytin-c-275c",
+      "path": "Süt, Kahvaltılık > Zeytin > Yeşil Zeytin > Kokteyl Yeşil Zeytin"
+    },
+    {
+      "id": 20000000010077,
+      "name": "Özel Yeşil Zeytin",
+      "prettyName": "ozel-yesil-zeytin-c-275d",
+      "path": "Süt, Kahvaltılık > Zeytin > Yeşil Zeytin > Özel Yeşil Zeytin"
+    },
+    {
+      "id": 20000000010079,
+      "name": "Siyah Zeytin Ezmesi",
+      "prettyName": "siyah-zeytin-ezmesi-c-275f",
+      "path": "Süt, Kahvaltılık > Zeytin > Zeytin Ezmesi > Siyah Zeytin Ezmesi"
+    },
+    {
+      "id": 20000000010080,
+      "name": "Yeşil Zeytin Ezmesi",
+      "prettyName": "yesil-zeytin-ezmesi-c-2760",
+      "path": "Süt, Kahvaltılık > Zeytin > Zeytin Ezmesi > Yeşil Zeytin Ezmesi"
+    },
+    {
+      "id": 20000000010085,
+      "name": "Geleneksel Sütlü Tatlılar",
+      "prettyName": "geleneksel-sutlu-tatlilar-c-2765",
+      "path": "Süt, Kahvaltılık > Sütlü Tatlı, Krema > Sütlü Tatlılar > Geleneksel Sütlü Tatlılar"
+    },
+    {
+      "id": 20000000001053,
+      "name": "Puding",
+      "prettyName": "puding-c-41d",
+      "path": "Süt, Kahvaltılık > Sütlü Tatlı, Krema > Puding"
+    },
+    {
+      "id": 20000000001054,
+      "name": "Kaymak",
+      "prettyName": "kaymak-c-41e",
+      "path": "Süt, Kahvaltılık > Sütlü Tatlı, Krema > Kaymak"
+    },
+    {
+      "id": 20000000001055,
+      "name": "Krema ve Sos",
+      "prettyName": "krema-ve-sos-c-41f",
+      "path": "Süt, Kahvaltılık > Sütlü Tatlı, Krema > Krema ve Sos"
+    },
+    {
+      "id": 20000000010088,
+      "name": "Çam Balı",
+      "prettyName": "cam-bali-c-2768",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Bal > Çam Balı"
+    },
+    {
+      "id": 20000000010089,
+      "name": "Çiçek Balı",
+      "prettyName": "cicek-bali-c-2769",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Bal > Çiçek Balı"
+    },
+    {
+      "id": 20000000010091,
+      "name": "Apiterapi & Propolis",
+      "prettyName": "apiterapi-propolis-c-276b",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Bal > Apiterapi & Propolis"
+    },
+    {
+      "id": 20000000010093,
+      "name": "Karışım Bal",
+      "prettyName": "karisim-bal-c-276d",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Bal > Karışım Bal"
+    },
+    {
+      "id": 20000000010097,
+      "name": "Helva",
+      "prettyName": "helva-c-2771",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Helva, Tahin, Pekmez > Helva"
+    },
+    {
+      "id": 20000000010095,
+      "name": "Tahin",
+      "prettyName": "tahin-c-276f",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Helva, Tahin, Pekmez > Tahin"
+    },
+    {
+      "id": 20000000010096,
+      "name": "Pekmez",
+      "prettyName": "pekmez-c-2770",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Helva, Tahin, Pekmez > Pekmez"
+    },
+    {
+      "id": 20000000010099,
+      "name": "Mısır Gevreği",
+      "prettyName": "misir-gevregi-c-2773",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Kahvaltılık Gevrek > Mısır Gevreği"
+    },
+    {
+      "id": 20000000073720,
+      "name": "Granola",
+      "prettyName": "granola-c-11ff8",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Kahvaltılık Gevrek > Granola"
+    },
+    {
+      "id": 20000000010100,
+      "name": "Müsli",
+      "prettyName": "musli-c-2774",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Kahvaltılık Gevrek > Müsli"
+    },
+    {
+      "id": 20000000073647,
+      "name": "Yulaf Ezmesi",
+      "prettyName": "yulaf-ezmesi-c-11faf",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Kahvaltılık Gevrek > Yulaf Ezmesi"
+    },
+    {
+      "id": 20000000010102,
+      "name": "Fıstık Ezmesi",
+      "prettyName": "fistik-ezmesi-c-2776",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Krem Çikolata, Ezmeler > Fıstık Ezmesi"
+    },
+    {
+      "id": 20000000010103,
+      "name": "Krema, Ezmeler",
+      "prettyName": "krema-ezmeler-c-2777",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Krem Çikolata, Ezmeler > Krema, Ezmeler"
+    },
+    {
+      "id": 20000000010104,
+      "name": "Fındık Ezmesi",
+      "prettyName": "findik-ezmesi-c-2778",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Krem Çikolata, Ezmeler > Fındık Ezmesi"
+    },
+    {
+      "id": 20000000010105,
+      "name": "Kakao, Fındık Kremaları",
+      "prettyName": "kakao-findik-kremalari-c-2779",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Krem Çikolata, Ezmeler > Kakao, Fındık Kremaları"
+    },
+    {
+      "id": 20000000010107,
+      "name": "Reçel",
+      "prettyName": "recel-c-277b",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Reçel, Marmelat > Reçel"
+    },
+    {
+      "id": 20000000010108,
+      "name": "Marmelat",
+      "prettyName": "marmelat-c-277c",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Reçel, Marmelat > Marmelat"
+    },
+    {
+      "id": 20000000070610,
+      "name": "Kahvaltılık Sos",
+      "prettyName": "kahvaltilik-sos-c-113d2",
+      "path": "Süt, Kahvaltılık > Kahvaltılıklar > Kahvaltılık Sos"
+    },
+    {
+      "id": 20000000010112,
+      "name": "Makarna",
+      "prettyName": "makarna-c-2780",
+      "path": "Temel Gıda > Makarnalar > Makarna"
+    },
+    {
+      "id": 20000000010110,
+      "name": "Erişte",
+      "prettyName": "eriste-c-277e",
+      "path": "Temel Gıda > Makarnalar > Erişte"
+    },
+    {
+      "id": 20000000010124,
+      "name": "Pilavlık Pirinç",
+      "prettyName": "pilavlik-pirinc-c-278c",
+      "path": "Temel Gıda > Bakliyat > Pirinç > Pilavlık Pirinç"
+    },
+    {
+      "id": 20000000010120,
+      "name": "Baldo Pirinç",
+      "prettyName": "baldo-pirinc-c-2788",
+      "path": "Temel Gıda > Bakliyat > Pirinç > Baldo Pirinç"
+    },
+    {
+      "id": 20000000010126,
+      "name": "Osmancık Pirinç",
+      "prettyName": "osmancik-pirinc-c-278e",
+      "path": "Temel Gıda > Bakliyat > Pirinç > Osmancık Pirinç"
+    },
+    {
+      "id": 20000000010123,
+      "name": "Kırık Pirinç",
+      "prettyName": "kirik-pirinc-c-278b",
+      "path": "Temel Gıda > Bakliyat > Pirinç > Kırık Pirinç"
+    },
+    {
+      "id": 20000000010122,
+      "name": "Kepekli Pirinç",
+      "prettyName": "kepekli-pirinc-c-278a",
+      "path": "Temel Gıda > Bakliyat > Pirinç > Kepekli Pirinç"
+    },
+    {
+      "id": 20000000010121,
+      "name": "İthal Pirinç",
+      "prettyName": "ithal-pirinc-c-2789",
+      "path": "Temel Gıda > Bakliyat > Pirinç > İthal Pirinç"
+    },
+    {
+      "id": 20000000010117,
+      "name": "Pilavlık Bulgur",
+      "prettyName": "pilavlik-bulgur-c-2785",
+      "path": "Temel Gıda > Bakliyat > Bulgur > Pilavlık Bulgur"
+    },
+    {
+      "id": 20000000010116,
+      "name": "Köftelik Bulgur",
+      "prettyName": "koftelik-bulgur-c-2784",
+      "path": "Temel Gıda > Bakliyat > Bulgur > Köftelik Bulgur"
+    },
+    {
+      "id": 20000000010115,
+      "name": "Katkılı Bulgur",
+      "prettyName": "katkili-bulgur-c-2783",
+      "path": "Temel Gıda > Bakliyat > Bulgur > Katkılı Bulgur"
+    },
+    {
+      "id": 20000000010131,
+      "name": "Buğday",
+      "prettyName": "bugday-c-2793",
+      "path": "Temel Gıda > Bakliyat > Buğday"
+    },
+    {
+      "id": 20000000010132,
+      "name": "Fasulye",
+      "prettyName": "fasulye-c-2794",
+      "path": "Temel Gıda > Bakliyat > Fasulye"
+    },
+    {
+      "id": 20000000010133,
+      "name": "Kırmızı Mercimek",
+      "prettyName": "kirmizi-mercimek-c-2795",
+      "path": "Temel Gıda > Bakliyat > Mercimek > Kırmızı Mercimek"
+    },
+    {
+      "id": 20000000010138,
+      "name": "Yeşil Mercimek",
+      "prettyName": "yesil-mercimek-c-279a",
+      "path": "Temel Gıda > Bakliyat > Mercimek > Yeşil Mercimek"
+    },
+    {
+      "id": 20000000010140,
+      "name": "Sarı Mercimek",
+      "prettyName": "sari-mercimek-c-279c",
+      "path": "Temel Gıda > Bakliyat > Mercimek > Sarı Mercimek"
+    },
+    {
+      "id": 20000000010136,
+      "name": "Nohut",
+      "prettyName": "nohut-c-2798",
+      "path": "Temel Gıda > Bakliyat > Nohut"
+    },
+    {
+      "id": 20000000010129,
+      "name": "Barbunya",
+      "prettyName": "barbunya-c-2791",
+      "path": "Temel Gıda > Bakliyat > Barbunya"
+    },
+    {
+      "id": 20000000010130,
+      "name": "Börülce",
+      "prettyName": "borulce-c-2792",
+      "path": "Temel Gıda > Bakliyat > Börülce"
+    },
+    {
+      "id": 20000000010128,
+      "name": "Bakla",
+      "prettyName": "bakla-c-2790",
+      "path": "Temel Gıda > Bakliyat > Bakla"
+    },
+    {
+      "id": 20000000010142,
+      "name": "Kinoa",
+      "prettyName": "kinoa-c-279e",
+      "path": "Temel Gıda > Bakliyat > Süper Gıdalar > Kinoa"
+    },
+    {
+      "id": 20000000010143,
+      "name": "Chia",
+      "prettyName": "chia-c-279f",
+      "path": "Temel Gıda > Bakliyat > Süper Gıdalar > Chia"
+    },
+    {
+      "id": 20000000010144,
+      "name": "Amarant",
+      "prettyName": "amarant-c-27a0",
+      "path": "Temel Gıda > Bakliyat > Süper Gıdalar > Amarant"
+    },
+    {
+      "id": 20000000073653,
+      "name": "Keten Tohumu",
+      "prettyName": "keten-tohumu-c-11fb5",
+      "path": "Temel Gıda > Bakliyat > Süper Gıdalar > Keten Tohumu"
+    },
+    {
+      "id": 20000000010135,
+      "name": "Mısır",
+      "prettyName": "misir-c-2797",
+      "path": "Temel Gıda > Bakliyat > Mısır"
+    },
+    {
+      "id": 20000000001069,
+      "name": "Ayçicek Yağı",
+      "prettyName": "aycicek-yagi-c-42d",
+      "path": "Temel Gıda > Sıvı Yağ > Ayçicek Yağı"
+    },
+    {
+      "id": 20000000010162,
+      "name": "Sızma Zeytinyağı",
+      "prettyName": "sizma-zeytinyagi-c-27b2",
+      "path": "Temel Gıda > Sıvı Yağ > Zeytinyağı > Sızma Zeytinyağı"
+    },
+    {
+      "id": 20000000010161,
+      "name": "Riviera Zeytinyağı",
+      "prettyName": "riviera-zeytinyagi-c-27b1",
+      "path": "Temel Gıda > Sıvı Yağ > Zeytinyağı > Riviera Zeytinyağı"
+    },
+    {
+      "id": 20000000010160,
+      "name": "Özel Zeytinyağı",
+      "prettyName": "ozel-zeytinyagi-c-27b0",
+      "path": "Temel Gıda > Sıvı Yağ > Zeytinyağı > Özel Zeytinyağı"
+    },
+    {
+      "id": 20000000001070,
+      "name": "Fındık Yağı",
+      "prettyName": "findik-yagi-c-42e",
+      "path": "Temel Gıda > Sıvı Yağ > Fındık Yağı"
+    },
+    {
+      "id": 20000000001072,
+      "name": "Mısır Yağı",
+      "prettyName": "misir-yagi-c-430",
+      "path": "Temel Gıda > Sıvı Yağ > Mısır Yağı"
+    },
+    {
+      "id": 20000000001076,
+      "name": "Diğer Yağlar",
+      "prettyName": "diger-yaglar-c-434",
+      "path": "Temel Gıda > Sıvı Yağ > Diğer Yağlar"
+    },
+    {
+      "id": 20000000001077,
+      "name": "Baharat",
+      "prettyName": "baharat-c-435",
+      "path": "Temel Gıda > Tuz, Baharat, Harç > Baharat"
+    },
+    {
+      "id": 20000000001078,
+      "name": "Tuz",
+      "prettyName": "tuz-c-436",
+      "path": "Temel Gıda > Tuz, Baharat, Harç > Tuz"
+    },
+    {
+      "id": 20000000010191,
+      "name": "Yemek Harçları",
+      "prettyName": "yemek-harclari-c-27cf",
+      "path": "Temel Gıda > Tuz, Baharat, Harç > Harç > Yemek Harçları"
+    },
+    {
+      "id": 20000000010196,
+      "name": "Kahveler, Kakaolar Dökme",
+      "prettyName": "kahveler-kakaolar-dokme-c-27d4",
+      "path": "Temel Gıda > Tuz, Baharat, Harç > Aktar > Kahveler, Kakaolar Dökme"
+    },
+    {
+      "id": 20000000001068,
+      "name": "Bulyon",
+      "prettyName": "bulyon-c-42c",
+      "path": "Temel Gıda > Bulyon"
+    },
+    {
+      "id": 20000000010332,
+      "name": "Domates Salçası",
+      "prettyName": "domates-salcasi-c-285c",
+      "path": "Temel Gıda > Konserve > Salça > Domates Salçası"
+    },
+    {
+      "id": 20000000010333,
+      "name": "Biber Salçası",
+      "prettyName": "biber-salcasi-c-285d",
+      "path": "Temel Gıda > Konserve > Salça > Biber Salçası"
+    },
+    {
+      "id": 20000000010334,
+      "name": "Domates Ürünleri",
+      "prettyName": "domates-urunleri-c-285e",
+      "path": "Temel Gıda > Konserve > Salça > Domates Ürünleri"
+    },
+    {
+      "id": 20000000010331,
+      "name": "Biber Turşusu",
+      "prettyName": "biber-tursusu-c-285b",
+      "path": "Temel Gıda > Konserve > Turşu > Biber Turşusu"
+    },
+    {
+      "id": 20000000010338,
+      "name": "Salatalık Turşusu",
+      "prettyName": "salatalik-tursusu-c-2862",
+      "path": "Temel Gıda > Konserve > Turşu > Salatalık Turşusu"
+    },
+    {
+      "id": 20000000010336,
+      "name": "Karışık Turşu",
+      "prettyName": "karisik-tursu-c-2860",
+      "path": "Temel Gıda > Konserve > Turşu > Karışık Turşu"
+    },
+    {
+      "id": 20000000074313,
+      "name": "Özel Turşu",
+      "prettyName": "ozel-tursu-c-12249",
+      "path": "Temel Gıda > Konserve > Turşu > Özel Turşu"
+    },
+    {
+      "id": 20000000010329,
+      "name": "Ton Balığı",
+      "prettyName": "ton-baligi-c-2859",
+      "path": "Temel Gıda > Konserve > Ton Balığı"
+    },
+    {
+      "id": 20000000010324,
+      "name": "Garnitür",
+      "prettyName": "garnitur-c-2854",
+      "path": "Temel Gıda > Konserve > Garnitür"
+    },
+    {
+      "id": 20000000010304,
+      "name": "Közlenmiş",
+      "prettyName": "kozlenmis-c-2840",
+      "path": "Temel Gıda > Konserve > Közlenmiş"
+    },
+    {
+      "id": 20000000010325,
+      "name": "Haşlanmış",
+      "prettyName": "haslanmis-c-2855",
+      "path": "Temel Gıda > Konserve > Haşlanmış"
+    },
+    {
+      "id": 20000000010328,
+      "name": "Konserve Mısır",
+      "prettyName": "konserve-misir-c-2858",
+      "path": "Temel Gıda > Konserve > Konserve Mısır"
+    },
+    {
+      "id": 20000000010326,
+      "name": "Konserve Mantar",
+      "prettyName": "konserve-mantar-c-2856",
+      "path": "Temel Gıda > Konserve > Konserve Mantar"
+    },
+    {
+      "id": 20000000010330,
+      "name": "Konserve Deniz Ürünleri",
+      "prettyName": "konserve-deniz-urunleri-c-285a",
+      "path": "Temel Gıda > Konserve > Konserve Deniz Ürünleri"
+    },
+    {
+      "id": 20000000074321,
+      "name": "Konserve Bezelye",
+      "prettyName": "konserve-bezelye-c-12251",
+      "path": "Temel Gıda > Konserve > Konserve Bezelye"
+    },
+    {
+      "id": 20000000074322,
+      "name": "Konserve Fasulye",
+      "prettyName": "konserve-fasulye-c-12252",
+      "path": "Temel Gıda > Konserve > Konserve Fasulye"
+    },
+    {
+      "id": 20000000074323,
+      "name": "Konserve Hindi",
+      "prettyName": "konserve-hindi-c-12253",
+      "path": "Temel Gıda > Konserve > Konserve Hindi"
+    },
+    {
+      "id": 20000000010322,
+      "name": "Konserve Sebze",
+      "prettyName": "konserve-sebze-c-2852",
+      "path": "Temel Gıda > Konserve > Konserve Sebze"
+    },
+    {
+      "id": 20000000010311,
+      "name": "Ketçap",
+      "prettyName": "ketcap-c-2847",
+      "path": "Temel Gıda > Sos > Ketçap"
+    },
+    {
+      "id": 20000000010312,
+      "name": "Mayonez",
+      "prettyName": "mayonez-c-2848",
+      "path": "Temel Gıda > Sos > Mayonez"
+    },
+    {
+      "id": 20000000010309,
+      "name": "Hardal",
+      "prettyName": "hardal-c-2845",
+      "path": "Temel Gıda > Sos > Hardal"
+    },
+    {
+      "id": 20000000010314,
+      "name": "Barbekü Sos",
+      "prettyName": "barbeku-sos-c-284a",
+      "path": "Temel Gıda > Sos > Barbekü Sos"
+    },
+    {
+      "id": 20000000010313,
+      "name": "Acı Sos",
+      "prettyName": "aci-sos-c-2849",
+      "path": "Temel Gıda > Sos > Acı Sos"
+    },
+    {
+      "id": 20000000010308,
+      "name": "Soya Sosu",
+      "prettyName": "soya-sosu-c-2844",
+      "path": "Temel Gıda > Sos > Soya Sosu"
+    },
+    {
+      "id": 20000000010310,
+      "name": "Makarna Sosu",
+      "prettyName": "makarna-sosu-c-2846",
+      "path": "Temel Gıda > Sos > Makarna Sosu"
+    },
+    {
+      "id": 20000000010315,
+      "name": "Lezzetlendirici Sos",
+      "prettyName": "lezzetlendirici-sos-c-284b",
+      "path": "Temel Gıda > Sos > Lezzetlendirici Sos"
+    },
+    {
+      "id": 20000000010319,
+      "name": "Sirke",
+      "prettyName": "sirke-c-284f",
+      "path": "Temel Gıda > Sos > Sirke"
+    },
+    {
+      "id": 20000000010317,
+      "name": "Limon Suyu",
+      "prettyName": "limon-suyu-c-284d",
+      "path": "Temel Gıda > Sos > Limon Suyu"
+    },
+    {
+      "id": 20000000010318,
+      "name": "Nar Ekşisi",
+      "prettyName": "nar-eksisi-c-284e",
+      "path": "Temel Gıda > Sos > Nar Ekşisi"
+    },
+    {
+      "id": 20000000010320,
+      "name": "Özel Salata Sosu",
+      "prettyName": "ozel-salata-sosu-c-2850",
+      "path": "Temel Gıda > Sos > Özel Salata Sosu"
+    },
+    {
+      "id": 20000000010395,
+      "name": "Sade Un",
+      "prettyName": "sade-un-c-289b",
+      "path": "Temel Gıda > Un > Sade Un"
+    },
+    {
+      "id": 20000000010398,
+      "name": "Mısır Unu",
+      "prettyName": "misir-unu-c-289e",
+      "path": "Temel Gıda > Un > Mısır Unu"
+    },
+    {
+      "id": 20000000010399,
+      "name": "Galeta Unu",
+      "prettyName": "galeta-unu-c-289f",
+      "path": "Temel Gıda > Un > Galeta Unu"
+    },
+    {
+      "id": 20000000010397,
+      "name": "Un Karışımı",
+      "prettyName": "un-karisimi-c-289d",
+      "path": "Temel Gıda > Un > Un Karışımı"
+    },
+    {
+      "id": 20000000001347,
+      "name": "Küp Şeker",
+      "prettyName": "kup-seker-c-543",
+      "path": "Temel Gıda > Şeker > Küp Şeker"
+    },
+    {
+      "id": 20000000001348,
+      "name": "Toz Şeker",
+      "prettyName": "toz-seker-c-544",
+      "path": "Temel Gıda > Şeker > Toz Şeker"
+    },
+    {
+      "id": 20000000001350,
+      "name": "Sarma Şeker",
+      "prettyName": "sarma-seker-c-546",
+      "path": "Temel Gıda > Şeker > Sarma Şeker"
+    },
+    {
+      "id": 20000000001351,
+      "name": "Esmer Şeker",
+      "prettyName": "esmer-seker-c-547",
+      "path": "Temel Gıda > Şeker > Esmer Şeker"
+    },
+    {
+      "id": 20000000000127,
+      "name": "Özel Beslenme Ürünleri",
+      "prettyName": "ozel-beslenme-urunleri-c-7f",
+      "path": "Temel Gıda > Özel Beslenme Ürünleri"
+    },
+    {
+      "id": 20000000074670,
+      "name": "Ürünler",
+      "prettyName": "urunler-c-123ae",
+      "path": "Torku > Ürünler"
+    },
+    {
+      "id": 20000000001125,
+      "name": "Kola",
+      "prettyName": "kola-c-465",
+      "path": "İçecek > Gazlı İçecek > Kola"
+    },
+    {
+      "id": 20000000001127,
+      "name": "Gazoz",
+      "prettyName": "gazoz-c-467",
+      "path": "İçecek > Gazlı İçecek > Gazoz"
+    },
+    {
+      "id": 20000000001129,
+      "name": "Tonik Suyu",
+      "prettyName": "tonik-suyu-c-469",
+      "path": "İçecek > Gazlı İçecek > Tonik Suyu"
+    },
+    {
+      "id": 20000000001130,
+      "name": "Malt İçeceği",
+      "prettyName": "malt-icecegi-c-46a",
+      "path": "İçecek > Gazlı İçecek > Malt İçeceği"
+    },
+    {
+      "id": 20000000001131,
+      "name": "Enerji İçeceği",
+      "prettyName": "enerji-icecegi-c-46b",
+      "path": "İçecek > Gazlı İçecek > Enerji İçeceği"
+    },
+    {
+      "id": 20000000001132,
+      "name": "Meyve Suyu",
+      "prettyName": "meyve-suyu-c-46c",
+      "path": "İçecek > Gazsız İçecek > Meyve Suyu"
+    },
+    {
+      "id": 20000000001134,
+      "name": "Şalgam Suyu",
+      "prettyName": "salgam-suyu-c-46e",
+      "path": "İçecek > Gazsız İçecek > Şalgam Suyu"
+    },
+    {
+      "id": 20000000001135,
+      "name": "Limonata",
+      "prettyName": "limonata-c-46f",
+      "path": "İçecek > Gazsız İçecek > Limonata"
+    },
+    {
+      "id": 20000000001138,
+      "name": "Aroma Şurupları",
+      "prettyName": "aroma-suruplari-c-472",
+      "path": "İçecek > Gazsız İçecek > Aroma Şurupları"
+    },
+    {
+      "id": 20000000001140,
+      "name": "Toz İçecek",
+      "prettyName": "toz-icecek-c-474",
+      "path": "İçecek > Gazsız İçecek > Toz İçecek"
+    },
+    {
+      "id": 20000000001146,
+      "name": "Ayran",
+      "prettyName": "ayran-c-47a",
+      "path": "İçecek > Gazsız İçecek > Ayran"
+    },
+    {
+      "id": 20000000010403,
+      "name": "Sporcu İçecekleri",
+      "prettyName": "sporcu-icecekleri-c-28a3",
+      "path": "İçecek > Gazsız İçecek > Sporcu İçecekleri"
+    },
+    {
+      "id": 20000000001147,
+      "name": "Kefir",
+      "prettyName": "kefir-c-47b",
+      "path": "İçecek > Gazsız İçecek > Kefir"
+    },
+    {
+      "id": 20000000001148,
+      "name": "Boza",
+      "prettyName": "boza-c-47c",
+      "path": "İçecek > Gazsız İçecek > Boza"
+    },
+    {
+      "id": 20000000001139,
+      "name": "Fonksiyonel İçecek",
+      "prettyName": "fonksiyonel-icecek-c-473",
+      "path": "İçecek > Gazsız İçecek > Fonksiyonel İçecek"
+    },
+    {
+      "id": 20000000001137,
+      "name": "Milkshake",
+      "prettyName": "milkshake-c-471",
+      "path": "İçecek > Gazsız İçecek > Milkshake"
+    },
+    {
+      "id": 20000000010433,
+      "name": "Dökme Çay",
+      "prettyName": "dokme-cay-c-28c1",
+      "path": "İçecek > Çay > Dökme Çay"
+    },
+    {
+      "id": 20000000070174,
+      "name": "Demlik Poşet Çay",
+      "prettyName": "demlik-poset-cay-c-1121e",
+      "path": "İçecek > Çay > Demlik Poşet Çay"
+    },
+    {
+      "id": 20000000070175,
+      "name": "Bardak Poşet Çay",
+      "prettyName": "bardak-poset-cay-c-1121f",
+      "path": "İçecek > Çay > Bardak Poşet Çay"
+    },
+    {
+      "id": 20000000010432,
+      "name": "Bitki Çayı",
+      "prettyName": "bitki-cayi-c-28c0",
+      "path": "İçecek > Çay > Bitki Çayı"
+    },
+    {
+      "id": 20000000010434,
+      "name": "Form Çayı",
+      "prettyName": "form-cayi-c-28c2",
+      "path": "İçecek > Çay > Form Çayı"
+    },
+    {
+      "id": 20000000010430,
+      "name": "Soğuk Çay",
+      "prettyName": "soguk-cay-c-28be",
+      "path": "İçecek > Çay > Soğuk Çay"
+    },
+    {
+      "id": 20000000010436,
+      "name": "Türk Kahvesi",
+      "prettyName": "turk-kahvesi-c-28c4",
+      "path": "İçecek > Kahve > Türk Kahvesi"
+    },
+    {
+      "id": 20000000070178,
+      "name": "Hazır Kahve",
+      "prettyName": "hazir-kahve-c-11222",
+      "path": "İçecek > Kahve > Hazır Kahve"
+    },
+    {
+      "id": 20000000070179,
+      "name": "Filtre Kahve",
+      "prettyName": "filtre-kahve-c-11223",
+      "path": "İçecek > Kahve > Filtre Kahve"
+    },
+    {
+      "id": 20000000070180,
+      "name": "Kapsül Kahve",
+      "prettyName": "kapsul-kahve-c-11224",
+      "path": "İçecek > Kahve > Kapsül Kahve"
+    },
+    {
+      "id": 20000000070181,
+      "name": "Çekirdek Kahve",
+      "prettyName": "cekirdek-kahve-c-11225",
+      "path": "İçecek > Kahve > Çekirdek Kahve"
+    },
+    {
+      "id": 20000000010429,
+      "name": "Soğuk Kahve",
+      "prettyName": "soguk-kahve-c-28bd",
+      "path": "İçecek > Kahve > Soğuk Kahve"
+    },
+    {
+      "id": 20000000010437,
+      "name": "Kahve Şurubu",
+      "prettyName": "kahve-surubu-c-28c5",
+      "path": "İçecek > Kahve > Kahve Şurubu"
+    },
+    {
+      "id": 20000000010440,
+      "name": "Sıcak Çikolata ve Salep",
+      "prettyName": "sicak-cikolata-ve-salep-c-28c8",
+      "path": "İçecek > Kahve > Sıcak Çikolata ve Salep"
+    },
+    {
+      "id": 20000000010449,
+      "name": "Kahve Kreması",
+      "prettyName": "kahve-kremasi-c-28d1",
+      "path": "İçecek > Kahve > Kahve Kreması"
+    },
+    {
+      "id": 20000000011034,
+      "name": "Süt Tozu",
+      "prettyName": "sut-tozu-c-2b1a",
+      "path": "İçecek > Kahve > Süt Tozu"
+    },
+    {
+      "id": 20000000070183,
+      "name": "Kahve Filtresi",
+      "prettyName": "kahve-filtresi-c-11227",
+      "path": "İçecek > Kahve > Kahve Filtresi"
+    },
+    {
+      "id": 20000000000132,
+      "name": "Su",
+      "prettyName": "su-c-84",
+      "path": "İçecek > Su"
+    },
+    {
+      "id": 20000000000133,
+      "name": "Maden Suyu",
+      "prettyName": "maden-suyu-c-85",
+      "path": "İçecek > Maden Suyu"
+    },
+    {
+      "id": 20000000074683,
+      "name": "Ürünler",
+      "prettyName": "urunler-c-123bb",
+      "path": "Reis > Ürünler"
+    },
+    {
+      "id": 20000000010249,
+      "name": "Karışık Kuruyemiş",
+      "prettyName": "karisik-kuruyemis-c-2809",
+      "path": "Atıştırmalık > Kuruyemiş > Karışık Kuruyemiş"
+    },
+    {
+      "id": 20000000010250,
+      "name": "Kabak Çekirdeği",
+      "prettyName": "kabak-cekirdegi-c-280a",
+      "path": "Atıştırmalık > Kuruyemiş > Kabak Çekirdeği"
+    },
+    {
+      "id": 20000000010251,
+      "name": "Ayçekirdeği",
+      "prettyName": "aycekirdegi-c-280b",
+      "path": "Atıştırmalık > Kuruyemiş > Ayçekirdeği"
+    },
+    {
+      "id": 20000000010252,
+      "name": "Fıstık",
+      "prettyName": "fistik-c-280c",
+      "path": "Atıştırmalık > Kuruyemiş > Fıstık"
+    },
+    {
+      "id": 20000000010253,
+      "name": "Antep Fıstığı",
+      "prettyName": "antep-fistigi-c-280d",
+      "path": "Atıştırmalık > Kuruyemiş > Antep Fıstığı"
+    },
+    {
+      "id": 20000000010254,
+      "name": "Fındık",
+      "prettyName": "findik-c-280e",
+      "path": "Atıştırmalık > Kuruyemiş > Fındık"
+    },
+    {
+      "id": 20000000010255,
+      "name": "Badem",
+      "prettyName": "badem-c-280f",
+      "path": "Atıştırmalık > Kuruyemiş > Badem"
+    },
+    {
+      "id": 20000000010257,
+      "name": "Leblebi",
+      "prettyName": "leblebi-c-2811",
+      "path": "Atıştırmalık > Kuruyemiş > Leblebi"
+    },
+    {
+      "id": 20000000010258,
+      "name": "Kaju",
+      "prettyName": "kaju-c-2812",
+      "path": "Atıştırmalık > Kuruyemiş > Kaju"
+    },
+    {
+      "id": 20000000071874,
+      "name": "Soslu Mısır",
+      "prettyName": "soslu-misir-c-118c2",
+      "path": "Atıştırmalık > Kuruyemiş > Soslu Mısır"
+    },
+    {
+      "id": 20000000010256,
+      "name": "Diğer Kuruyemiş",
+      "prettyName": "diger-kuruyemis-c-2810",
+      "path": "Atıştırmalık > Kuruyemiş > Diğer Kuruyemiş"
+    },
+    {
+      "id": 20000000074050,
+      "name": "Ceviz",
+      "prettyName": "ceviz-c-12142",
+      "path": "Atıştırmalık > Kuruyemiş > Ceviz"
+    },
+    {
+      "id": 20000000010259,
+      "name": "Siirt Fıstığı",
+      "prettyName": "siirt-fistigi-c-2813",
+      "path": "Atıştırmalık > Kuruyemiş > Siirt Fıstığı"
+    },
+    {
+      "id": 20000000010237,
+      "name": "Kuru Üzüm",
+      "prettyName": "kuru-uzum-c-27fd",
+      "path": "Atıştırmalık > Kuru Meyve > Kuru Üzüm"
+    },
+    {
+      "id": 20000000010238,
+      "name": "Badem Çiğ",
+      "prettyName": "badem-cig-c-27fe",
+      "path": "Atıştırmalık > Kuru Meyve > Badem Çiğ"
+    },
+    {
+      "id": 20000000010239,
+      "name": "Kuru Erik",
+      "prettyName": "kuru-erik-c-27ff",
+      "path": "Atıştırmalık > Kuru Meyve > Kuru Erik"
+    },
+    {
+      "id": 20000000010240,
+      "name": "Kuru Kayısı",
+      "prettyName": "kuru-kayisi-c-2800",
+      "path": "Atıştırmalık > Kuru Meyve > Kuru Kayısı"
+    },
+    {
+      "id": 20000000010241,
+      "name": "Kuru İncir",
+      "prettyName": "kuru-incir-c-2801",
+      "path": "Atıştırmalık > Kuru Meyve > Kuru İncir"
+    },
+    {
+      "id": 20000000010242,
+      "name": "Hurma",
+      "prettyName": "hurma-c-2802",
+      "path": "Atıştırmalık > Kuru Meyve > Hurma"
+    },
+    {
+      "id": 20000000010245,
+      "name": "Ceviz İçi",
+      "prettyName": "ceviz-ici-c-2805",
+      "path": "Atıştırmalık > Kuru Meyve > Ceviz İçi"
+    },
+    {
+      "id": 20000000010246,
+      "name": "Fındık Çiğ",
+      "prettyName": "findik-cig-c-2806",
+      "path": "Atıştırmalık > Kuru Meyve > Fındık Çiğ"
+    },
+    {
+      "id": 20000000010247,
+      "name": "Karışık Çiğ",
+      "prettyName": "karisik-cig-c-2807",
+      "path": "Atıştırmalık > Kuru Meyve > Karışık Çiğ"
+    },
+    {
+      "id": 20000000010243,
+      "name": "Diğer Kuru Meyve",
+      "prettyName": "diger-kuru-meyve-c-2803",
+      "path": "Atıştırmalık > Kuru Meyve > Diğer Kuru Meyve"
+    },
+    {
+      "id": 20000000071960,
+      "name": "Dut Kurusu",
+      "prettyName": "dut-kurusu-c-11918",
+      "path": "Atıştırmalık > Kuru Meyve > Dut Kurusu"
+    },
+    {
+      "id": 20000000071961,
+      "name": "Çiğ Kaju",
+      "prettyName": "cig-kaju-c-11919",
+      "path": "Atıştırmalık > Kuru Meyve > Çiğ Kaju"
+    },
+    {
+      "id": 20000000010233,
+      "name": "Patates Cipsi",
+      "prettyName": "patates-cipsi-c-27f9",
+      "path": "Atıştırmalık > Cips > Patates Cipsi"
+    },
+    {
+      "id": 20000000010232,
+      "name": "Mısır Cipsi",
+      "prettyName": "misir-cipsi-c-27f8",
+      "path": "Atıştırmalık > Cips > Mısır Cipsi"
+    },
+    {
+      "id": 20000000010235,
+      "name": "Meyve, Sebze Cipsi",
+      "prettyName": "meyve-sebze-cipsi-c-27fb",
+      "path": "Atıştırmalık > Cips > Meyve, Sebze Cipsi"
+    },
+    {
+      "id": 20000000010230,
+      "name": "Pelet, Nohut ve Diğer Cips",
+      "prettyName": "pelet-nohut-ve-diger-cips-c-27f6",
+      "path": "Atıştırmalık > Cips > Pelet, Nohut ve Diğer Cips"
+    },
+    {
+      "id": 20000000010231,
+      "name": "Mısır Çerezi",
+      "prettyName": "misir-cerezi-c-27f7",
+      "path": "Atıştırmalık > Cips > Mısır Çerezi"
+    },
+    {
+      "id": 20000000010234,
+      "name": "Patlamış Mısır",
+      "prettyName": "patlamis-misir-c-27fa",
+      "path": "Atıştırmalık > Cips > Patlamış Mısır"
+    },
+    {
+      "id": 20000000070646,
+      "name": "Bitter Çikolata",
+      "prettyName": "bitter-cikolata-c-113f6",
+      "path": "Atıştırmalık > Çikolata > Bitter Çikolata"
+    },
+    {
+      "id": 20000000070647,
+      "name": "Sütlü Çikolata",
+      "prettyName": "sutlu-cikolata-c-113f7",
+      "path": "Atıştırmalık > Çikolata > Sütlü Çikolata"
+    },
+    {
+      "id": 20000000070648,
+      "name": "Beyaz Çikolata",
+      "prettyName": "beyaz-cikolata-c-113f8",
+      "path": "Atıştırmalık > Çikolata > Beyaz Çikolata"
+    },
+    {
+      "id": 20000000010199,
+      "name": "Draje Çikolata",
+      "prettyName": "draje-cikolata-c-27d7",
+      "path": "Atıştırmalık > Çikolata > Draje Çikolata"
+    },
+    {
+      "id": 20000000070649,
+      "name": "Hediye Çikolata",
+      "prettyName": "hediye-cikolata-c-113f9",
+      "path": "Atıştırmalık > Çikolata > Hediye Çikolata"
+    },
+    {
+      "id": 20000000010201,
+      "name": "Oyuncaklı Çikolata",
+      "prettyName": "oyuncakli-cikolata-c-27d9",
+      "path": "Atıştırmalık > Çikolata > Oyuncaklı Çikolata"
+    },
+    {
+      "id": 20000000010202,
+      "name": "Çocuk Çikolata",
+      "prettyName": "cocuk-cikolata-c-27da",
+      "path": "Atıştırmalık > Çikolata > Çocuk Çikolata"
+    },
+    {
+      "id": 20000000010203,
+      "name": "Çikolatalı Gofret",
+      "prettyName": "cikolatali-gofret-c-27db",
+      "path": "Atıştırmalık > Gofret > Çikolatalı Gofret"
+    },
+    {
+      "id": 20000000010205,
+      "name": "Rulo Gofret",
+      "prettyName": "rulo-gofret-c-27dd",
+      "path": "Atıştırmalık > Gofret > Rulo Gofret"
+    },
+    {
+      "id": 20000000010206,
+      "name": "Wafer Gofret",
+      "prettyName": "wafer-gofret-c-27de",
+      "path": "Atıştırmalık > Gofret > Wafer Gofret"
+    },
+    {
+      "id": 20000000010208,
+      "name": "Çikolata Bar",
+      "prettyName": "cikolata-bar-c-27e0",
+      "path": "Atıştırmalık > Bar, Kaplamalılar > Çikolata Bar"
+    },
+    {
+      "id": 20000000010209,
+      "name": "Protein Bar",
+      "prettyName": "protein-bar-c-27e1",
+      "path": "Atıştırmalık > Bar, Kaplamalılar > Protein Bar"
+    },
+    {
+      "id": 20000000010210,
+      "name": "Tahıllı Bar",
+      "prettyName": "tahilli-bar-c-27e2",
+      "path": "Atıştırmalık > Bar, Kaplamalılar > Tahıllı Bar"
+    },
+    {
+      "id": 20000000010211,
+      "name": "Meyve Bar",
+      "prettyName": "meyve-bar-c-27e3",
+      "path": "Atıştırmalık > Bar, Kaplamalılar > Meyve Bar"
+    },
+    {
+      "id": 20000000070603,
+      "name": "Krokan",
+      "prettyName": "krokan-c-113cb",
+      "path": "Atıştırmalık > Bar, Kaplamalılar > Krokan"
+    },
+    {
+      "id": 20000000010219,
+      "name": "Bisküvi Tatlı",
+      "prettyName": "biskuvi-tatli-c-27eb",
+      "path": "Atıştırmalık > Bisküvi > Bisküvi Tatlı"
+    },
+    {
+      "id": 20000000010220,
+      "name": "Petibör",
+      "prettyName": "petibor-c-27ec",
+      "path": "Atıştırmalık > Bisküvi > Petibör"
+    },
+    {
+      "id": 20000000010214,
+      "name": "Kaplamalı Bisküvi",
+      "prettyName": "kaplamali-biskuvi-c-27e6",
+      "path": "Atıştırmalık > Bisküvi > Kaplamalı Bisküvi"
+    },
+    {
+      "id": 20000000010215,
+      "name": "Tahıllı Bisküvi",
+      "prettyName": "tahilli-biskuvi-c-27e7",
+      "path": "Atıştırmalık > Bisküvi > Tahıllı Bisküvi"
+    },
+    {
+      "id": 20000000010216,
+      "name": "Kremalı Bisküvi",
+      "prettyName": "kremali-biskuvi-c-27e8",
+      "path": "Atıştırmalık > Bisküvi > Kremalı Bisküvi"
+    },
+    {
+      "id": 20000000010217,
+      "name": "Form Bisküvi",
+      "prettyName": "form-biskuvi-c-27e9",
+      "path": "Atıştırmalık > Bisküvi > Form Bisküvi"
+    },
+    {
+      "id": 20000000010221,
+      "name": "Bebe Bisküvisi",
+      "prettyName": "bebe-biskuvisi-c-27ed",
+      "path": "Atıştırmalık > Bisküvi > Bebe Bisküvisi"
+    },
+    {
+      "id": 20000000001085,
+      "name": "Kek",
+      "prettyName": "kek-c-43d",
+      "path": "Atıştırmalık > Kek"
+    },
+    {
+      "id": 20000000010218,
+      "name": "Kraker",
+      "prettyName": "kraker-c-27ea",
+      "path": "Atıştırmalık > Kraker"
+    },
+    {
+      "id": 20000000073774,
+      "name": "Mısır ve Pirinç Patlağı",
+      "prettyName": "misir-ve-pirinc-patlagi-c-1202e",
+      "path": "Atıştırmalık > Mısır ve Pirinç Patlağı"
+    },
+    {
+      "id": 20000000010262,
+      "name": "Draje Şekerleme",
+      "prettyName": "draje-sekerleme-c-2816",
+      "path": "Atıştırmalık > Şekerleme > Draje Şekerleme"
+    },
+    {
+      "id": 20000000010264,
+      "name": "Yumuşak Şeker",
+      "prettyName": "yumusak-seker-c-2818",
+      "path": "Atıştırmalık > Şekerleme > Yumuşak Şeker"
+    },
+    {
+      "id": 20000000010265,
+      "name": "Geleneksel Şekerleme",
+      "prettyName": "geleneksel-sekerleme-c-2819",
+      "path": "Atıştırmalık > Şekerleme > Geleneksel Şekerleme"
+    },
+    {
+      "id": 20000000010268,
+      "name": "Lokum",
+      "prettyName": "lokum-c-281c",
+      "path": "Atıştırmalık > Şekerleme > Lokum"
+    },
+    {
+      "id": 20000000010274,
+      "name": "İkramlık Şekerleme",
+      "prettyName": "ikramlik-sekerleme-c-2822",
+      "path": "Atıştırmalık > Şekerleme > İkramlık Şekerleme"
+    },
+    {
+      "id": 20000000001091,
+      "name": "Sakız",
+      "prettyName": "sakiz-c-443",
+      "path": "Atıştırmalık > Sakız"
+    },
+    {
+      "id": 20000000074673,
+      "name": "Ürünler",
+      "prettyName": "urunler-c-123b1",
+      "path": "Red Bull > Ürünler"
+    },
+    {
+      "id": 20000000074641,
+      "name": "Ürünler",
+      "prettyName": "urunler-c-12391",
+      "path": "Kühne > Ürünler"
+    },
+    {
+      "id": 20000000010083,
+      "name": "Kap Dondurma",
+      "prettyName": "kap-dondurma-c-2763",
+      "path": "Dondurma > Kap Dondurma"
+    },
+    {
+      "id": 20000000010084,
+      "name": "Tek Dondurma",
+      "prettyName": "tek-dondurma-c-2764",
+      "path": "Dondurma > Tek Dondurma"
+    },
+    {
+      "id": 20000000010082,
+      "name": "Buz",
+      "prettyName": "buz-c-2762",
+      "path": "Dondurma > Buz"
+    },
+    {
+      "id": 20000000001109,
+      "name": "Ekmek",
+      "prettyName": "ekmek-c-455",
+      "path": "Fırın, Pastane > Ekmek"
+    },
+    {
+      "id": 20000000010342,
+      "name": "Pide",
+      "prettyName": "pide-c-2866",
+      "path": "Fırın, Pastane > Pide"
+    },
+    {
+      "id": 20000000010345,
+      "name": "Poğaça",
+      "prettyName": "pogaca-c-2869",
+      "path": "Fırın, Pastane > Sabah Sıcakları > Poğaça"
+    },
+    {
+      "id": 20000000010346,
+      "name": "Açma",
+      "prettyName": "acma-c-286a",
+      "path": "Fırın, Pastane > Sabah Sıcakları > Açma"
+    },
+    {
+      "id": 20000000001116,
+      "name": "Börek",
+      "prettyName": "borek-c-45c",
+      "path": "Fırın, Pastane > Sabah Sıcakları > Börek"
+    },
+    {
+      "id": 20000000010348,
+      "name": "Diğer Sabah Sıcakları",
+      "prettyName": "diger-sabah-sicaklari-c-286c",
+      "path": "Fırın, Pastane > Sabah Sıcakları > Diğer Sabah Sıcakları"
+    },
+    {
+      "id": 20000000010381,
+      "name": "İrmik",
+      "prettyName": "irmik-c-288d",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > İrmik"
+    },
+    {
+      "id": 20000000001354,
+      "name": "Pudra Şekeri",
+      "prettyName": "pudra-sekeri-c-54a",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Pudra Şekeri"
+    },
+    {
+      "id": 20000000010382,
+      "name": "Kek ve Pasta Un Karışımları",
+      "prettyName": "kek-ve-pasta-un-karisimlari-c-288e",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Kek ve Pasta Un Karışımları"
+    },
+    {
+      "id": 20000000010384,
+      "name": "Krem Şanti",
+      "prettyName": "krem-santi-c-2890",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Krem Şanti"
+    },
+    {
+      "id": 20000000010385,
+      "name": "Nişasta",
+      "prettyName": "nisasta-c-2891",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Nişasta"
+    },
+    {
+      "id": 20000000010386,
+      "name": "Pasta Yardımcıları",
+      "prettyName": "pasta-yardimcilari-c-2892",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Pasta Yardımcıları"
+    },
+    {
+      "id": 20000000010352,
+      "name": "Pasta Tabanı",
+      "prettyName": "pasta-tabani-c-2870",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Pasta Tabanı"
+    },
+    {
+      "id": 20000000010387,
+      "name": "Kabartma Tozu, Şekerli Vanilin",
+      "prettyName": "kabartma-tozu-sekerli-vanilin-c-2893",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Kabartma Tozu, Şekerli Vanilin"
+    },
+    {
+      "id": 20000000010388,
+      "name": "Kakao",
+      "prettyName": "kakao-c-2894",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Kakao"
+    },
+    {
+      "id": 20000000010389,
+      "name": "Pirinç Unu",
+      "prettyName": "pirinc-unu-c-2895",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Pirinç Unu"
+    },
+    {
+      "id": 20000000010392,
+      "name": "Instant Maya",
+      "prettyName": "instant-maya-c-2898",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Instant Maya"
+    },
+    {
+      "id": 20000000010393,
+      "name": "Yaş Maya",
+      "prettyName": "yas-maya-c-2899",
+      "path": "Fırın, Pastane > Hamur, Pasta Malzemeleri > Yaş Maya"
+    },
+    {
+      "id": 20000000010354,
+      "name": "Yufka",
+      "prettyName": "yufka-c-2872",
+      "path": "Fırın, Pastane > Yufka, Erişte, Mantı > Yufka"
+    },
+    {
+      "id": 20000000010357,
+      "name": "Mantı",
+      "prettyName": "manti-c-2875",
+      "path": "Fırın, Pastane > Yufka, Erişte, Mantı > Mantı"
+    },
+    {
+      "id": 20000000010349,
+      "name": "Tuzlu Kuru Pasta",
+      "prettyName": "tuzlu-kuru-pasta-c-286d",
+      "path": "Fırın, Pastane > Kuru Pasta > Tuzlu Kuru Pasta"
+    },
+    {
+      "id": 20000000010350,
+      "name": "Tatlı Kuru Pasta",
+      "prettyName": "tatli-kuru-pasta-c-286e",
+      "path": "Fırın, Pastane > Kuru Pasta > Tatlı Kuru Pasta"
+    },
+    {
+      "id": 20000000010351,
+      "name": "Kek Çeşitleri",
+      "prettyName": "kek-cesitleri-c-286f",
+      "path": "Fırın, Pastane > Kuru Pasta > Kek Çeşitleri"
+    },
+    {
+      "id": 20000000010358,
+      "name": "Yaş Pasta",
+      "prettyName": "yas-pasta-c-2876",
+      "path": "Fırın, Pastane > Pasta > Yaş Pasta"
+    },
+    {
+      "id": 20000000010359,
+      "name": "Cheesecake Tart",
+      "prettyName": "cheesecake-tart-c-2877",
+      "path": "Fırın, Pastane > Pasta > Cheesecake Tart"
+    },
+    {
+      "id": 20000000010360,
+      "name": "Galeta, Grissini",
+      "prettyName": "galeta-grissini-c-2878",
+      "path": "Fırın, Pastane > Galeta, Grissini, Gevrek > Galeta, Grissini"
+    },
+    {
+      "id": 20000000010361,
+      "name": "Gevrek Ekmek",
+      "prettyName": "gevrek-ekmek-c-2879",
+      "path": "Fırın, Pastane > Galeta, Grissini, Gevrek > Gevrek Ekmek"
+    },
+    {
+      "id": 20000000010363,
+      "name": "Pastane Tatlılar",
+      "prettyName": "pastane-tatlilar-c-287b",
+      "path": "Fırın, Pastane > Tatlı > Pastane Tatlılar"
+    },
+    {
+      "id": 20000000010365,
+      "name": "Toz  Tatlılar",
+      "prettyName": "toz-tatlilar-c-287d",
+      "path": "Fırın, Pastane > Tatlı > Toz  Tatlılar"
+    },
+    {
+      "id": 20000000010292,
+      "name": "Paketli Meze",
+      "prettyName": "paketli-meze-c-2834",
+      "path": "Hazır Yemek, Donuk > Meze > Paketli Meze"
+    },
+    {
+      "id": 20000000010298,
+      "name": "Soğuk Meze",
+      "prettyName": "soguk-meze-c-283a",
+      "path": "Hazır Yemek, Donuk > Meze > Soğuk Meze"
+    },
+    {
+      "id": 20000000010295,
+      "name": "Paketli Sandviç",
+      "prettyName": "paketli-sandvic-c-2837",
+      "path": "Hazır Yemek, Donuk > Paketli Sandviç"
+    },
+    {
+      "id": 20000000001103,
+      "name": "Pratik Yemek",
+      "prettyName": "pratik-yemek-c-44f",
+      "path": "Hazır Yemek, Donuk > Pratik Yemek"
+    },
+    {
+      "id": 20000000010284,
+      "name": "Dondurulmuş Patates",
+      "prettyName": "dondurulmus-patates-c-282c",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Dondurulmuş Patates"
+    },
+    {
+      "id": 20000000010285,
+      "name": "Dondurulmuş Sebze",
+      "prettyName": "dondurulmus-sebze-c-282d",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Dondurulmuş Sebze"
+    },
+    {
+      "id": 20000000010283,
+      "name": "Dondurulmuş Meyve",
+      "prettyName": "dondurulmus-meyve-c-282b",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Dondurulmuş Meyve"
+    },
+    {
+      "id": 20000000010280,
+      "name": "Milföy",
+      "prettyName": "milfoy-c-2828",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Milföy"
+    },
+    {
+      "id": 20000000010278,
+      "name": "Börek",
+      "prettyName": "borek-c-2826",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Börek"
+    },
+    {
+      "id": 20000000010279,
+      "name": "Mantı",
+      "prettyName": "manti-c-2827",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Mantı"
+    },
+    {
+      "id": 20000000071965,
+      "name": "Pide & Lahmacun",
+      "prettyName": "pide-lahmacun-c-1191d",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Pide & Lahmacun"
+    },
+    {
+      "id": 20000000010282,
+      "name": "Dondurulmuş Pasta, Tatlı",
+      "prettyName": "dondurulmus-pasta-tatli-c-282a",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Dondurulmuş Pasta, Tatlı"
+    },
+    {
+      "id": 20000000001101,
+      "name": "Diğer Dondurulmuş Gıda",
+      "prettyName": "diger-dondurulmus-gida-c-44d",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Diğer Dondurulmuş Gıda"
+    },
+    {
+      "id": 20000000010281,
+      "name": "Hazır Pizza",
+      "prettyName": "hazir-pizza-c-2829",
+      "path": "Hazır Yemek, Donuk > Dondurulmuş Gıda > Hazır Pizza"
+    },
+    {
+      "id": 20000000073688,
+      "name": "Pişmeye Hazır Kırmızı Etler",
+      "prettyName": "pismeye-hazir-kirmizi-etler-c-11fd8",
+      "path": "Hazır Yemek, Donuk > Pişmeye Hazır Etler > Pişmeye Hazır Kırmızı Etler"
+    },
+    {
+      "id": 20000000074230,
+      "name": "Gurmepack Ürünleri",
+      "prettyName": "gurmepack-urunleri-c-121f6",
+      "path": "Gurmepack Yemek > Gurmepack Ürünleri"
+    },
+    {
+      "id": 20000000074300,
+      "name": "Yüzey Temizlik Havlusu",
+      "prettyName": "yuzey-temizlik-havlusu-c-1223c",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Yüzey Temizlik Havlusu"
+    },
+    {
+      "id": 20000000001163,
+      "name": "Cam Temizleyiciler",
+      "prettyName": "cam-temizleyiciler-c-48b",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Cam Temizleyiciler"
+    },
+    {
+      "id": 20000000001164,
+      "name": "Halı Şampuanları",
+      "prettyName": "hali-sampuanlari-c-48c",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Halı Şampuanları"
+    },
+    {
+      "id": 20000000010488,
+      "name": "Sinek Kovucu",
+      "prettyName": "sinek-kovucu-c-28f8",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Haşere Öldürücüler > Sinek Kovucu"
+    },
+    {
+      "id": 20000000010489,
+      "name": "Haşere  Öldürücü Makineler, Likitleri",
+      "prettyName": "hasere-oldurucu-makineler-likitleri-c-28f9",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Haşere Öldürücüler > Haşere  Öldürücü Makineler, Likitleri"
+    },
+    {
+      "id": 20000000010492,
+      "name": "Böcek Yemi",
+      "prettyName": "bocek-yemi-c-28fc",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Haşere Öldürücüler > Böcek Yemi"
+    },
+    {
+      "id": 20000000010494,
+      "name": "Kireç Sökücüler",
+      "prettyName": "kirec-sokuculer-c-28fe",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Leke Çıkarıcı ve Koruyucular > Kireç Sökücüler"
+    },
+    {
+      "id": 20000000010496,
+      "name": "Lavabo Açıcılar",
+      "prettyName": "lavabo-acicilar-c-2900",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Leke Çıkarıcı ve Koruyucular > Lavabo Açıcılar"
+    },
+    {
+      "id": 20000000010497,
+      "name": "Parlatıcı, Temizleyici",
+      "prettyName": "parlatici-temizleyici-c-2901",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Leke Çıkarıcı ve Koruyucular > Parlatıcı, Temizleyici"
+    },
+    {
+      "id": 20000000071875,
+      "name": "Yağ Çözücü",
+      "prettyName": "yag-cozucu-c-118c3",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Leke Çıkarıcı ve Koruyucular > Yağ Çözücü"
+    },
+    {
+      "id": 20000000010501,
+      "name": "Oda Kokusu",
+      "prettyName": "oda-kokusu-c-2905",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Hava Temizleyiciler > Oda Kokusu"
+    },
+    {
+      "id": 20000000010502,
+      "name": "Kokulu Mum, Jel, Tütsü",
+      "prettyName": "kokulu-mum-jel-tutsu-c-2906",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Hava Temizleyiciler > Kokulu Mum, Jel, Tütsü"
+    },
+    {
+      "id": 20000000010500,
+      "name": "Çamaşır Kokuları",
+      "prettyName": "camasir-kokulari-c-2904",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Hava Temizleyiciler > Çamaşır Kokuları"
+    },
+    {
+      "id": 20000000010503,
+      "name": "Buzdolabı Kokuları",
+      "prettyName": "buzdolabi-kokulari-c-2907",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Hava Temizleyiciler > Buzdolabı Kokuları"
+    },
+    {
+      "id": 20000000010507,
+      "name": "Likid Temizleyiciler",
+      "prettyName": "likid-temizleyiciler-c-290b",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Tuvalet Temizleyiciler > Likid Temizleyiciler"
+    },
+    {
+      "id": 20000000010508,
+      "name": "Tuvalet Kokusu",
+      "prettyName": "tuvalet-kokusu-c-290c",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Tuvalet Temizleyiciler > Tuvalet Kokusu"
+    },
+    {
+      "id": 20000000010509,
+      "name": "Rezervuar Blok",
+      "prettyName": "rezervuar-blok-c-290d",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Tuvalet Temizleyiciler > Rezervuar Blok"
+    },
+    {
+      "id": 20000000001169,
+      "name": "Mutfak ve Banyo Temizleyiciler",
+      "prettyName": "mutfak-ve-banyo-temizleyiciler-c-491",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Mutfak ve Banyo Temizleyiciler"
+    },
+    {
+      "id": 20000000010513,
+      "name": "Arap Sabunu",
+      "prettyName": "arap-sabunu-c-2911",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Yüzey Temizleyiciler > Arap Sabunu"
+    },
+    {
+      "id": 20000000010514,
+      "name": "Sıvı Yüzey Temizleyiciler",
+      "prettyName": "sivi-yuzey-temizleyiciler-c-2912",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Yüzey Temizleyiciler > Sıvı Yüzey Temizleyiciler"
+    },
+    {
+      "id": 20000000010816,
+      "name": "Ayakkabı Bakım",
+      "prettyName": "ayakkabi-bakim-c-2a40",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Ayakkabı Bakım"
+    },
+    {
+      "id": 20000000010481,
+      "name": "Ahşap Bakım Ürünleri",
+      "prettyName": "ahsap-bakim-urunleri-c-28f1",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Ahşap Temizleyiciler > Ahşap Bakım Ürünleri"
+    },
+    {
+      "id": 20000000010482,
+      "name": "Ahşap Yüzey Temizleyiciler",
+      "prettyName": "ahsap-yuzey-temizleyiciler-c-28f2",
+      "path": "Deterjan, Temizlik > Genel Temizlik > Ahşap Temizleyiciler > Ahşap Yüzey Temizleyiciler"
+    },
+    {
+      "id": 20000000010466,
+      "name": "Sıvı Çamaşır Deterjanı",
+      "prettyName": "sivi-camasir-deterjani-c-28e2",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Çamaşır Deterjanı > Sıvı Çamaşır Deterjanı"
+    },
+    {
+      "id": 20000000010469,
+      "name": "Toz Deterjan",
+      "prettyName": "toz-deterjan-c-28e5",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Çamaşır Deterjanı > Toz Deterjan"
+    },
+    {
+      "id": 20000000071840,
+      "name": "Çamaşır Makinesi Tableti",
+      "prettyName": "camasir-makinesi-tableti-c-118a0",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Çamaşır Deterjanı > Çamaşır Makinesi Tableti"
+    },
+    {
+      "id": 20000000010458,
+      "name": "Klasik Çamaşır Yumuşatıcıları",
+      "prettyName": "klasik-camasir-yumusaticilari-c-28da",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Yumuşatıcı > Klasik Çamaşır Yumuşatıcıları"
+    },
+    {
+      "id": 20000000010459,
+      "name": "Konsantre Çamaşır Yumuşatıcıları",
+      "prettyName": "konsantre-camasir-yumusaticilari-c-28db",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Yumuşatıcı > Konsantre Çamaşır Yumuşatıcıları"
+    },
+    {
+      "id": 20000000010453,
+      "name": "Kireç Önleyiciler",
+      "prettyName": "kirec-onleyiciler-c-28d5",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Kireç Önleyiciler"
+    },
+    {
+      "id": 20000000010456,
+      "name": "Klasik Çamaşır Suyu",
+      "prettyName": "klasik-camasir-suyu-c-28d8",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Çamaşır Suyu > Klasik Çamaşır Suyu"
+    },
+    {
+      "id": 20000000010455,
+      "name": "Jel Çamaşır Suyu",
+      "prettyName": "jel-camasir-suyu-c-28d7",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Çamaşır Suyu > Jel Çamaşır Suyu"
+    },
+    {
+      "id": 20000000010462,
+      "name": "Leke Çıkarıcılar",
+      "prettyName": "leke-cikaricilar-c-28de",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Renk Koruyucular > Leke Çıkarıcılar"
+    },
+    {
+      "id": 20000000010452,
+      "name": "Beyazlatıcılar",
+      "prettyName": "beyazlaticilar-c-28d4",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Renk Koruyucular > Beyazlatıcılar"
+    },
+    {
+      "id": 20000000010464,
+      "name": "Tül Beyazlatıcılar",
+      "prettyName": "tul-beyazlaticilar-c-28e0",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Renk Koruyucular > Tül Beyazlatıcılar"
+    },
+    {
+      "id": 20000000011031,
+      "name": "Renk Koruyucu Mendil",
+      "prettyName": "renk-koruyucu-mendil-c-2b17",
+      "path": "Deterjan, Temizlik > Çamaşır Yıkama > Renk Koruyucular > Renk Koruyucu Mendil"
+    },
+    {
+      "id": 20000000010471,
+      "name": "Jel Bulaşık Deterjanı",
+      "prettyName": "jel-bulasik-deterjani-c-28e7",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Bulaşık Makinesi Ürünleri > Jel Bulaşık Deterjanı"
+    },
+    {
+      "id": 20000000010475,
+      "name": "Bulaşık Makinesi Tableti",
+      "prettyName": "bulasik-makinesi-tableti-c-28eb",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Bulaşık Makinesi Ürünleri > Bulaşık Makinesi Tableti"
+    },
+    {
+      "id": 20000000010472,
+      "name": "Bulaşık Makinesi Kokusu",
+      "prettyName": "bulasik-makinesi-kokusu-c-28e8",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Bulaşık Makinesi Ürünleri > Bulaşık Makinesi Kokusu"
+    },
+    {
+      "id": 20000000010473,
+      "name": "Bulaşık Parlatıcı",
+      "prettyName": "bulasik-parlatici-c-28e9",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Bulaşık Makinesi Ürünleri > Bulaşık Parlatıcı"
+    },
+    {
+      "id": 20000000010477,
+      "name": "Bulaşık Makinesi Tuzu",
+      "prettyName": "bulasik-makinesi-tuzu-c-28ed",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Bulaşık Makinesi Ürünleri > Bulaşık Makinesi Tuzu"
+    },
+    {
+      "id": 20000000010474,
+      "name": "Deterjan Setleri",
+      "prettyName": "deterjan-setleri-c-28ea",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Bulaşık Makinesi Ürünleri > Deterjan Setleri"
+    },
+    {
+      "id": 20000000071841,
+      "name": "Bulaşık Makinesi Temizleyici",
+      "prettyName": "bulasik-makinesi-temizleyici-c-118a1",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Bulaşık Makinesi Ürünleri > Bulaşık Makinesi Temizleyici"
+    },
+    {
+      "id": 20000000001161,
+      "name": "Sıvı Bulaşık Deterjanı",
+      "prettyName": "sivi-bulasik-deterjani-c-489",
+      "path": "Deterjan, Temizlik > Bulaşık Yıkama > Sıvı Bulaşık Deterjanı"
+    },
+    {
+      "id": 20000000010516,
+      "name": "Eldiven",
+      "prettyName": "eldiven-c-2914",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Eldiven"
+    },
+    {
+      "id": 20000000010526,
+      "name": "Bulaşık Altlığı",
+      "prettyName": "bulasik-altligi-c-291e",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Bezi > Bulaşık Altlığı"
+    },
+    {
+      "id": 20000000010527,
+      "name": "Cam Bezi",
+      "prettyName": "cam-bezi-c-291f",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Bezi > Cam Bezi"
+    },
+    {
+      "id": 20000000010528,
+      "name": "Mikrofiber Bez",
+      "prettyName": "mikrofiber-bez-c-2920",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Bezi > Mikrofiber Bez"
+    },
+    {
+      "id": 20000000010529,
+      "name": "Temizlik Bezleri",
+      "prettyName": "temizlik-bezleri-c-2921",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Bezi > Temizlik Bezleri"
+    },
+    {
+      "id": 20000000010530,
+      "name": "Yer Bezi",
+      "prettyName": "yer-bezi-c-2922",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Bezi > Yer Bezi"
+    },
+    {
+      "id": 20000000010533,
+      "name": "Bulaşık Süngeri",
+      "prettyName": "bulasik-sungeri-c-2925",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Süngeri > Bulaşık Süngeri"
+    },
+    {
+      "id": 20000000010534,
+      "name": "Bulaşık Teli",
+      "prettyName": "bulasik-teli-c-2926",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Süngeri > Bulaşık Teli"
+    },
+    {
+      "id": 20000000010518,
+      "name": "Temizlik Fırçası",
+      "prettyName": "temizlik-fircasi-c-2916",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Fırçası"
+    },
+    {
+      "id": 20000000010521,
+      "name": "Tüy Toplayıcı Rulo",
+      "prettyName": "tuy-toplayici-rulo-c-2919",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Tüy Toplayıcı Rulo"
+    },
+    {
+      "id": 20000000010520,
+      "name": "Mop, Paspas ve Yedekleri",
+      "prettyName": "mop-paspas-ve-yedekleri-c-2918",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Mop, Paspas ve Yedekleri"
+    },
+    {
+      "id": 20000000010523,
+      "name": "Temizlik Seti",
+      "prettyName": "temizlik-seti-c-291b",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Temizlik Seti"
+    },
+    {
+      "id": 20000000073843,
+      "name": "Cam Sileceği",
+      "prettyName": "cam-silecegi-c-12073",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Cam Sileceği"
+    },
+    {
+      "id": 20000000073844,
+      "name": "Lavabo Pompası",
+      "prettyName": "lavabo-pompasi-c-12074",
+      "path": "Deterjan, Temizlik > Temizlik Malzemeleri > Lavabo Pompası"
+    },
+    {
+      "id": 20000000001176,
+      "name": "Banyo Set ve Aksesuarları",
+      "prettyName": "banyo-set-ve-aksesuarlari-c-498",
+      "path": "Deterjan, Temizlik > Banyo Gereçleri > Banyo Set ve Aksesuarları"
+    },
+    {
+      "id": 20000000010540,
+      "name": "Plastik Kovalar",
+      "prettyName": "plastik-kovalar-c-292c",
+      "path": "Deterjan, Temizlik > Banyo Gereçleri > Banyo Plastikleri > Plastik Kovalar"
+    },
+    {
+      "id": 20000000010536,
+      "name": "Elbise Askısı",
+      "prettyName": "elbise-askisi-c-2928",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Askı > Elbise Askısı"
+    },
+    {
+      "id": 20000000071775,
+      "name": "Yapışkanlı Askı",
+      "prettyName": "yapiskanli-aski-c-1185f",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Askı > Yapışkanlı Askı"
+    },
+    {
+      "id": 20000000001178,
+      "name": "Çamaşır Kurutmalık",
+      "prettyName": "camasir-kurutmalik-c-49a",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Çamaşır Kurutmalık"
+    },
+    {
+      "id": 20000000010541,
+      "name": "Mandal",
+      "prettyName": "mandal-c-292d",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Mandal"
+    },
+    {
+      "id": 20000000071207,
+      "name": "Çamaşır İpi",
+      "prettyName": "camasir-ipi-c-11627",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Çamaşır İpi"
+    },
+    {
+      "id": 20000000010539,
+      "name": "Çamaşır ve Kirli Sepeti",
+      "prettyName": "camasir-ve-kirli-sepeti-c-292b",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Çamaşır ve Kirli Sepeti"
+    },
+    {
+      "id": 20000000001179,
+      "name": "Ütü Masası",
+      "prettyName": "utu-masasi-c-49b",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Ütü Masası"
+    },
+    {
+      "id": 20000000010543,
+      "name": "Ütü Masası Kılıfı ve Askısı",
+      "prettyName": "utu-masasi-kilifi-ve-askisi-c-292f",
+      "path": "Deterjan, Temizlik > Çamaşır Gereçleri > Ütü Masası Kılıfı ve Askısı"
+    },
+    {
+      "id": 20000000070489,
+      "name": "Çöp Poşeti",
+      "prettyName": "cop-poseti-c-11359",
+      "path": "Deterjan, Temizlik > Çöp Poşeti"
+    },
+    {
+      "id": 20000000001214,
+      "name": "Güneş Kremi, Losyonu",
+      "prettyName": "gunes-kremi-losyonu-c-4be",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Güneş Bakım > Güneş Kremi, Losyonu"
+    },
+    {
+      "id": 20000000001215,
+      "name": "Güneş Sonrası Ürünler",
+      "prettyName": "gunes-sonrasi-urunler-c-4bf",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Güneş Bakım > Güneş Sonrası Ürünler"
+    },
+    {
+      "id": 20000000001216,
+      "name": "Güneşsiz Bronzlaştırıcılar",
+      "prettyName": "gunessiz-bronzlastiricilar-c-4c0",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Güneş Bakım > Güneşsiz Bronzlaştırıcılar"
+    },
+    {
+      "id": 20000000071793,
+      "name": "Güneş Yağı",
+      "prettyName": "gunes-yagi-c-11871",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Güneş Bakım > Güneş Yağı"
+    },
+    {
+      "id": 20000000001331,
+      "name": "Günlük Ped",
+      "prettyName": "gunluk-ped-c-533",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Hijyenik Ped > Günlük Ped"
+    },
+    {
+      "id": 20000000001332,
+      "name": "Ultra Ped",
+      "prettyName": "ultra-ped-c-534",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Hijyenik Ped > Ultra Ped"
+    },
+    {
+      "id": 20000000001334,
+      "name": "Tampon",
+      "prettyName": "tampon-c-536",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Hijyenik Ped > Tampon"
+    },
+    {
+      "id": 20000000001185,
+      "name": "Diş Macunu",
+      "prettyName": "dis-macunu-c-4a1",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Diş Macunu"
+    },
+    {
+      "id": 20000000001184,
+      "name": "Diş Fırçası",
+      "prettyName": "dis-fircasi-c-4a0",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Diş Fırçası"
+    },
+    {
+      "id": 20000000010546,
+      "name": "Ağız Bakım Suyu",
+      "prettyName": "agiz-bakim-suyu-c-2932",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Ağız Bakım Suyu"
+    },
+    {
+      "id": 20000000010547,
+      "name": "Diş Parlatıcı, Beyazlatma",
+      "prettyName": "dis-parlatici-beyazlatma-c-2933",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Diş Parlatıcı, Beyazlatma"
+    },
+    {
+      "id": 20000000070202,
+      "name": "Diş İpi",
+      "prettyName": "dis-ipi-c-1123a",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Diş İpi"
+    },
+    {
+      "id": 20000000070204,
+      "name": "Çocuk Diş Fırçası",
+      "prettyName": "cocuk-dis-fircasi-c-1123c",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Çocuk Diş Bakımı > Çocuk Diş Fırçası"
+    },
+    {
+      "id": 20000000070205,
+      "name": "Çocuk Diş Macunu",
+      "prettyName": "cocuk-dis-macunu-c-1123d",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Çocuk Diş Bakımı > Çocuk Diş Macunu"
+    },
+    {
+      "id": 20000000011021,
+      "name": "Kürdan",
+      "prettyName": "kurdan-c-2b0d",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Kürdan"
+    },
+    {
+      "id": 20000000001187,
+      "name": "Organik Ağız Bakım",
+      "prettyName": "organik-agiz-bakim-c-4a3",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağız Bakım Ürünleri > Organik Ağız Bakım"
+    },
+    {
+      "id": 20000000001188,
+      "name": "Şampuan",
+      "prettyName": "sampuan-c-4a4",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Şampuan"
+    },
+    {
+      "id": 20000000010553,
+      "name": "Saç Kremi",
+      "prettyName": "sac-kremi-c-2939",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Kremi"
+    },
+    {
+      "id": 20000000010551,
+      "name": "Kuru Şampuan",
+      "prettyName": "kuru-sampuan-c-2937",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Kuru Şampuan"
+    },
+    {
+      "id": 20000000070727,
+      "name": "Set Boya",
+      "prettyName": "set-boya-c-11447",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Boyası > Set Boya"
+    },
+    {
+      "id": 20000000070728,
+      "name": "Yarı Set Boya",
+      "prettyName": "yari-set-boya-c-11448",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Boyası > Yarı Set Boya"
+    },
+    {
+      "id": 20000000070729,
+      "name": "Renkli Saç Boyası",
+      "prettyName": "renkli-sac-boyasi-c-11449",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Boyası > Renkli Saç Boyası"
+    },
+    {
+      "id": 20000000070731,
+      "name": "Tüp Boya",
+      "prettyName": "tup-boya-c-1144b",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Boyası > Tüp Boya"
+    },
+    {
+      "id": 20000000070732,
+      "name": "Erkek Saç Boyası",
+      "prettyName": "erkek-sac-boyasi-c-1144c",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Boyası > Erkek Saç Boyası"
+    },
+    {
+      "id": 20000000070733,
+      "name": "Saç Renk Açıcı",
+      "prettyName": "sac-renk-acici-c-1144d",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Boyası > Saç Renk Açıcı"
+    },
+    {
+      "id": 20000000070225,
+      "name": "Saç Boyama Seti",
+      "prettyName": "sac-boyama-seti-c-11251",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Boyası > Saç Boyama Seti"
+    },
+    {
+      "id": 20000000010552,
+      "name": "Saç Onarıcılar",
+      "prettyName": "sac-onaricilar-c-2938",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Onarıcılar"
+    },
+    {
+      "id": 20000000010554,
+      "name": "Saç Köpüğü",
+      "prettyName": "sac-kopugu-c-293a",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Şekillendiriciler > Saç Köpüğü"
+    },
+    {
+      "id": 20000000010555,
+      "name": "Saç Spreyi",
+      "prettyName": "sac-spreyi-c-293b",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Şekillendiriciler > Saç Spreyi"
+    },
+    {
+      "id": 20000000010556,
+      "name": "Saç Jölesi",
+      "prettyName": "sac-jolesi-c-293c",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Şekillendiriciler > Saç Jölesi"
+    },
+    {
+      "id": 20000000010988,
+      "name": "Briyantin",
+      "prettyName": "briyantin-c-2aec",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Şekillendiriciler > Briyantin"
+    },
+    {
+      "id": 20000000010989,
+      "name": "Wax",
+      "prettyName": "wax-c-2aed",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Şekillendiriciler > Wax"
+    },
+    {
+      "id": 20000000001192,
+      "name": "Organik Saç Bakım",
+      "prettyName": "organik-sac-bakim-c-4a8",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Organik Saç Bakım"
+    },
+    {
+      "id": 20000000070221,
+      "name": "Saç Fırçası",
+      "prettyName": "sac-fircasi-c-1124d",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Tarayıcılar > Saç Fırçası"
+    },
+    {
+      "id": 20000000070222,
+      "name": "Tarak",
+      "prettyName": "tarak-c-1124e",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Tarayıcılar > Tarak"
+    },
+    {
+      "id": 20000000070224,
+      "name": "Toka",
+      "prettyName": "toka-c-11250",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Saç Bakım > Saç Tarayıcılar > Toka"
+    },
+    {
+      "id": 20000000070560,
+      "name": "Banyo Köpüğü",
+      "prettyName": "banyo-kopugu-c-113a0",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Duş, Banyo, Sabun > Banyo Köpüğü"
+    },
+    {
+      "id": 20000000001209,
+      "name": "Duş Jeli",
+      "prettyName": "dus-jeli-c-4b9",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Duş, Banyo, Sabun > Duş Jeli"
+    },
+    {
+      "id": 20000000001210,
+      "name": "Lif, Sünger, Setler",
+      "prettyName": "lif-sunger-setler-c-4ba",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Duş, Banyo, Sabun > Lif, Sünger, Setler"
+    },
+    {
+      "id": 20000000010576,
+      "name": "El, Yüz Sabunu",
+      "prettyName": "el-yuz-sabunu-c-2950",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Duş, Banyo, Sabun > Sabun > El, Yüz Sabunu"
+    },
+    {
+      "id": 20000000010575,
+      "name": "Banyo Sabunu",
+      "prettyName": "banyo-sabunu-c-294f",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Duş, Banyo, Sabun > Sabun > Banyo Sabunu"
+    },
+    {
+      "id": 20000000010577,
+      "name": "Sıvı Sabun",
+      "prettyName": "sivi-sabun-c-2951",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Duş, Banyo, Sabun > Sabun > Sıvı Sabun"
+    },
+    {
+      "id": 20000000010578,
+      "name": "Yedek Sıvı Sabun",
+      "prettyName": "yedek-sivi-sabun-c-2952",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Duş, Banyo, Sabun > Sabun > Yedek Sıvı Sabun"
+    },
+    {
+      "id": 20000000001194,
+      "name": "Kullan At Tıraş Bıçağı",
+      "prettyName": "kullan-at-tiras-bicagi-c-4aa",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Kullan At Tıraş Bıçağı"
+    },
+    {
+      "id": 20000000001195,
+      "name": "Tıraş Bıçağı",
+      "prettyName": "tiras-bicagi-c-4ab",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Tıraş Bıçağı"
+    },
+    {
+      "id": 20000000001196,
+      "name": "Tıraş Makinaları",
+      "prettyName": "tiras-makinalari-c-4ac",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Tıraş Makinaları"
+    },
+    {
+      "id": 20000000001198,
+      "name": "Tıraş Jeli",
+      "prettyName": "tiras-jeli-c-4ae",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Tıraş Jeli"
+    },
+    {
+      "id": 20000000001199,
+      "name": "Tıraş Köpüğü",
+      "prettyName": "tiras-kopugu-c-4af",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Tıraş Köpüğü"
+    },
+    {
+      "id": 20000000001201,
+      "name": "Tıraş Sabunu",
+      "prettyName": "tiras-sabunu-c-4b1",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Tıraş Sabunu"
+    },
+    {
+      "id": 20000000010562,
+      "name": "Tıraş Kolonyası",
+      "prettyName": "tiras-kolonyasi-c-2942",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Tıraş Sonrası Ürünler > Tıraş Kolonyası"
+    },
+    {
+      "id": 20000000010563,
+      "name": "Tıraş Losyonu",
+      "prettyName": "tiras-losyonu-c-2943",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Tıraş Malzemeleri > Tıraş Sonrası Ürünler > Tıraş Losyonu"
+    },
+    {
+      "id": 20000000001203,
+      "name": "Ağda",
+      "prettyName": "agda-c-4b3",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Ağda"
+    },
+    {
+      "id": 20000000010567,
+      "name": "Ağda Bandı",
+      "prettyName": "agda-bandi-c-2947",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Ağda Malzemeleri > Ağda Bandı"
+    },
+    {
+      "id": 20000000010568,
+      "name": "Ağda Bezi",
+      "prettyName": "agda-bezi-c-2948",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Ağda Malzemeleri > Ağda Bezi"
+    },
+    {
+      "id": 20000000001205,
+      "name": "Ağda Makinesi",
+      "prettyName": "agda-makinesi-c-4b5",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Ağda Makinesi"
+    },
+    {
+      "id": 20000000001206,
+      "name": "Ağda Sonrası Ürünler",
+      "prettyName": "agda-sonrasi-urunler-c-4b6",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Ağda Sonrası Ürünler"
+    },
+    {
+      "id": 20000000010571,
+      "name": "Tüy Dökücü Krem",
+      "prettyName": "tuy-dokucu-krem-c-294b",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Tüy Dökücü Ürünler > Tüy Dökücü Krem"
+    },
+    {
+      "id": 20000000010572,
+      "name": "Tüy Sarartıcı",
+      "prettyName": "tuy-sarartici-c-294c",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Tüy Dökücü Ürünler > Tüy Sarartıcı"
+    },
+    {
+      "id": 20000000001208,
+      "name": "Kadın Tıraş Ürünleri",
+      "prettyName": "kadin-tiras-urunleri-c-4b8",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Kadın Tıraş Ürünleri"
+    },
+    {
+      "id": 20000000070750,
+      "name": "Cımbız",
+      "prettyName": "cimbiz-c-1145e",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Ağda, Epilasyon > Cımbız"
+    },
+    {
+      "id": 20000000070738,
+      "name": "El ve Vücut Kremi",
+      "prettyName": "el-ve-vucut-kremi-c-11452",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > El ve Vücut Bakım > El ve Vücut Kremi"
+    },
+    {
+      "id": 20000000070739,
+      "name": "Vazelin",
+      "prettyName": "vazelin-c-11453",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > El ve Vücut Bakım > Vazelin"
+    },
+    {
+      "id": 20000000070740,
+      "name": "Vücut Losyonu",
+      "prettyName": "vucut-losyonu-c-11454",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > El ve Vücut Bakım > Vücut Losyonu"
+    },
+    {
+      "id": 20000000070741,
+      "name": "Vücut Sıkılaştırıcı",
+      "prettyName": "vucut-sikilastirici-c-11455",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > El ve Vücut Bakım > Vücut Sıkılaştırıcı"
+    },
+    {
+      "id": 20000000070742,
+      "name": "Vücut Yağı",
+      "prettyName": "vucut-yagi-c-11456",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > El ve Vücut Bakım > Vücut Yağı"
+    },
+    {
+      "id": 20000000010582,
+      "name": "Nemlendirici Krem",
+      "prettyName": "nemlendirici-krem-c-2956",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > Yüz Bakım > Nemlendirici Krem"
+    },
+    {
+      "id": 20000000010585,
+      "name": "Yüz Maskesi",
+      "prettyName": "yuz-maskesi-c-2959",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > Yüz Bakım > Yüz Maskesi"
+    },
+    {
+      "id": 20000000010587,
+      "name": "Yüz Temizleme Jelleri, Kremleri",
+      "prettyName": "yuz-temizleme-jelleri-kremleri-c-295b",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > Yüz Bakım > Yüz Temizleme Jelleri, Kremleri"
+    },
+    {
+      "id": 20000000010590,
+      "name": "Yüz Toniği",
+      "prettyName": "yuz-tonigi-c-295e",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > Yüz Bakım > Yüz Toniği"
+    },
+    {
+      "id": 20000000070193,
+      "name": "Gül Suyu",
+      "prettyName": "gul-suyu-c-11231",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > Yüz Bakım > Gül Suyu"
+    },
+    {
+      "id": 20000000071962,
+      "name": "Yüz Serumu",
+      "prettyName": "yuz-serumu-c-1191a",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > Yüz Bakım > Yüz Serumu"
+    },
+    {
+      "id": 20000000070198,
+      "name": "Dudak Kremi",
+      "prettyName": "dudak-kremi-c-11236",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Cilt Bakımı > Dudak Kremi"
+    },
+    {
+      "id": 20000000001231,
+      "name": "Kolonya",
+      "prettyName": "kolonya-c-4cf",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Kolonya"
+    },
+    {
+      "id": 20000000070189,
+      "name": "Kadın Deodorant",
+      "prettyName": "kadin-deodorant-c-1122d",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Parfüm, Deodorant > Deodorant > Kadın Deodorant"
+    },
+    {
+      "id": 20000000070190,
+      "name": "Erkek Deodorant",
+      "prettyName": "erkek-deodorant-c-1122e",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Parfüm, Deodorant > Deodorant > Erkek Deodorant"
+    },
+    {
+      "id": 20000000070191,
+      "name": "Kadın Parfüm",
+      "prettyName": "kadin-parfum-c-1122f",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Parfüm, Deodorant > Parfüm > Kadın Parfüm"
+    },
+    {
+      "id": 20000000070192,
+      "name": "Erkek Parfüm",
+      "prettyName": "erkek-parfum-c-11230",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Parfüm, Deodorant > Parfüm > Erkek Parfüm"
+    },
+    {
+      "id": 20000000071963,
+      "name": "Vücut Spreyi",
+      "prettyName": "vucut-spreyi-c-1191b",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Parfüm, Deodorant > Vücut Spreyi"
+    },
+    {
+      "id": 20000000010592,
+      "name": "Fondöten",
+      "prettyName": "fondoten-c-2960",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Yüz Makyajı > Fondöten"
+    },
+    {
+      "id": 20000000070200,
+      "name": "Kapatıcı",
+      "prettyName": "kapatici-c-11238",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Yüz Makyajı > Kapatıcı"
+    },
+    {
+      "id": 20000000070201,
+      "name": "Göz Farı",
+      "prettyName": "goz-fari-c-11239",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Göz Makyajı > Göz Farı"
+    },
+    {
+      "id": 20000000010596,
+      "name": "Maskara",
+      "prettyName": "maskara-c-2964",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Göz Makyajı > Maskara"
+    },
+    {
+      "id": 20000000010597,
+      "name": "Eyeliner, Göz Kalemi",
+      "prettyName": "eyeliner-goz-kalemi-c-2965",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Göz Makyajı > Eyeliner, Göz Kalemi"
+    },
+    {
+      "id": 20000000070611,
+      "name": "Kaş Makyajı",
+      "prettyName": "kas-makyaji-c-113d3",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Göz Makyajı > Kaş Makyajı"
+    },
+    {
+      "id": 20000000070196,
+      "name": "Ruj",
+      "prettyName": "ruj-c-11234",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Dudak Ürünleri > Ruj"
+    },
+    {
+      "id": 20000000010599,
+      "name": "Aseton",
+      "prettyName": "aseton-c-2967",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Tırnak Ürünleri > Aseton"
+    },
+    {
+      "id": 20000000010600,
+      "name": "Oje",
+      "prettyName": "oje-c-2968",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Tırnak Ürünleri > Oje"
+    },
+    {
+      "id": 20000000010586,
+      "name": "Makyaj Temizleme Mendili",
+      "prettyName": "makyaj-temizleme-mendili-c-295a",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Temizleme > Makyaj Temizleme Mendili"
+    },
+    {
+      "id": 20000000070745,
+      "name": "Makyaj Temizleme Pamuğu",
+      "prettyName": "makyaj-temizleme-pamugu-c-11459",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Temizleme > Makyaj Temizleme Pamuğu"
+    },
+    {
+      "id": 20000000070746,
+      "name": "Makyaj Temizleme Suyu",
+      "prettyName": "makyaj-temizleme-suyu-c-1145a",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Temizleme > Makyaj Temizleme Suyu"
+    },
+    {
+      "id": 20000000070744,
+      "name": "Göz Makyaj Temizleyici",
+      "prettyName": "goz-makyaj-temizleyici-c-11458",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Temizleme > Göz Makyaj Temizleyici"
+    },
+    {
+      "id": 20000000001223,
+      "name": "Makyaj Fırçası",
+      "prettyName": "makyaj-fircasi-c-4c7",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Fırçası"
+    },
+    {
+      "id": 20000000070748,
+      "name": "Takma Tırnak, Kirpik",
+      "prettyName": "takma-tirnak-kirpik-c-1145c",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Aksesuarları > Takma Tırnak, Kirpik"
+    },
+    {
+      "id": 20000000001224,
+      "name": "Makyaj Aynası",
+      "prettyName": "makyaj-aynasi-c-4c8",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Aksesuarları > Makyaj Aynası"
+    },
+    {
+      "id": 20000000001225,
+      "name": "Makyaj Çantası",
+      "prettyName": "makyaj-cantasi-c-4c9",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Makyaj > Makyaj Aksesuarları > Makyaj Çantası"
+    },
+    {
+      "id": 20000000070212,
+      "name": "Pamuk",
+      "prettyName": "pamuk-c-11244",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Pamuk"
+    },
+    {
+      "id": 20000000070213,
+      "name": "Kulak Çubuğu",
+      "prettyName": "kulak-cubugu-c-11245",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Kulak Çubuğu"
+    },
+    {
+      "id": 20000000070206,
+      "name": "Prezervatif",
+      "prettyName": "prezervatif-c-1123e",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Prezervatif, Jeller > Prezervatif"
+    },
+    {
+      "id": 20000000070207,
+      "name": "Kayganlaştırıcı",
+      "prettyName": "kayganlastirici-c-1123f",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Prezervatif, Jeller > Kayganlaştırıcı"
+    },
+    {
+      "id": 20000000070208,
+      "name": "Ayak Kremi",
+      "prettyName": "ayak-kremi-c-11240",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Ayak Bakım > Ayak Kremi"
+    },
+    {
+      "id": 20000000070209,
+      "name": "Ayak Tabanlık",
+      "prettyName": "ayak-tabanlik-c-11241",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Ayak Bakım > Ayak Tabanlık"
+    },
+    {
+      "id": 20000000011026,
+      "name": "Manikür Pedikür",
+      "prettyName": "manikur-pedikur-c-2b12",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Ayak Bakım > Manikür Pedikür"
+    },
+    {
+      "id": 20000000070214,
+      "name": "Isı Bandı",
+      "prettyName": "isi-bandi-c-11246",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Isı Bandı"
+    },
+    {
+      "id": 20000000070215,
+      "name": "Burun Bandı",
+      "prettyName": "burun-bandi-c-11247",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Burun Bandı"
+    },
+    {
+      "id": 20000000001237,
+      "name": "Takviye Edici Gıda",
+      "prettyName": "takviye-edici-gida-c-4d5",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Takviye Edici Gıda"
+    },
+    {
+      "id": 20000000071784,
+      "name": "Bitkisel Bakım Yağı",
+      "prettyName": "bitkisel-bakim-yagi-c-11868",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Bitkisel Bakım Yağı"
+    },
+    {
+      "id": 20000000010404,
+      "name": "Sporcu Takviyeleri",
+      "prettyName": "sporcu-takviyeleri-c-28a4",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Sporcu Takviyeleri"
+    },
+    {
+      "id": 20000000070218,
+      "name": "Yara Bandı",
+      "prettyName": "yara-bandi-c-1124a",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > İlk Yardım > Yara Bandı"
+    },
+    {
+      "id": 20000000070219,
+      "name": "İlk Yardım Seti",
+      "prettyName": "ilk-yardim-seti-c-1124b",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > İlk Yardım > İlk Yardım Seti"
+    },
+    {
+      "id": 20000000001227,
+      "name": "Kişisel Bakım Aletleri",
+      "prettyName": "kisisel-bakim-aletleri-c-4cb",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Kişisel Bakım Aletleri"
+    },
+    {
+      "id": 20000000001238,
+      "name": "Hasta Bakım Ürünleri",
+      "prettyName": "hasta-bakim-urunleri-c-4d6",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Hasta Bakım Ürünleri"
+    },
+    {
+      "id": 20000000070217,
+      "name": "Diğer Sağlık Ürünleri",
+      "prettyName": "diger-saglik-urunleri-c-11249",
+      "path": "Kişisel Bakım, Kozmetik, Sağlık > Sağlık Ürünleri > Diğer Sağlık Ürünleri"
+    },
+    {
+      "id": 20000000074688,
+      "name": "Ürünler",
+      "prettyName": "urunler-c-123c0",
+      "path": "Papia > Ürünler"
+    },
+    {
+      "id": 20000000001182,
+      "name": "Islak Mendil",
+      "prettyName": "islak-mendil-c-49e",
+      "path": "Kağıt, Islak Mendil > Islak Mendil"
+    },
+    {
+      "id": 20000000001180,
+      "name": "Tuvalet Kağıdı",
+      "prettyName": "tuvalet-kagidi-c-49c",
+      "path": "Kağıt, Islak Mendil > Tuvalet Kağıdı"
+    },
+    {
+      "id": 20000000074238,
+      "name": "Rulo Havlu Peçete",
+      "prettyName": "rulo-havlu-pecete-c-121fe",
+      "path": "Kağıt, Islak Mendil > Kağıt Havlu > Rulo Havlu Peçete"
+    },
+    {
+      "id": 20000000074237,
+      "name": "Dev Rulo Peçete",
+      "prettyName": "dev-rulo-pecete-c-121fd",
+      "path": "Kağıt, Islak Mendil > Kağıt Havlu > Dev Rulo Peçete"
+    },
+    {
+      "id": 20000000074236,
+      "name": "El, Yüz Havlusu",
+      "prettyName": "el-yuz-havlusu-c-121fc",
+      "path": "Kağıt, Islak Mendil > Kağıt Havlu > El, Yüz Havlusu"
+    },
+    {
+      "id": 20000000001183,
+      "name": "Peçete",
+      "prettyName": "pecete-c-49f",
+      "path": "Kağıt, Islak Mendil > Peçete"
+    },
+    {
+      "id": 20000000070724,
+      "name": "Kağıt Mendil",
+      "prettyName": "kagit-mendil-c-11444",
+      "path": "Kağıt, Islak Mendil > Kağıt Mendil"
+    },
+    {
+      "id": 20000000074083,
+      "name": "Temizlik Havlusu",
+      "prettyName": "temizlik-havlusu-c-12163",
+      "path": "Kağıt, Islak Mendil > Temizlik Havlusu"
+    },
+    {
+      "id": 20000000070010,
+      "name": "Bebek Bezleri",
+      "prettyName": "bebek-bezleri-c-1117a",
+      "path": "Bebek > Bebek Bezi > Bebek Bezleri"
+    },
+    {
+      "id": 20000000001340,
+      "name": "Külot Bez",
+      "prettyName": "kulot-bez-c-53c",
+      "path": "Bebek > Bebek Bezi > Külot Bez"
+    },
+    {
+      "id": 20000000070499,
+      "name": "Bebek Ağız ve Diş Bakım",
+      "prettyName": "bebek-agiz-ve-dis-bakim-c-11363",
+      "path": "Bebek > Bebek Bakım > Bebek Ağız ve Diş Bakım"
+    },
+    {
+      "id": 20000000010631,
+      "name": "Bebek Bakım Gereçleri",
+      "prettyName": "bebek-bakim-gerecleri-c-2987",
+      "path": "Bebek > Bebek Bakım > Bebek Bakım Gereçleri"
+    },
+    {
+      "id": 20000000070503,
+      "name": "Bebek Yağı",
+      "prettyName": "bebek-yagi-c-11367",
+      "path": "Bebek > Bebek Bakım > Bebek Yağı"
+    },
+    {
+      "id": 20000000070504,
+      "name": "Pişik Kremi",
+      "prettyName": "pisik-kremi-c-11368",
+      "path": "Bebek > Bebek Bakım > Pişik Kremi"
+    },
+    {
+      "id": 20000000070506,
+      "name": "Bebek Temizleme Pamuğu",
+      "prettyName": "bebek-temizleme-pamugu-c-1136a",
+      "path": "Bebek > Bebek Bakım > Bebek Temizleme Pamuğu"
+    },
+    {
+      "id": 20000000001346,
+      "name": "Bebek Bakım Örtüsü",
+      "prettyName": "bebek-bakim-ortusu-c-542",
+      "path": "Bebek > Bebek Bakım > Bebek Bakım Örtüsü"
+    },
+    {
+      "id": 20000000010635,
+      "name": "Mama Sandalyesi",
+      "prettyName": "mama-sandalyesi-c-298b",
+      "path": "Bebek > Mama Sandalyesi"
+    },
+    {
+      "id": 20000000070507,
+      "name": "Devam Sütü",
+      "prettyName": "devam-sutu-c-1136b",
+      "path": "Bebek > Bebek Beslenme > Bebek Maması > Devam Sütü"
+    },
+    {
+      "id": 20000000070508,
+      "name": "Kaşık Maması",
+      "prettyName": "kasik-mamasi-c-1136c",
+      "path": "Bebek > Bebek Beslenme > Bebek Maması > Kaşık Maması"
+    },
+    {
+      "id": 20000000070509,
+      "name": "Kavanoz Mama",
+      "prettyName": "kavanoz-mama-c-1136d",
+      "path": "Bebek > Bebek Beslenme > Bebek Maması > Kavanoz Mama"
+    },
+    {
+      "id": 20000000010652,
+      "name": "Bebek İçeceği",
+      "prettyName": "bebek-icecegi-c-299c",
+      "path": "Bebek > Bebek Beslenme > Bebek İçeceği"
+    },
+    {
+      "id": 20000000010654,
+      "name": "Bebek Atıştırmalık",
+      "prettyName": "bebek-atistirmalik-c-299e",
+      "path": "Bebek > Bebek Beslenme > Bebek Atıştırmalık"
+    },
+    {
+      "id": 20000000010625,
+      "name": "Biberon",
+      "prettyName": "biberon-c-2981",
+      "path": "Bebek > Bebek Beslenme > Bebek Beslenme Araçları > Biberon"
+    },
+    {
+      "id": 20000000010626,
+      "name": "Emzik",
+      "prettyName": "emzik-c-2982",
+      "path": "Bebek > Bebek Beslenme > Bebek Beslenme Araçları > Emzik"
+    },
+    {
+      "id": 20000000010629,
+      "name": "Bebek Yemek Gereçleri",
+      "prettyName": "bebek-yemek-gerecleri-c-2985",
+      "path": "Bebek > Bebek Beslenme > Bebek Beslenme Araçları > Bebek Yemek Gereçleri"
+    },
+    {
+      "id": 20000000010613,
+      "name": "Bebek Sabunu",
+      "prettyName": "bebek-sabunu-c-2975",
+      "path": "Bebek > Bebek Banyo > Bebek Sabunu"
+    },
+    {
+      "id": 20000000010610,
+      "name": "Bebek Saç Kremi",
+      "prettyName": "bebek-sac-kremi-c-2972",
+      "path": "Bebek > Bebek Banyo > Bebek Saç Kremi"
+    },
+    {
+      "id": 20000000010611,
+      "name": "Bebek Şampuanı",
+      "prettyName": "bebek-sampuani-c-2973",
+      "path": "Bebek > Bebek Banyo > Bebek Şampuanı"
+    },
+    {
+      "id": 20000000010612,
+      "name": "Bebek Banyo Süngeri",
+      "prettyName": "bebek-banyo-sungeri-c-2974",
+      "path": "Bebek > Bebek Banyo > Bebek Banyo Süngeri"
+    },
+    {
+      "id": 20000000070510,
+      "name": "Bebek Bulaşık Deterjanı",
+      "prettyName": "bebek-bulasik-deterjani-c-1136e",
+      "path": "Bebek > Bebek Deterjanı ve Yumuşatıcısı > Bebek Bulaşık Deterjanı"
+    },
+    {
+      "id": 20000000070512,
+      "name": "Bebek Çamaşır Yumuşatıcı",
+      "prettyName": "bebek-camasir-yumusatici-c-11370",
+      "path": "Bebek > Bebek Deterjanı ve Yumuşatıcısı > Bebek Çamaşır Yumuşatıcı"
+    },
+    {
+      "id": 20000000070513,
+      "name": "Bebek Sıvı Çamaşır Deterjanı",
+      "prettyName": "bebek-sivi-camasir-deterjani-c-11371",
+      "path": "Bebek > Bebek Deterjanı ve Yumuşatıcısı > Bebek Sıvı Çamaşır Deterjanı"
+    },
+    {
+      "id": 20000000070514,
+      "name": "Bebek Toz Çamaşır Deterjanı",
+      "prettyName": "bebek-toz-camasir-deterjani-c-11372",
+      "path": "Bebek > Bebek Deterjanı ve Yumuşatıcısı > Bebek Toz Çamaşır Deterjanı"
+    },
+    {
+      "id": 20000000010640,
+      "name": "Bebek Giyim",
+      "prettyName": "bebek-giyim-c-2990",
+      "path": "Bebek > Bebek Tekstil > Bebek Giyim"
+    },
+    {
+      "id": 20000000073703,
+      "name": "Islak Mendil",
+      "prettyName": "islak-mendil-c-11fe7",
+      "path": "Bebek > Islak Mendil"
+    },
+    {
+      "id": 20000000010622,
+      "name": "Göğüs Koruyucular",
+      "prettyName": "gogus-koruyucular-c-297e",
+      "path": "Bebek > Anne Ürünleri > Anne Bakım Ürünleri > Göğüs Koruyucular"
+    },
+    {
+      "id": 20000000010653,
+      "name": "Hamile Ve Emziren Anne Besin",
+      "prettyName": "hamile-ve-emziren-anne-besin-c-299d",
+      "path": "Bebek > Anne Ürünleri > Anne Bakım Ürünleri > Hamile Ve Emziren Anne Besin"
+    },
+    {
+      "id": 20000000070702,
+      "name": "Su Bardağı",
+      "prettyName": "su-bardagi-c-1142e",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Su Bardağı"
+    },
+    {
+      "id": 20000000070700,
+      "name": "Meşrubat Bardağı",
+      "prettyName": "mesrubat-bardagi-c-1142c",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Meşrubat Bardağı"
+    },
+    {
+      "id": 20000000070699,
+      "name": "Kupa",
+      "prettyName": "kupa-c-1142b",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Kupa"
+    },
+    {
+      "id": 20000000070709,
+      "name": "Çay Bardağı",
+      "prettyName": "cay-bardagi-c-11435",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Çay Bardağı"
+    },
+    {
+      "id": 20000000070710,
+      "name": "Çay Takımı",
+      "prettyName": "cay-takimi-c-11436",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Çay Takımı"
+    },
+    {
+      "id": 20000000070704,
+      "name": "Fincan",
+      "prettyName": "fincan-c-11430",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Fincan"
+    },
+    {
+      "id": 20000000070698,
+      "name": "Fincan Takımı",
+      "prettyName": "fincan-takimi-c-1142a",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Fincan Takımı"
+    },
+    {
+      "id": 20000000070697,
+      "name": "Bira Bardağı",
+      "prettyName": "bira-bardagi-c-11429",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Bira Bardağı"
+    },
+    {
+      "id": 20000000070701,
+      "name": "Rakı Bardağı",
+      "prettyName": "raki-bardagi-c-1142d",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Rakı Bardağı"
+    },
+    {
+      "id": 20000000070703,
+      "name": "Şarap Kadehi",
+      "prettyName": "sarap-kadehi-c-1142f",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Şarap Kadehi"
+    },
+    {
+      "id": 20000000070696,
+      "name": "Su Takımı",
+      "prettyName": "su-takimi-c-11428",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Bardak > Su Takımı"
+    },
+    {
+      "id": 20000000010697,
+      "name": "Tabak, Kase",
+      "prettyName": "tabak-kase-c-29c9",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Tabak, Kase"
+    },
+    {
+      "id": 20000000010690,
+      "name": "Çatal, Bıçak, Kaşık",
+      "prettyName": "catal-bicak-kasik-c-29c2",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Çatal, Bıçak, Kaşık"
+    },
+    {
+      "id": 20000000010702,
+      "name": "Sürahi",
+      "prettyName": "surahi-c-29ce",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Sürahi"
+    },
+    {
+      "id": 20000000010698,
+      "name": "Tepsi",
+      "prettyName": "tepsi-c-29ca",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Tepsi"
+    },
+    {
+      "id": 20000000070720,
+      "name": "Nihale",
+      "prettyName": "nihale-c-11440",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Nihale"
+    },
+    {
+      "id": 20000000070721,
+      "name": "Çay Kaşığı",
+      "prettyName": "cay-kasigi-c-11441",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Çay Kaşığı"
+    },
+    {
+      "id": 20000000070722,
+      "name": "Çay Tabağı",
+      "prettyName": "cay-tabagi-c-11442",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Çay Tabağı"
+    },
+    {
+      "id": 20000000070719,
+      "name": "French Press",
+      "prettyName": "french-press-c-1143f",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > French Press"
+    },
+    {
+      "id": 20000000010696,
+      "name": "Sofra Ürünleri",
+      "prettyName": "sofra-urunleri-c-29c8",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Servis, Sunum > Sofra Ürünleri"
+    },
+    {
+      "id": 20000000001265,
+      "name": "Mutfak El Aletleri",
+      "prettyName": "mutfak-el-aletleri-c-4f1",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Mutfak El Aletleri"
+    },
+    {
+      "id": 20000000070712,
+      "name": "Mutfak Bıçağı",
+      "prettyName": "mutfak-bicagi-c-11438",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Mutfak Bıçağı"
+    },
+    {
+      "id": 20000000070713,
+      "name": "Kesme Tahtası",
+      "prettyName": "kesme-tahtasi-c-11439",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Kesme Tahtası"
+    },
+    {
+      "id": 20000000070715,
+      "name": "Rende",
+      "prettyName": "rende-c-1143b",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Rende"
+    },
+    {
+      "id": 20000000070714,
+      "name": "Süzgeç",
+      "prettyName": "suzgec-c-1143a",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Süzgeç"
+    },
+    {
+      "id": 20000000070716,
+      "name": "Narenciye Sıkacağı",
+      "prettyName": "narenciye-sikacagi-c-1143c",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Narenciye Sıkacağı"
+    },
+    {
+      "id": 20000000070718,
+      "name": "Tirbüşon",
+      "prettyName": "tirbuson-c-1143e",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Tirbüşon"
+    },
+    {
+      "id": 20000000010688,
+      "name": "Mutfak Ekipmanları",
+      "prettyName": "mutfak-ekipmanlari-c-29c0",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Mutfak Ekipmanları"
+    },
+    {
+      "id": 20000000010768,
+      "name": "Damacana Su Pompası",
+      "prettyName": "damacana-su-pompasi-c-2a10",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Yemek Hazırlama > Damacana Su Pompası"
+    },
+    {
+      "id": 20000000070491,
+      "name": "Tencere",
+      "prettyName": "tencere-c-1135b",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Pişirme > Tencere"
+    },
+    {
+      "id": 20000000070492,
+      "name": "Tava",
+      "prettyName": "tava-c-1135c",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Pişirme > Tava"
+    },
+    {
+      "id": 20000000070570,
+      "name": "Cezve",
+      "prettyName": "cezve-c-113aa",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Pişirme > Cezve"
+    },
+    {
+      "id": 20000000070493,
+      "name": "Sahan",
+      "prettyName": "sahan-c-1135d",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Pişirme > Sahan"
+    },
+    {
+      "id": 20000000070726,
+      "name": "Sütlük",
+      "prettyName": "sutluk-c-11446",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Pişirme > Sütlük"
+    },
+    {
+      "id": 20000000070572,
+      "name": "Fırın Kabı",
+      "prettyName": "firin-kabi-c-113ac",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Fırında Pişirme > Fırın Kabı"
+    },
+    {
+      "id": 20000000070575,
+      "name": "Kek Kalıbı",
+      "prettyName": "kek-kalibi-c-113af",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Fırında Pişirme > Kek Kalıbı"
+    },
+    {
+      "id": 20000000070573,
+      "name": "Fırın Tepsisi",
+      "prettyName": "firin-tepsisi-c-113ad",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Fırında Pişirme > Fırın Tepsisi"
+    },
+    {
+      "id": 20000000070574,
+      "name": "Güveç Kabı",
+      "prettyName": "guvec-kabi-c-113ae",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Fırında Pişirme > Güveç Kabı"
+    },
+    {
+      "id": 20000000070564,
+      "name": "Baharatlık",
+      "prettyName": "baharatlik-c-113a4",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Saklama, Düzenleme > Baharatlık"
+    },
+    {
+      "id": 20000000070566,
+      "name": "Kavanoz",
+      "prettyName": "kavanoz-c-113a6",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Saklama, Düzenleme > Kavanoz"
+    },
+    {
+      "id": 20000000070567,
+      "name": "Saklama Kabı",
+      "prettyName": "saklama-kabi-c-113a7",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Saklama, Düzenleme > Saklama Kabı"
+    },
+    {
+      "id": 20000000070577,
+      "name": "Yağlık Sirkelik",
+      "prettyName": "yaglik-sirkelik-c-113b1",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Saklama, Düzenleme > Yağlık Sirkelik"
+    },
+    {
+      "id": 20000000070578,
+      "name": "Şekerlik",
+      "prettyName": "sekerlik-c-113b2",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Saklama, Düzenleme > Şekerlik"
+    },
+    {
+      "id": 20000000070707,
+      "name": "Mutfak Düzenleyici",
+      "prettyName": "mutfak-duzenleyici-c-11433",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Saklama, Düzenleme > Mutfak Düzenleyici"
+    },
+    {
+      "id": 20000000001295,
+      "name": "Pazar Arabası",
+      "prettyName": "pazar-arabasi-c-50f",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Saklama, Düzenleme > Pazar Arabası"
+    },
+    {
+      "id": 20000000010714,
+      "name": "Termos, Mug",
+      "prettyName": "termos-mug-c-29da",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Termos, Mug"
+    },
+    {
+      "id": 20000000001264,
+      "name": "Kullan At Ürünler",
+      "prettyName": "kullan-at-urunler-c-4f0",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Kullan At Ürünler"
+    },
+    {
+      "id": 20000000070481,
+      "name": "Buzdolabı Poşeti",
+      "prettyName": "buzdolabi-poseti-c-11351",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Mutfak Sarf Malzemesi > Buzdolabı Poşeti"
+    },
+    {
+      "id": 20000000070484,
+      "name": "Alüminyum Folyo",
+      "prettyName": "aluminyum-folyo-c-11354",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Mutfak Sarf Malzemesi > Alüminyum Folyo"
+    },
+    {
+      "id": 20000000070487,
+      "name": "Streç Film",
+      "prettyName": "strec-film-c-11357",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Mutfak Sarf Malzemesi > Streç Film"
+    },
+    {
+      "id": 20000000070485,
+      "name": "Pişirme Kağıdı",
+      "prettyName": "pisirme-kagidi-c-11355",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Mutfak Sarf Malzemesi > Pişirme Kağıdı"
+    },
+    {
+      "id": 20000000070486,
+      "name": "Fırın Torbası",
+      "prettyName": "firin-torbasi-c-11356",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Mutfak Sarf Malzemesi > Fırın Torbası"
+    },
+    {
+      "id": 20000000070482,
+      "name": "Mutfak Sarf Malzeme Seti",
+      "prettyName": "mutfak-sarf-malzeme-seti-c-11352",
+      "path": "Ev, Yaşam > Mutfak Eşyaları > Mutfak Sarf Malzemesi > Mutfak Sarf Malzeme Seti"
+    },
+    {
+      "id": 20000000010750,
+      "name": "Yılbaşı Ağacı Süsleri",
+      "prettyName": "yilbasi-agaci-susleri-c-29fe",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Yılbaşı Malzemeleri > Yılbaşı Ağacı Süsleri"
+    },
+    {
+      "id": 20000000010749,
+      "name": "Şapka ve Maskeler",
+      "prettyName": "sapka-ve-maskeler-c-29fd",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Yılbaşı Malzemeleri > Şapka ve Maskeler"
+    },
+    {
+      "id": 20000000010741,
+      "name": "Balon",
+      "prettyName": "balon-c-29f5",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Parti Malzemeleri > Balon"
+    },
+    {
+      "id": 20000000071206,
+      "name": "Bayrak",
+      "prettyName": "bayrak-c-11626",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Parti Malzemeleri > Bayrak"
+    },
+    {
+      "id": 20000000010744,
+      "name": "Hediye Kutusu",
+      "prettyName": "hediye-kutusu-c-29f8",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Parti Malzemeleri > Hediye Kutusu"
+    },
+    {
+      "id": 20000000010747,
+      "name": "Aydınlatma, Mumlar",
+      "prettyName": "aydinlatma-mumlar-c-29fb",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Parti Malzemeleri > Aydınlatma, Mumlar"
+    },
+    {
+      "id": 20000000010746,
+      "name": "Parti Kullan At Ürünleri",
+      "prettyName": "parti-kullan-at-urunleri-c-29fa",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Parti Malzemeleri > Parti Kullan At Ürünleri"
+    },
+    {
+      "id": 20000000010884,
+      "name": "Şezlong, Salıncak",
+      "prettyName": "sezlong-salincak-c-2a84",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Bahçe Mobilyası > Şezlong, Salıncak"
+    },
+    {
+      "id": 20000000010885,
+      "name": "Plaj, Bahçe, Tente",
+      "prettyName": "plaj-bahce-tente-c-2a85",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Bahçe Mobilyası > Plaj, Bahçe, Tente"
+    },
+    {
+      "id": 20000000010886,
+      "name": "Sandalye, Sehpa",
+      "prettyName": "sandalye-sehpa-c-2a86",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Bahçe Mobilyası > Sandalye, Sehpa"
+    },
+    {
+      "id": 20000000010893,
+      "name": "Ev Düzenleme",
+      "prettyName": "ev-duzenleme-c-2a8d",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Ev, Ofis Mobilyaları > Ev Düzenleme"
+    },
+    {
+      "id": 20000000010894,
+      "name": "Raflar",
+      "prettyName": "raflar-c-2a8e",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Ev, Ofis Mobilyaları > Raflar"
+    },
+    {
+      "id": 20000000001294,
+      "name": "Dekoratif Ürünler",
+      "prettyName": "dekoratif-urunler-c-50e",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Dekoratif Ürünler"
+    },
+    {
+      "id": 20000000010898,
+      "name": "Çerçeve",
+      "prettyName": "cerceve-c-2a92",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Çerçeve"
+    },
+    {
+      "id": 20000000070662,
+      "name": "Mum",
+      "prettyName": "mum-c-11406",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Mum ve Mumluk > Mum"
+    },
+    {
+      "id": 20000000070663,
+      "name": "Mumluk",
+      "prettyName": "mumluk-c-11407",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Mum ve Mumluk > Mumluk"
+    },
+    {
+      "id": 20000000070660,
+      "name": "Magnet",
+      "prettyName": "magnet-c-11404",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Magnet"
+    },
+    {
+      "id": 20000000070664,
+      "name": "Küllük",
+      "prettyName": "kulluk-c-11408",
+      "path": "Ev, Yaşam > Mobilya, Dekorasyon > Küllük"
+    },
+    {
+      "id": 20000000071913,
+      "name": "Çiçekler",
+      "prettyName": "cicekler-c-118e9",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Çiçekler"
+    },
+    {
+      "id": 20000000010772,
+      "name": "Saksı",
+      "prettyName": "saksi-c-2a14",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Saksı"
+    },
+    {
+      "id": 20000000070666,
+      "name": "Toprak",
+      "prettyName": "toprak-c-1140a",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Toprak"
+    },
+    {
+      "id": 20000000070667,
+      "name": "Tohum, Bitki Besini",
+      "prettyName": "tohum-bitki-besini-c-1140b",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Tohum, Bitki Besini"
+    },
+    {
+      "id": 20000000010773,
+      "name": "Bahçe Aksesuarları",
+      "prettyName": "bahce-aksesuarlari-c-2a15",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Bahçe Aksesuarları"
+    },
+    {
+      "id": 20000000001284,
+      "name": "Piknik Ürünleri",
+      "prettyName": "piknik-urunleri-c-504",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Piknik Ürünleri"
+    },
+    {
+      "id": 20000000070670,
+      "name": "Mangal",
+      "prettyName": "mangal-c-1140e",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Mangal, Barbekü > Mangal"
+    },
+    {
+      "id": 20000000070671,
+      "name": "Mangal Aksesuarı",
+      "prettyName": "mangal-aksesuari-c-1140f",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Mangal, Barbekü > Mangal Aksesuarı"
+    },
+    {
+      "id": 20000000070672,
+      "name": "Kömür",
+      "prettyName": "komur-c-11410",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Mangal, Barbekü > Kömür"
+    },
+    {
+      "id": 20000000070673,
+      "name": "Odun",
+      "prettyName": "odun-c-11411",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Mangal, Barbekü > Odun"
+    },
+    {
+      "id": 20000000070674,
+      "name": "Tutuşturucu",
+      "prettyName": "tutusturucu-c-11412",
+      "path": "Ev, Yaşam > Bahçe ve Piknik Malzemeleri > Mangal, Barbekü > Tutuşturucu"
+    },
+    {
+      "id": 20000000010732,
+      "name": "Top",
+      "prettyName": "top-c-29ec",
+      "path": "Ev, Yaşam > Spor, Outdoor > Spor Malzemeleri > Top"
+    },
+    {
+      "id": 20000000010733,
+      "name": "Pilates Aletleri",
+      "prettyName": "pilates-aletleri-c-29ed",
+      "path": "Ev, Yaşam > Spor, Outdoor > Spor Malzemeleri > Pilates Aletleri"
+    },
+    {
+      "id": 20000000010734,
+      "name": "Fitness Aletleri",
+      "prettyName": "fitness-aletleri-c-29ee",
+      "path": "Ev, Yaşam > Spor, Outdoor > Spor Malzemeleri > Fitness Aletleri"
+    },
+    {
+      "id": 20000000010739,
+      "name": "Spor Aksesuarları",
+      "prettyName": "spor-aksesuarlari-c-29f3",
+      "path": "Ev, Yaşam > Spor, Outdoor > Spor Malzemeleri > Spor Aksesuarları"
+    },
+    {
+      "id": 20000000070695,
+      "name": "Bisiklet Aksesuarları",
+      "prettyName": "bisiklet-aksesuarlari-c-11427",
+      "path": "Ev, Yaşam > Spor, Outdoor > Spor Malzemeleri > Bisiklet Aksesuarları"
+    },
+    {
+      "id": 20000000001273,
+      "name": "Valiz",
+      "prettyName": "valiz-c-4f9",
+      "path": "Ev, Yaşam > Spor, Outdoor > Valiz"
+    },
+    {
+      "id": 20000000073842,
+      "name": "Kamp Sandalyesi",
+      "prettyName": "kamp-sandalyesi-c-12072",
+      "path": "Ev, Yaşam > Spor, Outdoor > Kamp Malzemeleri > Kamp Sandalyesi"
+    },
+    {
+      "id": 20000000010777,
+      "name": "Kamp Çadırı",
+      "prettyName": "kamp-cadiri-c-2a19",
+      "path": "Ev, Yaşam > Spor, Outdoor > Kamp Malzemeleri > Kamp Çadırı"
+    },
+    {
+      "id": 20000000010778,
+      "name": "Uyku Tulumu",
+      "prettyName": "uyku-tulumu-c-2a1a",
+      "path": "Ev, Yaşam > Spor, Outdoor > Kamp Malzemeleri > Uyku Tulumu"
+    },
+    {
+      "id": 20000000010779,
+      "name": "Kamp Aksesuarları",
+      "prettyName": "kamp-aksesuarlari-c-2a1b",
+      "path": "Ev, Yaşam > Spor, Outdoor > Kamp Malzemeleri > Kamp Aksesuarları"
+    },
+    {
+      "id": 20000000073654,
+      "name": "Kamp Masası",
+      "prettyName": "kamp-masasi-c-11fb6",
+      "path": "Ev, Yaşam > Spor, Outdoor > Kamp Malzemeleri > Kamp Masası"
+    },
+    {
+      "id": 20000000001274,
+      "name": "Çantalar",
+      "prettyName": "cantalar-c-4fa",
+      "path": "Ev, Yaşam > Spor, Outdoor > Çantalar"
+    },
+    {
+      "id": 20000000001275,
+      "name": "Seyahat Aksesuarları",
+      "prettyName": "seyahat-aksesuarlari-c-4fb",
+      "path": "Ev, Yaşam > Spor, Outdoor > Seyahat Aksesuarları"
+    },
+    {
+      "id": 20000000010753,
+      "name": "Deniz Yatakları, Botlar",
+      "prettyName": "deniz-yataklari-botlar-c-2a01",
+      "path": "Ev, Yaşam > Spor, Outdoor > Deniz, Havuz Ürünleri > Deniz Yatakları, Botlar"
+    },
+    {
+      "id": 20000000010754,
+      "name": "Kolluk, Simit, Yelek",
+      "prettyName": "kolluk-simit-yelek-c-2a02",
+      "path": "Ev, Yaşam > Spor, Outdoor > Deniz, Havuz Ürünleri > Kolluk, Simit, Yelek"
+    },
+    {
+      "id": 20000000010755,
+      "name": "Şişme Havuz",
+      "prettyName": "sisme-havuz-c-2a03",
+      "path": "Ev, Yaşam > Spor, Outdoor > Deniz, Havuz Ürünleri > Şişme Havuz"
+    },
+    {
+      "id": 20000000010756,
+      "name": "Deniz, Havuz Aksesuarları",
+      "prettyName": "deniz-havuz-aksesuarlari-c-2a04",
+      "path": "Ev, Yaşam > Spor, Outdoor > Deniz, Havuz Ürünleri > Deniz, Havuz Aksesuarları"
+    },
+    {
+      "id": 20000000070677,
+      "name": "Alez",
+      "prettyName": "alez-c-11415",
+      "path": "Ev, Yaşam > Ev Tekstili > Yatak Tekstili > Alez"
+    },
+    {
+      "id": 20000000070678,
+      "name": "Battaniye",
+      "prettyName": "battaniye-c-11416",
+      "path": "Ev, Yaşam > Ev Tekstili > Yatak Tekstili > Battaniye"
+    },
+    {
+      "id": 20000000070679,
+      "name": "Çarşaf",
+      "prettyName": "carsaf-c-11417",
+      "path": "Ev, Yaşam > Ev Tekstili > Yatak Tekstili > Çarşaf"
+    },
+    {
+      "id": 20000000070684,
+      "name": "Yastık",
+      "prettyName": "yastik-c-1141c",
+      "path": "Ev, Yaşam > Ev Tekstili > Yatak Tekstili > Yastık"
+    },
+    {
+      "id": 20000000070683,
+      "name": "Pike",
+      "prettyName": "pike-c-1141b",
+      "path": "Ev, Yaşam > Ev Tekstili > Yatak Tekstili > Pike"
+    },
+    {
+      "id": 20000000070685,
+      "name": "Yatak",
+      "prettyName": "yatak-c-1141d",
+      "path": "Ev, Yaşam > Ev Tekstili > Yatak Tekstili > Yatak"
+    },
+    {
+      "id": 20000000070687,
+      "name": "Yorgan",
+      "prettyName": "yorgan-c-1141f",
+      "path": "Ev, Yaşam > Ev Tekstili > Yatak Tekstili > Yorgan"
+    },
+    {
+      "id": 20000000010878,
+      "name": "Banyo Paspası",
+      "prettyName": "banyo-paspasi-c-2a7e",
+      "path": "Ev, Yaşam > Ev Tekstili > Banyo Paspası"
+    },
+    {
+      "id": 20000000070680,
+      "name": "Hurç",
+      "prettyName": "hurc-c-11418",
+      "path": "Ev, Yaşam > Ev Tekstili > Hurç"
+    },
+    {
+      "id": 20000000010880,
+      "name": "Havlu",
+      "prettyName": "havlu-c-2a80",
+      "path": "Ev, Yaşam > Ev Tekstili > Havlu"
+    },
+    {
+      "id": 20000000010879,
+      "name": "Dikiş Örgü",
+      "prettyName": "dikis-orgu-c-2a7f",
+      "path": "Ev, Yaşam > Ev Tekstili > Dikiş Örgü"
+    },
+    {
+      "id": 20000000010881,
+      "name": "Mutfak Tekstili",
+      "prettyName": "mutfak-tekstili-c-2a81",
+      "path": "Ev, Yaşam > Ev Tekstili > Mutfak Tekstili"
+    },
+    {
+      "id": 20000000010788,
+      "name": "Kadın Deniz Ayakkabısı",
+      "prettyName": "kadin-deniz-ayakkabisi-c-2a24",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Kadın Deniz Ayakkabısı"
+    },
+    {
+      "id": 20000000010790,
+      "name": "Erkek Deniz Ayakkabısı",
+      "prettyName": "erkek-deniz-ayakkabisi-c-2a26",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Erkek Deniz Ayakkabısı"
+    },
+    {
+      "id": 20000000010789,
+      "name": "Çocuk Deniz Ayakkabısı",
+      "prettyName": "cocuk-deniz-ayakkabisi-c-2a25",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Çocuk Deniz Ayakkabısı"
+    },
+    {
+      "id": 20000000010804,
+      "name": "Kadın Yazlık Terlik",
+      "prettyName": "kadin-yazlik-terlik-c-2a34",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Kadın Yazlık Terlik"
+    },
+    {
+      "id": 20000000010806,
+      "name": "Erkek Yazlık Terlik",
+      "prettyName": "erkek-yazlik-terlik-c-2a36",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Erkek Yazlık Terlik"
+    },
+    {
+      "id": 20000000010805,
+      "name": "Çocuk Yazlık Terlik",
+      "prettyName": "cocuk-yazlik-terlik-c-2a35",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Çocuk Yazlık Terlik"
+    },
+    {
+      "id": 20000000010808,
+      "name": "Kadın Kışlık Terlik",
+      "prettyName": "kadin-kislik-terlik-c-2a38",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Kadın Kışlık Terlik"
+    },
+    {
+      "id": 20000000010810,
+      "name": "Erkek Kışlık Terlik",
+      "prettyName": "erkek-kislik-terlik-c-2a3a",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Erkek Kışlık Terlik"
+    },
+    {
+      "id": 20000000010809,
+      "name": "Çocuk Kışlık Terlik",
+      "prettyName": "cocuk-kislik-terlik-c-2a39",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Çocuk Kışlık Terlik"
+    },
+    {
+      "id": 20000000010812,
+      "name": "Kadın 4 Mevsim Terlik",
+      "prettyName": "kadin-4-mevsim-terlik-c-2a3c",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Kadın 4 Mevsim Terlik"
+    },
+    {
+      "id": 20000000010814,
+      "name": "Erkek 4 Mevsim Terlik",
+      "prettyName": "erkek-4-mevsim-terlik-c-2a3e",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Erkek 4 Mevsim Terlik"
+    },
+    {
+      "id": 20000000010813,
+      "name": "Çocuk 4 Mevsim Terlik",
+      "prettyName": "cocuk-4-mevsim-terlik-c-2a3d",
+      "path": "Ev, Yaşam > Giyim > Ayakkabı, Terlik > Çocuk 4 Mevsim Terlik"
+    },
+    {
+      "id": 20000000010871,
+      "name": "Kadın Giyim",
+      "prettyName": "kadin-giyim-c-2a77",
+      "path": "Ev, Yaşam > Giyim > Kadın Giyim"
+    },
+    {
+      "id": 20000000010872,
+      "name": "Erkek Giyim",
+      "prettyName": "erkek-giyim-c-2a78",
+      "path": "Ev, Yaşam > Giyim > Erkek Giyim"
+    },
+    {
+      "id": 20000000010869,
+      "name": "Çocuk Giyim",
+      "prettyName": "cocuk-giyim-c-2a75",
+      "path": "Ev, Yaşam > Giyim > Çocuk Giyim"
+    },
+    {
+      "id": 20000000010817,
+      "name": "Kadın Atlet, Fanila",
+      "prettyName": "kadin-atlet-fanila-c-2a41",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Atlet, Fanila"
+    },
+    {
+      "id": 20000000010865,
+      "name": "Kadın Ev Giyim",
+      "prettyName": "kadin-ev-giyim-c-2a71",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Ev Giyim"
+    },
+    {
+      "id": 20000000010819,
+      "name": "Erkek Atlet, Fanila",
+      "prettyName": "erkek-atlet-fanila-c-2a43",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Atlet, Fanila"
+    },
+    {
+      "id": 20000000010866,
+      "name": "Çocuk Ev Giyim",
+      "prettyName": "cocuk-ev-giyim-c-2a72",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Çocuk Ev Giyim"
+    },
+    {
+      "id": 20000000010823,
+      "name": "Erkek Boxer",
+      "prettyName": "erkek-boxer-c-2a47",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Boxer"
+    },
+    {
+      "id": 20000000010829,
+      "name": "Kadın Paketli Alt Çamaşır",
+      "prettyName": "kadin-paketli-alt-camasir-c-2a4d",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Paketli Alt Çamaşır"
+    },
+    {
+      "id": 20000000010839,
+      "name": "Kadın Slip",
+      "prettyName": "kadin-slip-c-2a57",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Slip"
+    },
+    {
+      "id": 20000000010841,
+      "name": "Erkek Slip",
+      "prettyName": "erkek-slip-c-2a59",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Slip"
+    },
+    {
+      "id": 20000000071968,
+      "name": "İç Giyim Aksesuar",
+      "prettyName": "ic-giyim-aksesuar-c-11920",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > İç Giyim Aksesuar"
+    },
+    {
+      "id": 20000000010845,
+      "name": "Kadın Paketli Çorap",
+      "prettyName": "kadin-paketli-corap-c-2a5d",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Paketli Çorap"
+    },
+    {
+      "id": 20000000010847,
+      "name": "Erkek Paketli Çorap",
+      "prettyName": "erkek-paketli-corap-c-2a5f",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Paketli Çorap"
+    },
+    {
+      "id": 20000000010848,
+      "name": "Dizaltı İnce Çorap",
+      "prettyName": "dizalti-ince-corap-c-2a60",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Dizaltı İnce Çorap"
+    },
+    {
+      "id": 20000000010850,
+      "name": "Külotlu İnce Çorap",
+      "prettyName": "kulotlu-ince-corap-c-2a62",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Külotlu İnce Çorap"
+    },
+    {
+      "id": 20000000010851,
+      "name": "Paketli Külotlu Çorap",
+      "prettyName": "paketli-kulotlu-corap-c-2a63",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Paketli Külotlu Çorap"
+    },
+    {
+      "id": 20000000010853,
+      "name": "Kadın Patik",
+      "prettyName": "kadin-patik-c-2a65",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Patik"
+    },
+    {
+      "id": 20000000010855,
+      "name": "Erkek Patik",
+      "prettyName": "erkek-patik-c-2a67",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Patik"
+    },
+    {
+      "id": 20000000010856,
+      "name": "Kadın Soket Çorap",
+      "prettyName": "kadin-soket-corap-c-2a68",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Soket Çorap"
+    },
+    {
+      "id": 20000000010858,
+      "name": "Erkek Soket Çorap",
+      "prettyName": "erkek-soket-corap-c-2a6a",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Soket Çorap"
+    },
+    {
+      "id": 20000000010857,
+      "name": "Çocuk Soket Çorap",
+      "prettyName": "cocuk-soket-corap-c-2a69",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Çocuk Soket Çorap"
+    },
+    {
+      "id": 20000000010859,
+      "name": "Kadın  Suba Çorap",
+      "prettyName": "kadin-suba-corap-c-2a6b",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın  Suba Çorap"
+    },
+    {
+      "id": 20000000010861,
+      "name": "Erkek Suba Çorap",
+      "prettyName": "erkek-suba-corap-c-2a6d",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Suba Çorap"
+    },
+    {
+      "id": 20000000010862,
+      "name": "Kadın Termal Çorap",
+      "prettyName": "kadin-termal-corap-c-2a6e",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Kadın Termal Çorap"
+    },
+    {
+      "id": 20000000010864,
+      "name": "Erkek Termal Çorap",
+      "prettyName": "erkek-termal-corap-c-2a70",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Erkek Termal Çorap"
+    },
+    {
+      "id": 20000000010863,
+      "name": "Çocuk Termal Çorap",
+      "prettyName": "cocuk-termal-corap-c-2a6f",
+      "path": "Ev, Yaşam > Giyim > İç Giyim > Çocuk Termal Çorap"
+    },
+    {
+      "id": 20000000010874,
+      "name": "Deniz Şortu",
+      "prettyName": "deniz-sortu-c-2a7a",
+      "path": "Ev, Yaşam > Giyim > Plaj Giyim > Deniz Şortu"
+    },
+    {
+      "id": 20000000010875,
+      "name": "Mayo",
+      "prettyName": "mayo-c-2a7b",
+      "path": "Ev, Yaşam > Giyim > Plaj Giyim > Mayo"
+    },
+    {
+      "id": 20000000010876,
+      "name": "Bikini",
+      "prettyName": "bikini-c-2a7c",
+      "path": "Ev, Yaşam > Giyim > Plaj Giyim > Bikini"
+    },
+    {
+      "id": 20000000010877,
+      "name": "Pareo",
+      "prettyName": "pareo-c-2a7d",
+      "path": "Ev, Yaşam > Giyim > Plaj Giyim > Pareo"
+    },
+    {
+      "id": 20000000010873,
+      "name": "Aksesuar, Çanta",
+      "prettyName": "aksesuar-canta-c-2a79",
+      "path": "Ev, Yaşam > Giyim > Aksesuar > Aksesuar, Çanta"
+    },
+    {
+      "id": 20000000010962,
+      "name": "Pil",
+      "prettyName": "pil-c-2ad2",
+      "path": "Ev, Yaşam > Pil"
+    },
+    {
+      "id": 20000000010952,
+      "name": "Ampul",
+      "prettyName": "ampul-c-2ac8",
+      "path": "Ev, Yaşam > Ampul"
+    },
+    {
+      "id": 20000000010760,
+      "name": "Takım Çantası",
+      "prettyName": "takim-cantasi-c-2a08",
+      "path": "Ev, Yaşam > Hırdavat > Takım Çantası"
+    },
+    {
+      "id": 20000000070195,
+      "name": "Priz",
+      "prettyName": "priz-c-11233",
+      "path": "Ev, Yaşam > Hırdavat > Priz"
+    },
+    {
+      "id": 20000000071776,
+      "name": "Koli Bandı",
+      "prettyName": "koli-bandi-c-11860",
+      "path": "Ev, Yaşam > Hırdavat > Koli Bandı"
+    },
+    {
+      "id": 20000000010762,
+      "name": "Yapıştırıcılar, İzolasyon Ürünleri",
+      "prettyName": "yapistiricilar-izolasyon-urunleri-c-2a0a",
+      "path": "Ev, Yaşam > Hırdavat > Yapıştırıcılar, İzolasyon Ürünleri"
+    },
+    {
+      "id": 20000000010763,
+      "name": "Boya Ürünleri",
+      "prettyName": "boya-urunleri-c-2a0b",
+      "path": "Ev, Yaşam > Hırdavat > Boya Ürünleri"
+    },
+    {
+      "id": 20000000010764,
+      "name": "Çivi Ve Vidalama Ürünleri",
+      "prettyName": "civi-ve-vidalama-urunleri-c-2a0c",
+      "path": "Ev, Yaşam > Hırdavat > Çivi Ve Vidalama Ürünleri"
+    },
+    {
+      "id": 20000000010765,
+      "name": "El Aletleri",
+      "prettyName": "el-aletleri-c-2a0d",
+      "path": "Ev, Yaşam > Hırdavat > El Aletleri"
+    },
+    {
+      "id": 20000000010766,
+      "name": "İp, Halat, Lastik, Tel",
+      "prettyName": "ip-halat-lastik-tel-c-2a0e",
+      "path": "Ev, Yaşam > Hırdavat > İp, Halat, Lastik, Tel"
+    },
+    {
+      "id": 20000000010767,
+      "name": "Parlatıcılar , Kimyasallar",
+      "prettyName": "parlaticilar-kimyasallar-c-2a0f",
+      "path": "Ev, Yaşam > Hırdavat > Parlatıcılar , Kimyasallar"
+    },
+    {
+      "id": 20000000010769,
+      "name": "Pratik Ürünler",
+      "prettyName": "pratik-urunler-c-2a11",
+      "path": "Ev, Yaşam > Hırdavat > Pratik Ürünler"
+    },
+    {
+      "id": 20000000010770,
+      "name": "Kilit Ve Emniyet Gereçleri",
+      "prettyName": "kilit-ve-emniyet-gerecleri-c-2a12",
+      "path": "Ev, Yaşam > Hırdavat > Kilit Ve Emniyet Gereçleri"
+    },
+    {
+      "id": 20000000071851,
+      "name": "Oto Bakım PNR",
+      "prettyName": "oto-bakim-pnr-c-118ab",
+      "path": "Ev, Yaşam > Oto Aksesuar > Oto PNR > Oto Bakım PNR"
+    },
+    {
+      "id": 20000000010757,
+      "name": "Oto Bakım Ürünleri",
+      "prettyName": "oto-bakim-urunleri-c-2a05",
+      "path": "Ev, Yaşam > Oto Aksesuar > Oto Bakım Ürünleri"
+    },
+    {
+      "id": 20000000010758,
+      "name": "Oto Emniyet Ürünleri",
+      "prettyName": "oto-emniyet-urunleri-c-2a06",
+      "path": "Ev, Yaşam > Oto Aksesuar > Oto Emniyet Ürünleri"
+    },
+    {
+      "id": 20000000010504,
+      "name": "Oto Kokusu",
+      "prettyName": "oto-kokusu-c-2908",
+      "path": "Ev, Yaşam > Oto Aksesuar > Oto Kokusu"
+    },
+    {
+      "id": 20000000010759,
+      "name": "Oto Aksesuarları",
+      "prettyName": "oto-aksesuarlari-c-2a07",
+      "path": "Ev, Yaşam > Oto Aksesuar > Oto Aksesuarları"
+    },
+    {
+      "id": 20000000070675,
+      "name": "Çakmak",
+      "prettyName": "cakmak-c-11413",
+      "path": "Ev, Yaşam > Çakmak"
+    },
+    {
+      "id": 20000000071847,
+      "name": "Etkinlik PNR",
+      "prettyName": "etkinlik-pnr-c-118a7",
+      "path": "Ev, Yaşam > Dijital Kodlar, Kartlar > Etkinlik PNR"
+    },
+    {
+      "id": 20000000071849,
+      "name": "Kupon, Hediye Kart",
+      "prettyName": "kupon-hediye-kart-c-118a9",
+      "path": "Ev, Yaşam > Dijital Kodlar, Kartlar > Kupon, Hediye Kart"
+    },
+    {
+      "id": 20000000010904,
+      "name": "Edebiyat",
+      "prettyName": "edebiyat-c-2a98",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Edebiyat"
+    },
+    {
+      "id": 20000000010905,
+      "name": "Fantastik, Bilim Kurgu",
+      "prettyName": "fantastik-bilim-kurgu-c-2a99",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Fantastik, Bilim Kurgu"
+    },
+    {
+      "id": 20000000071812,
+      "name": "Araştırma, Tarih",
+      "prettyName": "arastirma-tarih-c-11884",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Araştırma, Tarih"
+    },
+    {
+      "id": 20000000010907,
+      "name": "Din, Mitoloji",
+      "prettyName": "din-mitoloji-c-2a9b",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Din, Mitoloji"
+    },
+    {
+      "id": 20000000071813,
+      "name": "Kişisel Gelişim",
+      "prettyName": "kisisel-gelisim-c-11885",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Kişisel Gelişim"
+    },
+    {
+      "id": 20000000010909,
+      "name": "Sağlık Kitapları",
+      "prettyName": "saglik-kitaplari-c-2a9d",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Sağlık Kitapları"
+    },
+    {
+      "id": 20000000071815,
+      "name": "Sanat, Tasarım",
+      "prettyName": "sanat-tasarim-c-11887",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Sanat, Tasarım"
+    },
+    {
+      "id": 20000000071814,
+      "name": "Çizgi Roman, Mizah",
+      "prettyName": "cizgi-roman-mizah-c-11886",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Yetişkin Kitapları > Çizgi Roman, Mizah"
+    },
+    {
+      "id": 20000000010911,
+      "name": "Gençlik Kitapları",
+      "prettyName": "genclik-kitaplari-c-2a9f",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Çocuk Kitapları > Gençlik Kitapları"
+    },
+    {
+      "id": 20000000010912,
+      "name": "Boyama, Aktivite",
+      "prettyName": "boyama-aktivite-c-2aa0",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Çocuk Kitapları > Boyama, Aktivite"
+    },
+    {
+      "id": 20000000010916,
+      "name": "Öykü, Masal",
+      "prettyName": "oyku-masal-c-2aa4",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Çocuk Kitapları > Öykü, Masal"
+    },
+    {
+      "id": 20000000010915,
+      "name": "Fantastik, Çizgi Roman",
+      "prettyName": "fantastik-cizgi-roman-c-2aa3",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Çocuk Kitapları > Fantastik, Çizgi Roman"
+    },
+    {
+      "id": 20000000010917,
+      "name": "Özel Çocuk Kitapları",
+      "prettyName": "ozel-cocuk-kitaplari-c-2aa5",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Çocuk Kitapları > Özel Çocuk Kitapları"
+    },
+    {
+      "id": 20000000010919,
+      "name": "Çocuk Dergisi",
+      "prettyName": "cocuk-dergisi-c-2aa7",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Çocuk Dergisi"
+    },
+    {
+      "id": 20000000071828,
+      "name": "Gençlik Dergisi",
+      "prettyName": "genclik-dergisi-c-11894",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Gençlik Dergisi"
+    },
+    {
+      "id": 20000000071825,
+      "name": "Kadın Dergileri",
+      "prettyName": "kadin-dergileri-c-11891",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Kadın Dergileri"
+    },
+    {
+      "id": 20000000071826,
+      "name": "Magazin Dergisi",
+      "prettyName": "magazin-dergisi-c-11892",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Magazin Dergisi"
+    },
+    {
+      "id": 20000000071817,
+      "name": "Dekorasyon Dergisi",
+      "prettyName": "dekorasyon-dergisi-c-11889",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Dekorasyon Dergisi"
+    },
+    {
+      "id": 20000000071823,
+      "name": "Yemek Dergisi",
+      "prettyName": "yemek-dergisi-c-1188f",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Yemek Dergisi"
+    },
+    {
+      "id": 20000000071820,
+      "name": "Mizah Dergisi",
+      "prettyName": "mizah-dergisi-c-1188c",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Mizah Dergisi"
+    },
+    {
+      "id": 20000000071821,
+      "name": "Oto Dergisi",
+      "prettyName": "oto-dergisi-c-1188d",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Oto Dergisi"
+    },
+    {
+      "id": 20000000071822,
+      "name": "Spor Dergisi",
+      "prettyName": "spor-dergisi-c-1188e",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Spor Dergisi"
+    },
+    {
+      "id": 20000000010920,
+      "name": "Bilim, Teknoloji",
+      "prettyName": "bilim-teknoloji-c-2aa8",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Bilim, Teknoloji"
+    },
+    {
+      "id": 20000000071827,
+      "name": "İş Dünyası, Ekonomi",
+      "prettyName": "is-dunyasi-ekonomi-c-11893",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > İş Dünyası, Ekonomi"
+    },
+    {
+      "id": 20000000071818,
+      "name": "Gezi Dergisi",
+      "prettyName": "gezi-dergisi-c-1188a",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Gezi Dergisi"
+    },
+    {
+      "id": 20000000010921,
+      "name": "Kültür, Sanat Dergisi",
+      "prettyName": "kultur-sanat-dergisi-c-2aa9",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Kültür, Sanat Dergisi"
+    },
+    {
+      "id": 20000000010922,
+      "name": "Hobi Dergisi",
+      "prettyName": "hobi-dergisi-c-2aaa",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Hobi Dergisi"
+    },
+    {
+      "id": 20000000010923,
+      "name": "Özel Dergiler",
+      "prettyName": "ozel-dergiler-c-2aab",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Dergiler > Özel Dergiler"
+    },
+    {
+      "id": 20000000001300,
+      "name": "Gazeteler",
+      "prettyName": "gazeteler-c-514",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kitap, Dergi, Gazete > Gazeteler"
+    },
+    {
+      "id": 20000000010928,
+      "name": "Okul Defteri",
+      "prettyName": "okul-defteri-c-2ab0",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Defter > Okul Defteri"
+    },
+    {
+      "id": 20000000010929,
+      "name": "Resim Defteri",
+      "prettyName": "resim-defteri-c-2ab1",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Defter > Resim Defteri"
+    },
+    {
+      "id": 20000000010930,
+      "name": "Özel Defterler",
+      "prettyName": "ozel-defterler-c-2ab2",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Defter > Özel Defterler"
+    },
+    {
+      "id": 20000000071807,
+      "name": "Müzik Defteri",
+      "prettyName": "muzik-defteri-c-1187f",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Defter > Müzik Defteri"
+    },
+    {
+      "id": 20000000071808,
+      "name": "Güzel Yazı Defteri",
+      "prettyName": "guzel-yazi-defteri-c-11880",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Defter > Güzel Yazı Defteri"
+    },
+    {
+      "id": 20000000071809,
+      "name": "Ajanda",
+      "prettyName": "ajanda-c-11881",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Defter > Ajanda"
+    },
+    {
+      "id": 20000000071801,
+      "name": "Kurşun Kalem",
+      "prettyName": "kursun-kalem-c-11879",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kalem > Kurşun Kalem"
+    },
+    {
+      "id": 20000000071803,
+      "name": "Tükenmez Kalem",
+      "prettyName": "tukenmez-kalem-c-1187b",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kalem > Tükenmez Kalem"
+    },
+    {
+      "id": 20000000070690,
+      "name": "Keçeli Kalem",
+      "prettyName": "keceli-kalem-c-11422",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kalem > Keçeli Kalem"
+    },
+    {
+      "id": 20000000071802,
+      "name": "Mekanik Uçlu, Versatil Kalem",
+      "prettyName": "mekanik-uclu-versatil-kalem-c-1187a",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kalem > Mekanik Uçlu, Versatil Kalem"
+    },
+    {
+      "id": 20000000071804,
+      "name": "Fosforlu Kalem, Markör",
+      "prettyName": "fosforlu-kalem-markor-c-1187c",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kalem > Fosforlu Kalem, Markör"
+    },
+    {
+      "id": 20000000071806,
+      "name": "Tahta Kalemi",
+      "prettyName": "tahta-kalemi-c-1187e",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kalem > Tahta Kalemi"
+    },
+    {
+      "id": 20000000070691,
+      "name": "Kuru Boya Kalemi",
+      "prettyName": "kuru-boya-kalemi-c-11423",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Boya, Boya Kalemi > Kuru Boya Kalemi"
+    },
+    {
+      "id": 20000000070692,
+      "name": "Pastel Boya",
+      "prettyName": "pastel-boya-c-11424",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Boya, Boya Kalemi > Pastel Boya"
+    },
+    {
+      "id": 20000000070693,
+      "name": "Sulu Boya",
+      "prettyName": "sulu-boya-c-11425",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Boya, Boya Kalemi > Sulu Boya"
+    },
+    {
+      "id": 20000000010940,
+      "name": "Fotokopi Kağıdı",
+      "prettyName": "fotokopi-kagidi-c-2abc",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kağıt > Fotokopi Kağıdı"
+    },
+    {
+      "id": 20000000071799,
+      "name": "Resim Kağıdı",
+      "prettyName": "resim-kagidi-c-11877",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kağıt > Resim Kağıdı"
+    },
+    {
+      "id": 20000000071797,
+      "name": "Not Kağıdı",
+      "prettyName": "not-kagidi-c-11875",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kağıt > Not Kağıdı"
+    },
+    {
+      "id": 20000000071798,
+      "name": "Yapışkanlı Not Kağıdı",
+      "prettyName": "yapiskanli-not-kagidi-c-11876",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kağıt > Yapışkanlı Not Kağıdı"
+    },
+    {
+      "id": 20000000071796,
+      "name": "Bloknot",
+      "prettyName": "bloknot-c-11874",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kağıt > Bloknot"
+    },
+    {
+      "id": 20000000071800,
+      "name": "El İşi Kağıdı",
+      "prettyName": "el-isi-kagidi-c-11878",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kağıt > El İşi Kağıdı"
+    },
+    {
+      "id": 20000000071794,
+      "name": "Karton",
+      "prettyName": "karton-c-11872",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Kağıt > Karton"
+    },
+    {
+      "id": 20000000010939,
+      "name": "Yapıştırıcı",
+      "prettyName": "yapistirici-c-2abb",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Yapıştırıcı"
+    },
+    {
+      "id": 20000000001303,
+      "name": "Dosyalama, Arşivleme",
+      "prettyName": "dosyalama-arsivleme-c-517",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Dosyalama, Arşivleme"
+    },
+    {
+      "id": 20000000001307,
+      "name": "Yazı Tahtası, Pano",
+      "prettyName": "yazi-tahtasi-pano-c-51b",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Yazı Tahtası, Pano"
+    },
+    {
+      "id": 20000000010931,
+      "name": "Okul Çantası",
+      "prettyName": "okul-cantasi-c-2ab3",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Okul Çantaları > Okul Çantası"
+    },
+    {
+      "id": 20000000071810,
+      "name": "Beslenme Çantası",
+      "prettyName": "beslenme-cantasi-c-11882",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Okul Çantaları > Beslenme Çantası"
+    },
+    {
+      "id": 20000000074234,
+      "name": "Suluk, Matara",
+      "prettyName": "suluk-matara-c-121fa",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Okul Çantaları > Suluk, Matara"
+    },
+    {
+      "id": 20000000070689,
+      "name": "Kalem Kutusu",
+      "prettyName": "kalem-kutusu-c-11421",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Okul Çantaları > Kalem Kutusu"
+    },
+    {
+      "id": 20000000071811,
+      "name": "Proje Resim Çantası",
+      "prettyName": "proje-resim-cantasi-c-11883",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Okul Çantaları > Proje Resim Çantası"
+    },
+    {
+      "id": 20000000010938,
+      "name": "Ofis Aksesuarları",
+      "prettyName": "ofis-aksesuarlari-c-2aba",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Ofis Aksesuarları"
+    },
+    {
+      "id": 20000000010943,
+      "name": "Okul Malzemeleri",
+      "prettyName": "okul-malzemeleri-c-2abf",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Okul Malzemeleri"
+    },
+    {
+      "id": 20000000010945,
+      "name": "Hobi Ürünleri",
+      "prettyName": "hobi-urunleri-c-2ac1",
+      "path": "Kitap, Kırtasiye, Oyuncak > Kırtasiye > Hobi Ürünleri"
+    },
+    {
+      "id": 20000000001255,
+      "name": "Kutu Oyunları",
+      "prettyName": "kutu-oyunlari-c-4e7",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Kutu Oyunları"
+    },
+    {
+      "id": 20000000001256,
+      "name": "Puzzle",
+      "prettyName": "puzzle-c-4e8",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Puzzle"
+    },
+    {
+      "id": 20000000001257,
+      "name": "Oyuncak Bebek",
+      "prettyName": "oyuncak-bebek-c-4e9",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Oyuncak Bebek"
+    },
+    {
+      "id": 20000000001260,
+      "name": "Peluş",
+      "prettyName": "pelus-c-4ec",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Peluş"
+    },
+    {
+      "id": 20000000010656,
+      "name": "Yapı Oyuncakları",
+      "prettyName": "yapi-oyuncaklari-c-29a0",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Yapı Oyuncakları"
+    },
+    {
+      "id": 20000000001258,
+      "name": "Eğitici Oyuncaklar",
+      "prettyName": "egitici-oyuncaklar-c-4ea",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Eğitici Oyuncaklar"
+    },
+    {
+      "id": 20000000010657,
+      "name": "Oyun Hamuru",
+      "prettyName": "oyun-hamuru-c-29a1",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Oyun Hamuru"
+    },
+    {
+      "id": 20000000001259,
+      "name": "Figür Oyuncak",
+      "prettyName": "figur-oyuncak-c-4eb",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Figür Oyuncak"
+    },
+    {
+      "id": 20000000010661,
+      "name": "Taşıtlar",
+      "prettyName": "tasitlar-c-29a5",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Oyuncak Araçlar > Taşıtlar"
+    },
+    {
+      "id": 20000000010662,
+      "name": "Uzaktan Kumandalı Taşıtlar",
+      "prettyName": "uzaktan-kumandali-tasitlar-c-29a6",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Oyuncak Araçlar > Uzaktan Kumandalı Taşıtlar"
+    },
+    {
+      "id": 20000000010663,
+      "name": "Üç Tekerlekli Bisiklet",
+      "prettyName": "uc-tekerlekli-bisiklet-c-29a7",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Üç Tekerlekli Bisiklet"
+    },
+    {
+      "id": 20000000010664,
+      "name": "Scooter",
+      "prettyName": "scooter-c-29a8",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Scooter"
+    },
+    {
+      "id": 20000000010668,
+      "name": "Toplar",
+      "prettyName": "toplar-c-29ac",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Toplar"
+    },
+    {
+      "id": 20000000010669,
+      "name": "Spor Oyuncakları",
+      "prettyName": "spor-oyuncaklari-c-29ad",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Spor Oyuncakları"
+    },
+    {
+      "id": 20000000010670,
+      "name": "Plaj Oyuncakları",
+      "prettyName": "plaj-oyuncaklari-c-29ae",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Plaj Oyuncakları"
+    },
+    {
+      "id": 20000000010671,
+      "name": "Yazlık Oyuncaklar",
+      "prettyName": "yazlik-oyuncaklar-c-29af",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Yazlık Oyuncaklar"
+    },
+    {
+      "id": 20000000070650,
+      "name": "Oyun Çadırı & Evi",
+      "prettyName": "oyun-cadiri-evi-c-113fa",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Oyun Çadırı & Evi"
+    },
+    {
+      "id": 20000000010676,
+      "name": "Oyuncak Silahlar",
+      "prettyName": "oyuncak-silahlar-c-29b4",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Açık Hava, Deniz, Spor > Oyuncak Silahlar"
+    },
+    {
+      "id": 20000000010678,
+      "name": "Kız Çocuk Oyun Setleri",
+      "prettyName": "kiz-cocuk-oyun-setleri-c-29b6",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Kız Çocuk Oyun Setleri"
+    },
+    {
+      "id": 20000000010677,
+      "name": "Erkek Çocuk Oyun Setleri",
+      "prettyName": "erkek-cocuk-oyun-setleri-c-29b5",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Erkek Çocuk Oyun Setleri"
+    },
+    {
+      "id": 20000000010627,
+      "name": "Diş Kaşıyıcı",
+      "prettyName": "dis-kasiyici-c-2983",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Bebek Oyuncağı > Diş Kaşıyıcı"
+    },
+    {
+      "id": 20000000010675,
+      "name": "Robot",
+      "prettyName": "robot-c-29b3",
+      "path": "Kitap, Kırtasiye, Oyuncak > Oyuncak > Robot"
+    },
+    {
+      "id": 20000000010775,
+      "name": "Canlı Bitki",
+      "prettyName": "canli-bitki-c-2a17",
+      "path": "Çiçek > Canlı Bitki"
+    },
+    {
+      "id": 20000000070661,
+      "name": "Yapay Çiçek",
+      "prettyName": "yapay-cicek-c-11405",
+      "path": "Çiçek > Yapay Çiçek"
+    },
+    {
+      "id": 20000000010718,
+      "name": "Kuru Köpek Maması",
+      "prettyName": "kuru-kopek-mamasi-c-29de",
+      "path": "Evcil Hayvan > Köpek > Köpek Maması > Kuru Köpek Maması"
+    },
+    {
+      "id": 20000000010996,
+      "name": "Yaş Köpek Maması",
+      "prettyName": "yas-kopek-mamasi-c-2af4",
+      "path": "Evcil Hayvan > Köpek > Köpek Maması > Yaş Köpek Maması"
+    },
+    {
+      "id": 20000000071203,
+      "name": "Köpek Ödül Maması",
+      "prettyName": "kopek-odul-mamasi-c-11623",
+      "path": "Evcil Hayvan > Köpek > Köpek Ödül Maması"
+    },
+    {
+      "id": 20000000010720,
+      "name": "Kuru Kedi Maması",
+      "prettyName": "kuru-kedi-mamasi-c-29e0",
+      "path": "Evcil Hayvan > Kedi > Kedi Maması > Kuru Kedi Maması"
+    },
+    {
+      "id": 20000000010997,
+      "name": "Yaş Kedi Maması",
+      "prettyName": "yas-kedi-mamasi-c-2af5",
+      "path": "Evcil Hayvan > Kedi > Kedi Maması > Yaş Kedi Maması"
+    },
+    {
+      "id": 20000000071204,
+      "name": "Kedi Ödül Maması",
+      "prettyName": "kedi-odul-mamasi-c-11624",
+      "path": "Evcil Hayvan > Kedi > Kedi Ödül Maması"
+    },
+    {
+      "id": 20000000010721,
+      "name": "Kedi Kumu",
+      "prettyName": "kedi-kumu-c-29e1",
+      "path": "Evcil Hayvan > Kedi > Kedi Kumu"
+    },
+    {
+      "id": 20000000010726,
+      "name": "Kuş Yemi",
+      "prettyName": "kus-yemi-c-29e6",
+      "path": "Evcil Hayvan > Kuş > Kuş Yemi"
+    },
+    {
+      "id": 20000000001270,
+      "name": "Pet Aksesuarları",
+      "prettyName": "pet-aksesuarlari-c-4f6",
+      "path": "Evcil Hayvan > Pet Aksesuarları"
+    },
+    {
+      "id": 20000000010973,
+      "name": "Telefon",
+      "prettyName": "telefon-c-2add",
+      "path": "Elektronik > Telefon ve Aksesuarları > Telefon"
+    },
+    {
+      "id": 20000000010974,
+      "name": "Telefon Aksesuarları",
+      "prettyName": "telefon-aksesuarlari-c-2ade",
+      "path": "Elektronik > Telefon ve Aksesuarları > Telefon Aksesuarları"
+    },
+    {
+      "id": 20000000010969,
+      "name": "Giyilebilir Aksesuar",
+      "prettyName": "giyilebilir-aksesuar-c-2ad9",
+      "path": "Elektronik > Telefon ve Aksesuarları > Giyilebilir Aksesuar"
+    },
+    {
+      "id": 20000000073856,
+      "name": "Tablet",
+      "prettyName": "tablet-c-12080",
+      "path": "Elektronik > Bilgisayar ve Aksesuarları > Tablet"
+    },
+    {
+      "id": 20000000010966,
+      "name": "Bilgisayar Aksesuarları",
+      "prettyName": "bilgisayar-aksesuarlari-c-2ad6",
+      "path": "Elektronik > Bilgisayar ve Aksesuarları > Bilgisayar Aksesuarları"
+    },
+    {
+      "id": 20000000071901,
+      "name": "Bulaşık Makinesi",
+      "prettyName": "bulasik-makinesi-c-118dd",
+      "path": "Elektronik > Beyaz Eşya > Bulaşık Makinesi"
+    },
+    {
+      "id": 20000000071902,
+      "name": "Buzdolabı",
+      "prettyName": "buzdolabi-c-118de",
+      "path": "Elektronik > Beyaz Eşya > Buzdolabı"
+    },
+    {
+      "id": 20000000071903,
+      "name": "Çamaşır Makinesi",
+      "prettyName": "camasir-makinesi-c-118df",
+      "path": "Elektronik > Beyaz Eşya > Çamaşır Makinesi"
+    },
+    {
+      "id": 20000000073709,
+      "name": "Kurutma Makinesi",
+      "prettyName": "kurutma-makinesi-c-11fed",
+      "path": "Elektronik > Beyaz Eşya > Kurutma Makinesi"
+    },
+    {
+      "id": 20000000070377,
+      "name": "Blender",
+      "prettyName": "blender-c-112e9",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Blender"
+    },
+    {
+      "id": 20000000070386,
+      "name": "Katı Meyve Sıkacağı",
+      "prettyName": "kati-meyve-sikacagi-c-112f2",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Katı Meyve Sıkacağı"
+    },
+    {
+      "id": 20000000070387,
+      "name": "Kettle",
+      "prettyName": "kettle-c-112f3",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Kettle"
+    },
+    {
+      "id": 20000000070390,
+      "name": "Mikrodalga Fırın",
+      "prettyName": "mikrodalga-firin-c-112f6",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Mikrodalga Fırın"
+    },
+    {
+      "id": 20000000070391,
+      "name": "Mikser",
+      "prettyName": "mikser-c-112f7",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Mikser"
+    },
+    {
+      "id": 20000000070399,
+      "name": "Tost Makinesi",
+      "prettyName": "tost-makinesi-c-112ff",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Tost Makinesi"
+    },
+    {
+      "id": 20000000070396,
+      "name": "Rondo",
+      "prettyName": "rondo-c-112fc",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Rondo"
+    },
+    {
+      "id": 20000000070403,
+      "name": "Su Sebili",
+      "prettyName": "su-sebili-c-11303",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Su Sebili"
+    },
+    {
+      "id": 20000000070376,
+      "name": "Diğer Küçük Ev Aletleri",
+      "prettyName": "diger-kucuk-ev-aletleri-c-112e8",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Küçük Ev Aletleri > Diğer Küçük Ev Aletleri"
+    },
+    {
+      "id": 20000000070472,
+      "name": "Çay Makinesi",
+      "prettyName": "cay-makinesi-c-11348",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Çay, Kahve Makineleri > Çay Makinesi"
+    },
+    {
+      "id": 20000000070473,
+      "name": "Kahve Makinesi",
+      "prettyName": "kahve-makinesi-c-11349",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Çay, Kahve Makineleri > Kahve Makinesi"
+    },
+    {
+      "id": 20000000072309,
+      "name": "Kahve Değirmeni & Baharat Öğütücü",
+      "prettyName": "kahve-degirmeni-baharat-ogutucu-c-11a75",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Çay, Kahve Makineleri > Kahve Değirmeni & Baharat Öğütücü"
+    },
+    {
+      "id": 20000000070405,
+      "name": "Baskül",
+      "prettyName": "baskul-c-11305",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Kişisel Bakım > Baskül"
+    },
+    {
+      "id": 20000000070406,
+      "name": "Epilatör",
+      "prettyName": "epilator-c-11306",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Kişisel Bakım > Epilatör"
+    },
+    {
+      "id": 20000000070407,
+      "name": "Masaj Aleti",
+      "prettyName": "masaj-aleti-c-11307",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Kişisel Bakım > Masaj Aleti"
+    },
+    {
+      "id": 20000000070408,
+      "name": "Saç Düzleştirici, Saç Maşası",
+      "prettyName": "sac-duzlestirici-sac-masasi-c-11308",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Kişisel Bakım > Saç Düzleştirici, Saç Maşası"
+    },
+    {
+      "id": 20000000070409,
+      "name": "Saç Kurutma Makinesi",
+      "prettyName": "sac-kurutma-makinesi-c-11309",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Kişisel Bakım > Saç Kurutma Makinesi"
+    },
+    {
+      "id": 20000000070410,
+      "name": "Saç, Sakal, Tüy Temizleme Makinesi",
+      "prettyName": "sac-sakal-tuy-temizleme-makinesi-c-1130a",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Kişisel Bakım > Saç, Sakal, Tüy Temizleme Makinesi"
+    },
+    {
+      "id": 20000000070412,
+      "name": "Güzellik ve Bakım Cihazları",
+      "prettyName": "guzellik-ve-bakim-cihazlari-c-1130c",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Kişisel Bakım > Güzellik ve Bakım Cihazları"
+    },
+    {
+      "id": 20000000074051,
+      "name": "Buharlı Ütü",
+      "prettyName": "buharli-utu-c-12143",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Ütü > Buharlı Ütü"
+    },
+    {
+      "id": 20000000070398,
+      "name": "Süpürge",
+      "prettyName": "supurge-c-112fe",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Süpürge"
+    },
+    {
+      "id": 20000000070379,
+      "name": "Dikiş Makinesi",
+      "prettyName": "dikis-makinesi-c-112eb",
+      "path": "Elektronik > Elektrikli Ev Aletleri > Dikiş Makinesi"
+    },
+    {
+      "id": 20000000010964,
+      "name": "Oyun Konsolları",
+      "prettyName": "oyun-konsollari-c-2ad4",
+      "path": "Elektronik > Oyun Konsolları"
+    },
+    {
+      "id": 20000000010970,
+      "name": "Televizyon",
+      "prettyName": "televizyon-c-2ada",
+      "path": "Elektronik > Görüntü ve Ses Sistemleri > Televizyon"
+    },
+    {
+      "id": 20000000070471,
+      "name": "Bluetooth Hoparlör",
+      "prettyName": "bluetooth-hoparlor-c-11347",
+      "path": "Elektronik > Görüntü ve Ses Sistemleri > Bluetooth Hoparlör"
+    },
+    {
+      "id": 20000000010971,
+      "name": "Müzik Sistemleri",
+      "prettyName": "muzik-sistemleri-c-2adb",
+      "path": "Elektronik > Görüntü ve Ses Sistemleri > Müzik Sistemleri"
+    },
+    {
+      "id": 20000000070465,
+      "name": "HDMI, Scart Kablo",
+      "prettyName": "hdmi-scart-kablo-c-11341",
+      "path": "Elektronik > Görüntü ve Ses Sistemleri > HDMI, Scart Kablo"
+    },
+    {
+      "id": 20000000070470,
+      "name": "Kulaklık",
+      "prettyName": "kulaklik-c-11346",
+      "path": "Elektronik > Görüntü ve Ses Sistemleri > Kulaklık"
+    },
+    {
+      "id": 20000000010976,
+      "name": "Foto, Kamera",
+      "prettyName": "foto-kamera-c-2ae0",
+      "path": "Elektronik > Foto, Kamera"
+    },
+    {
+      "id": 20000000001320,
+      "name": "Isıtıcılar",
+      "prettyName": "isiticilar-c-528",
+      "path": "Elektronik > Isıtma, Soğutma > Isıtıcılar"
+    },
+    {
+      "id": 20000000001321,
+      "name": "Vantilatör",
+      "prettyName": "vantilator-c-529",
+      "path": "Elektronik > Isıtma, Soğutma > Vantilatör"
+    },
+    {
+      "id": 20000000001322,
+      "name": "Hava Temizleyici, Nemlendirici",
+      "prettyName": "hava-temizleyici-nemlendirici-c-52a",
+      "path": "Elektronik > Isıtma, Soğutma > Hava Temizleyici, Nemlendirici"
+    },
+    {
+      "id": 20000000071908,
+      "name": "Şofben & Termosifon",
+      "prettyName": "sofben-termosifon-c-118e4",
+      "path": "Elektronik > Isıtma, Soğutma > Şofben & Termosifon"
+    },
+    {
+      "id": 20000000010953,
+      "name": "Masa Lambaları",
+      "prettyName": "masa-lambalari-c-2ac9",
+      "path": "Elektronik > Aydınlatma, Elektrik Malzemeleri > Masa Lambaları"
+    },
+    {
+      "id": 20000000070186,
+      "name": "Işıldak, El Feneri",
+      "prettyName": "isildak-el-feneri-c-1122a",
+      "path": "Elektronik > Aydınlatma, Elektrik Malzemeleri > Işıldak, El Feneri"
+    },
+    {
+      "id": 20000000010954,
+      "name": "Elektrik Aksesuarları",
+      "prettyName": "elektrik-aksesuarlari-c-2aca",
+      "path": "Elektronik > Aydınlatma, Elektrik Malzemeleri > Elektrik Aksesuarları"
+    },
+    {
+      "id": 20000000070609,
+      "name": "Sinek Kovucu",
+      "prettyName": "sinek-kovucu-c-113d1",
+      "path": "Elektronik > Aydınlatma, Elektrik Malzemeleri > Sinek Kovucu"
+    },
+    {
+      "id": 20000000010955,
+      "name": "Led Işık",
+      "prettyName": "led-isik-c-2acb",
+      "path": "Elektronik > Aydınlatma, Elektrik Malzemeleri > Led Işık"
+    }
+  ]
+}

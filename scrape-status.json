@@ -1,0 +1,25 @@
+{
+  "phase": "bitti",
+  "currentMarket": null,
+  "currentCategory": null,
+  "markets": {
+    "A101": {
+      "urunSayisi": 6607,
+      "hataSayisi": 0
+    },
+    "Migros": {
+      "urunSayisi": 11730,
+      "hataSayisi": 0
+    },
+    "Şok": {
+      "urunSayisi": 1198,
+      "hataSayisi": 0
+    }
+  },
+  "toplamUrun": 19535,
+  "toplamHata": 0,
+  "message": "Tarama bitti. Toplam 19535 ürün, 1430.9 sn.",
+  "lastUpdated": "2026-03-08T23:54:21.885Z",
+  "startedAt": "2026-03-08T23:30:32.410Z",
+  "finishedAt": "2026-03-08T23:54:21.885Z"
+}

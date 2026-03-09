@@ -1,0 +1,161 @@
+'use client';
+
+import { useState, useEffect, useMemo } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { ChevronRight, ChevronDown, Search } from 'lucide-react';
+
+interface CategoryNode {
+    id: string;
+    name: string;
+    slug: string;
+    parentId: string | null;
+    children: CategoryNode[];
+}
+
+export function CategorySidebar() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const selectedCategoryId = searchParams.get('categoryId');
+    const [tree, setTree] = useState<CategoryNode[]>([]);
+    const [categorySearch, setCategorySearch] = useState('');
+    const [expanded, setExpanded] = useState<Set<string>>(new Set());
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        fetch('/api/categories/tree')
+            .then((res) => res.json())
+            .then((data) => {
+                setTree(Array.isArray(data) ? data : []);
+                if (Array.isArray(data) && data.length > 0) setExpanded(new Set([data[0].id]));
+            })
+            .catch(() => setTree([]))
+            .finally(() => setLoading(false));
+    }, []);
+
+    const handleSelectCategory = (categoryId: string | null) => {
+        const params = new URLSearchParams(searchParams.toString());
+        if (categoryId) params.set('categoryId', categoryId);
+        else params.delete('categoryId');
+        params.delete('category'); // eski ana kategori filtresini kaldır
+        router.push(`/?${params.toString()}`);
+    };
+
+    const toggleExpand = (id: string) => {
+        setExpanded((prev) => {
+            const next = new Set(prev);
+            if (next.has(id)) next.delete(id);
+            else next.add(id);
+            return next;
+        });
+    };
+
+    const filterNode = (node: CategoryNode, q: string): CategoryNode | null => {
+        const name = (node.name || '').toLowerCase();
+        const match = name.includes(q);
+        const filteredChildren = (node.children || [])
+            .map((c) => filterNode(c, q))
+            .filter((c): c is CategoryNode => c !== null);
+        if (match || filteredChildren.length > 0) {
+            return { ...node, children: filteredChildren };
+        }
+        return null;
+    };
+
+    const filteredTree = useMemo(() => {
+        const q = categorySearch.trim().toLowerCase();
+        if (!q) return tree;
+        return tree
+            .map((node) => filterNode(node, q))
+            .filter((n): n is CategoryNode => n !== null);
+    }, [tree, categorySearch]);
+
+    const renderNode = (node: CategoryNode, depth: number, isLeaf: boolean) => {
+        const hasChildren = node.children && node.children.length > 0;
+        const isExpanded = expanded.has(node.id);
+        const isSelected = selectedCategoryId === node.id;
+        const name = node.name || 'Diğer';
+
+        return (
+            <div key={node.id} className="space-y-0.5" style={{ paddingLeft: depth * 12 }}>
+                <div className="flex items-center gap-0.5 min-w-0">
+                    {hasChildren ? (
+                        <button
+                            type="button"
+                            onClick={() => toggleExpand(node.id)}
+                            className="p-0.5 shrink-0 rounded hover:bg-gray-100"
+                            aria-label={isExpanded ? 'Kapat' : 'Aç'}
+                        >
+                            {isExpanded ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                        </button>
+                    ) : (
+                        <span className="w-5 shrink-0 inline-block" />
+                    )}
+                    <Button
+                        variant={isSelected ? 'default' : 'ghost'}
+                        size="sm"
+                        className={cn(
+                            'flex-1 justify-start text-left whitespace-normal h-auto py-1.5 text-sm',
+                            isSelected && 'bg-blue-600 text-white'
+                        )}
+                        onClick={() => handleSelectCategory(node.id)}
+                    >
+                        {name}
+                    </Button>
+                </div>
+                {hasChildren && isExpanded && (
+                    <div className="space-y-0.5">
+                        {node.children.map((child) => renderNode(child, depth + 1, !(child.children?.length)))}
+                    </div>
+                )}
+            </div>
+        );
+    };
+
+    return (
+        <div className="w-full md:w-64 flex-shrink-0 bg-white rounded-lg border p-4 h-fit">
+            <h3 className="font-semibold mb-4 text-lg">Kategoriler</h3>
+            <div className="relative mb-3">
+                <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <Input
+                    type="search"
+                    placeholder="Kategori ara..."
+                    value={categorySearch}
+                    onChange={(e) => setCategorySearch(e.target.value)}
+                    className="pl-8 h-9 text-sm"
+                />
+            </div>
+            <p className="text-xs text-gray-500 mb-3">
+                Kategorilerdeki oluşabilecek yanlışlıklar marketlerin kendi kategorilerinden kaynaklanabilir; bazı ürünler yanlış kategori altında görünebilir.
+            </p>
+            <div className="h-[calc(100vh-320px)] overflow-y-auto pr-2">
+                <div className="space-y-1">
+                    <Button
+                        variant="ghost"
+                        className="w-full justify-start text-emerald-600 font-bold hover:text-emerald-700 hover:bg-emerald-50"
+                        onClick={() => router.push('/temel-gida-fiyatlari')}
+                    >
+                        🔥 En Ucuz Temel Gıda
+                    </Button>
+                    <div className="my-2 border-b" />
+                    <Button
+                        variant={selectedCategoryId === null || selectedCategoryId === '' ? 'default' : 'ghost'}
+                        className={cn('w-full justify-start', (!selectedCategoryId || selectedCategoryId === '') && 'bg-blue-600 text-white')}
+                        onClick={() => handleSelectCategory(null)}
+                    >
+                        Tüm Ürünler
+                    </Button>
+                    {loading ? (
+                        <div className="py-4 text-sm text-gray-500">Yükleniyor...</div>
+                    ) : tree.length === 0 ? (
+                        <div className="py-4 text-sm text-gray-500">Kategori bulunamadı.</div>
+                    ) : (
+                        filteredTree.map((node) => renderNode(node, 0, !(node.children?.length)))
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}

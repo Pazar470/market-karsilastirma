@@ -1,0 +1,65 @@
+{
+  "id": 20000011011530,
+  "storeId": 20000000000607,
+  "sku": "11011530",
+  "name": "Migros Yarım Yağlı UHT Süt 1 L",
+  "brand": {
+    "name": "Migros",
+    "id": 425,
+    "prettyName": "migros-b-1a9"
+  },
+  "category": {
+    "name": "Uzun Ömürlü Süt",
+    "id": 20000000001034,
+    "stockLegalAmount": 100,
+    "prettyName": "uzun-omurlu-sut-c-40a"
+  },
+  "categoryAscendants": [
+    {
+      "name": "Süt",
+      "id": 20000000000108,
+      "stockLegalAmount": 100,
+      "prettyName": "sut-c-6c"
+    },
+    {
+      "name": "Süt, Kahvaltılık",
+      "id": 20000000000004,
+      "stockLegalAmount": 100,
+      "prettyName": "sut-kahvaltilik-c-4"
+    }
+  ],
+  "crmDiscountTags": [],
+  "images": [
+    {
+      "urls": {
+        "PRODUCT_LIST": "https://images.migrosone.com/sanalmarket/product/11011530/11011530-eeed21-105x105.jpg",
+        "PRODUCT_DETAIL": "https://images.migrosone.com/sanalmarket/product/11011530/11011530-eeed21.jpg",
+        "PRODUCT_HD": "https://images.migrosone.com/sanalmarket/product/11011530/11011530-eeed21-1650x1650.jpg",
+        "CART": "https://images.migrosone.com/sanalmarket/product/11011530/11011530-eeed21-46x46.jpg"
+      },
+      "productId": 20000011011530
+    }
+  ],
+  "prettyName": "migros-yarim-yagli-uht-sut-1-l-p-a805ca",
+  "status": "IN_SALE",
+  "unit": "PIECE",
+  "initialIncrementAmount": 1,
+  "incrementAmount": 1,
+  "maxAmount": 12,
+  "unitAmount": 1,
+  "regularPrice": 3725,
+  "shownPrice": 3725,
+  "discountRate": 0,
+  "badges": [],
+  "groupBadgeMap": {},
+  "referrerEventId": "1770928213405427505",
+  "sponsored": false,
+  "productNoteAppendable": false,
+  "buyNowApplicable": false,
+  "socialProofInfo": {
+    "socialProofPriority": 2,
+    "categoryId": 20000000001034,
+    "categoryName": "Uzun Ömürlü Süt",
+    "description": "Uzun Ömürlü Süt kategorisinin en çok satan 2. üründür"
+  }
+}

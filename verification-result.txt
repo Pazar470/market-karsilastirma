@@ -1,0 +1,10 @@
+--- Database Verification ---
+Markets: 4
+Categories: 63
+Products: 12358
+Prices: 21671
+--- Breakdown ---
+A101: 5310
+Şok: 8900
+Migros: 7167
+Carrefour: 296

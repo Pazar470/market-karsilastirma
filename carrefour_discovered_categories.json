@@ -1,0 +1,3202 @@
+[
+  {
+    "text": "Meyve, Sebze",
+    "href": "/meyve-sebze/c/1014"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/meyve-sebze/c/1014"
+  },
+  {
+    "text": "Meyve",
+    "href": "/meyve/c/1015"
+  },
+  {
+    "text": "Sebze",
+    "href": "/sebze/c/1025"
+  },
+  {
+    "text": "Et, Tavuk, Balık",
+    "href": "/et-tavuk-balik/c/1044"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/et-tavuk-balik/c/1044"
+  },
+  {
+    "text": "Kırmızı Et",
+    "href": "/kirmizi-et/c/1045"
+  },
+  {
+    "text": "Şarküteri",
+    "href": "/sarkuteri/c/1070"
+  },
+  {
+    "text": "Balık ve Deniz Mahsülleri",
+    "href": "/balik-ve-deniz-mahsulleri/c/1098"
+  },
+  {
+    "text": "Beyaz Et",
+    "href": "/beyaz-et/c/1076"
+  },
+  {
+    "text": "Süt Ürünleri",
+    "href": "/sut-urunleri/c/1310"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/sut-urunleri/c/1310"
+  },
+  {
+    "text": "Süt",
+    "href": "/sut/c/1311"
+  },
+  {
+    "text": "Peynir",
+    "href": "/peynir/c/1318"
+  },
+  {
+    "text": "Yoğurt",
+    "href": "/yogurt/c/1389"
+  },
+  {
+    "text": "Tereyağ ve Margarin",
+    "href": "/tereyag-ve-margarin/c/1348"
+  },
+  {
+    "text": "Krema ve Kaymak",
+    "href": "/krema-ve-kaymak/c/1385"
+  },
+  {
+    "text": "Sütlü Tatlı,Puding",
+    "href": "/sutlu-tatli-puding/c/1962"
+  },
+  {
+    "text": "Kahvaltılık Ürünler",
+    "href": "/kahvaltilik-urunler/c/1363"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/kahvaltilik-urunler/c/1363"
+  },
+  {
+    "text": "Kahvaltılıklar",
+    "href": "/kahvaltiliklar/c/1390"
+  },
+  {
+    "text": "Zeytin",
+    "href": "/zeytin/c/1356"
+  },
+  {
+    "text": "Yumurtalar",
+    "href": "/yumurtalar/c/1349"
+  },
+  {
+    "text": "Kahvaltılık Gevrek",
+    "href": "/kahvaltilik-gevrek/c/1378"
+  },
+  {
+    "text": "Temel Gıda",
+    "href": "/temel-gida/c/1110"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/temel-gida/c/1110"
+  },
+  {
+    "text": "Bakliyat",
+    "href": "/bakliyat/c/1121"
+  },
+  {
+    "text": "Makarna ve Erişte",
+    "href": "/makarna-ve-eriste/c/1122"
+  },
+  {
+    "text": "Sıvı Yağlar",
+    "href": "/sivi-yaglar/c/1111"
+  },
+  {
+    "text": "Un ve İrmik",
+    "href": "/un-ve-irmik/c/1276"
+  },
+  {
+    "text": "Şeker",
+    "href": "/seker/c/1495"
+  },
+  {
+    "text": "Pasta Malzemeleri",
+    "href": "/pasta-malzemeleri/c/2391"
+  },
+  {
+    "text": "Konserve",
+    "href": "/konserve/c/1186"
+  },
+  {
+    "text": "Tuz ve Baharat",
+    "href": "/tuz-ve-baharat/c/1159"
+  },
+  {
+    "text": "Soslar",
+    "href": "/soslar/c/1209"
+  },
+  {
+    "text": "Ramazan Kolisi",
+    "href": "/ramazan-kolisi/c/1009"
+  },
+  {
+    "text": "Atıştırmalık",
+    "href": "/atistirmalik/c/1493"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/atistirmalik/c/1493"
+  },
+  {
+    "text": "Sakızlar",
+    "href": "/sakizlar/c/1501"
+  },
+  {
+    "text": "Kuruyemiş",
+    "href": "/kuruyemis/c/1519"
+  },
+  {
+    "text": "Cipsler",
+    "href": "/cipsler/c/1552"
+  },
+  {
+    "text": "Bar ve Gofret",
+    "href": "/bar-ve-gofret/c/1505"
+  },
+  {
+    "text": "Bisküvi",
+    "href": "/biskuvi/c/1529"
+  },
+  {
+    "text": "Kuru Meyve",
+    "href": "/kuru-meyve/c/1528"
+  },
+  {
+    "text": "Şekerleme",
+    "href": "/sekerleme/c/1494"
+  },
+  {
+    "text": "Çikolata",
+    "href": "/cikolata/c/1507"
+  },
+  {
+    "text": "Kek ve Kruvasan",
+    "href": "/kek-ve-kruvasan/c/1545"
+  },
+  {
+    "text": "Hazır Yemek&Donuk Ürünler",
+    "href": "/hazir-yemek-donuk-urunler/c/1064"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/hazir-yemek-donuk-urunler/c/1064"
+  },
+  {
+    "text": "Dondurulmuş Ürünler",
+    "href": "/dondurulmus-urunler-/c/1239"
+  },
+  {
+    "text": "Meze",
+    "href": "/meze/c/1102"
+  },
+  {
+    "text": "Paketli Hazır Yemekler",
+    "href": "/paketli-hazir-yemekler/c/1223"
+  },
+  {
+    "text": "Fırın",
+    "href": "/firin/c/1275"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/firin/c/1275"
+  },
+  {
+    "text": "Ekmek",
+    "href": "/ekmek/c/2378"
+  },
+  {
+    "text": "Çörekler",
+    "href": "/corekler/c/1405"
+  },
+  {
+    "text": "Kurabiyeler",
+    "href": "/kurabiyeler/c/2390"
+  },
+  {
+    "text": "Tatlı",
+    "href": "/tatli/c/1058"
+  },
+  {
+    "text": "Mantı, Yufka, Tarhana",
+    "href": "/manti-yufka-tarhana/c/1305"
+  },
+  {
+    "text": "İçecekler",
+    "href": "/icecekler/c/1409"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/icecekler/c/1409"
+  },
+  {
+    "text": "Gazlı İçecekler",
+    "href": "/gazli-icecekler/c/1418"
+  },
+  {
+    "text": "Gazsız İçecekler",
+    "href": "/gazsiz-icecekler/c/1484"
+  },
+  {
+    "text": "Maden Suyu",
+    "href": "/maden-suyu/c/1412"
+  },
+  {
+    "text": "Sporcu İçecekleri",
+    "href": "/sporcu-icecekleri/c/1040"
+  },
+  {
+    "text": "Çay",
+    "href": "/cay/c/1455"
+  },
+  {
+    "text": "Kahve",
+    "href": "/kahve/c/1467"
+  },
+  {
+    "text": "Sağlıklı Yaşam",
+    "href": "/saglikli-yasam/c/1938"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/saglikli-yasam/c/1938"
+  },
+  {
+    "text": "Glutensiz  Ürünler",
+    "href": "/glutensiz-urunler/c/1939"
+  },
+  {
+    "text": "Organik Ürünler",
+    "href": "/organik-urunler/c/1940"
+  },
+  {
+    "text": "Barlar",
+    "href": "/barlar/c/1948"
+  },
+  {
+    "text": "Tatlandırıcılar & Tatlandırıcılı Ürünler",
+    "href": "/tatlandiricilar-tatlandiricili-urunler/c/1963"
+  },
+  {
+    "text": "Aktif Yaşam Ürünleri",
+    "href": "/aktif-yasam-urunleri/c/2538"
+  },
+  {
+    "text": "Dondurma",
+    "href": "/dondurma/c/1260"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/dondurma/c/1260"
+  },
+  {
+    "text": "Kap Dondurma",
+    "href": "/kap-dondurma/c/1261"
+  },
+  {
+    "text": "Multipack Dondurma",
+    "href": "/multipack-dondurma/c/1270"
+  },
+  {
+    "text": "Tek Dondurma",
+    "href": "/tek-dondurma/c/1266"
+  },
+  {
+    "text": "Bebek Ürünleri",
+    "href": "/bebek-urunleri/c/1846"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/bebek-urunleri/c/1846"
+  },
+  {
+    "text": "Bebek Bezi",
+    "href": "/bebek-bezi/c/1875"
+  },
+  {
+    "text": "Bebek Bakım",
+    "href": "/bebek-bakim/c/1858"
+  },
+  {
+    "text": "Bebek Beslenme",
+    "href": "/bebek-beslenme/c/1847"
+  },
+  {
+    "text": "Bebek Araç Gereçleri",
+    "href": "/bebek-arac-gerecleri/c/1899"
+  },
+  {
+    "text": "Bebek Hijyen",
+    "href": "/bebek-hijyen/c/1867"
+  },
+  {
+    "text": "Pet Shop",
+    "href": "/pet-shop/c/2054"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/pet-shop/c/2054"
+  },
+  {
+    "text": "Kedi",
+    "href": "/kedi/c/2055"
+  },
+  {
+    "text": "Köpek",
+    "href": "/kopek/c/2062"
+  },
+  {
+    "text": "Kuş",
+    "href": "/kus/c/2069"
+  },
+  {
+    "text": "Temizlik Ürünleri",
+    "href": "/temizlik-urunleri/c/1556"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/temizlik-urunleri/c/1556"
+  },
+  {
+    "text": "Bulaşık Yıkama Ürünleri",
+    "href": "/bulasik-yikama-urunleri/c/1613"
+  },
+  {
+    "text": "Çamaşır Yıkama Ürünleri",
+    "href": "/camasir-yikama-urunleri/c/1627"
+  },
+  {
+    "text": "Genel Temizlik",
+    "href": "/genel-temizlik/c/1557"
+  },
+  {
+    "text": "Oda Kokusu ve Koku Gidericiler",
+    "href": "/oda-kokusu-ve-koku-gidericiler/c/1652"
+  },
+  {
+    "text": "Kağıt Ürünleri",
+    "href": "/kagit-urunleri-/c/1821"
+  },
+  {
+    "text": "Ev Düzenleme",
+    "href": "/ev-duzenleme/c/1992"
+  },
+  {
+    "text": "Çöp Torbası",
+    "href": "/cop-torbasi/c/1993"
+  },
+  {
+    "text": "Kişisel Bakım",
+    "href": "/kisisel-bakim/c/1674"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/kisisel-bakim/c/1674"
+  },
+  {
+    "text": "Cilt Bakım",
+    "href": "/cilt-bakim/c/1675"
+  },
+  {
+    "text": "Makyaj Ürünleri",
+    "href": "/makyaj-urunleri/c/1710"
+  },
+  {
+    "text": "Tıraş Ürünleri",
+    "href": "/tiras-urunleri/c/1736"
+  },
+  {
+    "text": "Saç Bakım Ürünleri",
+    "href": "/sac-bakim-urunleri/c/1757"
+  },
+  {
+    "text": "Banyo ve Duş Ürünleri",
+    "href": "/banyo-ve-dus-urunleri/c/1772"
+  },
+  {
+    "text": "Ağız Bakım Ürünleri",
+    "href": "/agiz-bakim-urunleri/c/1785"
+  },
+  {
+    "text": "Parfüm & Deodorant",
+    "href": "/parfum-deodorant/c/1805"
+  },
+  {
+    "text": "Sağlık Ürünleri",
+    "href": "/saglik-urunleri/c/1831"
+  },
+  {
+    "text": "Güneş Koruma Ürünleri",
+    "href": "/gunes-koruma-urunleri/c/1838"
+  },
+  {
+    "text": "Hijyenik Ped",
+    "href": "/hijyenik-ped/c/1729"
+  },
+  {
+    "text": "Kolonyalar",
+    "href": "/kolonyalar/c/1820"
+  },
+  {
+    "text": "Ağda ve Epilasyon",
+    "href": "/agda-ve-epilasyon/c/1700"
+  },
+  {
+    "text": "Elektronik",
+    "href": "/elektronik/c/2286"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/elektronik/c/2286"
+  },
+  {
+    "text": "Telefon Aksesuarları",
+    "href": "/telefon-aksesuarlari/c/2305"
+  },
+  {
+    "text": "Televizyon, Görüntü ve Ses Sistemleri",
+    "href": "/televizyon-goruntu-ve-ses-sistemleri/c/2313"
+  },
+  {
+    "text": "Dijital Ürün Kodları",
+    "href": "/dijital-urun-kodlari/c/2341"
+  },
+  {
+    "text": "Bilgisayar ve Tablet",
+    "href": "/bilgisayar-ve-tablet/c/2287"
+  },
+  {
+    "text": "Küçük Ev Aletleri",
+    "href": "/kucuk-ev-aletleri/c/2202"
+  },
+  {
+    "text": "Isıtma - Soğutma",
+    "href": "/isitma-sogutma-/c/2234"
+  },
+  {
+    "text": "Beyaz Eşya",
+    "href": "/beyaz-esya/c/2195"
+  },
+  {
+    "text": "Kulaklık",
+    "href": "/kulaklik/c/2321"
+  },
+  {
+    "text": "Giyilebilir Teknoloji",
+    "href": "/giyilebilir-teknoloji/c/2143"
+  },
+  {
+    "text": "Piller",
+    "href": "/piller/c/2046"
+  },
+  {
+    "text": "Kişisel Bakım",
+    "href": "/kisisel-bakim/c/2219"
+  },
+  {
+    "text": "Araç Şarj İstasyonu",
+    "href": "/arac-sarj-istasyonu/c/2320"
+  },
+  {
+    "text": "Ev, Yaşam",
+    "href": "/ev-yasam/c/2188"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/ev-yasam/c/2188"
+  },
+  {
+    "text": "Ev Düzeni ve Züccaciye",
+    "href": "/ev-duzeni-ve-zuccaciye/c/1964"
+  },
+  {
+    "text": "Hırdavat, Aydınlatma",
+    "href": "/hirdavat-aydinlatma/c/2025"
+  },
+  {
+    "text": "Bahçe, Kamping ve Barbekü",
+    "href": "/bahce-kamping-ve-barbeku/c/2076"
+  },
+  {
+    "text": "Bisiklet ve Spor",
+    "href": "/bisiklet-ve-spor/c/2239"
+  },
+  {
+    "text": "Ayakkabı ve Terlik",
+    "href": "/ayakkabi-ve-terlik/c/2342"
+  },
+  {
+    "text": "Oto Ürünleri",
+    "href": "/oto-urunleri/c/2115"
+  },
+  {
+    "text": "Çanta ve Valiz",
+    "href": "/canta-ve-valiz/c/2105"
+  },
+  {
+    "text": "Aksesuarlar",
+    "href": "/aksesuarlar/c/2537"
+  },
+  {
+    "text": "Tekstil",
+    "href": "/tekstil/c/1055"
+  },
+  {
+    "text": "Ateş Yakma ve Metal Parlatıcı",
+    "href": "/ates-yakma-ve-metal-parlatici/c/1598"
+  },
+  {
+    "text": "Katalog Ürünleri",
+    "href": "/katalog-urunleri/c/9000"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/katalog-urunleri/c/9000"
+  },
+  {
+    "text": "Fırsatlar",
+    "href": "/firsatlar/c/9002"
+  },
+  {
+    "text": "Çok Satanlar",
+    "href": "/cok-satanlar/c/9124"
+  },
+  {
+    "text": "Kuruyemiş",
+    "href": "/kuruyemis/c/9853"
+  },
+  {
+    "text": "Ramazan Kolisi",
+    "href": "/ramazan-kolisi/c/9780"
+  },
+  {
+    "text": "Ramazan Kolisi-2",
+    "href": "/ramazan-kolisi-2/c/9765"
+  },
+  {
+    "text": "CarrefourSA Ekstra",
+    "href": "/carrefoursa-ekstra/c/2346"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/carrefoursa-ekstra/c/2346"
+  },
+  {
+    "text": "Küçük Ev Aletleri",
+    "href": "/kucuk-ev-aletleri/c/2202"
+  },
+  {
+    "text": "Beyaz Eşya",
+    "href": "/beyaz-esya/c/2195"
+  },
+  {
+    "text": "Eğlence, Hobi, Oyuncak",
+    "href": "/eglence-hobi-oyuncak/c/2127"
+  },
+  {
+    "text": "Mutfak Ürünleri",
+    "href": "/mutfak-urunleri/c/1965"
+  },
+  {
+    "text": "Çanta ve Valiz",
+    "href": "/canta-ve-valiz/c/2105"
+  },
+  {
+    "text": "Mobilya",
+    "href": "/mobilya/c/2340"
+  },
+  {
+    "text": "Bahçe, Kamping ve Barbekü",
+    "href": "/bahce-kamping-ve-barbeku/c/2076"
+  },
+  {
+    "text": "Televizyon, Görüntü ve Ses Sistemleri",
+    "href": "/televizyon-goruntu-ve-ses-sistemleri/c/2313"
+  },
+  {
+    "text": "Kırtasiye",
+    "href": "/kirtasiye/c/2149"
+  },
+  {
+    "text": "Petshop Ekstra",
+    "href": "/petshop-ekstra/c/9559"
+  },
+  {
+    "text": "Isıtma - Soğutma",
+    "href": "/isitma-sogutma-/c/2234"
+  },
+  {
+    "text": "Patifour",
+    "href": "/patifour/c/2060"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/patifour/c/2060"
+  },
+  {
+    "text": "Patifour Kedi Ürünleri",
+    "href": "/patifour-kedi-urunleri/c/2067"
+  },
+  {
+    "text": "Patifour Köpek Ürünleri",
+    "href": "/patifour-kopek-urunleri/c/1415"
+  },
+  {
+    "text": "Kitap, Kırtasiye, Oyuncak",
+    "href": "/kitap-kirtasiye-oyuncak/c/1913"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/kitap-kirtasiye-oyuncak/c/1913"
+  },
+  {
+    "text": "Kırtasiye",
+    "href": "/kirtasiye/c/2149"
+  },
+  {
+    "text": "Gazete ve Dergi",
+    "href": "/gazete-ve-dergi/c/2186"
+  },
+  {
+    "text": "Eğlence, Hobi, Oyuncak",
+    "href": "/eglence-hobi-oyuncak/c/2127"
+  },
+  {
+    "text": "CarrefourSA Özel",
+    "href": "/carrefoursa-urunler/c/9699"
+  },
+  {
+    "text": "Meyve, Sebze",
+    "href": "/meyve-sebze/c/1014"
+  },
+  {
+    "text": "Meyve",
+    "href": "/meyve/c/1015"
+  },
+  {
+    "text": "Sert Meyveler",
+    "href": "/sert-meyveler/c/1018"
+  },
+  {
+    "text": "Narenciye",
+    "href": "/narenciye/c/1016"
+  },
+  {
+    "text": "Tropik Meyveler",
+    "href": "/-tropik-meyveler/c/1022"
+  },
+  {
+    "text": "Yumuşak Meyveler",
+    "href": "/yumusak-meyveler/c/1017"
+  },
+  {
+    "text": "Sebze",
+    "href": "/sebze/c/1025"
+  },
+  {
+    "text": "Salata Malzemeleri",
+    "href": "/salata-malzemeleri-/c/1027"
+  },
+  {
+    "text": "Otlar",
+    "href": "/otlar/c/1030"
+  },
+  {
+    "text": "Mevsim Sebzeleri",
+    "href": "/mevsim-sebzeleri/c/1031"
+  },
+  {
+    "text": "Patates, Soğan ve Sarımsak",
+    "href": "/patates-sogan-ve-sarimsak/c/1033"
+  },
+  {
+    "text": "Ayıklanmış Sebzeler",
+    "href": "/ayiklanmis-sebzeler/c/1035"
+  },
+  {
+    "text": "Mantar",
+    "href": "/mantar/c/1201"
+  },
+  {
+    "text": "Yeşillikler",
+    "href": "/yesillikler/c/1169"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/meyve-sebze/c/1014"
+  },
+  {
+    "text": "Et, Tavuk, Balık",
+    "href": "/et-tavuk-balik/c/1044"
+  },
+  {
+    "text": "Kırmızı Et",
+    "href": "/kirmizi-et/c/1045"
+  },
+  {
+    "text": "Dana",
+    "href": "/dana/c/1046"
+  },
+  {
+    "text": "Kuzu",
+    "href": "/kuzu/c/1054"
+  },
+  {
+    "text": "Şarküteri",
+    "href": "/sarkuteri/c/1070"
+  },
+  {
+    "text": "Sucuk",
+    "href": "/sucuk/c/1077"
+  },
+  {
+    "text": "Sosis",
+    "href": "/sosis/c/1084"
+  },
+  {
+    "text": "Pastırma",
+    "href": "/pastirma/c/1090"
+  },
+  {
+    "text": "Salam",
+    "href": "/salam/c/1092"
+  },
+  {
+    "text": "Kavurma",
+    "href": "/kavurma/c/1097"
+  },
+  {
+    "text": "Kuru Et",
+    "href": "/kuru-et/c/1057"
+  },
+  {
+    "text": "Jambon",
+    "href": "/jambon/c/1071"
+  },
+  {
+    "text": "Füme Et",
+    "href": "/fume-et/c/1091"
+  },
+  {
+    "text": "Balık ve Deniz Mahsülleri",
+    "href": "/balik-ve-deniz-mahsulleri/c/1098"
+  },
+  {
+    "text": "Deniz Üretim Balıkları",
+    "href": "/deniz-uretim-baliklari/c/1100"
+  },
+  {
+    "text": "Balık",
+    "href": "/balik/c/1099"
+  },
+  {
+    "text": "Dondurulmuş Midye",
+    "href": "/dondurulmus-midye/c/1101"
+  },
+  {
+    "text": "Paketli Deniz Ürünleri",
+    "href": "/paketli-deniz-urunleri/c/1068"
+  },
+  {
+    "text": "Beyaz Et",
+    "href": "/beyaz-et/c/1076"
+  },
+  {
+    "text": "Piliç",
+    "href": "/pilic/c/1061"
+  },
+  {
+    "text": "Hindi",
+    "href": "/hindi/c/1065"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/et-tavuk-balik/c/1044"
+  },
+  {
+    "text": "Süt Ürünleri",
+    "href": "/sut-urunleri/c/1310"
+  },
+  {
+    "text": "Süt",
+    "href": "/sut/c/1311"
+  },
+  {
+    "text": "Uzun Ömürlü Süt",
+    "href": "/uzun-omurlu-sut/c/1313"
+  },
+  {
+    "text": "Pastörize ve Çiğ Süt",
+    "href": "/pastorize-ve-cig-sut/c/1312"
+  },
+  {
+    "text": "Laktozsuz Süt",
+    "href": "/laktozsuz-sut/c/1316"
+  },
+  {
+    "text": "Peynir",
+    "href": "/peynir/c/1318"
+  },
+  {
+    "text": "Beyaz Peynir",
+    "href": "/beyaz-peynir/c/1319"
+  },
+  {
+    "text": "Kaşar Peynir",
+    "href": "/kasar-peynir/c/1324"
+  },
+  {
+    "text": "Krem Peynir",
+    "href": "/krem-peynir/c/1336"
+  },
+  {
+    "text": "İthal Peynir",
+    "href": "/ithal-peynir/c/1330"
+  },
+  {
+    "text": "Yöresel Peynir",
+    "href": "/yoresel-peynir/c/1342"
+  },
+  {
+    "text": "Üçgen Peynir",
+    "href": "/ucgen-peynir/c/1320"
+  },
+  {
+    "text": "Tulum Peynir",
+    "href": "/tulum-peynir/c/1322"
+  },
+  {
+    "text": "Ezine Peyniri",
+    "href": "/ezine-peyniri/c/1321"
+  },
+  {
+    "text": "Süzme Peynir",
+    "href": "/suzme-peynir/c/2501"
+  },
+  {
+    "text": "Yoğurt",
+    "href": "/yogurt/c/1389"
+  },
+  {
+    "text": "Sade Yoğurt",
+    "href": "/sade-yogurt/c/1391"
+  },
+  {
+    "text": "Kaymaklı Yoğurt",
+    "href": "/kaymakli-yogurt/c/1392"
+  },
+  {
+    "text": "Sağlıklı Yaşam Yoğurtları",
+    "href": "/saglikli-yasam-yogurtlari/c/1393"
+  },
+  {
+    "text": "Meyveli Yoğurt",
+    "href": "/meyveli-yogurt/c/1395"
+  },
+  {
+    "text": "Süzme Yoğurt",
+    "href": "/suzme-yogurt/c/1394"
+  },
+  {
+    "text": "Tava Yoğurdu",
+    "href": "/tava-yogurdu/c/1397"
+  },
+  {
+    "text": "Tereyağ ve Margarin",
+    "href": "/tereyag-ve-margarin/c/1348"
+  },
+  {
+    "text": "Tereyağ",
+    "href": "/tereyag/c/1350"
+  },
+  {
+    "text": "Margarin",
+    "href": "/margarin/c/1351"
+  },
+  {
+    "text": "Krema ve Kaymak",
+    "href": "/krema-ve-kaymak/c/1385"
+  },
+  {
+    "text": "Krema",
+    "href": "/krema/c/1386"
+  },
+  {
+    "text": "Kaymak",
+    "href": "/kaymak/c/1387"
+  },
+  {
+    "text": "Sütlü Tatlı,Puding",
+    "href": "/sutlu-tatli-puding/c/1962"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/sut-urunleri/c/1310"
+  },
+  {
+    "text": "Kahvaltılık Ürünler",
+    "href": "/kahvaltilik-urunler/c/1363"
+  },
+  {
+    "text": "Kahvaltılıklar",
+    "href": "/kahvaltiliklar/c/1390"
+  },
+  {
+    "text": "Ballar",
+    "href": "/ballar/c/1362"
+  },
+  {
+    "text": "Reçel",
+    "href": "/recel/c/1367"
+  },
+  {
+    "text": "Helva",
+    "href": "/helva/c/1374"
+  },
+  {
+    "text": "Krem Çikolata",
+    "href": "/krem-cikolata/c/1381"
+  },
+  {
+    "text": "Tahin",
+    "href": "/tahin/c/1375"
+  },
+  {
+    "text": "Pekmez",
+    "href": "/pekmez/c/1376"
+  },
+  {
+    "text": "Ezmeler",
+    "href": "/ezmeler/c/1383"
+  },
+  {
+    "text": "Fıstık Ezmesi",
+    "href": "/fistik-ezmesi/c/1961"
+  },
+  {
+    "text": "Zeytin",
+    "href": "/zeytin/c/1356"
+  },
+  {
+    "text": "Siyah Zeytin",
+    "href": "/siyah-zeytin/c/1357"
+  },
+  {
+    "text": "Yeşil Zeytin",
+    "href": "/yesil-zeytin/c/1358"
+  },
+  {
+    "text": "Zeytin Ezmeleri",
+    "href": "/zeytin-ezmeleri/c/1359"
+  },
+  {
+    "text": "Yumurtalar",
+    "href": "/yumurtalar/c/1349"
+  },
+  {
+    "text": "Organik yumurta",
+    "href": "/organik-yumurta/c/1377"
+  },
+  {
+    "text": "Yumurta",
+    "href": "/yumurta/c/1360"
+  },
+  {
+    "text": "Kahvaltılık Gevrek",
+    "href": "/kahvaltilik-gevrek/c/1378"
+  },
+  {
+    "text": "Granola",
+    "href": "/granola/c/1380"
+  },
+  {
+    "text": "Tahıl Gevreği",
+    "href": "/tahil-gevregi/c/1388"
+  },
+  {
+    "text": "Müsli",
+    "href": "/musli/c/1170"
+  },
+  {
+    "text": "Yulaf Ezmesi",
+    "href": "/yulaf-ezmesi/c/1171"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/kahvaltilik-urunler/c/1363"
+  },
+  {
+    "text": "Temel Gıda",
+    "href": "/temel-gida/c/1110"
+  },
+  {
+    "text": "Bakliyat",
+    "href": "/bakliyat/c/1121"
+  },
+  {
+    "text": "Pirinç",
+    "href": "/pirinc/c/1134"
+  },
+  {
+    "text": "Bulgur",
+    "href": "/bulgur/c/1142"
+  },
+  {
+    "text": "Özel Bakliyat",
+    "href": "/ozel-bakliyat/c/1152"
+  },
+  {
+    "text": "Yeşil Mercimek",
+    "href": "/yesil-mercimek/c/1146"
+  },
+  {
+    "text": "Kuru Fasulye",
+    "href": "/kuru-fasulye/c/1155"
+  },
+  {
+    "text": "Nohut",
+    "href": "/nohut/c/1154"
+  },
+  {
+    "text": "Buğday",
+    "href": "/bugday/c/1133"
+  },
+  {
+    "text": "İthal Bakliyat",
+    "href": "/ithal-bakliyat/c/1132"
+  },
+  {
+    "text": "Kırmızı Mercimek",
+    "href": "/kirmizi-mercimek/c/1147"
+  },
+  {
+    "text": "Barbunya",
+    "href": "/barbunya/c/1153"
+  },
+  {
+    "text": "Kinoa",
+    "href": "/kinoa/c/1143"
+  },
+  {
+    "text": "Mısır",
+    "href": "/misir/c/1173"
+  },
+  {
+    "text": "Börülce",
+    "href": "/borulce/c/1156"
+  },
+  {
+    "text": "Makarna ve Erişte",
+    "href": "/makarna-ve-eriste/c/1122"
+  },
+  {
+    "text": "Makarna",
+    "href": "/makarna/c/1123"
+  },
+  {
+    "text": "Noodle",
+    "href": "/noodle/c/1124"
+  },
+  {
+    "text": "İthal Makarna",
+    "href": "/ithal-makarna/c/1125"
+  },
+  {
+    "text": "Erişte",
+    "href": "/eriste/c/1131"
+  },
+  {
+    "text": "Sıvı Yağlar",
+    "href": "/sivi-yaglar/c/1111"
+  },
+  {
+    "text": "Ayçiçek Yağı",
+    "href": "/aycicek-yagi/c/1112"
+  },
+  {
+    "text": "Zeytinyağı",
+    "href": "/zeytinyagi/c/1114"
+  },
+  {
+    "text": "Mısırözü",
+    "href": "/misirozu/c/1113"
+  },
+  {
+    "text": "Un ve İrmik",
+    "href": "/un-ve-irmik/c/1276"
+  },
+  {
+    "text": "Buğday Unu",
+    "href": "/bugday-unu/c/1277"
+  },
+  {
+    "text": "Özel Un",
+    "href": "/ozel-un/c/1278"
+  },
+  {
+    "text": "İrmik",
+    "href": "/irmik/c/1280"
+  },
+  {
+    "text": "Galeta Unu",
+    "href": "/galeta-unu/c/1287"
+  },
+  {
+    "text": "Mısır Unu",
+    "href": "/misir-unu/c/1333"
+  },
+  {
+    "text": "Şeker",
+    "href": "/seker/c/1495"
+  },
+  {
+    "text": "Küp Şeker",
+    "href": "/kup-seker/c/1161"
+  },
+  {
+    "text": "Toz Şeker",
+    "href": "/toz-seker/c/1162"
+  },
+  {
+    "text": "Esmer Şeker",
+    "href": "/esmer-seker/c/1163"
+  },
+  {
+    "text": "Pudra Şekeri",
+    "href": "/pudra-sekeri/c/1303"
+  },
+  {
+    "text": "Pasta Malzemeleri",
+    "href": "/pasta-malzemeleri/c/2391"
+  },
+  {
+    "text": "Puding ve Muhallebi",
+    "href": "/puding-ve-muhallebi/c/1300"
+  },
+  {
+    "text": "Pasta Süsü",
+    "href": "/pasta-susu/c/1282"
+  },
+  {
+    "text": "Çikolata ve Meyveli Sos",
+    "href": "/cikolata-ve-meyveli-sos/c/1286"
+  },
+  {
+    "text": "Krem Şanti",
+    "href": "/krem-santi/c/1285"
+  },
+  {
+    "text": "Damla Çikolata",
+    "href": "/damla-cikolata/c/1284"
+  },
+  {
+    "text": "Hazır Kek ve Pasta Karışımları",
+    "href": "/hazir-kek-ve-pasta-karisimlari/c/1283"
+  },
+  {
+    "text": "Kadayıf ve Güllaç",
+    "href": "/kadayif-ve-gullac/c/1301"
+  },
+  {
+    "text": "Kabartma Tozu",
+    "href": "/kabartma-tozu/c/1302"
+  },
+  {
+    "text": "Kakao",
+    "href": "/kakao/c/1304"
+  },
+  {
+    "text": "Maya",
+    "href": "/maya/c/1144"
+  },
+  {
+    "text": "Vanilin",
+    "href": "/vanilin/c/1086"
+  },
+  {
+    "text": "Nişasta",
+    "href": "/nisasta/c/1281"
+  },
+  {
+    "text": "Karbonat",
+    "href": "/karbonat/c/1274"
+  },
+  {
+    "text": "Konserve",
+    "href": "/konserve/c/1186"
+  },
+  {
+    "text": "Konserve Sebze",
+    "href": "/konserve-sebze/c/1187"
+  },
+  {
+    "text": "Haşlanmış Konserve",
+    "href": "/haslanmis-konserve/c/1193"
+  },
+  {
+    "text": "Konserve Deniz Ürünleri",
+    "href": "/konserve-deniz-urunleri/c/1202"
+  },
+  {
+    "text": "Salça",
+    "href": "/salca/c/1180"
+  },
+  {
+    "text": "Turşu",
+    "href": "/tursu/c/1234"
+  },
+  {
+    "text": "Konserve Mısır",
+    "href": "/konserve-misir/c/1199"
+  },
+  {
+    "text": "Ton Balığı",
+    "href": "/ton-baligi/c/1204"
+  },
+  {
+    "text": "Garnitür",
+    "href": "/garnitur/c/1191"
+  },
+  {
+    "text": "Közlenmiş Konserve",
+    "href": "/kozlenmis-konserve/c/1197"
+  },
+  {
+    "text": "Tuz ve Baharat",
+    "href": "/tuz-ve-baharat/c/1159"
+  },
+  {
+    "text": "Baharat",
+    "href": "/baharat/c/1167"
+  },
+  {
+    "text": "Tuz",
+    "href": "/tuz/c/1166"
+  },
+  {
+    "text": "Bulyon",
+    "href": "/bulyon/c/1179"
+  },
+  {
+    "text": "Harç",
+    "href": "/harc/c/1178"
+  },
+  {
+    "text": "Soslar",
+    "href": "/soslar/c/1209"
+  },
+  {
+    "text": "Salata Sosu",
+    "href": "/salata-sosu/c/1219"
+  },
+  {
+    "text": "Soya Sosu",
+    "href": "/soya-sosu/c/1213"
+  },
+  {
+    "text": "Hardallar",
+    "href": "/hardallar/c/1210"
+  },
+  {
+    "text": "Makarna Sosu",
+    "href": "/makarna-sosu/c/1215"
+  },
+  {
+    "text": "Mayonez",
+    "href": "/mayonez/c/1212"
+  },
+  {
+    "text": "Ketçap",
+    "href": "/ketcap/c/1211"
+  },
+  {
+    "text": "Lezzetlendirici Sos",
+    "href": "/lezzetlendirici-sos/c/1216"
+  },
+  {
+    "text": "Acı Sos",
+    "href": "/aci-sos/c/1214"
+  },
+  {
+    "text": "Sirke",
+    "href": "/sirke/c/1217"
+  },
+  {
+    "text": "İthal Sos",
+    "href": "/ithal-sos/c/1218"
+  },
+  {
+    "text": "Nar Ekşisi",
+    "href": "/nar-eksisi/c/1220"
+  },
+  {
+    "text": "Barbekü Sos",
+    "href": "/barbeku-sos/c/1085"
+  },
+  {
+    "text": "Ramazan Kolisi",
+    "href": "/ramazan-kolisi/c/1009"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/temel-gida/c/1110"
+  },
+  {
+    "text": "Atıştırmalık",
+    "href": "/atistirmalik/c/1493"
+  },
+  {
+    "text": "Sakızlar",
+    "href": "/sakizlar/c/1501"
+  },
+  {
+    "text": "Meyveli Sakızlar",
+    "href": "/meyveli-sakizlar/c/1502"
+  },
+  {
+    "text": "Naneli Sakızlar",
+    "href": "/naneli-sakizlar/c/1503"
+  },
+  {
+    "text": "Şekersiz Sakızlar",
+    "href": "/sekersiz-sakizlar/c/1504"
+  },
+  {
+    "text": "Diğer Sakızlar",
+    "href": "/diger-sakizlar/c/1072"
+  },
+  {
+    "text": "Kuruyemiş",
+    "href": "/kuruyemis/c/1519"
+  },
+  {
+    "text": "Ceviz",
+    "href": "/ceviz/c/1524"
+  },
+  {
+    "text": "Fındık",
+    "href": "/findik/c/1521"
+  },
+  {
+    "text": "Fıstık",
+    "href": "/fistik/c/1520"
+  },
+  {
+    "text": "Badem",
+    "href": "/badem/c/1523"
+  },
+  {
+    "text": "Leblebi",
+    "href": "/leblebi/c/1522"
+  },
+  {
+    "text": "Çekirdek",
+    "href": "/cekirdek/c/1525"
+  },
+  {
+    "text": "Karışık Kuruyemiş",
+    "href": "/karisik-kuruyemis/c/1526"
+  },
+  {
+    "text": "Soslu Kuruyemiş",
+    "href": "/soslu-kuruyemis/c/1527"
+  },
+  {
+    "text": "Antep Fıstığı",
+    "href": "/antep-fistigi/c/2490"
+  },
+  {
+    "text": "Kaju",
+    "href": "/kaju/c/2491"
+  },
+  {
+    "text": "Soslu Fıstık",
+    "href": "/soslu-fistik/c/1539"
+  },
+  {
+    "text": "Soslu Mısır",
+    "href": "/soslu-misir/c/1550"
+  },
+  {
+    "text": "Kabuklu Fıstık",
+    "href": "/kabuklu-fistik/c/1551"
+  },
+  {
+    "text": "Cipsler",
+    "href": "/cipsler/c/1552"
+  },
+  {
+    "text": "Patates Cipsi",
+    "href": "/patates-cipsi/c/1553"
+  },
+  {
+    "text": "Mısır Cipsi",
+    "href": "/misir-cipsi/c/1554"
+  },
+  {
+    "text": "Nohut Cipsi",
+    "href": "/nohut-cipsi/c/1555"
+  },
+  {
+    "text": "İthal Cips",
+    "href": "/ithal-cips/c/2394"
+  },
+  {
+    "text": "Patlamış Mısır",
+    "href": "/patlamis-misir/c/1158"
+  },
+  {
+    "text": "Bar ve Gofret",
+    "href": "/bar-ve-gofret/c/1505"
+  },
+  {
+    "text": "Çikolata Bar",
+    "href": "/cikolata-bar/c/1515"
+  },
+  {
+    "text": "Tahıllı Bar",
+    "href": "/tahilli-bar/c/2399"
+  },
+  {
+    "text": "Meyve Bar",
+    "href": "/meyve-bar/c/1518"
+  },
+  {
+    "text": "Kuruyemiş Bar",
+    "href": "/kuruyemis-bar/c/1516"
+  },
+  {
+    "text": "İthal Gofret",
+    "href": "/ithal-gofret/c/1532"
+  },
+  {
+    "text": "Bisküvi",
+    "href": "/biskuvi/c/1529"
+  },
+  {
+    "text": "Kremalı Bisküviler",
+    "href": "/kremali-biskuviler/c/1530"
+  },
+  {
+    "text": "Kraker",
+    "href": "/kraker/c/1538"
+  },
+  {
+    "text": "Petibör Bisküvi",
+    "href": "/petibor-biskuvi/c/1531"
+  },
+  {
+    "text": "Tahıllı Bisküvi",
+    "href": "/tahilli-biskuvi/c/1536"
+  },
+  {
+    "text": "İthal Bisküvi",
+    "href": "/ithal-biskuvi/c/1537"
+  },
+  {
+    "text": "Form Bisküvi",
+    "href": "/form-biskuvi/c/1534"
+  },
+  {
+    "text": "Kaplamalı Bisküvi",
+    "href": "/kaplamali-biskuvi/c/1535"
+  },
+  {
+    "text": "Kuru Meyve",
+    "href": "/kuru-meyve/c/1528"
+  },
+  {
+    "text": "Kayısı",
+    "href": "/kayisi/c/2492"
+  },
+  {
+    "text": "Hurma",
+    "href": "/hurma/c/2493"
+  },
+  {
+    "text": "İncir",
+    "href": "/incir/c/2494"
+  },
+  {
+    "text": "Diğer Kuru Meyveler",
+    "href": "/diger-kuru-meyveler/c/2496"
+  },
+  {
+    "text": "Kuru Üzüm",
+    "href": "/kuru-uzum/c/2495"
+  },
+  {
+    "text": "Şekerleme",
+    "href": "/sekerleme/c/1494"
+  },
+  {
+    "text": "Draje Şeker",
+    "href": "/draje-seker/c/1500"
+  },
+  {
+    "text": "Yumuşak Şeker,Marşmelov",
+    "href": "/yumusak-seker-marsmelov/c/2395"
+  },
+  {
+    "text": "Çikolata",
+    "href": "/cikolata/c/1507"
+  },
+  {
+    "text": "Sütlü Çikolata",
+    "href": "/sutlu-cikolata/c/1506"
+  },
+  {
+    "text": "Bitter Çikolata",
+    "href": "/bitter-cikolata/c/1508"
+  },
+  {
+    "text": "Beyaz Çikolata",
+    "href": "/beyaz-cikolata/c/1509"
+  },
+  {
+    "text": "Draje Çikolata",
+    "href": "/draje-cikolata/c/1510"
+  },
+  {
+    "text": "Çocuk Çikolataları",
+    "href": "/cocuk-cikolatalari/c/1511"
+  },
+  {
+    "text": "Dökme Çikolata",
+    "href": "/dokme-cikolata/c/1513"
+  },
+  {
+    "text": "İthal Çikolata",
+    "href": "/ithal-cikolata/c/1514"
+  },
+  {
+    "text": "Kek ve Kruvasan",
+    "href": "/kek-ve-kruvasan/c/1545"
+  },
+  {
+    "text": "Baton Kek",
+    "href": "/baton-kek/c/1546"
+  },
+  {
+    "text": "Mini Kek",
+    "href": "/mini-kek/c/1547"
+  },
+  {
+    "text": "İthal Kek",
+    "href": "/ithal-kek/c/1549"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/atistirmalik/c/1493"
+  },
+  {
+    "text": "Hazır Yemek&Donuk Ürünler",
+    "href": "/hazir-yemek-donuk-urunler/c/1064"
+  },
+  {
+    "text": "Dondurulmuş Ürünler",
+    "href": "/dondurulmus-urunler-/c/1239"
+  },
+  {
+    "text": "Dondurulmuş Sebze",
+    "href": "/dondurulmus-sebze/c/1245"
+  },
+  {
+    "text": "Dondurulmuş Et",
+    "href": "/dondurulmus-et/c/1250"
+  },
+  {
+    "text": "Dondurulmuş Hamur Ürünleri",
+    "href": "/dondurulmus-hamur-urunleri/c/1240"
+  },
+  {
+    "text": "Diğer Dondurulmuş Gıdalar",
+    "href": "/diger-dondurulmus-gidalar/c/1257"
+  },
+  {
+    "text": "Dondurulmuş Meyve",
+    "href": "/dondurulmus-meyve/c/1258"
+  },
+  {
+    "text": "Dondurulmuş Patates",
+    "href": "/dondurulmus-patates/c/1249"
+  },
+  {
+    "text": "Dondurulmuş Deniz Ürünleri",
+    "href": "/dondurulmus-deniz-urunleri/c/1253"
+  },
+  {
+    "text": "Dondurulmuş Tatlı",
+    "href": "/dondurulmus-tatli-/c/1242"
+  },
+  {
+    "text": "Dondurulmuş Pizza",
+    "href": "/dondurulmus-pizza/c/1959"
+  },
+  {
+    "text": "Meze",
+    "href": "/meze/c/1102"
+  },
+  {
+    "text": "Salatalar ve Ezmeler",
+    "href": "/salatalar-ve-ezmeler/c/1104"
+  },
+  {
+    "text": "Zeytinyağlı Mezeler",
+    "href": "/zeytinyagli-mezeler/c/1103"
+  },
+  {
+    "text": "Etli Mezeler",
+    "href": "/etli-mezeler/c/1106"
+  },
+  {
+    "text": "Paketli Hazır Yemekler",
+    "href": "/paketli-hazir-yemekler/c/1223"
+  },
+  {
+    "text": "Çorba",
+    "href": "/corba/c/1224"
+  },
+  {
+    "text": "Hazır Yemekler",
+    "href": "/hazir-yemekler/c/1230"
+  },
+  {
+    "text": "Paketli Sandviç",
+    "href": "/paketli-sandvic/c/2503"
+  },
+  {
+    "text": "Çiğköfte",
+    "href": "/cigkofte/c/1175"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/hazir-yemek-donuk-urunler/c/1064"
+  },
+  {
+    "text": "Fırın",
+    "href": "/firin/c/1275"
+  },
+  {
+    "text": "Ekmek",
+    "href": "/ekmek/c/2378"
+  },
+  {
+    "text": "Taze Ekmekler",
+    "href": "/taze-ekmekler/c/1398"
+  },
+  {
+    "text": "Paketli Ekmekler",
+    "href": "/paketli-ekmekler/c/1401"
+  },
+  {
+    "text": "Ramazan Pidesi",
+    "href": "/ramazan-pidesi/c/1403"
+  },
+  {
+    "text": "Çörekler",
+    "href": "/corekler/c/1405"
+  },
+  {
+    "text": "Simit, Poğaça, Börek",
+    "href": "/simit-pogaca-borek/c/1406"
+  },
+  {
+    "text": "Kruvasan",
+    "href": "/kruvasan/c/1407"
+  },
+  {
+    "text": "Tatlı Çörekler",
+    "href": "/tatli-corekler/c/2392"
+  },
+  {
+    "text": "Kurabiyeler",
+    "href": "/kurabiyeler/c/2390"
+  },
+  {
+    "text": "Tatlı&Tuzlu Kurabiyeler",
+    "href": "/tatli-tuzlu-kurabiyeler/c/1288"
+  },
+  {
+    "text": "Galeta, Grissini ve Gevrek",
+    "href": "/galeta-grissini-ve-gevrek/c/1408"
+  },
+  {
+    "text": "Paketli Kurabiyeler",
+    "href": "/paketli-kurabiyeler/c/2393"
+  },
+  {
+    "text": "Tatlı",
+    "href": "/tatli/c/1058"
+  },
+  {
+    "text": "Şerbetli Tatlı",
+    "href": "/serbetli-tatli/c/1294"
+  },
+  {
+    "text": "Pastalar",
+    "href": "/pastalar/c/1289"
+  },
+  {
+    "text": "Sütlü Tatlılar",
+    "href": "/sutlu-tatlilar/c/1298"
+  },
+  {
+    "text": "Kek",
+    "href": "/kek/c/1290"
+  },
+  {
+    "text": "Mantı, Yufka, Tarhana",
+    "href": "/manti-yufka-tarhana/c/1305"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/firin/c/1275"
+  },
+  {
+    "text": "İçecekler",
+    "href": "/icecekler/c/1409"
+  },
+  {
+    "text": "Gazlı İçecekler",
+    "href": "/gazli-icecekler/c/1418"
+  },
+  {
+    "text": "Gazoz",
+    "href": "/gazoz/c/1423"
+  },
+  {
+    "text": "Kola",
+    "href": "/kola/c/1419"
+  },
+  {
+    "text": "Tonik",
+    "href": "/tonik/c/1429"
+  },
+  {
+    "text": "Alkolsüz Malt İçecek",
+    "href": "/alkolsuz-malt-icecek/c/1028"
+  },
+  {
+    "text": "Enerji İçeceği",
+    "href": "/enerji-icecegi/c/1487"
+  },
+  {
+    "text": "Gazsız İçecekler",
+    "href": "/gazsiz-icecekler/c/1484"
+  },
+  {
+    "text": "Sıcak Çikolata, Salep ve Boza",
+    "href": "/sicak-cikolata-salep-ve-boza/c/1486"
+  },
+  {
+    "text": "Şalgam Suyu",
+    "href": "/salgam-suyu/c/1488"
+  },
+  {
+    "text": "Ayran",
+    "href": "/ayran/c/1485"
+  },
+  {
+    "text": "Meyve Suyu",
+    "href": "/meyve-suyu/c/1430"
+  },
+  {
+    "text": "Kefir",
+    "href": "/kefir/c/1491"
+  },
+  {
+    "text": "Limonata",
+    "href": "/limonata/c/2376"
+  },
+  {
+    "text": "Maden Suyu",
+    "href": "/maden-suyu/c/1412"
+  },
+  {
+    "text": "Sade Maden Suyu",
+    "href": "/sade-maden-suyu/c/1413"
+  },
+  {
+    "text": "Meyveli Maden Suyu",
+    "href": "/meyveli-maden-suyu/c/1414"
+  },
+  {
+    "text": "Sporcu İçecekleri",
+    "href": "/sporcu-icecekleri/c/1040"
+  },
+  {
+    "text": "Çay",
+    "href": "/cay/c/1455"
+  },
+  {
+    "text": "Poşet Çaylar",
+    "href": "/poset-caylar/c/1456"
+  },
+  {
+    "text": "Siyah Çay",
+    "href": "/siyah-cay/c/1459"
+  },
+  {
+    "text": "Bitki Çayı",
+    "href": "/bitki-cayi/c/1464"
+  },
+  {
+    "text": "Form Çayı",
+    "href": "/form-cayi-/c/1466"
+  },
+  {
+    "text": "Soğuk Çay",
+    "href": "/soguk-cay/c/1450"
+  },
+  {
+    "text": "Kahve",
+    "href": "/kahve/c/1467"
+  },
+  {
+    "text": "Türk Kahvesi",
+    "href": "/turk-kahvesi/c/1468"
+  },
+  {
+    "text": "Filtre Kahve",
+    "href": "/filtre-kahve/c/1469"
+  },
+  {
+    "text": "Granül Kahve",
+    "href": "/granul-kahve/c/1472"
+  },
+  {
+    "text": "Çekirdek Kahve",
+    "href": "/cekirdek-kahve/c/1477"
+  },
+  {
+    "text": "Soğuk Kahve",
+    "href": "/soguk-kahve/c/1478"
+  },
+  {
+    "text": "Kapsül Kahve",
+    "href": "/kapsul-kahve/c/1480"
+  },
+  {
+    "text": "Kahve Kreması",
+    "href": "/kahve-kremasi/c/1471"
+  },
+  {
+    "text": "Süt Tozu",
+    "href": "/sut-tozu/c/1470"
+  },
+  {
+    "text": "Kahve Filtresi",
+    "href": "/kahve-filtresi/c/1474"
+  },
+  {
+    "text": "Kahve Makinesi",
+    "href": "/kahve-makinesi/c/2233"
+  },
+  {
+    "text": "French Press",
+    "href": "/french-press/c/1012"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/icecekler/c/1409"
+  },
+  {
+    "text": "Sağlıklı Yaşam",
+    "href": "/saglikli-yasam/c/1938"
+  },
+  {
+    "text": "Glutensiz  Ürünler",
+    "href": "/glutensiz-urunler/c/1939"
+  },
+  {
+    "text": "Organik Ürünler",
+    "href": "/organik-urunler/c/1940"
+  },
+  {
+    "text": "Barlar",
+    "href": "/barlar/c/1948"
+  },
+  {
+    "text": "Tatlandırıcılar & Tatlandırıcılı Ürünler",
+    "href": "/tatlandiricilar-tatlandiricili-urunler/c/1963"
+  },
+  {
+    "text": "Aktif Yaşam Ürünleri",
+    "href": "/aktif-yasam-urunleri/c/2538"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/saglikli-yasam/c/1938"
+  },
+  {
+    "text": "Dondurma",
+    "href": "/dondurma/c/1260"
+  },
+  {
+    "text": "Kap Dondurma",
+    "href": "/kap-dondurma/c/1261"
+  },
+  {
+    "text": "Multipack Dondurma",
+    "href": "/multipack-dondurma/c/1270"
+  },
+  {
+    "text": "Tek Dondurma",
+    "href": "/tek-dondurma/c/1266"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/dondurma/c/1260"
+  },
+  {
+    "text": "Bebek Ürünleri",
+    "href": "/bebek-urunleri/c/1846"
+  },
+  {
+    "text": "Bebek Bezi",
+    "href": "/bebek-bezi/c/1875"
+  },
+  {
+    "text": "Bebek Bezi",
+    "href": "/bebek-bezi/c/1876"
+  },
+  {
+    "text": "Külot Bebek Bezi",
+    "href": "/kulot-bebek-bezi/c/1882"
+  },
+  {
+    "text": "Mayo Bebek Bezi",
+    "href": "/mayo-bebek-bezi/c/1888"
+  },
+  {
+    "text": "Bebek Bakım Örtüsü",
+    "href": "/bebek-bakim-ortusu/c/1898"
+  },
+  {
+    "text": "Bebek Bakım",
+    "href": "/bebek-bakim/c/1858"
+  },
+  {
+    "text": "Bebek Kremi",
+    "href": "/bebek-kremi/c/1864"
+  },
+  {
+    "text": "Bebek Kulak Çubuğu",
+    "href": "/bebek-kulak-cubugu-/c/1866"
+  },
+  {
+    "text": "Bebek Şampuanı",
+    "href": "/bebek-sampuani/c/1859"
+  },
+  {
+    "text": "Bebek Yağı",
+    "href": "/bebek-yagi/c/1865"
+  },
+  {
+    "text": "Bebek Güneş Kremi",
+    "href": "/bebek-gunes-kremi/c/1874"
+  },
+  {
+    "text": "Pişik Kremi",
+    "href": "/pisik-kremi/c/1855"
+  },
+  {
+    "text": "Bebek Beslenme",
+    "href": "/bebek-beslenme/c/1847"
+  },
+  {
+    "text": "Bebek Maması",
+    "href": "/bebek-mamasi/c/1848"
+  },
+  {
+    "text": "Bebek Ek Gıdalar",
+    "href": "/bebek-ek-gidalar/c/1850"
+  },
+  {
+    "text": "Bebek İçeceği",
+    "href": "/bebek-icecegi/c/1853"
+  },
+  {
+    "text": "Bebek Bisküvileri",
+    "href": "/bebek-biskuvileri/c/1857"
+  },
+  {
+    "text": "Bebek Atıştırmalık",
+    "href": "/bebek-atistirmalik/c/1638"
+  },
+  {
+    "text": "Bebek Araç Gereçleri",
+    "href": "/bebek-arac-gerecleri/c/1899"
+  },
+  {
+    "text": "Biberon",
+    "href": "/biberon/c/1900"
+  },
+  {
+    "text": "Emzik",
+    "href": "/emzik/c/1903"
+  },
+  {
+    "text": "Bebek Yatağı",
+    "href": "/bebek-yatagi/c/1908"
+  },
+  {
+    "text": "Bebek Arabası",
+    "href": "/bebek-arabasi/c/1922"
+  },
+  {
+    "text": "Bebek Beslenme Gereçleri",
+    "href": "/bebek-beslenme-gerecleri/c/1937"
+  },
+  {
+    "text": "Bebek ve Çocuk Giyim",
+    "href": "/bebek-ve-cocuk-giyim/c/1861"
+  },
+  {
+    "text": "Bebek Hijyen",
+    "href": "/bebek-hijyen/c/1867"
+  },
+  {
+    "text": "Bebek Çamaşırı Deterjanları",
+    "href": "/bebek-camasiri-deterjanlari/c/1873"
+  },
+  {
+    "text": "Bebek Islak Havlu",
+    "href": "/bebek-islak-havlu/c/1893"
+  },
+  {
+    "text": "Bebek Çamaşır Yumuşatıcısı",
+    "href": "/bebek-camasir-yumusaticisi/c/1860"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/bebek-urunleri/c/1846"
+  },
+  {
+    "text": "Pet Shop",
+    "href": "/pet-shop/c/2054"
+  },
+  {
+    "text": "Kedi",
+    "href": "/kedi/c/2055"
+  },
+  {
+    "text": "Kedi Bakım Ürünleri",
+    "href": "/kedi-bakim-urunleri/c/2056"
+  },
+  {
+    "text": "Kedi Maması",
+    "href": "/kedi-mamasi/c/2057"
+  },
+  {
+    "text": "Kedi Ödül Maması",
+    "href": "/kedi-odul-mamasi/c/2059"
+  },
+  {
+    "text": "Kedi Aksesuarları",
+    "href": "/kedi-aksesuarlari/c/2061"
+  },
+  {
+    "text": "Kedi Kumu",
+    "href": "/kedi-kumu/c/2377"
+  },
+  {
+    "text": "Köpek",
+    "href": "/kopek/c/2062"
+  },
+  {
+    "text": "Köpek Maması",
+    "href": "/kopek-mamasi/c/2063"
+  },
+  {
+    "text": "Köpek Aksesuarları",
+    "href": "/kopek-aksesuarlari/c/2065"
+  },
+  {
+    "text": "Köpek Ödül Maması",
+    "href": "/kopek-odul-mamasi/c/2066"
+  },
+  {
+    "text": "Köpek Bakım Ürünleri",
+    "href": "/kopek-bakim-urunleri/c/2068"
+  },
+  {
+    "text": "Kuş",
+    "href": "/kus/c/2069"
+  },
+  {
+    "text": "Kuş Aksesuarları",
+    "href": "/kus-aksesuarlari/c/2070"
+  },
+  {
+    "text": "Kuş Yemi",
+    "href": "/kus-yemi/c/2071"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/pet-shop/c/2054"
+  },
+  {
+    "text": "Temizlik Ürünleri",
+    "href": "/temizlik-urunleri/c/1556"
+  },
+  {
+    "text": "Bulaşık Yıkama Ürünleri",
+    "href": "/bulasik-yikama-urunleri/c/1613"
+  },
+  {
+    "text": "Bulaşık Makinesi Deterjanları",
+    "href": "/bulasik-makinesi-deterjanlari/c/1614"
+  },
+  {
+    "text": "Sıvı Bulaşık Deterjanı",
+    "href": "/sivi-bulasik-deterjani-/c/1623"
+  },
+  {
+    "text": "Bulaşık Makinesi Parlatıcısı",
+    "href": "/bulasik-makinesi-parlaticisi-/c/1619"
+  },
+  {
+    "text": "Bulaşık Makinası Tuzu",
+    "href": "/bulasik-makinasi-tuzu/c/1620"
+  },
+  {
+    "text": "Bulaşık Süngeri",
+    "href": "/bulasik-sungeri/c/1572"
+  },
+  {
+    "text": "Sıvı Bulaşık Makinesi Deterjanı",
+    "href": "/sivi-bulasik-makinesi-deterjani/c/1616"
+  },
+  {
+    "text": "Çamaşır Yıkama Ürünleri",
+    "href": "/camasir-yikama-urunleri/c/1627"
+  },
+  {
+    "text": "Çamaşır Suyu",
+    "href": "/camasir-suyu/c/1628"
+  },
+  {
+    "text": "Çamaşır Yumuşatıcıları",
+    "href": "/camasir-yumusaticilari/c/1632"
+  },
+  {
+    "text": "Sıvı Çamaşır Deterjanları",
+    "href": "/sivi-camasir-deterjanlari/c/1636"
+  },
+  {
+    "text": "Toz Çamaşır Deterjanları",
+    "href": "/toz-camasir-deterjanlari/c/1641"
+  },
+  {
+    "text": "Leke Çıkarıcı",
+    "href": "/leke-cikarici/c/1647"
+  },
+  {
+    "text": "Kireç Önleyici",
+    "href": "/kirec-onleyici/c/1646"
+  },
+  {
+    "text": "Genel Temizlik",
+    "href": "/genel-temizlik/c/1557"
+  },
+  {
+    "text": "Mutfak Temizleyicileri",
+    "href": "/mutfak-temizleyicileri/c/1558"
+  },
+  {
+    "text": "Yüzey Temizleyicileri",
+    "href": "/yuzey-temizleyicileri/c/1578"
+  },
+  {
+    "text": "Tüy Toplayıcı Rulo",
+    "href": "/tuy-toplayici-rulo/c/1575"
+  },
+  {
+    "text": "Lavabo Açıcı",
+    "href": "/lavabo-acici/c/1667"
+  },
+  {
+    "text": "Tuvalet Temizleyicisi",
+    "href": "/tuvalet-temizleyicisi/c/1669"
+  },
+  {
+    "text": "Wc Blok",
+    "href": "/wc-blok/c/1658"
+  },
+  {
+    "text": "Haşere Öldürücüler",
+    "href": "/hasere-olduruculer/c/1602"
+  },
+  {
+    "text": "Ayakkabı Bakımı",
+    "href": "/ayakkabi-bakimi/c/1591"
+  },
+  {
+    "text": "Oda Kokusu ve Koku Gidericiler",
+    "href": "/oda-kokusu-ve-koku-gidericiler/c/1652"
+  },
+  {
+    "text": "Otomatik Oda Kokuları",
+    "href": "/otomatik-oda-kokulari/c/1657"
+  },
+  {
+    "text": "Sprey Oda Kokuları",
+    "href": "/sprey-oda-kokulari/c/1653"
+  },
+  {
+    "text": "Kağıt Ürünleri",
+    "href": "/kagit-urunleri-/c/1821"
+  },
+  {
+    "text": "Kağıt Mendil",
+    "href": "/kagit-mendil/c/1827"
+  },
+  {
+    "text": "Islak Mendil",
+    "href": "/islak-mendil/c/1830"
+  },
+  {
+    "text": "Tuvalet Kağıtları",
+    "href": "/tuvalet-kagitlari/c/1822"
+  },
+  {
+    "text": "Kağıt Havlular",
+    "href": "/kagit-havlular/c/1671"
+  },
+  {
+    "text": "Peçete",
+    "href": "/pecete/c/2345"
+  },
+  {
+    "text": "Yüzey Temizlik Havlusu",
+    "href": "/yuzey-temizlik-havlusu/c/1829"
+  },
+  {
+    "text": "Ev Düzenleme",
+    "href": "/ev-duzenleme/c/1992"
+  },
+  {
+    "text": "Çöp Kovası",
+    "href": "/cop-kovasi/c/1999"
+  },
+  {
+    "text": "Yıkama",
+    "href": "/yikama/c/2001"
+  },
+  {
+    "text": "Çamaşır Düzeni",
+    "href": "/camasir-duzeni/c/2008"
+  },
+  {
+    "text": "Ütüleme Ürünleri",
+    "href": "/utuleme-urunleri/c/2015"
+  },
+  {
+    "text": "Çöp Torbası",
+    "href": "/cop-torbasi/c/1993"
+  },
+  {
+    "text": "Battal",
+    "href": "/battal/c/1997"
+  },
+  {
+    "text": "Büyük",
+    "href": "/buyuk/c/1996"
+  },
+  {
+    "text": "Mini",
+    "href": "/mini/c/1994"
+  },
+  {
+    "text": "Jumbo",
+    "href": "/jumbo/c/1998"
+  },
+  {
+    "text": "Orta",
+    "href": "/orta/c/1995"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/temizlik-urunleri/c/1556"
+  },
+  {
+    "text": "Kişisel Bakım",
+    "href": "/kisisel-bakim/c/1674"
+  },
+  {
+    "text": "Cilt Bakım",
+    "href": "/cilt-bakim/c/1675"
+  },
+  {
+    "text": "Yüz Bakım Ürünleri",
+    "href": "/yuz-bakim-urunleri/c/1676"
+  },
+  {
+    "text": "Vücut Bakım Ürünleri",
+    "href": "/vucut-bakim-urunleri/c/1688"
+  },
+  {
+    "text": "El Bakım Ürünleri",
+    "href": "/el-bakim-urunleri/c/1694"
+  },
+  {
+    "text": "Ayak Bakımı",
+    "href": "/ayak-bakimi/c/1697"
+  },
+  {
+    "text": "Erkek Cilt Bakım Ürünleri",
+    "href": "/erkek-cilt-bakim-urunleri/c/1756"
+  },
+  {
+    "text": "Makyaj Ürünleri",
+    "href": "/makyaj-urunleri/c/1710"
+  },
+  {
+    "text": "Cilt,Yüz Makyajı Ürünleri",
+    "href": "/cilt-yuz-makyaji-urunleri/c/1711"
+  },
+  {
+    "text": "Makyaj Bakımı",
+    "href": "/makyaj-bakimi/c/1724"
+  },
+  {
+    "text": "Ruj-Lipstick",
+    "href": "/ruj-lipstick/c/1719"
+  },
+  {
+    "text": "Oje",
+    "href": "/oje/c/1723"
+  },
+  {
+    "text": "Aseton",
+    "href": "/aseton/c/1725"
+  },
+  {
+    "text": "Makyaj Temizleyici",
+    "href": "/makyaj-temizleyici/c/1677"
+  },
+  {
+    "text": "Göz Makyajı Ürünleri",
+    "href": "/goz-makyaji-urunleri/c/1718"
+  },
+  {
+    "text": "Tıraş Ürünleri",
+    "href": "/tiras-urunleri/c/1736"
+  },
+  {
+    "text": "Kullan At Tıraş Bıçakları",
+    "href": "/kullan-at-tiras-bicaklari/c/1737"
+  },
+  {
+    "text": "Yedek Tıraş Bıçakları",
+    "href": "/yedek-tiras-bicaklari/c/1088"
+  },
+  {
+    "text": "Tıraş Jeli",
+    "href": "/tiras-jeli/c/1748"
+  },
+  {
+    "text": "Tıraş Sonrası Ürünler",
+    "href": "/tiras-sonrasi-urunler/c/1753"
+  },
+  {
+    "text": "Tıraş Makineleri",
+    "href": "/tiras-makineleri/c/1745"
+  },
+  {
+    "text": "Tıraş Köpükleri",
+    "href": "/tiras-kopukleri/c/1750"
+  },
+  {
+    "text": "Tıraş Kolonyası",
+    "href": "/tiras-kolonyasi/c/1754"
+  },
+  {
+    "text": "Saç Bakım Ürünleri",
+    "href": "/sac-bakim-urunleri/c/1757"
+  },
+  {
+    "text": "Şampuan",
+    "href": "/sampuan/c/1758"
+  },
+  {
+    "text": "Saç Onarıcı ve Güçlendirici",
+    "href": "/sac-onarici-ve-guclendirici/c/1764"
+  },
+  {
+    "text": "Saç Boyaları",
+    "href": "/sac-boyalari/c/1765"
+  },
+  {
+    "text": "Saç Fırçası,Tarak",
+    "href": "/sac-fircasi-tarak/c/1769"
+  },
+  {
+    "text": "Saç Şekillendiriciler",
+    "href": "/sac-sekillendiriciler/c/1771"
+  },
+  {
+    "text": "Saç Kremi",
+    "href": "/sac-kremi/c/1759"
+  },
+  {
+    "text": "Banyo ve Duş Ürünleri",
+    "href": "/banyo-ve-dus-urunleri/c/1772"
+  },
+  {
+    "text": "Sıvı Sabun",
+    "href": "/sivi-sabun/c/1773"
+  },
+  {
+    "text": "Duş Jelleri",
+    "href": "/dus-jelleri/c/1778"
+  },
+  {
+    "text": "Duş Ürünleri",
+    "href": "/dus-urunleri/c/1782"
+  },
+  {
+    "text": "Katı Sabun",
+    "href": "/kati-sabun/c/1777"
+  },
+  {
+    "text": "Duş Lifi",
+    "href": "/dus-lifi/c/2375"
+  },
+  {
+    "text": "Ağız Bakım Ürünleri",
+    "href": "/agiz-bakim-urunleri/c/1785"
+  },
+  {
+    "text": "Diş Macunları",
+    "href": "/dis-macunlari/c/1792"
+  },
+  {
+    "text": "Elektrikli Diş Fırçaları",
+    "href": "/elektrikli-dis-fircalari/c/1791"
+  },
+  {
+    "text": "Klasik Diş Fırçaları",
+    "href": "/klasik-dis-fircalari/c/1787"
+  },
+  {
+    "text": "Ağız Bakım Suyu",
+    "href": "/agiz-bakim-suyu/c/1800"
+  },
+  {
+    "text": "Çocuk Diş Bakımı",
+    "href": "/cocuk-dis-bakimi/c/1797"
+  },
+  {
+    "text": "Parfüm & Deodorant",
+    "href": "/parfum-deodorant/c/1805"
+  },
+  {
+    "text": "Kadın Deodorant",
+    "href": "/kadin-deodorant/c/1806"
+  },
+  {
+    "text": "Erkek Deodorant",
+    "href": "/erkek-deodorant/c/1811"
+  },
+  {
+    "text": "Kadın Parfüm",
+    "href": "/kadin-parfum/c/1816"
+  },
+  {
+    "text": "Erkek Parfüm",
+    "href": "/erkek-parfum/c/1818"
+  },
+  {
+    "text": "Sağlık Ürünleri",
+    "href": "/saglik-urunleri/c/1831"
+  },
+  {
+    "text": "Hasta Bezi",
+    "href": "/hasta-bezi/c/1832"
+  },
+  {
+    "text": "Kayganlaştırıcı Jel",
+    "href": "/kayganlastirici-jel-/c/1833"
+  },
+  {
+    "text": "İlk Yardım",
+    "href": "/ilk-yardim/c/1834"
+  },
+  {
+    "text": "Prezervatifler",
+    "href": "/prezervatifler/c/1836"
+  },
+  {
+    "text": "Pamuklar",
+    "href": "/pamuklar/c/1825"
+  },
+  {
+    "text": "Kulak Çubuğu",
+    "href": "/kulak-cubugu/c/1826"
+  },
+  {
+    "text": "Güneş Koruma Ürünleri",
+    "href": "/gunes-koruma-urunleri/c/1838"
+  },
+  {
+    "text": "Bronzlaştırıcı",
+    "href": "/bronzlastirici/c/1844"
+  },
+  {
+    "text": "Güneş Kremi ve Losyonu",
+    "href": "/gunes-kremi-ve-losyonu-/c/1845"
+  },
+  {
+    "text": "Güneş Yağı",
+    "href": "/gunes-yagi/c/1841"
+  },
+  {
+    "text": "Hijyenik Ped",
+    "href": "/hijyenik-ped/c/1729"
+  },
+  {
+    "text": "Tampon",
+    "href": "/tampon/c/1732"
+  },
+  {
+    "text": "Günlük Ped",
+    "href": "/gunluk-ped/c/1735"
+  },
+  {
+    "text": "Ultra Pedler",
+    "href": "/ultra-pedler/c/1734"
+  },
+  {
+    "text": "Kolonyalar",
+    "href": "/kolonyalar/c/1820"
+  },
+  {
+    "text": "Ağda ve Epilasyon",
+    "href": "/agda-ve-epilasyon/c/1700"
+  },
+  {
+    "text": "Ağda Malzemeleri",
+    "href": "/agda-malzemeleri/c/1704"
+  },
+  {
+    "text": "Ağda",
+    "href": "/agda/c/1702"
+  },
+  {
+    "text": "Tüy Dökücü Ürünler",
+    "href": "/tuy-dokucu-urunler/c/1706"
+  },
+  {
+    "text": "Kadın Tıraş Bıçakları",
+    "href": "/kadin-tiras-bicaklari/c/1707"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/kisisel-bakim/c/1674"
+  },
+  {
+    "text": "Elektronik",
+    "href": "/elektronik/c/2286"
+  },
+  {
+    "text": "Telefon Aksesuarları",
+    "href": "/telefon-aksesuarlari/c/2305"
+  },
+  {
+    "text": "Cep Telefonu Aksesuarları",
+    "href": "/cep-telefonu-aksesuarlari/c/2307"
+  },
+  {
+    "text": "Şarj Aleti ve Şarj Kablosu",
+    "href": "/sarj-aleti-ve-sarj-kablosu/c/2308"
+  },
+  {
+    "text": "Televizyon, Görüntü ve Ses Sistemleri",
+    "href": "/televizyon-goruntu-ve-ses-sistemleri/c/2313"
+  },
+  {
+    "text": "Televizyon",
+    "href": "/televizyon/c/2314"
+  },
+  {
+    "text": "Uydu Alıcılar",
+    "href": "/uydu-alicilar/c/2315"
+  },
+  {
+    "text": "Kablolar",
+    "href": "/kablolar/c/2317"
+  },
+  {
+    "text": "Televizyon Askı Aparatı",
+    "href": "/televizyon-aski-aparati/c/2318"
+  },
+  {
+    "text": "Televizyon Aksesuarı",
+    "href": "/televizyon-aksesuari/c/2316"
+  },
+  {
+    "text": "Hoparlör",
+    "href": "/hoparlor/c/2192"
+  },
+  {
+    "text": "Dijital Ürün Kodları",
+    "href": "/dijital-urun-kodlari/c/2341"
+  },
+  {
+    "text": "Bilgisayar ve Tablet",
+    "href": "/bilgisayar-ve-tablet/c/2287"
+  },
+  {
+    "text": "Taşınabilir Disk ve USB Bellek",
+    "href": "/tasinabilir-disk-ve-usb-bellek/c/2299"
+  },
+  {
+    "text": "Mouse",
+    "href": "/mouse/c/2298"
+  },
+  {
+    "text": "Kamera",
+    "href": "/kamera/c/2327"
+  },
+  {
+    "text": "Küçük Ev Aletleri",
+    "href": "/kucuk-ev-aletleri/c/2202"
+  },
+  {
+    "text": "Mutfak Aletleri",
+    "href": "/mutfak-aletleri/c/2207"
+  },
+  {
+    "text": "Süpürge",
+    "href": "/supurge/c/2203"
+  },
+  {
+    "text": "Ütü",
+    "href": "/utu/c/2216"
+  },
+  {
+    "text": "Su Isıtıcı-Kettle",
+    "href": "/su-isitici-kettle/c/2231"
+  },
+  {
+    "text": "Çay Makinesi",
+    "href": "/cay-makinesi/c/2232"
+  },
+  {
+    "text": "Kahve Makinesi",
+    "href": "/kahve-makinesi/c/2233"
+  },
+  {
+    "text": "Tost Makinesi",
+    "href": "/tost-makinesi/c/2208"
+  },
+  {
+    "text": "Ekmek Kızartma Makinesi",
+    "href": "/ekmek-kizartma-makinesi/c/1603"
+  },
+  {
+    "text": "Airfryer ve Fritöz",
+    "href": "/airfryer-ve-fritoz-/c/2211"
+  },
+  {
+    "text": "Blender",
+    "href": "/blender/c/2209"
+  },
+  {
+    "text": "Mutfak Robotu",
+    "href": "/mutfak-robotu/c/2210"
+  },
+  {
+    "text": "Isıtma - Soğutma",
+    "href": "/isitma-sogutma-/c/2234"
+  },
+  {
+    "text": "Vantilatörler",
+    "href": "/vantilatorler/c/2236"
+  },
+  {
+    "text": "Hava Temizleme Makinası",
+    "href": "/hava-temizleme-makinasi/c/2237"
+  },
+  {
+    "text": "Klimalar",
+    "href": "/klimalar/c/2235"
+  },
+  {
+    "text": "Elektrikli Isıtıcı",
+    "href": "/elektrikli-isitici/c/2238"
+  },
+  {
+    "text": "Termosifon",
+    "href": "/termosifon/c/2146"
+  },
+  {
+    "text": "Kombi",
+    "href": "/kombi/c/2229"
+  },
+  {
+    "text": "Beyaz Eşya",
+    "href": "/beyaz-esya/c/2195"
+  },
+  {
+    "text": "Buzdolabı",
+    "href": "/buzdolabi/c/2196"
+  },
+  {
+    "text": "Çamaşır Makinesi",
+    "href": "/camasir-makinesi/c/2197"
+  },
+  {
+    "text": "Derin Dondurucu",
+    "href": "/derin-dondurucu/c/2201"
+  },
+  {
+    "text": "Bulaşık Makinesi",
+    "href": "/bulasik-makinesi/c/2198"
+  },
+  {
+    "text": "Mikrodalga",
+    "href": "/mikrodalga/c/2226"
+  },
+  {
+    "text": "Fırın",
+    "href": "/firin/c/2227"
+  },
+  {
+    "text": "Kurutma Makinesi",
+    "href": "/kurutma-makinesi/c/2431"
+  },
+  {
+    "text": "Kulaklık",
+    "href": "/kulaklik/c/2321"
+  },
+  {
+    "text": "Bluetooth Kulaklık",
+    "href": "/bluetooth-kulaklik/c/2312"
+  },
+  {
+    "text": "Giyilebilir Teknoloji",
+    "href": "/giyilebilir-teknoloji/c/2143"
+  },
+  {
+    "text": "Akıllı Saat",
+    "href": "/akilli-saat/c/2119"
+  },
+  {
+    "text": "Akıllı Bileklik",
+    "href": "/akilli-bileklik/c/2145"
+  },
+  {
+    "text": "Piller",
+    "href": "/piller/c/2046"
+  },
+  {
+    "text": "İnce Kalem Piller - AAA",
+    "href": "/ince-kalem-piller-aaa/c/2048"
+  },
+  {
+    "text": "Kalem Piller - AA",
+    "href": "/kalem-piller-aa/c/2047"
+  },
+  {
+    "text": "Büyük Boy Piller",
+    "href": "/buyuk-boy-piller/c/2050"
+  },
+  {
+    "text": "Düğme Pil",
+    "href": "/dugme-pil/c/2053"
+  },
+  {
+    "text": "Kişisel Bakım",
+    "href": "/kisisel-bakim/c/2219"
+  },
+  {
+    "text": "Saç Düzleştiricisi",
+    "href": "/sac-duzlestiricisi/c/2222"
+  },
+  {
+    "text": "Epilasyon Aleti",
+    "href": "/epilasyon-aleti/c/2220"
+  },
+  {
+    "text": "Tıraş ve Sakal Bakım Aletleri",
+    "href": "/tiras-ve-sakal-bakim-aletleri/c/2224"
+  },
+  {
+    "text": "Baskül",
+    "href": "/baskul/c/2223"
+  },
+  {
+    "text": "Saç Kurutma Makinesi",
+    "href": "/sac-kurutma-makinesi/c/2221"
+  },
+  {
+    "text": "Araç Şarj İstasyonu",
+    "href": "/arac-sarj-istasyonu/c/2320"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/elektronik/c/2286"
+  },
+  {
+    "text": "Ev, Yaşam",
+    "href": "/ev-yasam/c/2188"
+  },
+  {
+    "text": "Ev Düzeni ve Züccaciye",
+    "href": "/ev-duzeni-ve-zuccaciye/c/1964"
+  },
+  {
+    "text": "Mutfak Ürünleri",
+    "href": "/mutfak-urunleri/c/1965"
+  },
+  {
+    "text": "Kullan At Ürünler",
+    "href": "/kullan-at-urunler/c/2021"
+  },
+  {
+    "text": "Mum ve Koku Giderici",
+    "href": "/mum-ve-koku-giderici/c/2024"
+  },
+  {
+    "text": "Mobilya",
+    "href": "/mobilya/c/2340"
+  },
+  {
+    "text": "Hırdavat, Aydınlatma",
+    "href": "/hirdavat-aydinlatma/c/2025"
+  },
+  {
+    "text": "Hırdavat",
+    "href": "/hirdavat/c/2026"
+  },
+  {
+    "text": "Kablolar, Çoklu Priz ve Aksesuar",
+    "href": "/kablolar-coklu-priz-ve-aksesuar/c/2033"
+  },
+  {
+    "text": "Ampul ve Aydınlatma",
+    "href": "/ampul-ve-aydinlatma/c/2037"
+  },
+  {
+    "text": "Bahçe, Kamping ve Barbekü",
+    "href": "/bahce-kamping-ve-barbeku/c/2076"
+  },
+  {
+    "text": "Bahçe",
+    "href": "/bahce/c/2077"
+  },
+  {
+    "text": "Kamping",
+    "href": "/kamping/c/2088"
+  },
+  {
+    "text": "Mangal Ürünleri",
+    "href": "/mangal-urunleri/c/2093"
+  },
+  {
+    "text": "Bahçe Mobilyaları",
+    "href": "/bahce-mobilyalari/c/2097"
+  },
+  {
+    "text": "Bisiklet ve Spor",
+    "href": "/bisiklet-ve-spor/c/2239"
+  },
+  {
+    "text": "Kondisyon Aletleri",
+    "href": "/kondisyon-aletleri/c/2240"
+  },
+  {
+    "text": "Bisiklet ve Aksesuarları",
+    "href": "/bisiklet-ve-aksesuarlari/c/2246"
+  },
+  {
+    "text": "Havuz ve Su Sporları",
+    "href": "/havuz-ve-su-sporlari/c/2282"
+  },
+  {
+    "text": "Elektrikli Scooter",
+    "href": "/elektrikli-scooter/c/2285"
+  },
+  {
+    "text": "Ayakkabı ve Terlik",
+    "href": "/ayakkabi-ve-terlik/c/2342"
+  },
+  {
+    "text": "Terlik",
+    "href": "/terlik/c/1000"
+  },
+  {
+    "text": "Ayakkabı",
+    "href": "/ayakkabi/c/1010"
+  },
+  {
+    "text": "Çantalar",
+    "href": "/cantalar/c/9299"
+  },
+  {
+    "text": "Oto Ürünleri",
+    "href": "/oto-urunleri/c/2115"
+  },
+  {
+    "text": "Bakım",
+    "href": "/bakim/c/2118"
+  },
+  {
+    "text": "Donanım",
+    "href": "/donanim/c/2120"
+  },
+  {
+    "text": "Çanta ve Valiz",
+    "href": "/canta-ve-valiz/c/2105"
+  },
+  {
+    "text": "Plaj Çantası",
+    "href": "/plaj-cantasi/c/1047"
+  },
+  {
+    "text": "Aksesuarlar",
+    "href": "/aksesuarlar/c/2537"
+  },
+  {
+    "text": "Şemsiye",
+    "href": "/semsiye/c/1087"
+  },
+  {
+    "text": "Tekstil",
+    "href": "/tekstil/c/1055"
+  },
+  {
+    "text": "Ev Tekstili",
+    "href": "/ev-tekstili/c/1001"
+  },
+  {
+    "text": "Giyim",
+    "href": "/giyim/c/1013"
+  },
+  {
+    "text": "Ateş Yakma ve Metal Parlatıcı",
+    "href": "/ates-yakma-ve-metal-parlatici/c/1598"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/ev-yasam/c/2188"
+  },
+  {
+    "text": "Kitap, Kırtasiye, Oyuncak",
+    "href": "/kitap-kirtasiye-oyuncak/c/1913"
+  },
+  {
+    "text": "Kırtasiye",
+    "href": "/kirtasiye/c/2149"
+  },
+  {
+    "text": "Defterler",
+    "href": "/defterler/c/2173"
+  },
+  {
+    "text": "Boyalar ve Resim Malzemeleri",
+    "href": "/boyalar-ve-resim-malzemeleri/c/2161"
+  },
+  {
+    "text": "Dosyalama ve Arşivleme",
+    "href": "/dosyalama-ve-arsivleme/c/2183"
+  },
+  {
+    "text": "Yapıştırıcı ve Etiketler",
+    "href": "/yapistirici-ve-etiketler/c/2180"
+  },
+  {
+    "text": "Kalem Çeşitleri",
+    "href": "/kalem-cesitleri/c/2150"
+  },
+  {
+    "text": "Masaüstü Gereçleri",
+    "href": "/masaustu-gerecleri/c/2348"
+  },
+  {
+    "text": "Anaokulu Kreş Malzemeleri",
+    "href": "/anaokulu-kres-malzemeleri/c/2349"
+  },
+  {
+    "text": "Kalemtıraş, Silgi, Düzeltici",
+    "href": "/kalemtiras-silgi-duzeltici/c/2158"
+  },
+  {
+    "text": "Okul Çantası",
+    "href": "/okul-cantasi/c/2369"
+  },
+  {
+    "text": "Beslenme Çantası",
+    "href": "/beslenme-cantasi/c/2370"
+  },
+  {
+    "text": "Suluk ve Matara",
+    "href": "/suluk-ve-matara/c/2372"
+  },
+  {
+    "text": "Kalem Kutuları",
+    "href": "/kalem-kutulari/c/2371"
+  },
+  {
+    "text": "Gazete ve Dergi",
+    "href": "/gazete-ve-dergi/c/2186"
+  },
+  {
+    "text": "Eğlence, Hobi, Oyuncak",
+    "href": "/eglence-hobi-oyuncak/c/2127"
+  },
+  {
+    "text": "Oyuncak ve Oyunlar",
+    "href": "/oyuncak-ve-oyunlar/c/2128"
+  },
+  {
+    "text": "Diğer Oyun ve Oyuncaklar",
+    "href": "/diger-oyun-ve-oyuncaklar/c/2137"
+  },
+  {
+    "text": "Kutlama Ürünleri",
+    "href": "/kutlama-urunleri/c/2140"
+  },
+  {
+    "text": "Puzzle",
+    "href": "/puzzle/c/2404"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/kitap-kirtasiye-oyuncak/c/1913"
+  },
+  {
+    "text": "CarrefourSA Ekstra",
+    "href": "/carrefoursa-ekstra/c/2346"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/market-alisverisi-tum-urunler-2024/c/9576"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/et-balik-tavuk-urunleri/c/9867"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/taze-meyve-sebze-urunleri/c/9890"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/temizlik-urunleri/c/9406"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/evinizin-temel-ihtiyaclari/c/9407"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "https://www.carrefoursa.com/carrefoursa-urunler/c/9699"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/bebek-dunyasi/c/9409"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/kozmetik-ve-bakim-dunyasi/c/9410"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/elektronik-urunler/c/9411"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/petshop/c/9559"
+  },
+  {
+    "text": "Tüm Ürünleri Gör",
+    "href": "/zuccaciye/c/1966"
+  },
+  {
+    "text": "Meyve, Sebze",
+    "href": "/meyve-sebze/c/1014"
+  },
+  {
+    "text": "Et, Tavuk, Balık",
+    "href": "/et-tavuk-balik/c/1044"
+  },
+  {
+    "text": "Süt Ürünleri",
+    "href": "/sut-urunleri/c/1310"
+  },
+  {
+    "text": "Kahvaltılık Ürünler",
+    "href": "/kahvaltilik-urunler/c/1363"
+  },
+  {
+    "text": "Temel Gıda",
+    "href": "/temel-gida/c/1110"
+  },
+  {
+    "text": "Atıştırmalık",
+    "href": "/atistirmalik/c/1493"
+  },
+  {
+    "text": "Hazır Yemek&Donuk Ürünler",
+    "href": "/hazir-yemek-donuk-urunler/c/1064"
+  },
+  {
+    "text": "Fırın",
+    "href": "/firin/c/1275"
+  },
+  {
+    "text": "İçecekler",
+    "href": "/icecekler/c/1409"
+  },
+  {
+    "text": "Sağlıklı Yaşam",
+    "href": "/saglikli-yasam/c/1938"
+  },
+  {
+    "text": "Dondurma",
+    "href": "/dondurma/c/1260"
+  },
+  {
+    "text": "Bebek Ürünleri",
+    "href": "/bebek-urunleri/c/1846"
+  },
+  {
+    "text": "Pet Shop",
+    "href": "/pet-shop/c/2054"
+  },
+  {
+    "text": "Temizlik Ürünleri",
+    "href": "/temizlik-urunleri/c/1556"
+  },
+  {
+    "text": "Kişisel Bakım",
+    "href": "/kisisel-bakim/c/1674"
+  },
+  {
+    "text": "Elektronik",
+    "href": "/elektronik/c/2286"
+  },
+  {
+    "text": "Ev, Yaşam",
+    "href": "/ev-yasam/c/2188"
+  }
+]

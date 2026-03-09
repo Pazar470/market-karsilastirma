@@ -1,0 +1,4 @@
+{
+  "_aciklama": "Verdiğiniz çalışan Şok kategori URL'leri. Her satırda bir URL olan sok_active_urls.txt'yi scripts/update-sok-active-urls.ts ile işleyerek güncelleyebilirsiniz.",
+  "1770": "https://www.sokmarket.com.tr/yemeklik-malzemeler-c-1770"
+}

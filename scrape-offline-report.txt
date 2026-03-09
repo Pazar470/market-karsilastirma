@@ -1,0 +1,15 @@
+Offline tarama raporu — 2026-03-08T23:30:31.024Z
+============================================================
+
+İNDİRME ÖZET
+----------------------------------------
+Toplam ürün: 19535
+İndirme hatası (kategori): 0
+
+UPLOAD ÖZET
+----------------------------------------
+Upload hatası: 0
+
+Mapping senkronu: 1 ürün
+
+Toplam süre: 1430.9 sn

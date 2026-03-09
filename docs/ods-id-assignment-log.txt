@@ -1,0 +1,105 @@
+ODS Ürün ID atama logu
+========================
+Tarih: 2026-03-08T19:53:48.888Z
+Kaynak: C:\Users\Muhammet\Desktop\market karşılaştırma cursor\docs\tum_urunler_manuel_with_ids.tsv
+
+Özet
+-----
+Toplam satır: 26125
+ID atanan satır: 19055 (bunun 376 adedi benzer isimle eşleşme)
+Eşleşmeyen satır: 7070
+Eşleşmeyen benzersiz (market+ürün adı): 7064
+
+Eşleşmeme sebebi: ODS satırındaki (market + ürün adı) DB'de yok.
+  - DB taramadaki ürün listesi ile ODS farklı olabilir.
+  - Market adı farkı (örn. Şok vs Sok) merge-duplicate-market ile giderildi mi kontrol et.
+  - Ürün adı yazım farkı (virgül/nokta, boşluk) normalizasyonla giderilmeye çalışılıyor.
+
+Market bazında eşleşmeyen satır sayısı
+--------------------------------------
+  Migros: 5855
+  Şok: 1115
+  A101: 100
+
+Örnek eşleşmeyen anahtarlar (ilk 80)
+--------------------------------------
+  [A101] Eti Ahenk Bol Sütlü Çikolata 300 G  (1 satır)
+  [A101] Eti Karam Karamelli Çikolata 300 G  (1 satır)
+  [A101] Torku Nice Bütün Fındıklı Çikolata 400 G  (1 satır)
+  [A101] Ülker Çikolatin İkramlık Çikolata 350 G  (1 satır)
+  [A101] Evliya Elmas Bonbon Şeker 500 G  (1 satır)
+  [A101] Evliya Favori Dolgulu Karışık Yumuşak Şeker 350 G  (1 satır)
+  [A101] Evliya Tofiş Karışık Meyveli Yumuşak Şeker 1 Kg  (1 satır)
+  [A101] Kent Elegan Meyveli Şeker 375 G  (1 satır)
+  [A101] Kent Missbon Sütlü Şeker 375 G  (1 satır)
+  [A101] Kent Tofy Meyveli Şeker 375 G  (1 satır)
+  [A101] Tayaş Damla Karışık Meyveli Sert Şeker 350 G  (1 satır)
+  [A101] Ülker Lokumcuk Karışık Yumuşak Şeker 350 G  (1 satır)
+  [A101] Ülker Toffe Karışık Yumuşak Şeker 350 G  (1 satır)
+  [A101] Şölen Butik Meyveli Yumuşak Şeker 350 G  (1 satır)
+  [A101] Hilfe Akım Korumalı USB'li Priz Çoklayıcı  (1 satır)
+  [A101] Piranha Dijital Hava Kompresörü  (1 satır)
+  [A101] "Grundig 55 GJU7100 55"" 139 cm Smart 4K UHD Google TV"  (1 satır)
+  [A101] "Grundig 65 GJU 7100 65"" 164 cm Smart 4K UHD Google TV"  (1 satır)
+  [A101] "Hi Level 32HRT900 32"" HD Ready Uydu Alıcılı Smart TV"  (1 satır)
+  [A101] "Hi Level 43"" HRT900 4K Ultra HD Smart LED TV"  (1 satır)
+  [A101] "Hi Level 50HRT900 50"" UHD Smart TV"  (1 satır)
+  [A101] "Hi Level 55UHL750 55"" UHD Smart TV"  (1 satır)
+  [A101] "Hi Level HL32DAL540 32"" HDR Webos TV"  (1 satır)
+  [A101] "Hi Level HL43DMN540 43"" FHD Webos 2.0 D-Dual LED TV"  (1 satır)
+  [A101] Hi Level HL43FMLN-A14S 43” Frameless FHD Android 14 Smart TV  (1 satır)
+  [A101] "Hi Level HL50QFPRL-A14S 50"" Frameless FHD QLED Android 14 …  (1 satır)
+  [A101] "Hi Level HL50QMN252 50"" Frameless 4K UHD QLED Webos TV"  (1 satır)
+  [A101] "Hi Level HL55QMN252SC-S 55"" Frameless UHD Qled Webos TV"  (1 satır)
+  [A101] "Hi Level HL65QMN252SC-S 65"" Frameless UHD Qled Webos TV"  (1 satır)
+  [A101] "Hyundai 55HYN1405 55"" 4K whaleOS LED TV"  (1 satır)
+  [A101] "Hyundai 65HYN3405 65"" 4K Ultra HD Whale TV"  (1 satır)
+  [A101] "Onvo 24OVF6001H 24"" Frameless HD Android Smart LED TV"  (1 satır)
+  [A101] "Onvo 32OVF4000AH 32"" HD Ready Frameless Android 13 Smart L…  (1 satır)
+  [A101] "Onvo 32VL80F2HA 32"" Frameless HD Whale OS 10 Android Led T…  (1 satır)
+  [A101] "Onvo 40VQ80F2FA 40"" Flameless FHD Whale OS 10 Android QLED…  (1 satır)
+  [A101] "Onvo 43OVF5000AF 43"" Frameless FHD Google TV"  (1 satır)
+  [A101] "Onvo 43OVF5000AQ 43"" Frameless FHD Qled Google TV"  (1 satır)
+  [A101] "Onvo 50OVF9000UQ 50"" Frameless Ultra HD Qled Google TV"  (1 satır)
+  [A101] "Onvo 55OVF5000AQ 55"" Frameless 4K Ultra HD QLED Google TV"  (1 satır)
+  [A101] "Onvo 55OVF9001UQ 55"" Frameless Ultra HD QLED Google TV"  (1 satır)
+  [A101] "Onvo 55VQ90F3UA 55"" Frameless UHD Qled Google TV"  (1 satır)
+  [A101] "Onvo 65OVF5000AQ 65"" Frameless UHD QLED Google TV"  (1 satır)
+  [A101] "Philips 32PHS6009/62 32"" HD Smart LED TV"  (1 satır)
+  [A101] "Philips 40PFS6000/62 40"" FHD LED TV"  (1 satır)
+  [A101] "Philips 50PUS7000/62 50"" 4K UHD LED Dolby Atmos Smart TV"  (1 satır)
+  [A101] "Samsung 50U8000F 50"" 4K Crystal UHD Smart Led TV"  (1 satır)
+  [A101] "Samsung 58U8000F 58"" Crystal UHD 4K Smart TV"  (1 satır)
+  [A101] "Samsung 70DU7100 70"" 4K Ultra HD Smart LED TV"  (1 satır)
+  [A101] "Samsung 70U8000F 70"" Crystal UHD 4K Smart TV"  (1 satır)
+  [A101] "Toshiba 43LV2563DT 43"" FHD Vidaa TV"  (1 satır)
+  [A101] "Toshiba 43UV2363DT-43UV1563DT 43"" 4K Ultra HD Vidaa TV"  (1 satır)
+  [A101] "Toshiba 4K UHD Android LED Tv 43"" 43UA2363DT"  (1 satır)
+  [A101] "Toshiba 50UV2363DT 50"" 4K UHD Vidaa TV"  (1 satır)
+  [A101] Akay Büyük Kozmetik Organizeri  (1 satır)
+  [A101] Bambu Kapaklı Organizer Seti  (1 satır)
+  [A101] Dikey Takı Organizeri  (1 satır)
+  [A101] English Home Tek Kişilik Alez 100x200 cm  (1 satır)
+  [A101] English Home Çift Kişilik Alez 160x200 cm  (1 satır)
+  [A101] Pierre Cardin Visco Yastık  (1 satır)
+  [A101] Çekmeceli Takı Organizeri  (1 satır)
+  [A101] Erkek Suni Deri Mekanizmalı Cüzdan  (1 satır)
+  [A101] Kadın Cüzdan  (1 satır)
+  [A101] Kadın Hasır Çanta  (1 satır)
+  [A101] 6+1 Tepsili Kahvaltılık Set  (1 satır)
+  [A101] Borosilikat Tencere Lilamor 2 L  (1 satır)
+  [A101] Cam Boncuk Kase 8 cm  (1 satır)
+  [A101] Cam Boncuk Tabak 12 cm  (1 satır)
+  [A101] Cam Kalp Şekilli Tabak 19 cm  (1 satır)
+  [A101] Cam Kalp Şekilli Tabak 25 cm  (1 satır)
+  [A101] Cam Kase 16 cm  (1 satır)
+  [A101] Cam Lokumluk 6'lı  (1 satır)
+  [A101] Cam Pasta Tabağı 21 cm  (1 satır)
+  [A101] Cam Tabak 15 cm  (1 satır)
+  [A101] Cambu Borosilikat Demlik 1,1 L  (1 satır)
+  [A101] Güral Porselen Fondü Seti  (1 satır)
+  [A101] Mantar Kapaklı Borosilikat Şişe 750 ml  (1 satır)
+  [A101] Mini Muffin Kalıbı 12'li  (1 satır)
+  [A101] Nehir Metal Süzgeç 25 cm  (1 satır)
+  [A101] Paşabahçe Amore Ayaklı Kahve Yanı Bardak 2'li 150 cc  (1 satır)
+  [A101] Temperli Kayık Tabak 35 cm  (1 satır)

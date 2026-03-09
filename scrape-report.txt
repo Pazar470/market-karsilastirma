@@ -1,0 +1,56 @@
+Tarama bitiş: 2026-03-02T23:56:08.678Z
+Toplam ürün: 41374, Hatalar: 6
+
+--- Ana kategori bazlı kaydedilen ürün sayısı (örneklem, sitedeki sayıyla karşılaştır) ---
+
+MIGROS: toplam 16990 ürün
+  Diğer: 15119
+  İçecek: 602
+  Temel Gıda: 296
+  Süt Ürünleri: 233
+  Elektronik: 152
+  Atıştırmalık: 149
+  Temizlik: 115
+  Ev & Yaşam: 91
+  Fırın & Pastane: 85
+  Kişisel Bakım & Kozmetik: 60
+  Kağıt Ürünleri: 49
+  Et, Tavuk & Balık: 25
+  Meyve & Sebze: 14
+
+A101: toplam 6459 ürün
+  Atıştırmalık: 1485
+  İçecek: 713
+  Temel Gıda: 605
+  Süt Ürünleri: 579
+  Kişisel Bakım & Kozmetik: 567
+  Temizlik: 536
+  Elektronik: 449
+  Et, Tavuk & Balık: 387
+  Ev & Yaşam: 378
+  Hazır Yemek & Dondurulmuş: 281
+  Diğer: 200
+  Anne & Bebek: 81
+  Fırın & Pastane: 80
+  Kağıt Ürünleri: 79
+  Meyve & Sebze: 39
+
+SOK: toplam 2825 ürün
+  Diğer: 1229
+  Atıştırmalık: 437
+  İçecek: 226
+  Ev & Yaşam: 223
+  Süt Ürünleri: 203
+  Kişisel Bakım & Kozmetik: 126
+  Temizlik: 79
+  Fırın & Pastane: 60
+  Et, Tavuk & Balık: 56
+  Anne & Bebek: 55
+  Meyve & Sebze: 39
+  Temel Gıda: 32
+  Evcil Hayvan: 26
+  Elektronik: 17
+  Hazır Yemek & Dondurulmuş: 12
+  Kağıt Ürünleri: 5
+
+--- Hatalı Şok URL sayısı: 6 ---

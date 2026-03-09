@@ -1,0 +1,93 @@
+{
+  "id": "12000013",
+  "isEnabled": true,
+  "images": [
+    {
+      "id": "yerliUretim",
+      "isExternal": false,
+      "imageType": "badge",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+    },
+    {
+      "id": "hhH9qwZTcH",
+      "imageType": "product",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/hhH9qwZTcH_256x256.png",
+      "isExternal": false
+    }
+  ],
+  "attributes": {
+    "returnDay": 15,
+    "rank": 6,
+    "brand": "BİRŞAH",
+    "HEMEN_maxQty": 8,
+    "categoryRank": 502003,
+    "netWeight": 1000,
+    "depolamaKosulu": "Gıda",
+    "name": "Birşah Yarım Yağlı Süt 1 L",
+    "SLOT_minQty": 1,
+    "salesUnitOfMeasure": "ADT",
+    "HEMEN_minQty": 1,
+    "seoUrl": "https://www.a101.com.tr/kapida/sut-urunleri-kahvaltilik/birsah-yarim-yagli-sut-1-l_p-12000013",
+    "baseUnitOfMeasure": "ADT",
+    "isShowInDS": true,
+    "SLOT_maxQty": 10,
+    "nitelikAdi": "Regüler",
+    "barcodes": [
+      "8694962200206",
+      "8699118000549",
+      "8699118024439",
+      "8699118041283",
+      "8699118041696",
+      "8699118052722",
+      "8699118059233",
+      "8699118059257",
+      "8699118058779",
+      "8699118060222",
+      "8699118060482",
+      "8699118060444",
+      "8699118061168",
+      "8699118068624",
+      "8699118068006",
+      "8699118036302",
+      "8699118010951"
+    ],
+    "grossWeight": 1050,
+    "stepper": 1,
+    "hediye": true
+  },
+  "interests": [],
+  "categories": [
+    {
+      "id": "C05",
+      "name": "Süt Ürünleri, Kahvaltılık",
+      "parentId": "master"
+    },
+    {
+      "id": "C0502",
+      "name": "Süt",
+      "parentId": "master"
+    },
+    {
+      "id": "C20",
+      "name": "Ramazan Özel",
+      "parentId": "master"
+    },
+    {
+      "id": "C2004",
+      "name": "Kahvaltılık, Şarküteri",
+      "parentId": "master"
+    }
+  ],
+  "campaigns": [],
+  "price": {
+    "normal": 3750,
+    "normalStr": "₺37,50",
+    "discounted": 3750,
+    "discountedStr": "₺37,50"
+  },
+  "stock": 100,
+  "isBlacklisted": false,
+  "rS": 0
+}

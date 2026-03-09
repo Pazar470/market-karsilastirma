@@ -1,0 +1,67 @@
+{
+  "id": "12003149",
+  "isEnabled": true,
+  "images": [
+    {
+      "id": "yerliUretim",
+      "isExternal": false,
+      "imageType": "badge",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/yerliUretim_256x256.png"
+    },
+    {
+      "id": "7SffzxhyOu",
+      "isExternal": false,
+      "imageType": "product",
+      "tags": [],
+      "url": "https://cdn2.a101.com.tr/dbmk89vnr/CALL/Image/get/7SffzxhyOu_256x256.png"
+    }
+  ],
+  "attributes": {
+    "returnDay": 15,
+    "rank": 63,
+    "brand": "OTAT",
+    "HEMEN_maxQty": 8,
+    "categoryRank": 512022,
+    "netWeight": 2000,
+    "depolamaKosulu": "Soğuk(+4)",
+    "name": "Otat Vadim Yarım Yağlı Tost Peynir 2 Kg",
+    "SLOT_minQty": 1,
+    "salesUnitOfMeasure": "ADT",
+    "HEMEN_minQty": 1,
+    "seoUrl": "https://www.a101.com.tr/kapida/sut-urunleri-kahvaltilik/otat-vadim-yarim-yagli-tost-peynir-2-kg_p-12003149",
+    "baseUnitOfMeasure": "ADT",
+    "isShowInDS": true,
+    "SLOT_maxQty": 10,
+    "nitelikAdi": "GrupSpot",
+    "barcodes": [
+      "8696813010804"
+    ],
+    "grossWeight": 2083,
+    "stepper": 1,
+    "hediye": true
+  },
+  "interests": [],
+  "categories": [
+    {
+      "id": "C05",
+      "name": "Süt Ürünleri, Kahvaltılık",
+      "parentId": "master"
+    },
+    {
+      "id": "C0512",
+      "name": "Kaşar Peyniri",
+      "parentId": "master"
+    }
+  ],
+  "campaigns": [],
+  "price": {
+    "normal": 32900,
+    "discounted": 32900,
+    "normalStr": "₺329,00",
+    "discountedStr": "₺329,00"
+  },
+  "stock": 100,
+  "isBlacklisted": false,
+  "rS": 0
+}
