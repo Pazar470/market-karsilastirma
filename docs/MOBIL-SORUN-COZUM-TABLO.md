@@ -9,7 +9,7 @@ Kısa referans tablosu. Agent modunda tek seferde uygulanacak, sonra Vercel depl
 | 1 | Genel: mobil kullanıcı dostu değil, çok kaydırma, performans hissi kötü | Mobil-first layout; liste/grid kompakt; gereksiz boşluk azalt. |
 | 2 | Mobil anasayfada alarm sayfasına geçiş yok (PC'de var) | Mobil header/nav’a “Fiyat Alarmları” / alarm sayfası linki ekle. |
 | 3 | Alarm oluştur ekranında “Alarm Oluştur” butonu sepet FAB’ının arkasında kalıyor | FAB’ı sayfa içeriğinin altında bırak veya bu sayfada gizle / padding ile “Alarm Oluştur”a çakışmayı kaldır. |
-| 4 | Yeni kurulan alarmda “40 yeni ürün onay bekliyor” kafa karıştırıyor (henüz tarama yok) | Sadece gerçekten onay bekleyen ürün varsa göster; 0 ise bu blok gizlensin veya “Henüz ürün yok” gibi net metin. |
+| 4 | Yeni kurulan alarmda “40 yeni ürün onay bekliyor” kafa karıştırıyor (henüz tarama yok) | Sadece gerçekten onay bekleyen ürün varsa göster; 0 ise bu blok gizlensin veya “Henüz ürün yok” gibi net metin. Düzenlenmiş alarmlar iki sekmeli yapıya dönsün. Bir sekmede o alarmı karşılayan ürünler listelensin, diğer sayfada alarm fiyatı hangi ürünlerin alarm listesinde olduğu hangi ürünlerin "gizle" denilerek pasif yapıldığı görülsün ve bunlar editlenip alarm tekrar set edilebilsin bu sayfada.|
 | 5 | Mobilde bildirimler paneli solda kalıyor, tam okunmuyor | Panel genişliği tam ekran / drawer; mobilde sağdan veya alttan açılacak şekilde konumla. |
 | 6 | Bildirime tıklayınca ürüne gitmiyor | Bildirim tıklanınca ilgili ürün detay sayfasına yönlendir. |
 | 7 | Tek ürün koca sayfayı kaplıyor (ürün listesi) | Ürünleri 2 sütun grid, küçük kartlar (A101 örneği gibi); sayfa başına daha çok ürün. |

@@ -12,6 +12,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { AddToBasketButton } from './add-to-basket-button';
 import { AddToAlarmButton } from './add-to-alarm-button';
 import { ProductImage } from '@/components/product-image';
+import { MarketLogo } from '@/components/market-logo';
 
 interface Facet {
     name: string;
@@ -347,19 +348,8 @@ export function ProductSearch() {
                                     </div>
                                     <CardHeader className="p-4 pb-2">
                                         <div className="flex justify-between items-start mb-1">
-                                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold
-                                                bg-blue-50 text-blue-700">
-                                                <span
-                                                    className={cn(
-                                                        'inline-block h-3 w-3 rounded-sm',
-                                                        priceInfo?.market.name === 'A101' && 'bg-cyan-500',
-                                                        priceInfo?.market.name === 'Migros' && 'bg-orange-500',
-                                                        priceInfo?.market.name === 'Şok' && 'bg-yellow-400',
-                                                        priceInfo?.market.name === 'BİM' && 'bg-red-500',
-                                                        (!priceInfo?.market.name || !['A101', 'Migros', 'Şok', 'BİM'].includes(priceInfo.market.name)) && 'bg-gray-400'
-                                                    )}
-                                                />
-                                                <span>{priceInfo?.market.name || 'Market'}</span>
+                                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-700">
+                                                <MarketLogo marketName={priceInfo?.market.name} />
                                             </div>
                                         </div>
 

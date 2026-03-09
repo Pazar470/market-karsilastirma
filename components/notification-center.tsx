@@ -115,10 +115,17 @@ export function NotificationCenter() {
                                     const product = decoded.product;
                                     const createdAt = new Date(n.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
+                                    const cardHref = product
+                                        ? `/product/${product.id}`
+                                        : (n.alarmId ? `/alarms/${n.alarmId}/edit` : '#');
+                                    const isClickable = cardHref !== '#';
+
                                     return (
-                                        <div
+                                        <Link
                                             key={n.id}
-                                            className={`p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''}`}
+                                            href={cardHref}
+                                            onClick={() => isClickable && setIsOpen(false)}
+                                            className={`block p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''} ${!isClickable ? 'cursor-default' : 'cursor-pointer'}`}
                                         >
                                             {!n.isRead && (
                                                 <div className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full" />
@@ -126,21 +133,13 @@ export function NotificationCenter() {
 
                                             {product ? (
                                                 <div className="flex gap-3 items-center">
-                                                    <button
-                                                        type="button"
-                                                        className="shrink-0"
-                                                        onClick={() => setIsOpen(false)}
-                                                    >
-                                                        <Link href={`/product/${product.id}`} className="block">
-                                                            <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
-                                                                <ProductImage
-                                                                    src={product.imageUrl}
-                                                                    alt={product.name}
-                                                                    className="w-full h-full object-contain"
-                                                                />
-                                                            </div>
-                                                        </Link>
-                                                    </button>
+                                                    <div className="shrink-0 w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
+                                                        <ProductImage
+                                                            src={product.imageUrl}
+                                                            alt={product.name}
+                                                            className="w-full h-full object-contain"
+                                                        />
+                                                    </div>
                                                     <div className="flex-1 min-w-0">
                                                         <p className="text-xs font-bold text-gray-900 truncate">{n.title}</p>
                                                         <p className="text-xs text-gray-600 leading-snug line-clamp-2">{decoded.text}</p>
@@ -154,7 +153,11 @@ export function NotificationCenter() {
                                                         </div>
                                                     </div>
                                                     {product.price != null && (
-                                                        <div className="shrink-0">
+                                                        <div
+                                                            className="shrink-0"
+                                                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                                                            role="presentation"
+                                                        >
                                                             <AddToBasketButton
                                                                 product={{
                                                                     id: product.id,
@@ -173,22 +176,16 @@ export function NotificationCenter() {
                                                     <p className="text-sm font-bold text-gray-900 mb-1">{n.title}</p>
                                                     <p className="text-xs text-gray-600 leading-relaxed mb-2">{decoded.text}</p>
                                                     <div className="flex items-center justify-between">
-                                                        <span className="text-[10px] text-gray-400">
-                                                            {createdAt}
-                                                        </span>
+                                                        <span className="text-[10px] text-gray-400">{createdAt}</span>
                                                         {n.alarmId && (
-                                                            <Link
-                                                                href={`/alarms/${n.alarmId}/edit`}
-                                                                onClick={() => setIsOpen(false)}
-                                                                className="text-[10px] font-bold text-blue-500 flex items-center gap-1 hover:underline"
-                                                            >
+                                                            <span className="text-[10px] font-bold text-blue-500 flex items-center gap-1">
                                                                 Detaylar <ExternalLink className="w-2 h-2" />
-                                                            </Link>
+                                                            </span>
                                                         )}
                                                     </div>
                                                 </div>
                                             )}
-                                        </div>
+                                        </Link>
                                     );
                                 })
                             ) : (

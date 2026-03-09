@@ -177,41 +177,119 @@ function sokCategorySlug(name: string): string {
         .replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
 }
 
+/** Şok __NEXT_DATA__ içinde ürün dizisini bulur (rekürsif arama). */
+function findProductsInNextData(obj: any, depth = 0): any[] {
+    if (depth > 12) return [];
+    if (Array.isArray(obj) && obj.length > 0) {
+        const first = obj[0];
+        if (first && typeof first === 'object') {
+            const name = first.name ?? first.productName ?? first.title;
+            const price = first.price ?? first.shownPrice ?? first.salePrice ?? first.listPrice;
+            if (name && typeof name === 'string' && price != null && Number(price) > 0) return obj;
+        }
+    }
+    if (obj && typeof obj === 'object')
+        for (const k of Object.keys(obj)) {
+            const found = findProductsInNextData(obj[k], depth + 1);
+            if (found.length > 0) return found;
+        }
+    return [];
+}
+
+/** Şok: __NEXT_DATA__ veya HTML'den ürün çıkarır. */
+function parseSokProductsFromHtml(html: string, $: ReturnType<typeof cheerio.load>, cat: any): ScrapedProduct[] {
+    const out: ScrapedProduct[] = [];
+    const seen = new Set<string>();
+
+    // 1) __NEXT_DATA__ dene
+    const nextMatch = html.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
+    if (nextMatch) {
+        try {
+            const data = JSON.parse(nextMatch[1]);
+            const list = findProductsInNextData(data);
+            for (const p of list) {
+                const name = p.name ?? p.productName ?? p.title ?? '';
+                const priceVal = p.price ?? p.shownPrice ?? p.salePrice ?? p.listPrice;
+                const price = typeof priceVal === 'number' ? priceVal : parseFloat(String(priceVal).replace(/\./g, '').replace(',', '.')) || 0;
+                const href = p.slug ?? p.url ?? p.link ?? (p.id ? `p-${p.id}` : '');
+                const link = href && !href.startsWith('http')
+                    ? `https://www.sokmarket.com.tr/${href.startsWith('/') ? href.slice(1) : href}`
+                    : (href || '');
+                const img = p.imageUrl ?? p.image ?? p.images?.[0]?.url ?? '';
+                if (!name || price <= 0) continue;
+                const key = `${name}|${price}`;
+                if (seen.has(key)) continue;
+                seen.add(key);
+                const qty = parseQuantity(name);
+                if (!link) continue;
+                out.push({
+                    name,
+                    price,
+                    imageUrl: typeof img === 'string' ? img : '',
+                    link,
+                    store: 'SOK',
+                    categoryCode: cat.id,
+                    categoryName: cat.name,
+                    quantityAmount: qty.amount || undefined,
+                    quantityUnit: qty.unit || undefined,
+                });
+            }
+            if (out.length > 0) return out;
+        } catch (_) { /* ignore */ }
+    }
+
+    // 2) HTML: önce eski selector, yoksa tüm ürün linkleri
+    let elements = $('div[class*="PLPProductListing_PLPCardsWrapper"] a[href*="-p-"]').toArray();
+    if (elements.length === 0) elements = $('a[href*="-p-"]').toArray();
+
+    for (const el of elements) {
+        const $el = $(el);
+        const href = $el.attr('href') || '';
+        const text = $el.closest('div[class*="Card"], article, [class*="product"]').length
+            ? $el.closest('div[class*="Card"], article, [class*="product"]').first().text().trim()
+            : $el.parent().text().trim() || $el.text().trim();
+        const priceMatch = text.match(/(\d{1,3}(?:[.]\d{3})*(?:,\d{1,2})?)\s*(?:₺|TL)/i);
+        if (!priceMatch) continue;
+        const price = parseFloat(priceMatch[1].replace(/\./g, '').replace(',', '.'));
+        const name = text.replace(priceMatch[0], '').replace(/\s+/g, ' ').trim();
+        if (!name || name.length < 2) continue;
+        const key = `${name}|${price}`;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        const qty = parseQuantity(name);
+        out.push({
+            name,
+            price,
+            imageUrl: $el.find('img').attr('src') || '',
+            link: `https://www.sokmarket.com.tr${href.startsWith('/') ? href : '/' + href}`,
+            store: 'SOK',
+            categoryCode: cat.id,
+            categoryName: cat.name,
+            quantityAmount: qty.amount || undefined,
+            quantityUnit: qty.unit || undefined,
+        });
+    }
+    return out;
+}
+
 const SOK_MAX_PAGES_PER_CATEGORY = 200;
 
 async function scrapeSok(cat: any, market: any): Promise<ScrapedProduct[]> {
-    const baseUrl = `https://www.sokmarket.com.tr/${sokCategorySlug(cat.name)}-c-${cat.id}`;
+    let baseUrl = cat.url && typeof cat.url === 'string' && cat.url.includes('sokmarket.com.tr')
+        ? cat.url.replace(/\?.*$/, '').replace(/(sokmarket\.com\.tr)\/+/, '$1/')
+        : `https://www.sokmarket.com.tr/${sokCategorySlug(cat.name)}-c-${cat.id}`;
     const products: ScrapedProduct[] = [];
     let page = 1;
 
     while (page <= SOK_MAX_PAGES_PER_CATEGORY) {
         const url = page === 1 ? baseUrl : `${baseUrl}?page=${page}`;
-        const res = await fetchWithTimeout(url);
+        const res = await fetchWithTimeout(url, { headers: HEADERS });
         if (!res.ok) break;
         const html = await res.text();
         const $ = cheerio.load(html);
-        const elements = $('div[class*="PLPProductListing_PLPCardsWrapper"] a[href*="-p-"]').toArray();
-        if (elements.length === 0) break;
-
-        for (const el of elements) {
-            const text = $(el).text().trim();
-            const priceMatch = text.match(/(\d{1,3}(?:[.]\d{3})*(?:,\d{1,2})?)\s*(?:₺|TL)/i);
-            if (!priceMatch) continue;
-            const price = parseFloat(priceMatch[1].replace(/\./g, '').replace(',', '.'));
-            const name = text.replace(priceMatch[0], '').trim();
-            const qty = parseQuantity(name);
-            products.push({
-                name,
-                price,
-                imageUrl: $(el).find('img').attr('src') || '',
-                link: `https://www.sokmarket.com.tr${($(el).attr('href') || '').startsWith('/') ? '' : '/'}${$(el).attr('href') || ''}`,
-                store: 'SOK',
-                categoryCode: cat.id,
-                categoryName: cat.name,
-                quantityAmount: qty.amount || undefined,
-                quantityUnit: qty.unit || undefined,
-            });
-        }
+        const pageProducts = parseSokProductsFromHtml(html, $, cat);
+        if (pageProducts.length === 0) break;
+        products.push(...pageProducts);
         page++;
         if (page <= SOK_MAX_PAGES_PER_CATEGORY) await new Promise((r) => setTimeout(r, 200));
     }
