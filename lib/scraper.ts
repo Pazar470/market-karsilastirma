@@ -2,7 +2,6 @@
 import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
 import path from 'path';
-import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
 import { upsertProductBatch, type ScrapedProduct } from './db-utils';
 import { parseQuantity } from './utils';

@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "postinstall": "prisma generate",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "export:category-list": "node --experimental-vm-modules --no-warnings node_modules/ts-node/dist/bin.js --esm scripts/export-market-category-product-list.ts"
