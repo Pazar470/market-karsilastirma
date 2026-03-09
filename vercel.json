@@ -1,4 +1,3 @@
 {
-    "_comment": "Build: package.json scripts.build (prisma generate && next build). Cron: boş; tarama yerelde run-full-scan.ts veya harici servis ile /api/cron/scan.",
     "crons": []
 }
