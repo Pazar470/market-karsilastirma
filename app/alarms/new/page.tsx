@@ -337,7 +337,10 @@ function NewAlarmPageContent() {
                     {step === 1 && (
                         <div>
                             <h2 className="text-2xl font-bold mb-6">Hangi kategoriyi takip edelim?</h2>
-                            <p className="text-xs text-gray-500 mb-3">Kategorilerdeki oluşabilecek yanlışlıklar marketlerin kendi kategorilerinden kaynaklanabilir.</p>
+                            <p className="text-xs text-gray-500 mb-3">
+                                Ürünler ve fiyatlar marketlerin online sitelerinden günlük taramalarla alınır.
+                                Bazı kategorilerde yanlış ürün görünmesi marketlerin kendi site kategorilerinden kaynaklanabilir.
+                            </p>
                             <p className="text-xs text-amber-500/90 mb-3 bg-amber-500/5 border border-amber-500/20 rounded-lg px-3 py-2">Beta’da alarm kurmak için kullanıcı adı ve PIN zorunlu olacak. MVP’de kayıt olmadan alarm kurulamayacak; bu uyarı mesajında da gösterilecek.</p>
                             <input
                                 type="search"
@@ -453,7 +456,7 @@ function NewAlarmPageContent() {
                         <div>
                             <div className="flex justify-between items-start mb-2">
                                 <div>
-                                    <h2 className="text-2xl font-bold">Ürünleri Rafine Et (Seen/Unseen)</h2>
+                                    <h2 className="text-2xl font-bold">Ürünleri Göster / Gizle</h2>
                                     <p className="text-gray-400 text-sm">Filtreye giren {filteredProducts.length} üründen takip etmek istediklerini seç.</p>
                                 </div>
                                 <div className="flex gap-2">
@@ -461,13 +464,13 @@ function NewAlarmPageContent() {
                                         onClick={() => { setExcludedIds([]); setIncludedIds(filteredProducts.map(p => p.id)); }}
                                         className="px-3 py-1.5 bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded-lg text-xs font-bold hover:bg-blue-600/30 transition-all"
                                     >
-                                        Hepsini Göster (Seen All)
+                                        Tümünü Göster
                                     </button>
                                     <button
                                         onClick={() => { setExcludedIds(filteredProducts.map(p => p.id)); setIncludedIds([]); }}
                                         className="px-3 py-1.5 bg-red-600/10 text-red-400 border border-red-500/20 rounded-lg text-xs font-bold hover:bg-red-600/20 transition-all"
                                     >
-                                        Hepsini Gizle (Unseen All)
+                                        Tümünü Gizle
                                     </button>
                                 </div>
                             </div>
@@ -475,9 +478,9 @@ function NewAlarmPageContent() {
                             <div className="mt-8 space-y-8">
                                 {/* SEEN LIST - anasayfa formatı */}
                                 <div>
-                                    <h3 className="text-sm font-bold text-blue-400 mb-3 flex items-center gap-2">
+                                        <h3 className="text-sm font-bold text-blue-400 mb-3 flex items-center gap-2">
                                         <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
-                                        TAKİP EDİLENLER (SEEN)
+                                        TAKİP EDİLEN ÜRÜNLER
                                     </h3>
                                     {filteredProducts.filter(p => !excludedIds.includes(p.id)).length === 0 ? (
                                         <div className="p-8 border-2 border-dashed border-gray-800 rounded-2xl text-center text-gray-600 text-sm">
@@ -505,7 +508,7 @@ function NewAlarmPageContent() {
                                 {/* UNSEEN LIST - aynı format, hafif silik */}
                                 <div className="pt-6 border-t border-gray-800/50">
                                     <h3 className="text-sm font-bold text-gray-500 mb-3 flex items-center gap-2">
-                                        GİZLENENLER (UNSEEN)
+                                        GİZLENEN ÜRÜNLER
                                     </h3>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-h-[420px] overflow-y-auto pr-2 custom-scrollbar opacity-85">
                                         {filteredProducts.filter(p => excludedIds.includes(p.id)).map((product) => (

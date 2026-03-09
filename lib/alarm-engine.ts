@@ -86,11 +86,24 @@ async function runAlarmCheck(alarm: { id: string; name: string; categoryId: stri
                             data: { pendingProductIds: JSON.stringify(pendingIds) }
                         });
 
-                        // Create Notification for new product
+                        // Create Notification for new product (JSON payload içinde ürün özeti ile)
+                        const notificationPayload = {
+                            text: `"${alarm.name}" alarmınız için koşulları karşılayan yeni bir ürün bulundu.`,
+                            product: {
+                                id: product.id,
+                                name: product.name,
+                                imageUrl: product.imageUrl,
+                                price: priceValue,
+                                quantityAmount: product.quantityAmount,
+                                quantityUnit: product.quantityUnit,
+                                marketName: undefined as string | undefined,
+                            },
+                        };
+
                         await prisma.notification.create({
                             data: {
                                 title: 'Yeni Ürün Keşfedildi',
-                                message: `"${alarm.name}" alarmınız için uygun yeni bir ürün bulundu: ${product.name}`,
+                                message: JSON.stringify(notificationPayload),
                                 alarmId: alarm.id,
                                 userId: alarm.userId // Alarm kime aitse bildirim de ona gider
                             }
@@ -111,10 +124,23 @@ async function runAlarmCheck(alarm: { id: string; name: string; categoryId: stri
                     });
 
                     // Create Notification for price drop
+                    const notificationPayload = {
+                        text: `${product.name} ürünü istediğiniz hedef birim fiyatın altına düştü: ${unitPrice.toFixed(2)} ₺/${alarm.unitType}.`,
+                        product: {
+                            id: product.id,
+                            name: product.name,
+                            imageUrl: product.imageUrl,
+                            price: priceValue,
+                            quantityAmount: product.quantityAmount,
+                            quantityUnit: product.quantityUnit,
+                            marketName: undefined as string | undefined,
+                        },
+                    };
+
                     await prisma.notification.create({
                         data: {
                             title: 'Fiyat Düştü! 🎯',
-                            message: `${product.name} ürünü istediğiniz fiyatın altına düştü: ${unitPrice.toFixed(2)} ₺`,
+                            message: JSON.stringify(notificationPayload),
                             alarmId: alarm.id,
                             userId: alarm.userId
                         }

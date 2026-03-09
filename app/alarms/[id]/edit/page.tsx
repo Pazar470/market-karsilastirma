@@ -129,7 +129,8 @@ export default function EditAlarmPage() {
                     {pendingIds.length > 0 && (
                         <div className="mb-6 p-4 bg-blue-600/10 border border-blue-500/30 rounded-xl">
                             <p className="text-sm text-blue-200">
-                                <strong>{pendingIds.length} yeni ürün</strong> bu alarmın kategorisinde listeye eklendi. Aşağıda &quot;Ürün Rafinesi&quot; adımında onay bekleyen ürünleri <strong>Takibe Al</strong> veya <strong>Gizle</strong> ile işaretleyebilirsiniz.
+                                Bu alarmın koşullarını karşılayan <strong>{pendingIds.length} yeni ürün</strong> bulundu.
+                                Aşağıdaki &quot;Ürünleri Göster / Gizle&quot; adımında bu ürünleri <strong>Takibe Al</strong> veya <strong>Gizle</strong> olarak işaretleyebilirsin.
                             </p>
                         </div>
                     )}
@@ -184,7 +185,7 @@ export default function EditAlarmPage() {
                     {step === 3 && (
                         <div>
                             <div className="flex justify-between items-center mb-6">
-                                <h2 className="text-xl font-bold">Ürün Rafinesi (Seen/Unseen)</h2>
+                                <h2 className="text-xl font-bold">Ürünleri Göster / Gizle</h2>
                             </div>
 
                             <div className="space-y-8">
@@ -224,8 +225,8 @@ export default function EditAlarmPage() {
 
                                 <div>
                                     <div className="flex justify-between items-center mb-3">
-                                        <h3 className="text-xs font-bold text-blue-400 uppercase tracking-wider">Takip Edilenler</h3>
-                                        <button onClick={() => { setExcludedIds(products.map(p => p.id)); setIncludedIds([]); }} className="text-[10px] text-gray-500 hover:text-red-400 uppercase font-bold">Hepsini Gizle</button>
+                                        <h3 className="text-xs font-bold text-blue-400 uppercase tracking-wider">Takip Edilen Ürünler</h3>
+                                        <button onClick={() => { setExcludedIds(products.map(p => p.id)); setIncludedIds([]); }} className="text-[10px] text-gray-500 hover:text-red-400 uppercase font-bold">Tümünü Gizle</button>
                                     </div>
                                     <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
                                         {filteredProducts.filter(p => !excludedIds.includes(p.id) && !pendingIds.includes(p.id)).map(product => (
@@ -239,8 +240,8 @@ export default function EditAlarmPage() {
 
                                 <div className="pt-4 border-t border-gray-800/50">
                                     <div className="flex justify-between items-center mb-3">
-                                        <h3 className="text-xs font-bold text-gray-600 uppercase tracking-wider">Gizlenenler</h3>
-                                        <button onClick={() => { setExcludedIds([]); setIncludedIds(products.map(p => p.id)); }} className="text-[10px] text-gray-500 hover:text-blue-400 uppercase font-bold">Hepsini Göster</button>
+                                        <h3 className="text-xs font-bold text-gray-600 uppercase tracking-wider">Gizlenen Ürünler</h3>
+                                        <button onClick={() => { setExcludedIds([]); setIncludedIds(products.map(p => p.id)); }} className="text-[10px] text-gray-500 hover:text-blue-400 uppercase font-bold">Tümünü Göster</button>
                                     </div>
                                     <div className="grid grid-cols-1 gap-2 max-h-[200px] overflow-y-auto pr-2 opacity-60">
                                         {filteredProducts.filter(p => excludedIds.includes(p.id) && !pendingIds.includes(p.id)).map(product => (

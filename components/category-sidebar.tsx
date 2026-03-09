@@ -147,7 +147,8 @@ export function CategorySidebar() {
                 />
             </div>
             <p className="text-xs text-gray-500 mb-3">
-                Kategoriler marketlerin kendi sitelerinden alınır; bazı ürünler yanlış kategoride görünebilir.
+                Ürünler ve fiyatlar marketlerin online sitelerinden günlük taramalarla alınır.
+                Bazı kategorilerde yanlış ürün görünmesi marketlerin kendi site kategorilerinden kaynaklanabilir.
             </p>
             <div className="h-[calc(100vh-320px)] overflow-y-auto pr-2">
                 <div className="space-y-1">

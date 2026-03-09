@@ -2,8 +2,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Bell, Check, ExternalLink, X } from 'lucide-react';
+import { Bell, ExternalLink, X } from 'lucide-react';
 import Link from 'next/link';
+import { AddToBasketButton } from '@/components/add-to-basket-button';
+import { ProductImage } from '@/components/product-image';
 
 interface Notification {
     id: string;
@@ -12,6 +14,31 @@ interface Notification {
     isRead: boolean;
     alarmId?: string;
     createdAt: string;
+}
+
+interface NotificationProduct {
+    id: string;
+    name: string;
+    imageUrl?: string | null;
+    price?: number;
+    quantityAmount?: number | null;
+    quantityUnit?: string | null;
+    marketName?: string | null;
+}
+
+function decodeMessage(raw: string): { text: string; product?: NotificationProduct } {
+    try {
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === 'object' && typeof parsed.text === 'string') {
+            return {
+                text: parsed.text,
+                product: parsed.product,
+            };
+        }
+    } catch {
+        // plain string; ignore
+    }
+    return { text: raw };
 }
 
 export function NotificationCenter() {
@@ -83,34 +110,87 @@ export function NotificationCenter() {
 
                         <div className="max-h-[350px] overflow-y-auto custom-scrollbar">
                             {notifications.length > 0 ? (
-                                notifications.map(n => (
-                                    <div
-                                        key={n.id}
-                                        className={`p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''}`}
-                                    >
-                                        {!n.isRead && (
-                                            <div className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full" />
-                                        )}
-                                        <div className="pr-4">
-                                            <p className="text-sm font-bold text-gray-900 mb-1">{n.title}</p>
-                                            <p className="text-xs text-gray-600 leading-relaxed mb-2">{n.message}</p>
-                                            <div className="flex items-center justify-between">
-                                                <span className="text-[10px] text-gray-400">
-                                                    {new Date(n.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                                                </span>
-                                                {n.alarmId && (
-                                                    <Link
-                                                        href={`/alarms/${n.alarmId}/edit`}
+                                notifications.map(n => {
+                                    const decoded = decodeMessage(n.message);
+                                    const product = decoded.product;
+                                    const createdAt = new Date(n.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                                    return (
+                                        <div
+                                            key={n.id}
+                                            className={`p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''}`}
+                                        >
+                                            {!n.isRead && (
+                                                <div className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full" />
+                                            )}
+
+                                            {product ? (
+                                                <div className="flex gap-3 items-center">
+                                                    <button
+                                                        type="button"
+                                                        className="shrink-0"
                                                         onClick={() => setIsOpen(false)}
-                                                        className="text-[10px] font-bold text-blue-500 flex items-center gap-1 hover:underline"
                                                     >
-                                                        Detaylar <ExternalLink className="w-2 h-2" />
-                                                    </Link>
-                                                )}
-                                            </div>
+                                                        <Link href={`/product/${product.id}`} className="block">
+                                                            <div className="w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
+                                                                <ProductImage
+                                                                    src={product.imageUrl}
+                                                                    alt={product.name}
+                                                                    className="w-full h-full object-contain"
+                                                                />
+                                                            </div>
+                                                        </Link>
+                                                    </button>
+                                                    <div className="flex-1 min-w-0">
+                                                        <p className="text-xs font-bold text-gray-900 truncate">{n.title}</p>
+                                                        <p className="text-xs text-gray-600 leading-snug line-clamp-2">{decoded.text}</p>
+                                                        <div className="mt-1 flex items-center justify-between">
+                                                            <span className="text-[10px] text-gray-400">{createdAt}</span>
+                                                            {product.price != null && (
+                                                                <span className="text-xs font-semibold text-gray-900">
+                                                                    {product.price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺
+                                                                </span>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                    {product.price != null && (
+                                                        <div className="shrink-0">
+                                                            <AddToBasketButton
+                                                                product={{
+                                                                    id: product.id,
+                                                                    name: product.name,
+                                                                    imageUrl: product.imageUrl || '',
+                                                                    price: product.price,
+                                                                    marketName: product.marketName || 'Market',
+                                                                }}
+                                                                variant="icon"
+                                                            />
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            ) : (
+                                                <div className="pr-4">
+                                                    <p className="text-sm font-bold text-gray-900 mb-1">{n.title}</p>
+                                                    <p className="text-xs text-gray-600 leading-relaxed mb-2">{decoded.text}</p>
+                                                    <div className="flex items-center justify-between">
+                                                        <span className="text-[10px] text-gray-400">
+                                                            {createdAt}
+                                                        </span>
+                                                        {n.alarmId && (
+                                                            <Link
+                                                                href={`/alarms/${n.alarmId}/edit`}
+                                                                onClick={() => setIsOpen(false)}
+                                                                className="text-[10px] font-bold text-blue-500 flex items-center gap-1 hover:underline"
+                                                            >
+                                                                Detaylar <ExternalLink className="w-2 h-2" />
+                                                            </Link>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
-                                    </div>
-                                ))
+                                    );
+                                })
                             ) : (
                                 <div className="p-10 text-center">
                                     <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-3">

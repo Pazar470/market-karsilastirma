@@ -159,7 +159,9 @@ export default function AlarmsPage() {
                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                                             </span>
-                                            <span className="text-xs font-bold">{alarm.pendingProductIds.length} Yeni Ürün Onay Bekliyor</span>
+                                            <span className="text-xs font-bold">
+                                                Alarm koşullarını karşılayan {alarm.pendingProductIds.length} ürün bulundu
+                                            </span>
                                             <svg className="w-4 h-4 ml-auto group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                                             </svg>
