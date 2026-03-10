@@ -348,8 +348,8 @@ export function ProductSearch() {
                                     </div>
                                     <CardHeader className="p-4 pb-2">
                                         <div className="flex justify-between items-start mb-1">
-                                            <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-700">
-                                                <MarketLogo marketName={priceInfo?.market.name} />
+                                            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 min-w-[5rem] overflow-visible shrink-0">
+                                                <MarketLogo marketName={priceInfo?.market.name} size="lg" />
                                             </div>
                                         </div>
 

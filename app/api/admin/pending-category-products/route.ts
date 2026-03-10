@@ -5,8 +5,8 @@ import { requireAdmin } from '@/lib/admin-auth';
 export const dynamic = 'force-dynamic';
 
 /** Belirli (market, kategori kodu) için ürün listesi: detay açılır liste ve ürün bazında atama için.
- * Sadece son 24 saatte fiyatı olan ürünler (kullanıcıya göstereceğimiz). marketCategoryCode boş = kodsuz satır. */
-const RECENT_HOURS = 24;
+ * Son 48 saatte fiyatı olan ürünler (pending-category-mappings ile aynı pencere). marketCategoryCode boş = kodsuz satır. */
+const RECENT_HOURS = 48;
 
 export async function GET(request: Request) {
     const unauth = await requireAdmin();

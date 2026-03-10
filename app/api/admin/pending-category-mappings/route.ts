@@ -5,10 +5,10 @@ import { requireAdmin } from '@/lib/admin-auth';
 export const dynamic = 'force-dynamic';
 
 /** Bekleyen market+kategori kodları: categoryId'si null olan ürünlerin market + marketCategoryCode listesi.
- * Sadece son 24 saatte fiyatı olan ürünler dahil edilir (kullanıcıya o gün göstereceğimiz ürünler); eski taramadan kalan null'lar admin'e düşmez.
+ * Son 48 saatte fiyatı olan ürünler dahil (timezone/sunucu saati kaynaklı kaçırma riskine karşı 48h).
  * Her ürün için en son dolu marketCategoryCode kullanılır (son fiyatta kod yoksa önceki fiyatlara bakılır). */
 const PRICES_TAKE = 25;
-const RECENT_HOURS = 24; // Kullanıcı listesiyle aynı: son 24h fiyatı olan = "o gün markette satışta"
+const RECENT_HOURS = 48;
 
 export async function GET() {
     const unauth = await requireAdmin();
@@ -56,8 +56,7 @@ export async function GET() {
             const lastWithCode = p.prices.find((pr) => pr.marketCategoryCode && String(pr.marketCategoryCode).trim() !== '');
             const last = lastWithCode ?? p.prices[0];
             if (!last) continue;
-            const marketName = marketNameById[last.marketId];
-            if (!marketName) continue;
+            const marketName = marketNameById[last.marketId] ?? `Market:${last.marketId}`;
             const code = last.marketCategoryCode && String(last.marketCategoryCode).trim() !== '' ? String(last.marketCategoryCode).trim() : '';
             const key = `${marketName}\t${code}`;
             keyToCount.set(key, (keyToCount.get(key) || 0) + 1);

@@ -64,9 +64,15 @@ export default function AdminPage() {
             setLoading(false);
             return;
         }
-        const pendingList = await pendingRes.json().catch(() => []);
+        const pendingList = await pendingRes.json().catch(() => ({}));
         const tree = await treeRes.json().catch(() => []);
-        setPending(Array.isArray(pendingList) ? pendingList : []);
+        if (!pendingRes.ok) {
+            setError(Array.isArray(pendingList) ? undefined : (pendingList as { error?: string })?.error || `Sunucu hatası (${pendingRes.status})`);
+            setPending([]);
+        } else {
+            setError(null);
+            setPending(Array.isArray(pendingList) ? pendingList : []);
+        }
         setCategoryTree(Array.isArray(tree) ? tree : []);
         setAuthenticated(true);
         setLoading(false);
