@@ -157,7 +157,7 @@ export default function TakipEdilenPage() {
                                                 </div>
                                             </div>
                                             <CardHeader className="p-2 pb-0">
-                                                <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 w-fit">
+                                                <div className="inline-flex items-center gap-1.5 px-2 py-1.5 rounded-2xl text-xs font-semibold bg-blue-50 text-blue-700 w-fit">
                                                     <MarketLogo marketName={priceInfo?.market?.name} size="lg" />
                                                 </div>
                                                 <CardTitle className="text-xs font-medium leading-tight line-clamp-2 mt-1" title={product.name}>

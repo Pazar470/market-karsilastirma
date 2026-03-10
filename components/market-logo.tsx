@@ -25,7 +25,7 @@ interface MarketLogoProps {
 }
 
 const SIZE_CLASSES = {
-    icon: { sm: 'h-3 w-3', md: 'h-4 w-4', lg: 'h-6 w-6' },
+    icon: { sm: 'h-3 w-3', md: 'h-4 w-4', lg: 'h-7 w-7' },
     text: { sm: 'text-[10px]', md: 'text-xs', lg: 'text-xs' },
 } as const;
 
@@ -41,12 +41,12 @@ export function MarketLogo({ marketName, className, size = 'sm' }: MarketLogoPro
     const content = (
         <>
             {(!slug || imgFailed) ? (
-                <span className={cn('inline-block shrink-0', iconClass, fallbackColor, isRounded ? 'rounded-full' : 'rounded-sm')} />
+                <span className={cn('inline-block shrink-0', iconClass, fallbackColor, isRounded ? 'rounded-xl' : 'rounded-sm')} />
             ) : (
                 <img
                     src={`/logos/${slug}.png`}
                     alt=""
-                    className={cn('shrink-0 object-contain', iconClass, isRounded ? 'rounded-full' : 'rounded-sm')}
+                    className={cn('shrink-0 object-contain', iconClass, isRounded ? 'rounded-xl' : 'rounded-sm')}
                     onError={() => setImgFailed(true)}
                 />
             )}
@@ -56,7 +56,11 @@ export function MarketLogo({ marketName, className, size = 'sm' }: MarketLogoPro
 
     return (
         <span
-            className={cn('inline-flex items-center gap-1.5 min-w-0 overflow-visible', className)}
+            className={cn(
+                'inline-flex items-center gap-1.5 min-w-0 overflow-visible',
+                size === 'lg' && 'py-0.5',
+                className
+            )}
             title={name}
         >
             {content}

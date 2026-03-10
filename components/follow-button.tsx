@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Star, StarOff } from 'lucide-react';
+import { Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface FollowButtonProps {
     productId: string;
@@ -73,13 +74,13 @@ export function FollowButton({ productId, categoryId, variant = 'icon', classNam
             size="icon"
             onClick={handleClick}
             disabled={loading}
-            className={className}
+            className={cn('rounded-full bg-amber-50 border border-amber-200/80 hover:bg-amber-100 hover:border-amber-300 text-amber-600', className)}
             title={followed ? 'Takibi bırak' : 'Takibe al'}
         >
             {followed ? (
-                <StarOff className="h-4 w-4 text-amber-500 fill-amber-500" />
+                <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
             ) : (
-                <Star className="h-4 w-4 text-gray-400 hover:text-amber-500" />
+                <Star className="h-4 w-4 text-amber-500 hover:text-amber-600" />
             )}
         </Button>
     );
