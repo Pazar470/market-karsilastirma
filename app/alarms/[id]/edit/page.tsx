@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
 interface Category {
@@ -166,19 +167,24 @@ export default function EditAlarmPage() {
                                     </h3>
                                     <div className="space-y-3">
                                         {products.filter(p => pendingIds.includes(p.id)).map(product => (
-                                            <div key={product.id} className="flex items-center justify-between p-3 bg-gray-800/80 rounded-xl border border-blue-500/20">
-                                                <span className="text-sm font-medium">{product.name}</span>
-                                                <div className="flex gap-2">
+                                            <div key={product.id} className="flex items-center justify-between gap-2 p-3 bg-gray-800/80 rounded-xl border border-blue-500/20">
+                                                <Link
+                                                    href={`/product/${product.id}`}
+                                                    className="text-sm font-medium text-white hover:text-blue-300 flex-1 min-w-0 truncate"
+                                                >
+                                                    {product.name}
+                                                </Link>
+                                                <div className="flex gap-2 shrink-0">
                                                     <button
                                                         type="button"
-                                                        onClick={() => handleRejectPending(product.id)}
+                                                        onClick={(e) => { e.preventDefault(); handleRejectPending(product.id); }}
                                                         className="px-3 py-1 bg-red-600/20 text-red-400 text-xs font-bold rounded-lg hover:bg-red-600/30"
                                                     >
                                                         Gizle
                                                     </button>
                                                     <button
                                                         type="button"
-                                                        onClick={() => handleAcceptPending(product.id)}
+                                                        onClick={(e) => { e.preventDefault(); handleAcceptPending(product.id); }}
                                                         className="px-3 py-1 bg-green-600/20 text-green-400 text-xs font-bold rounded-lg hover:bg-green-600/30"
                                                     >
                                                         Takibe Al
@@ -205,14 +211,21 @@ export default function EditAlarmPage() {
                                     {filteredProducts.filter(p => !excludedIds.includes(p.id) && !pendingIds.includes(p.id)).map(product => (
                                         <div
                                             key={product.id}
-                                            role="button"
-                                            tabIndex={0}
-                                            onClick={() => setExcludedIds(prev => [...prev, product.id])}
-                                            onKeyDown={e => e.key === 'Enter' && setExcludedIds(prev => [...prev, product.id])}
-                                            className="p-3 bg-gray-800/60 border border-gray-700 rounded-lg cursor-pointer hover:border-blue-500/50 flex justify-between items-center group"
+                                            className="p-3 bg-gray-800/60 border border-gray-700 rounded-lg hover:border-blue-500/50 flex justify-between items-center gap-2 group"
                                         >
-                                            <span className="text-sm">{product.name}</span>
-                                            <span className="text-[10px] text-gray-600 opacity-0 group-hover:opacity-100 uppercase font-bold">Gizle</span>
+                                            <Link
+                                                href={`/product/${product.id}`}
+                                                className="text-sm text-white hover:text-blue-300 flex-1 min-w-0 truncate"
+                                            >
+                                                {product.name}
+                                            </Link>
+                                            <button
+                                                type="button"
+                                                onClick={() => setExcludedIds(prev => [...prev, product.id])}
+                                                className="text-[10px] text-gray-500 hover:text-red-400 uppercase font-bold shrink-0"
+                                            >
+                                                Gizle
+                                            </button>
                                         </div>
                                     ))}
                                 </div>
@@ -233,14 +246,21 @@ export default function EditAlarmPage() {
                                     {filteredProducts.filter(p => excludedIds.includes(p.id) && !pendingIds.includes(p.id)).map(product => (
                                         <div
                                             key={product.id}
-                                            role="button"
-                                            tabIndex={0}
-                                            onClick={() => setExcludedIds(prev => prev.filter(x => x !== product.id))}
-                                            onKeyDown={e => e.key === 'Enter' && setExcludedIds(prev => prev.filter(x => x !== product.id))}
-                                            className="p-2 bg-gray-900/50 border border-gray-800 rounded-lg cursor-pointer flex justify-between items-center group line-through"
+                                            className="p-2 bg-gray-900/50 border border-gray-800 rounded-lg flex justify-between items-center gap-2 group line-through"
                                         >
-                                            <span className="text-xs text-gray-500">{product.name}</span>
-                                            <span className="text-[10px] text-blue-500 opacity-0 group-hover:opacity-100 uppercase font-bold no-underline">Geri Al</span>
+                                            <Link
+                                                href={`/product/${product.id}`}
+                                                className="text-xs text-gray-500 hover:text-blue-400 flex-1 min-w-0 truncate no-underline"
+                                            >
+                                                {product.name}
+                                            </Link>
+                                            <button
+                                                type="button"
+                                                onClick={() => setExcludedIds(prev => prev.filter(x => x !== product.id))}
+                                                className="text-[10px] text-blue-500 hover:text-blue-400 uppercase font-bold shrink-0"
+                                            >
+                                                Geri Al
+                                            </button>
                                         </div>
                                     ))}
                                 </div>

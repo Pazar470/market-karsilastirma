@@ -6,6 +6,7 @@ import { Bell, ExternalLink, X } from 'lucide-react';
 import Link from 'next/link';
 import { AddToBasketButton } from '@/components/add-to-basket-button';
 import { ProductImage } from '@/components/product-image';
+import { cn } from '@/lib/utils';
 
 interface Notification {
     id: string;
@@ -132,17 +133,15 @@ export function NotificationCenter({ open: controlledOpen, onOpenChange, showTri
                                     const product = decoded.product;
                                     const createdAt = new Date(n.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-                                    const cardHref = product
-                                        ? `/product/${product.id}`
-                                        : (n.alarmId ? `/alarms/${n.alarmId}/edit` : '#');
+                                    const productHref = product?.id ? `/product/${product.id}` : null;
+                                    const alarmHref = !productHref && n.alarmId ? `/alarms/${n.alarmId}/edit` : null;
+                                    const cardHref = productHref || alarmHref || '#';
                                     const isClickable = cardHref !== '#';
 
                                     return (
-                                        <Link
+                                        <div
                                             key={n.id}
-                                            href={cardHref}
-                                            onClick={() => isClickable && setIsOpen(false)}
-                                            className={`block p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''} ${!isClickable ? 'cursor-default' : 'cursor-pointer'}`}
+                                            className={`block p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''}`}
                                         >
                                             {!n.isRead && (
                                                 <div className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full" />
@@ -150,31 +149,39 @@ export function NotificationCenter({ open: controlledOpen, onOpenChange, showTri
 
                                             {product ? (
                                                 <div className="flex gap-3 items-center">
-                                                    <div className="shrink-0 w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
-                                                        <ProductImage
-                                                            src={product.imageUrl}
-                                                            alt={product.name}
-                                                            className="w-full h-full object-contain"
-                                                        />
-                                                    </div>
-                                                    <div className="flex-1 min-w-0">
-                                                        <p className="text-xs font-bold text-gray-900 truncate">{n.title}</p>
-                                                        <p className="text-xs text-gray-600 leading-snug line-clamp-2">{decoded.text}</p>
-                                                        <div className="mt-1 flex items-center justify-between">
-                                                            <span className="text-[10px] text-gray-400">{createdAt}</span>
-                                                            {product.price != null && (
-                                                                <span className="text-xs font-semibold text-gray-900">
-                                                                    {product.price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺
-                                                                </span>
+                                                    <Link
+                                                        href={productHref || '#'}
+                                                        onClick={() => productHref && setIsOpen(false)}
+                                                        className={cn(
+                                                            'flex flex-1 gap-3 items-center min-w-0',
+                                                            productHref && 'cursor-pointer'
+                                                        )}
+                                                    >
+                                                        <div className="shrink-0 w-12 h-12 rounded-lg bg-gray-100 flex items-center justify-center overflow-hidden">
+                                                            <ProductImage
+                                                                src={product.imageUrl}
+                                                                alt={product.name}
+                                                                className="w-full h-full object-contain"
+                                                            />
+                                                        </div>
+                                                        <div className="flex-1 min-w-0">
+                                                            <p className="text-xs font-bold text-gray-900 truncate">{n.title}</p>
+                                                            <p className="text-xs text-gray-600 leading-snug line-clamp-2">{decoded.text}</p>
+                                                            <div className="mt-1 flex items-center justify-between">
+                                                                <span className="text-[10px] text-gray-400">{createdAt}</span>
+                                                                {product.price != null && (
+                                                                    <span className="text-xs font-semibold text-gray-900">
+                                                                        {product.price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                            {productHref && (
+                                                                <span className="text-[10px] font-bold text-blue-600 mt-0.5 inline-block">Ürünü gör →</span>
                                                             )}
                                                         </div>
-                                                    </div>
+                                                    </Link>
                                                     {product.price != null && (
-                                                        <div
-                                                            className="shrink-0"
-                                                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-                                                            role="presentation"
-                                                        >
+                                                        <div className="shrink-0" onClick={(e) => e.stopPropagation()}>
                                                             <AddToBasketButton
                                                                 product={{
                                                                     id: product.id,
@@ -189,7 +196,11 @@ export function NotificationCenter({ open: controlledOpen, onOpenChange, showTri
                                                     )}
                                                 </div>
                                             ) : (
-                                                <div className="pr-4">
+                                                <Link
+                                                    href={cardHref}
+                                                    onClick={() => isClickable && setIsOpen(false)}
+                                                    className={cn('block pr-4', isClickable && 'cursor-pointer')}
+                                                >
                                                     <p className="text-sm font-bold text-gray-900 mb-1">{n.title}</p>
                                                     <p className="text-xs text-gray-600 leading-relaxed mb-2">{decoded.text}</p>
                                                     <div className="flex items-center justify-between">
@@ -200,9 +211,9 @@ export function NotificationCenter({ open: controlledOpen, onOpenChange, showTri
                                                             </span>
                                                         )}
                                                     </div>
-                                                </div>
+                                                </Link>
                                             )}
-                                        </Link>
+                                        </div>
                                     );
                                 })
                             ) : (
