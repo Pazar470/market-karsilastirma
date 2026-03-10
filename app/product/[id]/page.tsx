@@ -38,6 +38,7 @@ async function getCategoryPath(categoryId: string | null): Promise<{ id: string;
 import { calculateSimilarity } from '@/lib/matcher';
 import { ProductSimilar } from '@/components/product-similar';
 import { ProductImage } from '@/components/product-image';
+import { ProductDetailActions } from '@/components/product-detail-actions';
 
 async function getSimilarProducts(currentProduct: any) {
     // 1. Get all products from other markets
@@ -228,6 +229,18 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
                                 Son Güncelleme: {new Date(bestPrice.date).toLocaleDateString('tr-TR')}
                             </p>
                         </div>
+
+                        <ProductDetailActions
+                            productId={product.id}
+                            categoryId={product.categoryId}
+                            product={{
+                                id: product.id,
+                                name: product.name,
+                                imageUrl: product.imageUrl,
+                                price: displayAmount,
+                                marketName: bestPrice.market.name,
+                            }}
+                        />
 
                         {/* Simulated Product Details (Content, Storage) */}
                         <div className="space-y-4">

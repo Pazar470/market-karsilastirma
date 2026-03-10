@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Home, Bell, LogOut, AlarmClock, ShoppingCart } from 'lucide-react';
+import { Home, Bell, LogOut, AlarmClock, ShoppingCart, Star } from 'lucide-react';
 import { NotificationCenter } from '@/components/notification-center';
 import { useBasket } from '@/context/basket-context';
 import { cn } from '@/lib/utils';
@@ -36,6 +36,7 @@ export function AppNav() {
     const isAlarms = pathname.startsWith('/alarms');
     const isHome = pathname === '/';
     const isBasket = pathname === '/basket';
+    const isFollowed = pathname.startsWith('/takip-edilen');
 
     return (
         <>
@@ -63,6 +64,15 @@ export function AppNav() {
                             )}
                         >
                             Fiyat Alarmları
+                        </Link>
+                        <Link
+                            href="/takip-edilen"
+                            className={cn(
+                                'px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                                isFollowed ? 'text-blue-600 bg-blue-50' : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                            )}
+                        >
+                            Takip Edilen
                         </Link>
                         <button
                             type="button"
@@ -102,7 +112,7 @@ export function AppNav() {
                 className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 safe-area-inset-bottom"
                 aria-label="Ana menü"
             >
-                <div className="grid grid-cols-5 h-14">
+                <div className="grid grid-cols-6 h-14">
                     <Link
                         href="/"
                         className={cn(
@@ -122,6 +132,16 @@ export function AppNav() {
                     >
                         <AlarmClock className="w-5 h-5" />
                         <span>Alarmlar</span>
+                    </Link>
+                    <Link
+                        href="/takip-edilen"
+                        className={cn(
+                            'flex flex-col items-center justify-center gap-0.5 text-xs font-medium transition-colors',
+                            isFollowed ? 'text-blue-600' : 'text-gray-500'
+                        )}
+                    >
+                        <Star className="w-5 h-5" />
+                        <span>Takip</span>
                     </Link>
                     <button
                         type="button"

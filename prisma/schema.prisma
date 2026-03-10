@@ -16,8 +16,23 @@ model User {
   pin           String // 4 hane
   alarms        SmartAlarm[]
   notifications Notification[]
+  followedProducts UserFollowedProduct[]
   createdAt     DateTime       @default(now())
   updatedAt     DateTime       @updatedAt
+}
+
+model UserFollowedProduct {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  categoryId String?  // Gruplama için (Süt > Kaşar vb.)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, productId])
+  @@index([userId])
+  @@index([userId, categoryId])
 }
 
 model Product {
@@ -38,6 +53,7 @@ model Product {
   // Master Category Relation
   categoryId     String?
   masterCategory Category? @relation(fields: [categoryId], references: [id])
+  followedBy     UserFollowedProduct[]
 }
 
 model Category {

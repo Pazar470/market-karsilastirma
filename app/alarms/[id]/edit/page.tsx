@@ -4,6 +4,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { AlarmEditProductCard, type AlarmEditProduct } from '@/components/alarm-edit-product-card';
+import { FollowButton } from '@/components/follow-button';
+import { AddToBasketButton } from '@/components/add-to-basket-button';
 import { getUnitPrice } from '@/lib/unit-price';
 
 interface Category {
@@ -264,40 +266,61 @@ export default function EditAlarmPage() {
                                 Hedef fiyatı karşılayan ürünler ({meeting.length})
                             </h2>
                             <div className={gridClass}>
-                                {meeting.map((product) => (
-                                    <AlarmEditProductCard
-                                        key={product.id}
-                                        product={product}
-                                        actions={
-                                            pendingIds.includes(product.id) ? (
+                                {meeting.map((product) => {
+                                    const priceInfo = product.prices?.[0];
+                                    const price = priceInfo
+                                        ? (priceInfo.campaignAmount != null ? parseFloat(String(priceInfo.campaignAmount)) : parseFloat(String(priceInfo.amount)))
+                                        : 0;
+                                    return (
+                                        <AlarmEditProductCard
+                                            key={product.id}
+                                            product={product}
+                                            actions={
                                                 <>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => handleRejectPending(product.id)}
-                                                        className="h-7 min-w-[56px] px-2 rounded-md bg-red-100 text-red-700 text-[10px] font-bold hover:bg-red-200"
-                                                    >
-                                                        Gizle
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        onClick={() => handleAcceptPending(product.id)}
-                                                        className="h-7 min-w-[56px] px-2 rounded-md bg-green-100 text-green-700 text-[10px] font-bold hover:bg-green-200"
-                                                    >
-                                                        Takibe Al
-                                                    </button>
+                                                    <FollowButton productId={product.id} categoryId={selectedCat} className="h-7 w-7 shrink-0" />
+                                                    {pendingIds.includes(product.id) ? (
+                                                        <>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => handleRejectPending(product.id)}
+                                                                className="h-7 min-w-[52px] px-2 rounded-md bg-red-100 text-red-700 text-[10px] font-bold hover:bg-red-200"
+                                                            >
+                                                                Gizle
+                                                            </button>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => handleAcceptPending(product.id)}
+                                                                className="h-7 min-w-[52px] px-2 rounded-md bg-green-100 text-green-700 text-[10px] font-bold hover:bg-green-200"
+                                                            >
+                                                                Takibe Al
+                                                            </button>
+                                                        </>
+                                                    ) : (
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setExcludedIds((prev) => [...prev, product.id])}
+                                                            className="h-7 min-w-[52px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
+                                                        >
+                                                            Gizle
+                                                        </button>
+                                                    )}
+                                                    {priceInfo && (
+                                                        <AddToBasketButton
+                                                            product={{
+                                                                id: product.id,
+                                                                name: product.name,
+                                                                imageUrl: product.imageUrl || '',
+                                                                price,
+                                                                marketName: priceInfo.market?.name || 'Market',
+                                                            }}
+                                                            variant="icon"
+                                                        />
+                                                    )}
                                                 </>
-                                            ) : (
-                                                <button
-                                                    type="button"
-                                                    onClick={() => setExcludedIds((prev) => [...prev, product.id])}
-                                                    className="h-7 min-w-[56px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
-                                                >
-                                                    Gizle
-                                                </button>
-                                            )
-                                        }
-                                    />
-                                ))}
+                                            }
+                                        />
+                                    );
+                                })}
                             </div>
                         </section>
 
@@ -307,21 +330,42 @@ export default function EditAlarmPage() {
                                 Hedef fiyatın altına düşmemiş ürünler ({notMeeting.length})
                             </h2>
                             <div className={gridClass}>
-                                {notMeeting.map((product) => (
-                                    <AlarmEditProductCard
-                                        key={product.id}
-                                        product={product}
-                                        actions={
-                                            <button
-                                                type="button"
-                                                onClick={() => setExcludedIds((prev) => [...prev, product.id])}
-                                                className="h-7 min-w-[56px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
-                                            >
-                                                Gizle
-                                            </button>
-                                        }
-                                    />
-                                ))}
+                                {notMeeting.map((product) => {
+                                    const priceInfo = product.prices?.[0];
+                                    const price = priceInfo
+                                        ? (priceInfo.campaignAmount != null ? parseFloat(String(priceInfo.campaignAmount)) : parseFloat(String(priceInfo.amount)))
+                                        : 0;
+                                    return (
+                                        <AlarmEditProductCard
+                                            key={product.id}
+                                            product={product}
+                                            actions={
+                                                <>
+                                                    <FollowButton productId={product.id} categoryId={selectedCat} className="h-7 w-7 shrink-0" />
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setExcludedIds((prev) => [...prev, product.id])}
+                                                        className="h-7 min-w-[52px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
+                                                    >
+                                                        Gizle
+                                                    </button>
+                                                    {priceInfo && (
+                                                        <AddToBasketButton
+                                                            product={{
+                                                                id: product.id,
+                                                                name: product.name,
+                                                                imageUrl: product.imageUrl || '',
+                                                                price,
+                                                                marketName: priceInfo.market?.name || 'Market',
+                                                            }}
+                                                            variant="icon"
+                                                        />
+                                                    )}
+                                                </>
+                                            }
+                                        />
+                                    );
+                                })}
                             </div>
                         </section>
 
@@ -343,21 +387,42 @@ export default function EditAlarmPage() {
                                 )}
                             </div>
                             <div className={gridClass}>
-                                {hidden.map((product) => (
-                                    <AlarmEditProductCard
-                                        key={product.id}
-                                        product={product}
-                                        actions={
-                                            <button
-                                                type="button"
-                                                onClick={() => setExcludedIds((prev) => prev.filter((x) => x !== product.id))}
-                                                className="h-7 min-w-[56px] px-2 rounded-md bg-blue-100 text-blue-700 text-[10px] font-bold hover:bg-blue-200"
-                                            >
-                                                Göster
-                                            </button>
-                                        }
-                                    />
-                                ))}
+                                {hidden.map((product) => {
+                                    const priceInfo = product.prices?.[0];
+                                    const price = priceInfo
+                                        ? (priceInfo.campaignAmount != null ? parseFloat(String(priceInfo.campaignAmount)) : parseFloat(String(priceInfo.amount)))
+                                        : 0;
+                                    return (
+                                        <AlarmEditProductCard
+                                            key={product.id}
+                                            product={product}
+                                            actions={
+                                                <>
+                                                    <FollowButton productId={product.id} categoryId={selectedCat} className="h-7 w-7 shrink-0" />
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setExcludedIds((prev) => prev.filter((x) => x !== product.id))}
+                                                        className="h-7 min-w-[52px] px-2 rounded-md bg-blue-100 text-blue-700 text-[10px] font-bold hover:bg-blue-200"
+                                                    >
+                                                        Göster
+                                                    </button>
+                                                    {priceInfo && (
+                                                        <AddToBasketButton
+                                                            product={{
+                                                                id: product.id,
+                                                                name: product.name,
+                                                                imageUrl: product.imageUrl || '',
+                                                                price,
+                                                                marketName: priceInfo.market?.name || 'Market',
+                                                            }}
+                                                            variant="icon"
+                                                        />
+                                                    )}
+                                                </>
+                                            }
+                                        />
+                                    );
+                                })}
                             </div>
                         </section>
                     </div>

@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { AddToBasketButton } from './add-to-basket-button';
 import { AddToAlarmButton } from './add-to-alarm-button';
+import { FollowButton } from './follow-button';
 import { ProductImage } from '@/components/product-image';
 import { MarketLogo } from '@/components/market-logo';
 
@@ -328,7 +329,11 @@ export function ProductSearch() {
                                             </div>
                                         )}
                                         {/* Actions Group */}
-                                        <div className="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 flex gap-1">
+                                        <div
+                                            className="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 flex gap-1"
+                                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
+                                        >
+                                            <FollowButton productId={product.id} categoryId={product.categoryId ?? product.masterCategory?.id ?? undefined} className="h-8 w-8 shrink-0" />
                                             {priceInfo && (
                                                 <>
                                                     <AddToAlarmButton productId={product.id} categoryId={product.categoryId ?? product.masterCategory?.id ?? undefined} />
