@@ -15,12 +15,13 @@ export async function POST(request: Request) {
             marketCategoryCode?: string;
             categoryId?: string;
         };
-        if (!marketName || !marketCategoryCode || !categoryId) {
+        if (!marketName || categoryId == null || categoryId === '') {
             return NextResponse.json(
-                { error: 'marketName, marketCategoryCode ve categoryId gerekli' },
+                { error: 'marketName ve categoryId gerekli (marketCategoryCode boş bırakılabilir)' },
                 { status: 400 }
             );
         }
+        const code = marketCategoryCode == null ? '' : String(marketCategoryCode).trim();
 
         const category = await prisma.category.findUnique({
             where: { id: categoryId },
@@ -50,17 +51,18 @@ export async function POST(request: Request) {
 
         await prisma.marketCategoryMapping.upsert({
             where: {
-                marketName_marketCategoryCode: { marketName, marketCategoryCode },
+                marketName_marketCategoryCode: { marketName, marketCategoryCode: code },
             },
             update: { categoryId, updatedAt: new Date() },
-            create: { marketName, marketCategoryCode, categoryId },
+            create: { marketName, marketCategoryCode: code, categoryId },
         });
 
+        const priceWhere =
+            code === ''
+                ? { marketId: market.id, OR: [{ marketCategoryCode: null }, { marketCategoryCode: '' }] }
+                : { marketId: market.id, marketCategoryCode: code };
         const productIds = await prisma.price.findMany({
-            where: {
-                marketId: market.id,
-                marketCategoryCode,
-            },
+            where: priceWhere,
             select: { productId: true },
             distinct: ['productId'],
         }).then((rows) => rows.map((r) => r.productId));

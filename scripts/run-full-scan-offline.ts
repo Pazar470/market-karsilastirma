@@ -13,6 +13,9 @@ import { runFullScrapeBatch, type ScrapeCollectResult } from '../lib/scraper';
 import { upsertProductBatch } from '../lib/db-utils';
 import { checkAlarmsAfterScrape } from '../lib/alarm-engine';
 import { syncMappingToNullProducts } from '../lib/category-sync';
+import { runSokCategoryDiscovery } from '../lib/sok-category-discovery';
+import { runMigrosCategoryDiscovery } from '../lib/migros-category-discovery';
+import { runA101CategoryDiscovery } from '../lib/a101-category-discovery';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
@@ -99,6 +102,28 @@ async function main() {
         status.lastUpdated = new Date().toISOString();
         writeStatusJson(status);
 
+        if (market.name === 'Migros') {
+            status.message = 'Migros kategori listesi güncelleniyor…';
+            status.lastUpdated = new Date().toISOString();
+            writeStatusJson(status);
+            await runMigrosCategoryDiscovery({ silent: true });
+        }
+        if (market.name === 'A101') {
+            status.message = 'A101 kategori listesi güncelleniyor…';
+            status.lastUpdated = new Date().toISOString();
+            writeStatusJson(status);
+            await runA101CategoryDiscovery({ silent: true, sitemapCheck: true });
+        }
+        if (market.name === 'Sok' || market.name === 'Şok') {
+            status.message = 'Şok kategori listesi güncelleniyor…';
+            status.lastUpdated = new Date().toISOString();
+            writeStatusJson(status);
+            console.log('\n📂 Şok: Kategori keşfi (19 ana kategori → sok_categories.json)…');
+            writeStatus(['Şok kategori keşfi...']);
+            await runSokCategoryDiscovery({ silent: true });
+            console.log('   sok_categories.json güncellendi.');
+        }
+
         console.log(`\n📥 İndirme: ${market.name}`);
         writeStatus([`İndiriliyor: ${market.name}...`]);
 
@@ -128,12 +153,15 @@ async function main() {
             errors: result.errors,
         });
         result.errors.forEach((e) => downloadErrors.push({ market: market.name, category: e.category, error: e.error }));
-        console.log(`   ${result.products.length} ürün, ${result.errors.length} kategori hatası`);
+        console.log(`   → ${market.name}: ${result.products.length} ürün indirildi, ${result.errors.length} kategori hatası`);
+        writeReport(`  ${market.name}: ${result.products.length} ürün, ${result.errors.length} kategori hatası\n`);
     }
 
     const totalProducts = collected.reduce((s, c) => s + c.products.length, 0);
+    const sokCollected = collected.find((c) => c.marketName === 'Sok' || c.marketName === 'Şok');
     writeReport(`İNDİRME ÖZET\n${'-'.repeat(40)}\n`);
-    writeReport(`Toplam ürün: ${totalProducts}\n`);
+    writeReport(`Toplam ürün (tüm marketler): ${totalProducts}\n`);
+    writeReport(`Şok getirdiği ürün sayısı: ${sokCollected ? sokCollected.products.length : 0}\n`);
     writeReport(`İndirme hatası (kategori): ${downloadErrors.length}\n\n`);
     if (downloadErrors.length > 0) {
         writeReport(`İNDİRME HATALARI\n${'-'.repeat(40)}\n`);
@@ -151,17 +179,24 @@ async function main() {
 
     writeStatus(['Aşama 2: Supabase\'e toplu yazma...']);
     const uploadErrors: { market: string; error: string }[] = [];
+    const createdPerMarket: Record<string, number> = {};
+    const uploadedPerMarket: Record<string, number> = {};
 
     for (const { marketName, marketId, products } of collected) {
-        if (products.length === 0) continue;
+        if (products.length === 0) {
+            console.log(`\n📤 Upload: ${marketName} — atlandı (0 ürün)`);
+            continue;
+        }
         status.currentMarket = marketName;
         status.message = `${marketName} yükleniyor (${products.length} ürün)…`;
         status.lastUpdated = new Date().toISOString();
         writeStatusJson(status);
         try {
-            console.log(`\n📤 Upload: ${marketName} (${products.length} ürün)`);
-            writeStatus([`Yükleniyor: ${marketName} (${products.length})...`]);
-            await upsertProductBatch(products, marketId, marketName);
+            const { created } = await upsertProductBatch(products, marketId, marketName);
+            createdPerMarket[marketName] = created;
+            uploadedPerMarket[marketName] = products.length;
+            console.log(`\n📤 Upload: ${marketName} — ${products.length} ürün Supabase'e yazıldı (bu turda ${created} yeni ürün oluşturuldu)`);
+            writeStatus([`Yükleniyor: ${marketName} (${products.length}, ${created} yeni)...`]);
         } catch (err) {
             const msg = String(err instanceof Error ? err.message : err);
             uploadErrors.push({ market: marketName, error: msg });
@@ -170,6 +205,9 @@ async function main() {
     }
 
     writeReport(`UPLOAD ÖZET\n${'-'.repeat(40)}\n`);
+    for (const [m, count] of Object.entries(uploadedPerMarket)) {
+        writeReport(`  ${m}: ${count} ürün yazıldı, ${createdPerMarket[m] ?? 0} yeni\n`);
+    }
     writeReport(`Upload hatası: ${uploadErrors.length}\n\n`);
     if (uploadErrors.length > 0) {
         writeReport(`UPLOAD HATALARI\n${'-'.repeat(40)}\n`);
@@ -178,14 +216,25 @@ async function main() {
     }
 
     // —— 2b. Mapping senkronu (otomatik; ODS her taramada okunmaz) ——
+    const nullBeforeMapping = await prisma.product.count({ where: { categoryId: null } });
     status.phase = 'yukleme';
     status.message = 'Mapping senkronu…';
     status.lastUpdated = new Date().toISOString();
     writeStatusJson(status);
     writeStatus(['Mapping senkronu...']);
+    console.log(`\n🔄 Mapping senkronu öncesi categoryId=null: ${nullBeforeMapping} ürün`);
     const mappingUpdated = await syncMappingToNullProducts(prisma);
-    console.log(`  Mapping senkronu: ${mappingUpdated} ürün güncellendi`);
-    writeReport(`Mapping senkronu: ${mappingUpdated} ürün\n`);
+    console.log(`   Mapping ile güncellenen: ${mappingUpdated} ürün`);
+
+    const nullCount = await prisma.product.count({ where: { categoryId: null } });
+    console.log(`   Mapping sonrası categoryId=null (admin'e düşen): ${nullCount} ürün`);
+    writeReport(`Mapping senkronu\n${'-'.repeat(40)}\n`);
+    writeReport(`  Öncesi categoryId=null: ${nullBeforeMapping}\n`);
+    writeReport(`  Mapping ile güncellenen: ${mappingUpdated}\n`);
+    writeReport(`  Sonrası categoryId=null (admin'de onay bekleyen): ${nullCount}\n\n`);
+    writeReport(`ADMİN / KATEGORİ DURUMU\n${'-'.repeat(40)}\n`);
+    writeReport(`Admin'e düşen (categoryId=null): ${nullCount} ürün\n`);
+    writeReport(`Bu turda yeni eklenen (market bazında): ${JSON.stringify(createdPerMarket, null, 0)}\n\n`);
 
     // —— 3. Alarm kontrolü ——
     if (uploadErrors.length === 0) {
@@ -210,9 +259,44 @@ async function main() {
     status.lastUpdated = status.finishedAt;
     writeStatusJson(status);
 
-    writeReport(`\nToplam süre: ${elapsed} sn\n`);
+    // —— Detaylı son özet (konsol + rapor) ——
+    const summaryLines = [
+        '',
+        '═══════════════════════════════════════════════════════════',
+        '  TARAMA DETAYLI SONUÇ',
+        '═══════════════════════════════════════════════════════════',
+        '',
+        '  İNDİRME (market bazında):',
+        ...collected.map((c) => `    ${c.marketName}: ${c.products.length} ürün, ${c.errors.length} kategori hatası`),
+        `    TOPLAM: ${totalProducts} ürün, ${downloadErrors.length} indirme hatası`,
+        '',
+        '  ŞOK:',
+        `    Getirilen ürün: ${sokCollected ? sokCollected.products.length : 0}`,
+        '',
+        '  SUPABASE UPLOAD:',
+        ...Object.entries(uploadedPerMarket).map(([m, n]) => `    ${m}: ${n} ürün yazıldı (${createdPerMarket[m] ?? 0} yeni)`),
+        `    Upload hatası: ${uploadErrors.length} market`,
+        '',
+        '  MAPPING SENKRONU:',
+        `    Öncesi categoryId=null: ${nullBeforeMapping}`,
+        `    Güncellenen: ${mappingUpdated}`,
+        `    Sonrası categoryId=null: ${nullCount}`,
+        '',
+        '  ADMİN:',
+        `    Onay bekleyen (categoryId=null): ${nullCount} ürün`,
+        '',
+        `  SÜRE: ${elapsed} sn`,
+        `  RAPOR DOSYASI: ${REPORT_FILE}`,
+        '═══════════════════════════════════════════════════════════',
+        '',
+    ];
+    const summaryText = summaryLines.join('\n');
+    console.log(summaryText);
+    writeReport(`\n${'='.repeat(60)}\nTARAMA DETAYLI SONUÇ\n${'='.repeat(60)}\n`);
+    writeReport(summaryLines.filter((l) => l.trim()).join('\n') + '\n\n');
+    writeReport(`Toplam süre: ${elapsed} sn\n`);
     writeStatus([`Bitti. Ürün: ${totalProducts}`, `İndirme hataları: ${downloadErrors.length}`, `Upload hataları: ${uploadErrors.length}`]);
-    console.log(`\n✅ Offline tarama bitti. Süre: ${elapsed} sn. Rapor: ${REPORT_FILE}`);
+    console.log(`\n✅ Offline tarama bitti. Rapor: ${REPORT_FILE}`);
 }
 
 main()

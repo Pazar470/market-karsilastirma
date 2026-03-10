@@ -36,8 +36,13 @@ export async function syncMappingToNullProducts(prisma: PrismaClient): Promise<n
         const marketId = marketIdByName[map.marketName];
         if (!marketId) continue;
 
+        const codeEmpty = map.marketCategoryCode === '' || map.marketCategoryCode === null;
+        const priceWhere = codeEmpty
+            ? { marketId, OR: [{ marketCategoryCode: null }, { marketCategoryCode: '' }] }
+            : { marketId, marketCategoryCode: map.marketCategoryCode };
+
         const priceRows = await prisma.price.findMany({
-            where: { marketId, marketCategoryCode: map.marketCategoryCode },
+            where: priceWhere,
             select: { productId: true },
             distinct: ['productId'],
         });

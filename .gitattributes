@@ -1,0 +1,5 @@
+# ODS/ODT dosyalarında Git diff çalıştırma (odt2txt vb. süreç açılmasın).
+# Projede ODS sadece manuel import için Python ile okunur; taramada kullanılmaz.
+*.ods binary
+*.odt binary
+*.odp binary

@@ -4,19 +4,31 @@ import { requireAdmin } from '@/lib/admin-auth';
 
 export const dynamic = 'force-dynamic';
 
-/** Bekleyen market+kategori kodları: categoryId'si null olan ürünlerin (son fiyatına göre) market + marketCategoryCode listesi. */
+/** Bekleyen market+kategori kodları: categoryId'si null olan ürünlerin market + marketCategoryCode listesi.
+ * Sadece son 24 saatte fiyatı olan ürünler dahil edilir (kullanıcıya o gün göstereceğimiz ürünler); eski taramadan kalan null'lar admin'e düşmez.
+ * Her ürün için en son dolu marketCategoryCode kullanılır (son fiyatta kod yoksa önceki fiyatlara bakılır). */
+const PRICES_TAKE = 25;
+const RECENT_HOURS = 24; // Kullanıcı listesiyle aynı: son 24h fiyatı olan = "o gün markette satışta"
+
 export async function GET() {
     const unauth = await requireAdmin();
     if (unauth) return unauth;
     try {
+        const priceMinDate = new Date();
+        priceMinDate.setHours(priceMinDate.getHours() - RECENT_HOURS, 0, 0, 0);
+
         const products = await prisma.product.findMany({
-            where: { categoryId: null },
+            where: {
+                categoryId: null,
+                prices: { some: { date: { gte: priceMinDate } } },
+            },
             select: {
                 id: true,
                 prices: {
                     orderBy: { date: 'desc' },
-                    take: 1,
+                    take: PRICES_TAKE,
                     select: {
+                        date: true,
                         marketCategoryCode: true,
                         marketCategoryPath: true,
                         marketId: true,
@@ -25,23 +37,32 @@ export async function GET() {
             },
         });
 
-        const marketIds = [...new Set(products.flatMap((p) => (p.prices[0] ? [p.prices[0].marketId] : [])))];
-        const markets = await prisma.market.findMany({
-            where: { id: { in: marketIds } },
-            select: { id: true, name: true },
-        });
+        const marketIds = [...new Set(products.flatMap((p) => p.prices.map((pr) => pr.marketId)))];
+        const markets = marketIds.length
+            ? await prisma.market.findMany({
+                  where: { id: { in: marketIds } },
+                  select: { id: true, name: true },
+              })
+            : [];
         const marketNameById = Object.fromEntries(markets.map((m) => [m.id, m.name]));
 
         const keyToCount = new Map<string, number>();
         const keyToPath = new Map<string, string>();
+        const keyToNoCode = new Set<string>();
+
         for (const p of products) {
-            const last = p.prices[0];
-            if (!last?.marketCategoryCode) continue;
+            const latestPrice = p.prices[0];
+            if (!latestPrice || latestPrice.date < priceMinDate) continue;
+            const lastWithCode = p.prices.find((pr) => pr.marketCategoryCode && String(pr.marketCategoryCode).trim() !== '');
+            const last = lastWithCode ?? p.prices[0];
+            if (!last) continue;
             const marketName = marketNameById[last.marketId];
             if (!marketName) continue;
-            const key = `${marketName}\t${last.marketCategoryCode}`;
+            const code = last.marketCategoryCode && String(last.marketCategoryCode).trim() !== '' ? String(last.marketCategoryCode).trim() : '';
+            const key = `${marketName}\t${code}`;
             keyToCount.set(key, (keyToCount.get(key) || 0) + 1);
             if (last.marketCategoryPath && !keyToPath.has(key)) keyToPath.set(key, last.marketCategoryPath);
+            if (code === '') keyToNoCode.add(key);
         }
 
         const keys = Array.from(keyToCount.entries()).map(([key]) => key.split('\t') as [string, string]);
@@ -64,9 +85,10 @@ export async function GET() {
             return {
                 marketName,
                 marketCategoryCode,
-                marketCategoryName: keyToPath.get(key) ?? null,
+                marketCategoryName: keyToPath.get(key) ?? (keyToNoCode.has(key) ? '(Kategori kodu yok)' : null),
                 productCount,
                 isManuel: manuelSet.has(key),
+                isNoCode: keyToNoCode.has(key),
             };
         });
 

@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 import { runFullScrapeBatch } from '@/lib/scraper';
+import { runSokCategoryDiscovery } from '@/lib/sok-category-discovery';
+import { runMigrosCategoryDiscovery } from '@/lib/migros-category-discovery';
+import { runA101CategoryDiscovery } from '@/lib/a101-category-discovery';
 import { checkAlarmsAfterScrape } from '@/lib/alarm-engine';
 import { syncMappingToNullProducts } from '@/lib/category-sync';
 import { prisma } from '@/lib/db';
@@ -16,9 +19,13 @@ export async function GET(req: Request) {
     try {
         console.log('⏰ CRON: Starting Nightly Scan & Alarm Check...');
 
-        // 1. Run Scrapers for all markets (batchSize 0 = tüm kategoriler)
+        // 1. Kategori keşfi + Scrapers (yaprak listeleri her turda güncel)
+        await runMigrosCategoryDiscovery({ silent: true });
         await runFullScrapeBatch('Migros', 0);
+        await runA101CategoryDiscovery({ silent: true, sitemapCheck: true });
         await runFullScrapeBatch('A101', 0);
+        console.log('⏰ CRON: Şok kategori listesi güncelleniyor...');
+        await runSokCategoryDiscovery({ silent: true });
         await runFullScrapeBatch('Sok', 0);
 
         // 2. Mapping senkronu: Mapping'te olan (market, kod) için null ürünleri günceller (ODS her taramada okunmaz)

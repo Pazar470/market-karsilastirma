@@ -9,6 +9,7 @@ interface PendingRow {
     marketCategoryName?: string | null;
     productCount: number;
     isManuel?: boolean;
+    isNoCode?: boolean;
 }
 
 interface TreeNode {
@@ -535,7 +536,11 @@ function PendingRowForm({
                 </div>
                 <div className="min-w-[160px]">
                     <div className="text-xs text-gray-500 mb-1">Market kategori kodu</div>
-                    <div className="font-mono text-sm text-gray-300 break-all">{row.marketCategoryCode}</div>
+                    {row.isNoCode ? (
+                        <div className="text-amber-400/90">(Kategori kodu yok)</div>
+                    ) : (
+                        <div className="font-mono text-sm text-gray-300 break-all">{row.marketCategoryCode}</div>
+                    )}
                 </div>
                 {row.marketCategoryName && (
                     <div className="min-w-[180px] max-w-[320px]">
