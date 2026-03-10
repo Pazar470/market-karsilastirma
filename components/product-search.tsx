@@ -208,15 +208,15 @@ export function ProductSearch() {
     };
 
     return (
-        <div className="w-full max-w-6xl mx-auto space-y-8">
-            <div className="flex flex-col md:flex-row gap-4">
-                <form onSubmit={handleSubmit} className="flex gap-2 flex-1 relative" ref={wrapperRef}>
-                    <div className="relative flex-1">
-                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+        <div className="w-full max-w-6xl mx-auto space-y-3 sm:space-y-4">
+            <div className="flex flex-col md:flex-row gap-2 sm:gap-3">
+                <form onSubmit={handleSubmit} className="flex gap-1.5 sm:gap-2 flex-1 relative min-w-0" ref={wrapperRef}>
+                    <div className="relative flex-1 min-w-0">
+                        <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground" />
                         <Input
                             type="search"
                             placeholder="Ürün ara..."
-                            className="pl-8"
+                            className="pl-7 h-9 sm:h-10 text-sm"
                             value={query}
                             onChange={handleInputChange}
                             onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
@@ -236,14 +236,14 @@ export function ProductSearch() {
                             </div>
                         )}
                     </div>
-                    <Button type="submit" disabled={loading}>
-                        {loading ? 'Aranıyor...' : 'Ara'}
+                    <Button type="submit" disabled={loading} className="h-9 sm:h-10 shrink-0 text-sm px-3">
+                        {loading ? '...' : 'Ara'}
                     </Button>
                 </form>
 
-                <div className="w-full md:w-auto flex gap-2">
+                <div className="w-full md:w-auto flex gap-1.5 sm:gap-2">
                     <select
-                        className="flex h-10 w-full md:w-40 items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex h-9 sm:h-10 w-full md:w-36 items-center justify-between rounded-md border border-input bg-background px-2.5 py-1.5 text-xs sm:text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         value={urlMarket}
                         onChange={(e) => updateUrl({ market: e.target.value })}
                     >
@@ -255,7 +255,7 @@ export function ProductSearch() {
                     </select>
 
                     <select
-                        className="flex h-10 w-full md:w-48 items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        className="flex h-9 sm:h-10 w-full md:w-44 items-center justify-between rounded-md border border-input bg-background px-2.5 py-1.5 text-xs sm:text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                         value={urlSort}
                         onChange={(e) => updateUrl({ sortBy: e.target.value })}
                     >
@@ -269,24 +269,24 @@ export function ProductSearch() {
 
             {/* Kategori ile filtrelenmişse: Alarm sayfasına taşı */}
             {urlCategoryId && (
-                <div className="flex items-center gap-2 py-2">
+                <div className="flex flex-wrap items-center gap-1.5 py-1">
                     <Link href={`/alarms/new?categoryId=${encodeURIComponent(urlCategoryId)}`}>
-                        <Button variant="outline" className="bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100">
+                        <Button variant="outline" size="sm" className="bg-amber-50 border-amber-200 text-amber-800 hover:bg-amber-100 text-xs h-8">
                             Alarm sayfasına taşı
                         </Button>
                     </Link>
-                    <span className="text-sm text-gray-500">Bu kategori için fiyat alarmı kurabilirsiniz.</span>
+                    <span className="text-xs text-gray-500">Bu kategori için fiyat alarmı kurabilirsiniz.</span>
                 </div>
             )}
 
             {/* Facets / Filters: mobilde karmaşıklık yaratıyor, şimdilik gizli */}
 
             {loading ? (
-                <div className="text-center py-10">Yükleniyor...</div>
+                <div className="text-center py-6 text-sm">Yükleniyor...</div>
             ) : products.length === 0 ? (
-                <div className="text-center py-10 text-muted-foreground">Ürün bulunamadı.</div>
+                <div className="text-center py-6 text-sm text-muted-foreground">Ürün bulunamadı.</div>
             ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                     {products.map((product) => {
                         const priceInfo = product.prices[0];
                         return (
@@ -299,16 +299,16 @@ export function ProductSearch() {
                                     } catch (_) {}
                                 }}
                             >
-                                <Card className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer h-full border-blue-100/50" title={product.name}>
-                                    <div className="aspect-square relative flex items-center justify-center p-4 bg-white">
+                                <Card className="overflow-hidden hover:shadow-md transition-shadow cursor-pointer h-full border-blue-100/50" title={product.name}>
+                                    <div className="aspect-square relative flex items-center justify-center p-2 sm:p-3 bg-white">
                                         <ProductImage
                                             src={product.imageUrl}
                                             alt={product.name}
                                             className="max-h-full max-w-full object-contain"
                                         />
                                         {priceInfo && (
-                                            <div className="absolute top-2 right-2 flex flex-col items-end gap-2">
-                                                <div className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full shadow-sm">
+                                            <div className="absolute top-1 right-1 sm:top-1.5 sm:right-1.5 flex flex-col items-end gap-0.5">
+                                                <div className="bg-green-100 text-green-800 text-[10px] sm:text-xs font-bold px-1.5 py-0.5 rounded-full shadow-sm">
                                                     {(() => {
                                                         const price = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount);
                                                         const amount = product.quantityAmount;
@@ -328,7 +328,7 @@ export function ProductSearch() {
                                             </div>
                                         )}
                                         {/* Actions Group */}
-                                        <div className="absolute bottom-2 right-2 flex gap-2">
+                                        <div className="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 flex gap-1">
                                             {priceInfo && (
                                                 <>
                                                     <AddToAlarmButton productId={product.id} categoryId={product.categoryId ?? product.masterCategory?.id ?? undefined} />
@@ -346,23 +346,22 @@ export function ProductSearch() {
                                             )}
                                         </div>
                                     </div>
-                                    <CardHeader className="p-4 pb-2">
-                                        <div className="flex justify-between items-start mb-1">
-                                            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-semibold bg-blue-50 text-blue-700 min-w-[5rem] overflow-visible shrink-0">
+                                    <CardHeader className="p-2 sm:p-3 pb-0">
+                                        <div className="flex justify-between items-start mb-0.5">
+                                            <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 min-w-0 overflow-visible shrink-0">
                                                 <MarketLogo marketName={priceInfo?.market.name} size="lg" />
                                             </div>
                                         </div>
 
                                         <CardTitle
-                                            className="text-sm font-medium leading-tight overflow-y-auto overscroll-contain max-h-14 min-h-[2.5rem] scroll-smooth touch-manipulation"
-                                            style={{ WebkitOverflowScrolling: 'touch' }}
+                                            className="text-xs sm:text-sm font-medium leading-tight line-clamp-2"
                                             title={product.name}
                                         >
                                             {product.name}
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="p-4 pt-0">
-                                        <div className="text-2xl font-bold text-gray-900 mt-2">
+                                    <CardContent className="p-2 sm:p-3 pt-0">
+                                        <div className="text-base sm:text-lg font-bold text-gray-900 mt-1">
                                             {priceInfo ? (() => {
                                                 const campaign = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : null;
                                                 const list = parseFloat(priceInfo.amount);
@@ -378,10 +377,10 @@ export function ProductSearch() {
                                             })() : '-'}
                                         </div>
                                         {priceInfo?.campaignCondition && (
-                                            <div className="text-xs text-amber-700 font-medium mt-0.5">{priceInfo.campaignCondition}</div>
+                                            <div className="text-[10px] sm:text-xs text-amber-700 font-medium mt-0.5">{priceInfo.campaignCondition}</div>
                                         )}
                                         {priceInfo && (
-                                            <div className="text-xs text-gray-500 font-medium mt-1">
+                                            <div className="text-[10px] sm:text-xs text-gray-500 font-medium mt-0.5">
                                                 {(() => {
                                                     const price = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount);
                                                     const amount = product.quantityAmount;

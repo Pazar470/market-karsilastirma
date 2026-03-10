@@ -11,9 +11,9 @@ interface Alarm {
     targetPrice: number;
     unitType: string;
     isActive: boolean;
-    category: { name: string };
+    category: { name: string } | null;
     tags: string[];
-    pendingProductIds: string[];
+    pendingProductIds?: string[];
     lastNotifiedAt: string | null;
 }
 
@@ -29,10 +29,17 @@ export default function AlarmsPage() {
     const fetchAlarms = async () => {
         try {
             const res = await fetch('/api/alarms');
+            if (!res.ok) throw new Error('Alarms fetch failed');
             const data = await res.json();
-            setAlarms(data);
+            setAlarms(Array.isArray(data) ? data.map((a: Alarm) => ({
+                ...a,
+                category: a.category ?? { name: 'Kategori' },
+                tags: Array.isArray(a.tags) ? a.tags : [],
+                pendingProductIds: Array.isArray(a.pendingProductIds) ? a.pendingProductIds : [],
+            })) : []);
         } catch (error) {
             console.error('Error fetching alarms:', error);
+            setAlarms([]);
         } finally {
             setLoading(false);
         }
@@ -148,7 +155,7 @@ export default function AlarmsPage() {
                                     </div>
                                 </div>
 
-                                {alarm.pendingProductIds && alarm.pendingProductIds.length > 0 && (
+                                {Array.isArray(alarm.pendingProductIds) && alarm.pendingProductIds.length > 0 && (
                                     <div className="mb-3">
                                         <Link
                                             href={`/alarms/${alarm.id}/edit`}
@@ -170,7 +177,7 @@ export default function AlarmsPage() {
 
                                 <h3 className="text-base font-semibold text-gray-900 mb-2">{alarm.name}</h3>
                                 <div className="flex flex-wrap items-center gap-1.5 text-sm text-gray-500 mb-4">
-                                    <span className="px-2 py-0.5 bg-gray-100 rounded text-gray-600">{alarm.category.name}</span>
+                                    <span className="px-2 py-0.5 bg-gray-100 rounded text-gray-600">{alarm.category?.name ?? 'Kategori'}</span>
                                     {alarm.tags.map(tag => (
                                         <span key={tag} className="text-blue-600/80">#{tag}</span>
                                     ))}

@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Home, Bell, LogOut, AlarmClock } from 'lucide-react';
+import { Home, Bell, LogOut, AlarmClock, ShoppingCart } from 'lucide-react';
 import { NotificationCenter } from '@/components/notification-center';
+import { useBasket } from '@/context/basket-context';
 import { cn } from '@/lib/utils';
 
 function UserLogoutNav() {
@@ -30,14 +31,17 @@ function UserLogoutNav() {
 export function AppNav() {
     const pathname = usePathname();
     const [notificationOpen, setNotificationOpen] = useState(false);
+    const { totalItems, items } = useBasket();
+    const totalPrice = items.reduce((sum, item) => sum + (item.addedPrice * item.quantity), 0);
     const isAlarms = pathname.startsWith('/alarms');
     const isHome = pathname === '/';
+    const isBasket = pathname === '/basket';
 
     return (
         <>
             {/* Üst bar: mobilde sadece home ikonu, masaüstünde tam menü */}
             <header className="bg-white border-b border-gray-200 sticky top-0 z-40 safe-area-inset-top">
-                <div className="container mx-auto px-3 sm:px-4 h-12 sm:h-14 flex items-center justify-between">
+                <div className="container mx-auto px-2 sm:px-4 h-11 sm:h-12 flex items-center justify-between">
                     <Link
                         href="/"
                         className={cn(
@@ -69,6 +73,22 @@ export function AppNav() {
                             <Bell className="w-5 h-5" />
                             <span className="text-sm font-medium">Bildirimler</span>
                         </button>
+                        <Link
+                            href="/basket"
+                            className={cn(
+                                'flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                                isBasket ? 'text-blue-600 bg-blue-50' : 'text-gray-600 hover:text-blue-600 hover:bg-gray-50'
+                            )}
+                            aria-label="Sepet"
+                        >
+                            <ShoppingCart className="w-5 h-5" />
+                            <span className="text-sm">Sepet</span>
+                            {totalItems > 0 && (
+                                <span className="bg-blue-600 text-white text-xs font-bold min-w-[1.25rem] h-5 px-1 rounded-full flex items-center justify-center">
+                                    {totalItems}
+                                </span>
+                            )}
+                        </Link>
                     </nav>
 
                     <div className="hidden md:block">
@@ -82,7 +102,7 @@ export function AppNav() {
                 className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200 safe-area-inset-bottom"
                 aria-label="Ana menü"
             >
-                <div className="grid grid-cols-4 h-14">
+                <div className="grid grid-cols-5 h-14">
                     <Link
                         href="/"
                         className={cn(
@@ -112,6 +132,24 @@ export function AppNav() {
                         <Bell className="w-5 h-5" />
                         <span>Bildirimler</span>
                     </button>
+                    <Link
+                        href="/basket"
+                        className={cn(
+                            'flex flex-col items-center justify-center gap-0.5 text-xs font-medium transition-colors relative',
+                            isBasket ? 'text-blue-600' : 'text-gray-500'
+                        )}
+                        aria-label="Sepet"
+                    >
+                        <span className="relative inline-block">
+                            <ShoppingCart className="w-5 h-5" />
+                            {totalItems > 0 && (
+                                <span className="absolute -top-1 -right-2 flex h-3.5 min-w-[14px] items-center justify-center rounded-full bg-blue-600 text-[10px] font-bold text-white px-1">
+                                    {totalItems > 99 ? '99+' : totalItems}
+                                </span>
+                            )}
+                        </span>
+                        <span>Sepet</span>
+                    </Link>
                     <div className="flex flex-col items-center justify-center gap-0.5">
                         <UserLogoutNav />
                     </div>

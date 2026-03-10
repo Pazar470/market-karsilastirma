@@ -14,9 +14,10 @@ export async function GET() {
         });
         const formattedAlarms = alarms.map((alarm) => ({
             ...alarm,
-            tags: JSON.parse(alarm.tags),
-            includedProductIds: JSON.parse(alarm.includedProductIds),
-            excludedProductIds: JSON.parse(alarm.excludedProductIds),
+            tags: JSON.parse(alarm.tags || '[]'),
+            includedProductIds: JSON.parse(alarm.includedProductIds || '[]'),
+            excludedProductIds: JSON.parse(alarm.excludedProductIds || '[]'),
+            pendingProductIds: JSON.parse(alarm.pendingProductIds || '[]'),
         }));
         return NextResponse.json(formattedAlarms);
     } catch (error) {

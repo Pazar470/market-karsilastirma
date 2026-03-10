@@ -20,13 +20,13 @@ const MARKET_FALLBACK_COLOR: Record<string, string> = {
 interface MarketLogoProps {
     marketName: string | null | undefined;
     className?: string;
-    /** sm: küçük (listeler), md: orta, lg: kartlarda belirgin */
+    /** sm: küçük (listeler), md: orta, lg: kartlarda belirgin (daha büyük + yuvarlak) */
     size?: 'sm' | 'md' | 'lg';
 }
 
 const SIZE_CLASSES = {
-    icon: { sm: 'h-3 w-3', md: 'h-4 w-4', lg: 'h-5 w-5' },
-    text: { sm: 'text-[10px]', md: 'text-xs', lg: 'text-sm' },
+    icon: { sm: 'h-3 w-3', md: 'h-4 w-4', lg: 'h-6 w-6' },
+    text: { sm: 'text-[10px]', md: 'text-xs', lg: 'text-xs' },
 } as const;
 
 export function MarketLogo({ marketName, className, size = 'sm' }: MarketLogoProps) {
@@ -36,16 +36,17 @@ export function MarketLogo({ marketName, className, size = 'sm' }: MarketLogoPro
     const fallbackColor = (name && MARKET_FALLBACK_COLOR[name]) || 'bg-gray-400';
     const iconClass = SIZE_CLASSES.icon[size];
     const textClass = SIZE_CLASSES.text[size];
+    const isRounded = size === 'lg';
 
     const content = (
         <>
             {(!slug || imgFailed) ? (
-                <span className={cn('inline-block rounded-sm shrink-0', iconClass, fallbackColor)} />
+                <span className={cn('inline-block shrink-0', iconClass, fallbackColor, isRounded ? 'rounded-full' : 'rounded-sm')} />
             ) : (
                 <img
                     src={`/logos/${slug}.png`}
                     alt=""
-                    className={cn('shrink-0 rounded-sm object-contain', iconClass)}
+                    className={cn('shrink-0 object-contain', iconClass, isRounded ? 'rounded-full' : 'rounded-sm')}
                     onError={() => setImgFailed(true)}
                 />
             )}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
@@ -24,6 +24,7 @@ export function CategorySidebar() {
     const [expanded, setExpanded] = useState<Set<string>>(new Set());
     const [loading, setLoading] = useState(true);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const touchStartX = useRef(0);
 
     useEffect(() => {
         fetch('/api/categories/tree')
@@ -42,6 +43,7 @@ export function CategorySidebar() {
         else params.delete('categoryId');
         params.delete('category'); // eski ana kategori filtresini kaldır
         router.push(`/?${params.toString()}`);
+        setIsMobileOpen(false); // Seçim yapınca panel kapansın, ürünler ekrana düşsün
     };
 
     const toggleExpand = (id: string) => {
@@ -194,8 +196,15 @@ export function CategorySidebar() {
                 </button>
                 {isMobileOpen && (
                     <div className="fixed inset-0 z-40 bg-black/40 flex">
-                        <div className="w-11/12 max-w-xs h-full bg-white shadow-2xl animate-in slide-in-from-left duration-200">
-                            <div className="flex items-center justify-between px-4 py-3 border-b">
+                        <div
+                            className="w-11/12 max-w-xs h-full bg-white shadow-2xl animate-in slide-in-from-left duration-200 flex flex-col"
+                            onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+                            onTouchEnd={(e) => {
+                                const dx = e.changedTouches[0].clientX - touchStartX.current;
+                                if (dx < -60) setIsMobileOpen(false); // Sola kaydırınca kapat
+                            }}
+                        >
+                            <div className="flex items-center justify-between px-4 py-3 border-b shrink-0">
                                 <span className="font-semibold text-gray-800">Kategoriler</span>
                                 <button
                                     type="button"
@@ -205,7 +214,7 @@ export function CategorySidebar() {
                                     Kapat
                                 </button>
                             </div>
-                            <div className="p-4 h-[calc(100%-48px)] overflow-y-auto">
+                            <div className="p-4 flex-1 overflow-y-auto">
                                 {sidebarContent}
                             </div>
                         </div>

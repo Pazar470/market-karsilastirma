@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* İçerik: mobilde ürünler ön planda, kategoriler silik etiket */}
-      <section className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 flex flex-col md:flex-row gap-4 md:gap-6">
+      <section className="container mx-auto px-2 sm:px-4 py-2 sm:py-4 flex flex-col md:flex-row gap-2 md:gap-4">
         <Suspense fallback={<div>Kategoriler yükleniyor...</div>}>
           <CategorySidebar />
         </Suspense>
