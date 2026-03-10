@@ -67,7 +67,7 @@ export default function AdminPage() {
         const pendingList = await pendingRes.json().catch(() => ({}));
         const tree = await treeRes.json().catch(() => []);
         if (!pendingRes.ok) {
-            setError(Array.isArray(pendingList) ? undefined : (pendingList as { error?: string })?.error || `Sunucu hatası (${pendingRes.status})`);
+            setError(Array.isArray(pendingList) ? null : (pendingList as { error?: string })?.error || `Sunucu hatası (${pendingRes.status})`);
             setPending([]);
         } else {
             setError(null);
