@@ -1,22 +1,25 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { AlarmEditProductCard, type AlarmEditProduct } from '@/components/alarm-edit-product-card';
+import { getUnitPrice } from '@/lib/unit-price';
 
 interface Category {
     id: string;
     name: string;
 }
 
-interface Product {
-    id: string;
-    name: string;
-    tags: string;
-}
-
 type TabId = 'sonuclar' | 'ayarlar';
+
+function productUnitPrice(p: AlarmEditProduct): number | null {
+    const priceInfo = p.prices?.[0];
+    if (!priceInfo) return null;
+    const price = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount);
+    const { value } = getUnitPrice(price, p.quantityAmount, p.quantityUnit);
+    return value;
+}
 
 export default function EditAlarmPage() {
     const router = useRouter();
@@ -24,7 +27,7 @@ export default function EditAlarmPage() {
     const [activeTab, setActiveTab] = useState<TabId>('sonuclar');
 
     const [categories, setCategories] = useState<Category[]>([]);
-    const [products, setProducts] = useState<Product[]>([]);
+    const [products, setProducts] = useState<AlarmEditProduct[]>([]);
     const [availableTags, setAvailableTags] = useState<string[]>([]);
 
     const [selectedCat, setSelectedCat] = useState<string>('');
@@ -33,10 +36,12 @@ export default function EditAlarmPage() {
     const [includedIds, setIncludedIds] = useState<string[]>([]);
     const [name, setName] = useState('');
     const [targetPrice, setTargetPrice] = useState('');
+    const [savedTargetPrice, setSavedTargetPrice] = useState('');
     const [unitType, setUnitType] = useState('KG');
     const [isAllProducts, setIsAllProducts] = useState(true);
     const [pendingIds, setPendingIds] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
+    const [saving, setSaving] = useState(false);
 
     useEffect(() => {
         const init = async () => {
@@ -50,14 +55,15 @@ export default function EditAlarmPage() {
                     const alarm = await alarmRes.json();
                     setName(alarm.name);
                     setSelectedCat(alarm.categoryId);
-                    setTargetPrice(alarm.targetPrice.toString());
-                    setUnitType(alarm.unitType);
+                    const tp = alarm.targetPrice?.toString() ?? '';
+                    setTargetPrice(tp);
+                    setSavedTargetPrice(tp);
+                    setUnitType(alarm.unitType || 'KG');
                     setSelectedTags(alarm.tags || []);
                     setIncludedIds(alarm.includedProductIds || []);
                     setExcludedIds(alarm.excludedProductIds || []);
                     setPendingIds(alarm.pendingProductIds || []);
-
-                    setIsAllProducts(alarm.isAllProducts);
+                    setIsAllProducts(alarm.isAllProducts ?? true);
 
                     const prodRes = await fetch(`/api/products?categoryId=${alarm.categoryId}`);
                     const prodsData = await prodRes.json();
@@ -65,9 +71,11 @@ export default function EditAlarmPage() {
                     setProducts(prods);
 
                     const tags = new Set<string>();
-                    prods.forEach((p: Product) => {
-                        const pTags = JSON.parse(p.tags || '[]');
-                        pTags.forEach((t: string) => tags.add(t));
+                    prods.forEach((p: AlarmEditProduct & { tags?: string }) => {
+                        try {
+                            const pTags = JSON.parse(p.tags || '[]');
+                            pTags.forEach((t: string) => tags.add(t));
+                        } catch (_) {}
                     });
                     setAvailableTags(Array.from(tags));
                 }
@@ -80,56 +88,152 @@ export default function EditAlarmPage() {
         init();
     }, [id]);
 
+    const targetNum = parseFloat(targetPrice.replace(',', '.')) || 0;
+    const priceChanged = targetPrice !== '' && targetPrice !== savedTargetPrice;
+
+    const filteredProducts = useMemo(() => {
+        return products.filter((p) => {
+            if (selectedTags.length === 0) return true;
+            try {
+                const raw = (p as AlarmEditProduct & { tags?: string }).tags;
+                const pTags = typeof raw === 'string' ? JSON.parse(raw || '[]') : [];
+                return Array.isArray(pTags) && selectedTags.some((t) => pTags.includes(t));
+            } catch {
+                return false;
+            }
+        });
+    }, [products, selectedTags]);
+
+    const { meeting, notMeeting, hidden } = useMemo(() => {
+        const meeting: AlarmEditProduct[] = [];
+        const notMeeting: AlarmEditProduct[] = [];
+        const hidden: AlarmEditProduct[] = [];
+        filteredProducts.forEach((p) => {
+            const up = productUnitPrice(p);
+            const isExcluded = excludedIds.includes(p.id);
+            const isPending = pendingIds.includes(p.id);
+            if (isExcluded) {
+                hidden.push(p);
+                return;
+            }
+            if (up !== null && up <= targetNum) {
+                meeting.push(p);
+            } else {
+                notMeeting.push(p);
+            }
+        });
+        meeting.sort((a, b) => (productUnitPrice(a) ?? 0) - (productUnitPrice(b) ?? 0));
+        return { meeting, notMeeting, hidden };
+    }, [filteredProducts, excludedIds, pendingIds, targetNum]);
+
     const handleAcceptPending = (pid: string) => {
-        setIncludedIds(prev => [...prev, pid]);
-        setPendingIds(prev => prev.filter(x => x !== pid));
+        setIncludedIds((prev) => [...prev, pid]);
+        setPendingIds((prev) => prev.filter((x) => x !== pid));
     };
 
     const handleRejectPending = (pid: string) => {
-        setExcludedIds(prev => [...prev, pid]);
-        setPendingIds(prev => prev.filter(x => x !== pid));
+        setExcludedIds((prev) => [...prev, pid]);
+        setPendingIds((prev) => prev.filter((x) => x !== pid));
     };
 
-    const filteredProducts = products.filter(p => {
-        if (selectedTags.length === 0) return true;
-        const pTags = JSON.parse(p.tags || '[]');
-        return selectedTags.some(t => pTags.includes(t));
-    });
+    const handleSavePrice = async () => {
+        if (priceChanged && targetPrice !== '') {
+            setSaving(true);
+            try {
+                const res = await fetch(`/api/alarms/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        targetPrice: parseFloat(targetPrice.replace(',', '.')),
+                        name,
+                        tags: JSON.stringify(selectedTags),
+                        includedProductIds: JSON.stringify(includedIds),
+                        excludedProductIds: JSON.stringify(excludedIds),
+                        pendingProductIds: JSON.stringify(pendingIds),
+                        isAllProducts,
+                    }),
+                });
+                if (res.ok) {
+                    setSavedTargetPrice(targetPrice);
+                }
+            } finally {
+                setSaving(false);
+            }
+        }
+    };
 
     const handleSubmit = async () => {
-        const res = await fetch(`/api/alarms/${id}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name,
-                targetPrice,
-                tags: JSON.stringify(selectedTags),
-                includedProductIds: JSON.stringify(includedIds),
-                excludedProductIds: JSON.stringify(excludedIds),
-                pendingProductIds: JSON.stringify(pendingIds),
-                isAllProducts
-            })
-        });
-        if (res.ok) router.push('/alarms');
+        setSaving(true);
+        try {
+            const res = await fetch(`/api/alarms/${id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    targetPrice: parseFloat(targetPrice.replace(',', '.')) || 0,
+                    tags: JSON.stringify(selectedTags),
+                    includedProductIds: JSON.stringify(includedIds),
+                    excludedProductIds: JSON.stringify(excludedIds),
+                    pendingProductIds: JSON.stringify(pendingIds),
+                    isAllProducts,
+                }),
+            });
+            if (res.ok) {
+                setSavedTargetPrice(targetPrice);
+                router.push('/alarms');
+            }
+        } finally {
+                setSaving(false);
+        }
     };
 
-    if (loading) return <div className="min-h-screen bg-[#0f1115] flex items-center justify-center text-blue-500">Yükleniyor...</div>;
+    const gridClass = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3';
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-10 w-10 border-2 border-gray-200 border-t-blue-600" />
+            </div>
+        );
+    }
 
     return (
-        <div className="min-h-screen bg-[#0f1115] text-white p-6 sm:p-8">
-            <div className="max-w-3xl mx-auto">
-                <h1 className="text-2xl sm:text-3xl font-bold mb-6">Alarmı Düzenle</h1>
+        <div className="min-h-screen bg-gray-50 text-gray-900">
+            <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4">
+                {/* Üst: alarm adı + sağda hedef fiyat + Alarmı yeniden kur */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                    <h1 className="text-xl font-semibold truncate">{name || 'Alarmı Düzenle'}</h1>
+                    <div className="flex flex-wrap items-center gap-2">
+                        <label className="text-xs text-gray-500 font-medium">Hedef birim fiyat (₺)</label>
+                        <input
+                            type="text"
+                            inputMode="decimal"
+                            value={targetPrice}
+                            onChange={(e) => setTargetPrice(e.target.value)}
+                            className="w-24 h-9 px-2 rounded-lg border border-gray-200 text-sm font-medium"
+                        />
+                        <span className="text-sm text-gray-500">/ {unitType}</span>
+                        {priceChanged ? (
+                            <button
+                                type="button"
+                                onClick={handleSavePrice}
+                                disabled={saving}
+                                className="h-9 px-4 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 disabled:opacity-50"
+                            >
+                                Alarmı yeniden kur
+                            </button>
+                        ) : null}
+                    </div>
+                </div>
 
                 {/* Tab bar */}
-                <div className="flex rounded-t-xl overflow-hidden border border-b-0 border-gray-800 bg-[#1a1d23] mb-0">
+                <div className="flex rounded-lg overflow-hidden border border-gray-200 bg-white mb-4">
                     <button
                         type="button"
                         onClick={() => setActiveTab('sonuclar')}
                         className={cn(
-                            'flex-1 py-3 px-4 text-sm font-semibold transition-colors',
-                            activeTab === 'sonuclar'
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-[#1a1d23] text-gray-400 hover:text-white hover:bg-gray-800/50'
+                            'flex-1 py-2.5 px-4 text-sm font-medium transition-colors',
+                            activeTab === 'sonuclar' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
                         )}
                     >
                         Sonuçlar
@@ -143,201 +247,194 @@ export default function EditAlarmPage() {
                         type="button"
                         onClick={() => setActiveTab('ayarlar')}
                         className={cn(
-                            'flex-1 py-3 px-4 text-sm font-semibold transition-colors',
-                            activeTab === 'ayarlar'
-                                ? 'bg-blue-600 text-white'
-                                : 'bg-[#1a1d23] text-gray-400 hover:text-white hover:bg-gray-800/50'
+                            'flex-1 py-2.5 px-4 text-sm font-medium transition-colors',
+                            activeTab === 'ayarlar' ? 'bg-blue-600 text-white' : 'bg-white text-gray-600 hover:bg-gray-50'
                         )}
                     >
                         Ayarlar
                     </button>
                 </div>
 
-                <div className="bg-[#1a1d23] rounded-b-3xl rounded-tr-3xl p-6 sm:p-8 border border-gray-800 border-t-0 shadow-2xl">
-                    {activeTab === 'sonuclar' && (
-                        <div className="space-y-8">
-                            {pendingIds.length > 0 && (
-                                <div className="p-5 bg-blue-600/10 border border-blue-500/30 rounded-2xl">
-                                    <h3 className="text-sm font-bold text-blue-400 mb-4 flex items-center gap-2">
-                                        <span className="relative flex h-2 w-2">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
-                                        </span>
-                                        Alarm koşulunu karşılayan yeni ürünler
-                                    </h3>
-                                    <div className="space-y-3">
-                                        {products.filter(p => pendingIds.includes(p.id)).map(product => (
-                                            <div key={product.id} className="flex items-center justify-between gap-2 p-3 bg-gray-800/80 rounded-xl border border-blue-500/20">
-                                                <Link
-                                                    href={`/product/${product.id}`}
-                                                    className="text-sm font-medium text-white hover:text-blue-300 flex-1 min-w-0 truncate"
-                                                >
-                                                    {product.name}
-                                                </Link>
-                                                <div className="flex gap-2 shrink-0">
+                {activeTab === 'sonuclar' && (
+                    <div className="space-y-6">
+                        {/* 1. Hedef fiyatı karşılayan ürünler */}
+                        <section>
+                            <h2 className="text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-green-500" />
+                                Hedef fiyatı karşılayan ürünler ({meeting.length})
+                            </h2>
+                            <div className={gridClass}>
+                                {meeting.map((product) => (
+                                    <AlarmEditProductCard
+                                        key={product.id}
+                                        product={product}
+                                        actions={
+                                            pendingIds.includes(product.id) ? (
+                                                <>
                                                     <button
                                                         type="button"
-                                                        onClick={(e) => { e.preventDefault(); handleRejectPending(product.id); }}
-                                                        className="px-3 py-1 bg-red-600/20 text-red-400 text-xs font-bold rounded-lg hover:bg-red-600/30"
+                                                        onClick={() => handleRejectPending(product.id)}
+                                                        className="h-7 min-w-[56px] px-2 rounded-md bg-red-100 text-red-700 text-[10px] font-bold hover:bg-red-200"
                                                     >
                                                         Gizle
                                                     </button>
                                                     <button
                                                         type="button"
-                                                        onClick={(e) => { e.preventDefault(); handleAcceptPending(product.id); }}
-                                                        className="px-3 py-1 bg-green-600/20 text-green-400 text-xs font-bold rounded-lg hover:bg-green-600/30"
+                                                        onClick={() => handleAcceptPending(product.id)}
+                                                        className="h-7 min-w-[56px] px-2 rounded-md bg-green-100 text-green-700 text-[10px] font-bold hover:bg-green-200"
                                                     >
                                                         Takibe Al
                                                     </button>
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
+                                                </>
+                                            ) : (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setExcludedIds((prev) => [...prev, product.id])}
+                                                    className="h-7 min-w-[56px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
+                                                >
+                                                    Gizle
+                                                </button>
+                                            )
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        </section>
 
-                            <div>
-                                <div className="flex justify-between items-center mb-3">
-                                    <h3 className="text-xs font-bold text-blue-400 uppercase tracking-wider">Takip Edilen Ürünler</h3>
-                                    <button
-                                        type="button"
-                                        onClick={() => { setExcludedIds(products.map(p => p.id)); setIncludedIds([]); }}
-                                        className="text-[10px] text-gray-500 hover:text-red-400 uppercase font-bold"
-                                    >
-                                        Tümünü Gizle
-                                    </button>
-                                </div>
-                                <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
-                                    {filteredProducts.filter(p => !excludedIds.includes(p.id) && !pendingIds.includes(p.id)).map(product => (
-                                        <div
-                                            key={product.id}
-                                            className="p-3 bg-gray-800/60 border border-gray-700 rounded-lg hover:border-blue-500/50 flex justify-between items-center gap-2 group"
-                                        >
-                                            <Link
-                                                href={`/product/${product.id}`}
-                                                className="text-sm text-white hover:text-blue-300 flex-1 min-w-0 truncate"
-                                            >
-                                                {product.name}
-                                            </Link>
+                        {/* 2. Hedef fiyatın altına düşmemiş ürünler */}
+                        <section>
+                            <h2 className="text-sm font-bold text-gray-700 mb-2">
+                                Hedef fiyatın altına düşmemiş ürünler ({notMeeting.length})
+                            </h2>
+                            <div className={gridClass}>
+                                {notMeeting.map((product) => (
+                                    <AlarmEditProductCard
+                                        key={product.id}
+                                        product={product}
+                                        actions={
                                             <button
                                                 type="button"
-                                                onClick={() => setExcludedIds(prev => [...prev, product.id])}
-                                                className="text-[10px] text-gray-500 hover:text-red-400 uppercase font-bold shrink-0"
+                                                onClick={() => setExcludedIds((prev) => [...prev, product.id])}
+                                                className="h-7 min-w-[56px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
                                             >
                                                 Gizle
                                             </button>
-                                        </div>
-                                    ))}
-                                </div>
+                                        }
+                                    />
+                                ))}
                             </div>
+                        </section>
 
-                            <div className="pt-4 border-t border-gray-800/50">
-                                <div className="flex justify-between items-center mb-3">
-                                    <h3 className="text-xs font-bold text-gray-600 uppercase tracking-wider">Gizlenen Ürünler</h3>
+                        {/* 3. Gizlenen ürünler - dinamik, göster/gizle */}
+                        <section>
+                            <div className="flex justify-between items-center mb-2">
+                                <h2 className="text-sm font-bold text-gray-500">Gizlenen ürünler ({hidden.length})</h2>
+                                {hidden.length > 0 && (
                                     <button
                                         type="button"
-                                        onClick={() => { setExcludedIds([]); setIncludedIds(products.map(p => p.id)); }}
-                                        className="text-[10px] text-gray-500 hover:text-blue-400 uppercase font-bold"
+                                        onClick={() => {
+                                            setExcludedIds([]);
+                                            setIncludedIds(products.map((p) => p.id));
+                                        }}
+                                        className="text-xs font-bold text-blue-600 hover:text-blue-800"
                                     >
-                                        Tümünü Göster
+                                        Tümünü göster
                                     </button>
-                                </div>
-                                <div className="grid grid-cols-1 gap-2 max-h-[200px] overflow-y-auto pr-2 opacity-60">
-                                    {filteredProducts.filter(p => excludedIds.includes(p.id) && !pendingIds.includes(p.id)).map(product => (
-                                        <div
-                                            key={product.id}
-                                            className="p-2 bg-gray-900/50 border border-gray-800 rounded-lg flex justify-between items-center gap-2 group line-through"
-                                        >
-                                            <Link
-                                                href={`/product/${product.id}`}
-                                                className="text-xs text-gray-500 hover:text-blue-400 flex-1 min-w-0 truncate no-underline"
-                                            >
-                                                {product.name}
-                                            </Link>
+                                )}
+                            </div>
+                            <div className={gridClass}>
+                                {hidden.map((product) => (
+                                    <AlarmEditProductCard
+                                        key={product.id}
+                                        product={product}
+                                        actions={
                                             <button
                                                 type="button"
-                                                onClick={() => setExcludedIds(prev => prev.filter(x => x !== product.id))}
-                                                className="text-[10px] text-blue-500 hover:text-blue-400 uppercase font-bold shrink-0"
+                                                onClick={() => setExcludedIds((prev) => prev.filter((x) => x !== product.id))}
+                                                className="h-7 min-w-[56px] px-2 rounded-md bg-blue-100 text-blue-700 text-[10px] font-bold hover:bg-blue-200"
                                             >
-                                                Geri Al
+                                                Göster
                                             </button>
-                                        </div>
-                                    ))}
-                                </div>
+                                        }
+                                    />
+                                ))}
                             </div>
-                        </div>
-                    )}
+                        </section>
+                    </div>
+                )}
 
-                    {activeTab === 'ayarlar' && (
-                        <div className="space-y-8">
-                            <div>
-                                <label className="block text-sm text-gray-400 mb-2">Alarm İsmi</label>
+                {activeTab === 'ayarlar' && (
+                    <div className="bg-white rounded-xl border border-gray-200 p-4 sm:p-6 space-y-6">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Alarm ismi</label>
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                className="w-full h-10 px-3 rounded-lg border border-gray-200 text-sm"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Hedef birim fiyat (₺) / Birim</label>
+                            <div className="flex gap-2">
                                 <input
                                     type="text"
-                                    value={name}
-                                    onChange={e => setName(e.target.value)}
-                                    className="w-full bg-[#0f1115] border border-gray-800 rounded-xl p-4 focus:border-blue-500 outline-none"
+                                    inputMode="decimal"
+                                    value={targetPrice}
+                                    onChange={(e) => setTargetPrice(e.target.value)}
+                                    className="flex-1 max-w-[120px] h-10 px-3 rounded-lg border border-gray-200 text-sm"
                                 />
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="flex-1">
-                                    <label className="block text-sm text-gray-400 mb-2">Hedef Birim Fiyat (₺)</label>
-                                    <input
-                                        type="number"
-                                        value={targetPrice}
-                                        onChange={e => setTargetPrice(e.target.value)}
-                                        className="w-full bg-[#0f1115] border border-gray-800 rounded-xl p-4 focus:border-blue-500 outline-none"
-                                    />
-                                </div>
-                                <div className="w-32">
-                                    <label className="block text-sm text-gray-400 mb-2">Birim</label>
-                                    <div className="p-4 bg-gray-800/50 rounded-xl text-center border border-gray-700">{unitType}</div>
-                                </div>
-                            </div>
-                            <div>
-                                <h3 className="text-sm font-bold text-gray-300 mb-3">Etiket filtresi</h3>
-                                <div className="flex flex-wrap gap-3">
-                                    {availableTags.map(tag => (
-                                        <button
-                                            key={tag}
-                                            type="button"
-                                            onClick={() => setSelectedTags(prev => prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag])}
-                                            className={cn(
-                                                'px-4 py-2 rounded-full border text-sm',
-                                                selectedTags.includes(tag) ? 'bg-blue-600 border-blue-500' : 'bg-gray-800 border-gray-700'
-                                            )}
-                                        >
-                                            {tag}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="p-4 bg-blue-500/5 rounded-2xl border border-blue-500/10">
-                                <label className="flex items-center gap-3 cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        checked={isAllProducts}
-                                        onChange={e => setIsAllProducts(e.target.checked)}
-                                        className="w-5 h-5 bg-gray-800 rounded text-blue-600"
-                                    />
-                                    <div>
-                                        <span className="text-sm font-bold block">Organik Takip: Yeni Ürünleri İzle</span>
-                                        <span className="text-xs text-gray-500">Market yeni ürün eklediğinde onayınıza sunulur.</span>
-                                    </div>
-                                </label>
-                            </div>
-                            <div className="pt-4">
-                                <button
-                                    type="button"
-                                    onClick={handleSubmit}
-                                    className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl font-bold shadow-xl hover:scale-[1.02] transition-transform"
-                                >
-                                    Değişiklikleri Kaydet
-                                </button>
+                                <span className="flex items-center text-sm text-gray-500">{unitType}</span>
                             </div>
                         </div>
-                    )}
-                </div>
+                        <div>
+                            <h3 className="text-sm font-medium text-gray-700 mb-2">Etiket filtresi</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {availableTags.map((tag) => (
+                                    <button
+                                        key={tag}
+                                        type="button"
+                                        onClick={() =>
+                                            setSelectedTags((prev) =>
+                                                prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+                                            )
+                                        }
+                                        className={cn(
+                                            'px-3 py-1.5 rounded-full border text-sm',
+                                            selectedTags.includes(tag)
+                                                ? 'bg-blue-600 text-white border-blue-600'
+                                                : 'bg-white text-gray-600 border-gray-300 hover:border-blue-400'
+                                        )}
+                                    >
+                                        {tag}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                            <label className="flex items-center gap-3 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={isAllProducts}
+                                    onChange={(e) => setIsAllProducts(e.target.checked)}
+                                    className="w-4 h-4 rounded text-blue-600"
+                                />
+                                <div>
+                                    <span className="text-sm font-medium block">Organik takip: Yeni ürünleri izle</span>
+                                    <span className="text-xs text-gray-500">Market yeni ürün eklediğinde onayınıza sunulur.</span>
+                                </div>
+                            </label>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={handleSubmit}
+                            disabled={saving}
+                            className="w-full sm:w-auto px-6 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                        >
+                            Değişiklikleri kaydet
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

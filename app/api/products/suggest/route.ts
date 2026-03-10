@@ -12,7 +12,7 @@ export async function GET(request: Request) {
 
     const terms = query.split(' ').filter(t => t.length > 0);
     const nameConditions = terms.map(term => ({
-        name: { contains: term }
+        name: { contains: term, mode: 'insensitive' as const }
     }));
 
     try {
