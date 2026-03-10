@@ -5,11 +5,12 @@ import { USER_SESSION_COOKIE_NAME } from '@/lib/session-constants';
 export function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
-    // Statik, auth API ve login sayfası
+    // Statik, auth API, kategori ağacı (admin dropdown) ve login sayfası
     if (
         pathname.startsWith('/_next') ||
         pathname.startsWith('/api/auth') ||
         pathname.startsWith('/api/admin') ||
+        pathname.startsWith('/api/categories') ||
         pathname.startsWith('/login') ||
         pathname === '/favicon.ico'
     ) {

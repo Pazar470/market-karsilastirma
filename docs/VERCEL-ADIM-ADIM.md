@@ -23,11 +23,12 @@ Proje hazır; Git commit atıldı. Aşağıdaki yollardan **birini** uygulaman y
    - **Deploy**’a basma; önce **Environment Variables** kısmına git.
 
 4. **Ortam değişkenlerini ekle** (Settings → Environment Variables veya import sırasında):
-   - `DATABASE_URL` — Supabase Session pooler URI (sonuna `?pgbouncer=true`).  
-   - `ADMIN_PASSWORD` — Admin panel şifresi.  
-   - `CRON_SECRET` — Rastgele string (örn. `market-cron-2026`).  
-   - `NEXT_PUBLIC_SUPABASE_URL` — Supabase proje URL’in.  
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` — Supabase anon key.  
+   - **`DATABASE_URL`** — Supabase → Project Settings → Database → **Connection string** → "Session pooler" (Transaction). URI’yi kopyala, sonuna `?pgbouncer=true&connection_limit=1` ekle. Şifre kısmına kendi DB şifreni yaz.
+   - **`NEXT_PUBLIC_SUPABASE_URL`** — Supabase → Project Settings → API → **Project URL** (örn. `https://bqvthqqnxfuzhgcqiwnh.supabase.co`).
+   - **`NEXT_PUBLIC_SUPABASE_ANON_KEY`** — Supabase → Project Settings → API → **anon public** key.
+   - **`ADMIN_PASSWORD`** — Admin panel şifresi.  
+   - **`CRON_SECRET`** — Rastgele string (örn. `market-cron-2026`).  
+   - (İsteğe bağlı) **`DIRECT_URL`** — Sadece Vercel’da migration çalıştıracaksan kullan. Supabase → Database → "Direct connection" (port 5432) URI’si. Projede Prisma sadece `DATABASE_URL` kullanıyor; migration’ı yerelde çalıştırıyorsan boş bırakabilirsin.
    - (İsteğe bağlı) `SESSION_SECRET` — Kullanıcı oturum imzası; yoksa `ADMIN_PASSWORD` kullanılır.
 
 5. **Deploy**’a bas. Build bittikten sonra `https://xxx.vercel.app` linki verilir; bu linki kullanıcılara paylaş.

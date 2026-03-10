@@ -8,6 +8,12 @@ export async function GET() {
             orderBy: { name: 'asc' },
             include: { children: true },
         });
+        if (all.length === 0) {
+            return NextResponse.json(
+                { error: 'Category tablosu boş veya RLS engelliyor. Supabase → Category → RLS politikalarını kontrol edin.' },
+                { status: 503 }
+            );
+        }
         const byId = new Map(all.map((c) => [c.id, { ...c, children: [] as typeof all }]));
         const roots: typeof all = [];
         for (const c of all) {
