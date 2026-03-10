@@ -8,7 +8,7 @@ import { requireAdmin } from '@/lib/admin-auth';
 
 export const dynamic = 'force-dynamic';
 
-const RECENT_HOURS = 48;
+const RECENT_HOURS = 28;
 
 export async function GET() {
     const unauth = await requireAdmin();

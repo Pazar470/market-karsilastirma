@@ -106,13 +106,17 @@ async function main() {
             status.message = 'Migros kategori listesi güncelleniyor…';
             status.lastUpdated = new Date().toISOString();
             writeStatusJson(status);
-            await runMigrosCategoryDiscovery({ silent: true });
+            console.log('\n📂 Migros: Kategori keşfi (rest/categories → yaprak liste)...');
+            const migrosResult = await runMigrosCategoryDiscovery({ silent: true });
+            console.log(`   migros_categories.json güncellendi (${migrosResult.leafCount} yaprak).`);
         }
         if (market.name === 'A101') {
             status.message = 'A101 kategori listesi güncelleniyor…';
             status.lastUpdated = new Date().toISOString();
             writeStatusJson(status);
-            await runA101CategoryDiscovery({ silent: true, sitemapCheck: true });
+            console.log('\n📂 A101: Kategori keşfi (15 ana kategori → yaprak liste + sitemap uyarısı)...');
+            const a101Result = await runA101CategoryDiscovery({ silent: true, sitemapCheck: true });
+            console.log(`   a101_categories.json güncellendi (${a101Result.leafCount} yaprak).`);
         }
         if (market.name === 'Sok' || market.name === 'Şok') {
             status.message = 'Şok kategori listesi güncelleniyor…';

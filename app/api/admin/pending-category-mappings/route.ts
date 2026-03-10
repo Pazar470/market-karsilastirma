@@ -5,10 +5,10 @@ import { requireAdmin } from '@/lib/admin-auth';
 export const dynamic = 'force-dynamic';
 
 /** Bekleyen market+kategori kodları: categoryId'si null olan ürünlerin market + marketCategoryCode listesi.
- * Son 48 saatte fiyatı olan ürünler dahil (timezone/sunucu saati kaynaklı kaçırma riskine karşı 48h).
+ * Son 28 saatte fiyatı olan ürünler dahil (günlük tarama + timezone payı); kullanıcıya göstereceğimiz ürünler.
  * Her ürün için en son dolu marketCategoryCode kullanılır (son fiyatta kod yoksa önceki fiyatlara bakılır). */
 const PRICES_TAKE = 25;
-const RECENT_HOURS = 48;
+const RECENT_HOURS = 28;
 
 export async function GET() {
     const unauth = await requireAdmin();
