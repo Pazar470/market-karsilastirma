@@ -41,9 +41,23 @@ function decodeMessage(raw: string): { text: string; product?: NotificationProdu
     return { text: raw };
 }
 
-export function NotificationCenter() {
+interface NotificationCenterProps {
+    /** Kontrollü mod: üst/alt menüdeki "Bildirimler" tıklanınca açılsın */
+    open?: boolean;
+    onOpenChange?: (open: boolean) => void;
+    /** false ise zil butonu gösterilmez (mobil alt menüden açılır) */
+    showTrigger?: boolean;
+}
+
+export function NotificationCenter({ open: controlledOpen, onOpenChange, showTrigger = true }: NotificationCenterProps = {}) {
+    const [internalOpen, setInternalOpen] = useState(false);
+    const isControlled = controlledOpen !== undefined;
+    const isOpen = isControlled ? controlledOpen : internalOpen;
+    const setIsOpen = (v: boolean) => {
+        if (isControlled) onOpenChange?.(v);
+        else setInternalOpen(v);
+    };
     const [notifications, setNotifications] = useState<Notification[]>([]);
-    const [isOpen, setIsOpen] = useState(false);
     const unreadCount = notifications.filter(n => !n.isRead).length;
 
     useEffect(() => {
@@ -74,17 +88,20 @@ export function NotificationCenter() {
 
     return (
         <div className="relative">
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="relative p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all"
-            >
-                <Bell className="w-6 h-6" />
-                {unreadCount > 0 && (
-                    <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center bg-red-500 text-[10px] font-bold text-white rounded-full ring-2 ring-white animate-pulse">
-                        {unreadCount}
-                    </span>
-                )}
-            </button>
+            {showTrigger && (
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="relative p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all"
+                    aria-label="Bildirimler"
+                >
+                    <Bell className="w-6 h-6" />
+                    {unreadCount > 0 && (
+                        <span className="absolute top-1 right-1 flex h-4 w-4 items-center justify-center bg-red-500 text-[10px] font-bold text-white rounded-full ring-2 ring-white animate-pulse">
+                            {unreadCount}
+                        </span>
+                    )}
+                </button>
+            )}
 
             {isOpen && (
                 <>

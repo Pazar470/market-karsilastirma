@@ -225,11 +225,16 @@ export default function TaramaPage() {
                             ))
                         ) : (
                             <tr>
-                                <td colSpan={3} className="px-4 py-4 text-gray-500 text-center">
-                                    Henüz veri yok. Tarama başlatmak için terminalde:{' '}
-                                    <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded text-sm">
-                                        npx tsx scripts/run-full-scan-offline.ts
-                                    </code>
+                                <td colSpan={3} className="px-4 py-4 text-center">
+                                    <p className="text-gray-500 mb-2">
+                                        Henüz veri yok. Tarama başlatmak için terminalde (proje kökünden):{' '}
+                                        <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded text-sm">
+                                            npx tsx scripts/run-full-scan-offline.ts
+                                        </code>
+                                    </p>
+                                    <p className="text-sm text-amber-600 dark:text-amber-400">
+                                        Tarama yalnızca yerelde izlenebilir. Bu sayfa Vercel (canlı site) üzerinde açıksa veri görünmez; script&apos;i bilgisayarınızda çalıştırıp tarayıcıda <strong>http://localhost:3000/tarama</strong> adresini kullanın.
+                                    </p>
                                 </td>
                             </tr>
                         )}

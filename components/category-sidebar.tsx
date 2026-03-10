@@ -181,16 +181,17 @@ export function CategorySidebar() {
 
     return (
         <>
-            {/* Mobil: buton + tam ekran açılır menü */}
-            <div className="md:hidden mb-4">
-                <Button
-                    variant="outline"
-                    className="w-full justify-between"
+            {/* Mobil: silik kitap etiketi / tabela gibi, tıklanınca kategoriler açılır */}
+            <div className="md:hidden mb-3 flex justify-start">
+                <button
+                    type="button"
                     onClick={() => setIsMobileOpen(true)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm text-gray-400 hover:text-gray-600 hover:bg-gray-100/80 border border-gray-200/60 bg-white/50 transition-colors"
+                    aria-label="Kategorileri aç"
                 >
                     <span>Kategoriler</span>
-                    <ChevronRight className="h-4 w-4" />
-                </Button>
+                    <ChevronRight className="h-3.5 w-3.5 opacity-70" />
+                </button>
                 {isMobileOpen && (
                     <div className="fixed inset-0 z-40 bg-black/40 flex">
                         <div className="w-11/12 max-w-xs h-full bg-white shadow-2xl animate-in slide-in-from-left duration-200">

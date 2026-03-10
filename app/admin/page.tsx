@@ -36,6 +36,7 @@ export default function AdminPage() {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
+    const [treeError, setTreeError] = useState<string | null>(null);
     const [loginPassword, setLoginPassword] = useState('');
     const [loginError, setLoginError] = useState('');
 
@@ -73,7 +74,13 @@ export default function AdminPage() {
             setError(null);
             setPending(Array.isArray(pendingList) ? pendingList : []);
         }
-        setCategoryTree(Array.isArray(tree) ? tree : []);
+        if (!treeRes.ok) {
+            setTreeError((tree as { error?: string })?.error || `Kategori ağacı yüklenemedi (${treeRes.status})`);
+            setCategoryTree([]);
+        } else {
+            setTreeError(null);
+            setCategoryTree(Array.isArray(tree) ? tree : []);
+        }
         setAuthenticated(true);
         setLoading(false);
     };
@@ -251,6 +258,11 @@ export default function AdminPage() {
             {error && (
                 <div className="mb-4 p-3 rounded-lg bg-red-900/30 text-red-200 text-sm">
                     {error}
+                </div>
+            )}
+            {(treeError || (categoryTree.length === 0 && pending.length > 0)) && (
+                <div className="mb-4 p-3 rounded-lg bg-amber-900/30 text-amber-200 text-sm">
+                    {treeError || 'Kategori ağacı boş.'} Veritabanındaki <strong>Category</strong> tablosunda kayıt olmalı (ODS import: <code>npx tsx scripts/clean-and-import-ods.ts</code>). Supabase&apos;de Category tablosunu kontrol edin.
                 </div>
             )}
             {pending.length === 0 ? (

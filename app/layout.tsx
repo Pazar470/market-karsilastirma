@@ -19,8 +19,7 @@ export const metadata: Metadata = {
 
 import { BasketProvider } from '@/context/basket-context';
 import { FloatingBasketSummary } from '@/components/floating-basket-summary';
-import { NotificationCenter } from '@/components/notification-center';
-import { UserLogout } from '@/components/user-logout';
+import { AppNav } from '@/components/app-nav';
 
 export default function RootLayout({
   children,
@@ -40,21 +39,11 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <BasketProvider>
-          <header className="bg-white border-b sticky top-0 z-50">
-            <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <a href="/" className="text-xl font-bold text-blue-600 hover:opacity-80 transition-opacity">
-                  Market Karşılaştırma
-                </a>
-                <a href="/alarms" className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
-                  🔔 Fiyat Alarmları
-                </a>
-                <NotificationCenter />
-              </div>
-              <UserLogout />
-            </div>
-          </header>
-          {children}
+          <AppNav />
+          {/* Mobil alt menü için içerik alanına padding */}
+          <main className="pb-16 md:pb-0">
+            {children}
+          </main>
           <FloatingBasketSummary />
         </BasketProvider>
       </body>
