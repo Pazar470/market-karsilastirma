@@ -10,7 +10,7 @@ export async function GET() {
         });
         if (all.length === 0) {
             return NextResponse.json(
-                { error: 'Category tablosu boş veya RLS engelliyor. Supabase → Category → RLS politikalarını kontrol edin.' },
+                { error: 'Category tablosu boş veya RLS engelliyor. Supabase → Category → RLS politikalarını kontrol edin. ODS import: npx tsx scripts/clean-and-import-ods.ts' },
                 { status: 503 }
             );
         }
@@ -35,6 +35,15 @@ export async function GET() {
         return NextResponse.json(roots);
     } catch (e) {
         console.error('GET /api/categories/tree', e);
-        return NextResponse.json({ error: 'Failed to fetch tree' }, { status: 500 });
+        const msg = e instanceof Error ? e.message : String(e);
+        const isConnection = /connect|timeout|pool|ECONNREFUSED|MaxClients/i.test(msg);
+        return NextResponse.json(
+            {
+                error: isConnection
+                    ? 'Supabase bağlantı hatası (geçici). Birkaç saniye sonra yenileyin.'
+                    : 'Kategori ağacı yüklenemedi. Category tablosu ve RLS kontrol edin.',
+            },
+            { status: 503 }
+        );
     }
 }

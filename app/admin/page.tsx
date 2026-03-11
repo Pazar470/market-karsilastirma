@@ -238,6 +238,14 @@ export default function AdminPage() {
             <div className="mb-4 flex flex-wrap items-center gap-3">
                 <button
                     type="button"
+                    disabled={loading}
+                    onClick={() => loadData()}
+                    className="inline-flex items-center rounded-lg border border-gray-600 bg-gray-800 px-3 py-2 text-sm text-gray-200 hover:bg-gray-700 disabled:opacity-50"
+                >
+                    {loading ? 'Yükleniyor…' : 'Verileri yenile'}
+                </button>
+                <button
+                    type="button"
                     onClick={async () => {
                         const res = await fetch('/api/admin/export-mappings', { credentials: 'include' });
                         if (!res.ok) return;
@@ -262,7 +270,12 @@ export default function AdminPage() {
             )}
             {(treeError || (categoryTree.length === 0 && pending.length > 0)) && (
                 <div className="mb-4 p-3 rounded-lg bg-amber-900/30 text-amber-200 text-sm">
-                    {treeError || 'Kategori ağacı boş.'} Veritabanındaki <strong>Category</strong> tablosunda kayıt olmalı (ODS import: <code>npx tsx scripts/clean-and-import-ods.ts</code>). Supabase&apos;de Category tablosunu kontrol edin.
+                    {treeError || 'Kategori ağacı boş.'}
+                    {treeError?.includes('bağlantı') ? (
+                        ' Üstteki &quot;Verileri yenile&quot; ile tekrar deneyin.'
+                    ) : (
+                        <> Veritabanındaki <strong>Category</strong> tablosunda kayıt olmalı (ODS import: <code>npx tsx scripts/clean-and-import-ods.ts</code>). Supabase&apos;de Category tablosunu kontrol edin.</>
+                    )}
                 </div>
             )}
             {pending.length === 0 ? (
