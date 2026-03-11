@@ -41,20 +41,20 @@ import { ProductImage } from '@/components/product-image';
 import { ProductDetailActions } from '@/components/product-detail-actions';
 
 async function getSimilarProducts(currentProduct: any) {
-    // 1. Get all products from other markets
-    // Optimization: In a real app, we would search by text in DB (Full Text Search)
-    // Here we fetch all and filter in memory for prototype
+    // Vercel/serverless: Tüm ürünleri çekmek timeout ve bellek hatası verir; limit koyuyoruz.
     const allProducts = await prisma.product.findMany({
         where: {
-            id: { not: currentProduct.id }, // Exclude current
+            id: { not: currentProduct.id },
+            prices: { some: {} },
         },
         include: {
             prices: {
                 include: { market: true },
                 orderBy: { date: 'desc' },
-                take: 1
-            }
-        }
+                take: 1,
+            },
+        },
+        take: 500,
     });
 
     // 2. Calculate Similarity
@@ -117,7 +117,7 @@ async function getCheaperAlternatives(currentProduct: any) {
             name: p.name,
             price: price, // Total price
             unitPrice: unitPrice,
-            marketName: p.prices[0].market.name,
+            marketName: p.prices[0]?.market?.name ?? 'Market',
             imageUrl: p.imageUrl || '',
             saving: ((currentUnitPrice - unitPrice) / currentUnitPrice) * 100 // Percentage cheaper
         };
@@ -128,39 +128,46 @@ async function getCheaperAlternatives(currentProduct: any) {
 
 
 export default async function ProductPage(props: { params: Promise<{ id: string }> }) {
-    const params = await props.params;
-    const product = await getProduct(params.id);
+    try {
+        const params = await props.params;
+        const product = await getProduct(params.id);
 
-    if (!product) {
-        notFound();
-    }
+        if (!product) {
+            notFound();
+        }
 
-    // Fiyat yoksa (tarama/mapping sırasında veya yeni ürün) hata vermeyelim
-    const effectiveAmount = (p: { amount: unknown; campaignAmount?: unknown }) =>
-        Number(p.campaignAmount ?? p.amount) || Number(p.amount);
-    const sortedPrices = [...(product.prices || [])].sort((a, b) => effectiveAmount(a) - effectiveAmount(b));
-    const bestPrice = sortedPrices[0];
-    if (!bestPrice?.market) {
-        notFound();
-    }
-    const displayAmount = bestPrice.campaignAmount != null ? Number(bestPrice.campaignAmount) : Number(bestPrice.amount ?? 0);
-    const listAmount = bestPrice?.amount != null ? Number(bestPrice.amount) : null;
-    const hasCampaign = bestPrice?.campaignAmount != null && bestPrice?.campaignCondition;
+        // Fiyat yoksa (tarama/mapping sırasında veya yeni ürün) hata vermeyelim
+        const effectiveAmount = (p: { amount: unknown; campaignAmount?: unknown }) =>
+            Number(p.campaignAmount ?? p.amount) || Number(p.amount);
+        const sortedPrices = [...(product.prices || [])].sort((a, b) => effectiveAmount(a) - effectiveAmount(b));
+        const bestPrice = sortedPrices[0];
+        if (!bestPrice?.market) {
+            notFound();
+        }
+        const displayAmount = bestPrice.campaignAmount != null ? Number(bestPrice.campaignAmount) : Number(bestPrice.amount ?? 0);
+        const listAmount = bestPrice?.amount != null ? Number(bestPrice.amount) : null;
+        const hasCampaign = bestPrice?.campaignAmount != null && bestPrice?.campaignCondition;
 
-    // Unit Price: kampanya varsa kampanya fiyatına göre birim fiyat
-    let unitPriceDisplay = null;
-    const unit = (product.quantityUnit || '').toLowerCase();
-    if (unit === 'adet' || unit === 'ad' || !product.quantityAmount || !product.quantityUnit) {
-        unitPriceDisplay = `${displayAmount.toFixed(2)} ₺ / adet`;
-    } else if (product.quantityAmount && product.quantityUnit) {
-        const unitPrice = displayAmount / product.quantityAmount;
-        const displayUnit = unit === 'l' || unit === 'lt' ? 'L' : (unit === 'kg' ? 'kg' : product.quantityUnit);
-        unitPriceDisplay = `${unitPrice.toFixed(2)} ₺ / ${displayUnit}`;
-    }
+        // Unit Price: kampanya varsa kampanya fiyatına göre birim fiyat
+        let unitPriceDisplay = null;
+        const unit = (product.quantityUnit || '').toLowerCase();
+        if (unit === 'adet' || unit === 'ad' || !product.quantityAmount || !product.quantityUnit) {
+            unitPriceDisplay = `${displayAmount.toFixed(2)} ₺ / adet`;
+        } else if (product.quantityAmount && product.quantityUnit) {
+            const unitPrice = displayAmount / product.quantityAmount;
+            const displayUnit = unit === 'l' || unit === 'lt' ? 'L' : (unit === 'kg' ? 'kg' : product.quantityUnit);
+            unitPriceDisplay = `${unitPrice.toFixed(2)} ₺ / ${displayUnit}`;
+        }
 
-    // Find Similar Products
-    const similarProducts = await getSimilarProducts(product);
-    const categoryPath = await getCategoryPath(product.categoryId);
+        // Benzer ürünler ve kategori yolu — hata olursa boş dizi ile devam et
+        let similarProducts: Awaited<ReturnType<typeof getSimilarProducts>> = [];
+        let categoryPath: { id: string; name: string }[] = [];
+        try {
+            similarProducts = await getSimilarProducts(product);
+            categoryPath = await getCategoryPath(product.categoryId);
+        } catch (_) {
+            // DB timeout vb. — sayfayı yine de göster
+        }
 
     // ... (imports)
 
@@ -229,7 +236,7 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
                                 </div>
                             )}
                             <p className="text-sm text-gray-500">
-                                Son Güncelleme: {new Date(bestPrice.date).toLocaleDateString('tr-TR')}
+                                Son Güncelleme: {bestPrice.date ? new Date(bestPrice.date).toLocaleDateString('tr-TR') : '—'}
                             </p>
                         </div>
 
@@ -312,4 +319,7 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
 
         </div>
     );
+    } catch (_) {
+        notFound();
+    }
 }
