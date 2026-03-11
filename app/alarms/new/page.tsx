@@ -6,6 +6,7 @@ import { Search, ChevronRight, ChevronDown } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { sortCategoriesByOrder } from '@/lib/category-order';
 import { AlarmEditProductCard, type AlarmEditProduct } from '@/components/alarm-edit-product-card';
 import { FollowButton } from '@/components/follow-button';
 import { AddToBasketButton } from '@/components/add-to-basket-button';
@@ -37,8 +38,9 @@ export default function NewAlarmPage() {
             .then((res) => res.json())
             .then((data) => {
                 const tree = Array.isArray(data) ? data : [];
-                setCategoryTree(tree);
-                if (tree.length > 0) setExpanded(new Set([tree[0].id]));
+                const sorted = sortCategoriesByOrder(tree);
+                setCategoryTree(sorted);
+                if (sorted.length > 0) setExpanded(new Set([sorted[0].id]));
             })
             .catch(() => setCategoryTree([]));
     }, []);

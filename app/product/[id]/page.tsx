@@ -135,12 +135,15 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
         notFound();
     }
 
-    // Best Price: kampanya fiyatı varsa onu kullan (yoksa liste fiyatı)
+    // Fiyat yoksa (tarama/mapping sırasında veya yeni ürün) hata vermeyelim
     const effectiveAmount = (p: { amount: unknown; campaignAmount?: unknown }) =>
         Number(p.campaignAmount ?? p.amount) || Number(p.amount);
-    const sortedPrices = [...product.prices].sort((a, b) => effectiveAmount(a) - effectiveAmount(b));
+    const sortedPrices = [...(product.prices || [])].sort((a, b) => effectiveAmount(a) - effectiveAmount(b));
     const bestPrice = sortedPrices[0];
-    const displayAmount = bestPrice?.campaignAmount != null ? Number(bestPrice.campaignAmount) : Number(bestPrice?.amount ?? 0);
+    if (!bestPrice?.market) {
+        notFound();
+    }
+    const displayAmount = bestPrice.campaignAmount != null ? Number(bestPrice.campaignAmount) : Number(bestPrice.amount ?? 0);
     const listAmount = bestPrice?.amount != null ? Number(bestPrice.amount) : null;
     const hasCampaign = bestPrice?.campaignAmount != null && bestPrice?.campaignCondition;
 

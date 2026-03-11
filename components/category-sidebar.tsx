@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronRight, ChevronDown, Search } from 'lucide-react';
+import { categorySortIndex, sortCategoriesByOrder } from '@/lib/category-order';
 
 interface CategoryNode {
     id: string;
@@ -75,14 +76,7 @@ export function CategorySidebar() {
                 .map((node) => filterNode(node, q))
                 .filter((n): n is CategoryNode => n !== null);
 
-        // "Diğer" kök kategorisini her zaman en alta al
-        return [...base].sort((a, b) => {
-            const aIsOther = (a.name || '').toLowerCase() === 'diğer';
-            const bIsOther = (b.name || '').toLowerCase() === 'diğer';
-            if (aIsOther && !bIsOther) return 1;
-            if (!aIsOther && bIsOther) return -1;
-            return (a.name || '').localeCompare(b.name || '');
-        });
+        return sortCategoriesByOrder(base);
     }, [tree, categorySearch]);
 
     const renderNode = (node: CategoryNode, depth: number, isLeaf: boolean) => {
@@ -154,14 +148,6 @@ export function CategorySidebar() {
             </p>
             <div className="h-[calc(100vh-320px)] overflow-y-auto pr-2">
                 <div className="space-y-1">
-                    <Button
-                        variant="ghost"
-                        className="w-full justify-start text-emerald-600 font-bold hover:text-emerald-700 hover:bg-emerald-50"
-                        onClick={() => router.push('/temel-gida-fiyatlari')}
-                    >
-                        🔥 En Ucuz Temel Gıda
-                    </Button>
-                    <div className="my-2 border-b" />
                     <Button
                         variant={selectedCategoryId === null || selectedCategoryId === '' ? 'default' : 'ghost'}
                         className={cn('w-full justify-start', (!selectedCategoryId || selectedCategoryId === '') && 'bg-blue-600 text-white')}
