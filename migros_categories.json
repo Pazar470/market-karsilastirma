@@ -1,6 +1,6 @@
 {
   "market": "Migros",
-  "totalLeafCategories": 869,
+  "totalLeafCategories": 868,
   "categories": [
     {
       "id": 20000000072311,
@@ -291,22 +291,10 @@
       "path": "Meat, Poultry, Fish > Beef Charcuterie > Ham > Turkey Ham"
     },
     {
-      "id": 20000000070367,
-      "name": "Other Ham",
-      "prettyName": "diger-jambon-c-112df",
-      "path": "Meat, Poultry, Fish > Beef Charcuterie > Ham > Other Ham"
-    },
-    {
       "id": 20000000010021,
       "name": "Beef Bacon",
       "prettyName": "dana-pastirma-c-2725",
       "path": "Meat, Poultry, Fish > Beef Charcuterie > Beef Bacon > Beef Bacon"
-    },
-    {
-      "id": 20000000010022,
-      "name": "Other",
-      "prettyName": "diger-pastirma-c-2726",
-      "path": "Meat, Poultry, Fish > Beef Charcuterie > Beef Bacon > Other"
     },
     {
       "id": 20000000070371,
@@ -325,6 +313,12 @@
       "name": "Smoked Chicken",
       "prettyName": "pilic-fume-c-112e7",
       "path": "Meat, Poultry, Fish > Beef Charcuterie > Smoked Meat > Smoked Chicken"
+    },
+    {
+      "id": 20000000001324,
+      "name": "Ready-to-eat Products",
+      "prettyName": "hazir-urunler-c-52c",
+      "path": "Meat, Poultry, Fish > Beef Charcuterie > Ready-to-eat Products"
     },
     {
       "id": 20000000010979,
@@ -1723,6 +1717,12 @@
       "name": "Ürünler",
       "prettyName": "urunler-c-123cb",
       "path": "Pastavilla > Ürünler"
+    },
+    {
+      "id": 20000000074306,
+      "name": "Ürünler",
+      "prettyName": "urunler-c-12242",
+      "path": "Kırmızı Halı Seçkileri > Ürünler"
     },
     {
       "id": 20000000001109,
@@ -4999,12 +4999,6 @@
       "name": "Kettle",
       "prettyName": "kettle-c-112f3",
       "path": "Electronics > Household Electrical Appliances > Small Home Appliances > Kettle"
-    },
-    {
-      "id": 20000000070390,
-      "name": "Microwave Oven",
-      "prettyName": "mikrodalga-firin-c-112f6",
-      "path": "Electronics > Household Electrical Appliances > Small Home Appliances > Microwave Oven"
     },
     {
       "id": 20000000070391,

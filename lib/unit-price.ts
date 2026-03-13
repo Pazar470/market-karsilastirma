@@ -1,3 +1,12 @@
+/** TV vb. için adet say: uzunluk birimleri (inç, cm, m, metre) adet fiyatı olarak kabul edilir. */
+function isCountLikeUnit(rawUnit: string | null | undefined): boolean {
+    const unit = (rawUnit || '').toLowerCase();
+    if (!unit) return false;
+    if (unit === 'adet' || unit === 'ad') return true;
+    const lengthUnits = ['cm', 'mm', 'm', 'metre', 'inch', 'inç', '"'];
+    return lengthUnits.includes(unit);
+}
+
 /** Ürünün birim fiyatını hesaplar (₺/kg veya ₺/L veya ₺/adet). */
 export function getUnitPrice(
     priceAmount: number,
@@ -5,7 +14,7 @@ export function getUnitPrice(
     quantityUnit: string | null
 ): { value: number; displayUnit: string } {
     const unit = (quantityUnit || '').toLowerCase();
-    if (!quantityAmount || !quantityUnit || unit === 'adet' || unit === 'ad') {
+    if (!quantityAmount || !quantityUnit || isCountLikeUnit(unit)) {
         return { value: priceAmount, displayUnit: 'adet' };
     }
     let unitPrice = priceAmount / quantityAmount;

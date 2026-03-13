@@ -163,7 +163,8 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
         // Unit Price: kampanya varsa kampanya fiyatına göre birim fiyat
         let unitPriceDisplay = null;
         const unit = (product.quantityUnit || '').toLowerCase();
-        if (unit === 'adet' || unit === 'ad' || !product.quantityAmount || !product.quantityUnit) {
+        const lengthUnits = ['cm', 'mm', 'm', 'metre', 'inch', 'inç', '"'];
+        if (unit === 'adet' || unit === 'ad' || lengthUnits.includes(unit) || !product.quantityAmount || !product.quantityUnit) {
             unitPriceDisplay = `${displayAmount.toFixed(2)} ₺ / adet`;
         } else if (product.quantityAmount && product.quantityUnit) {
             const unitPrice = displayAmount / product.quantityAmount;

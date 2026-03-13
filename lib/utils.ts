@@ -21,6 +21,18 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
   const cleanedName = name.replace(CAMPAIGN_PATTERN, ' ').replace(/\s+/g, ' ').trim();
   const lowerName = cleanedName.toLowerCase();
 
+  // Özel kural: Yumurta kategorisinde "30'lu / 15'li / 10'lu" gibi ifadeler → adet bazlı koli
+  // Örn: "M Boy Yumurta 30'lu 53-63 g" -> { amount: 30, unit: 'adet' } (gramaj yok sayılır)
+  if (/\byumurta\b/i.test(lowerName)) {
+    const countMatch = /(\d+)\s*'?lu\b/i.exec(lowerName);
+    if (countMatch) {
+      const count = parseInt(countMatch[1], 10);
+      if (count > 0 && count <= 100) {
+        return { amount: count, unit: 'adet' };
+      }
+    }
+  }
+
   // "X g Y'lu" / "X gr 10'lu" → toplam gram = X * Y (paket başı gram × adet). X büyükse (örn. 170) zaten toplam olabilir, çarpmayalım.
   const perUnitThenCount = /(\d+([.,]\d+)?)\s*(g|gr)\b\s*(\d+)\s*'?lu\b/i.exec(lowerName);
   if (perUnitThenCount) {

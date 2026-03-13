@@ -22,11 +22,37 @@ function NewAlarmContent() {
     const searchParams = useSearchParams();
     const [listConfirmed, setListConfirmed] = useState(false);
 
+    // Bilgi kutusu (akıllı alarm rehberi) için durum
+    const [showInfo, setShowInfo] = useState(false);
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+        const dismissed = window.localStorage.getItem('smartAlarmInfoDismissed') === '1';
+        if (!dismissed) setShowInfo(true);
+    }, []);
+
+    const handleDismissInfo = () => {
+        setShowInfo(false);
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('smartAlarmInfoDismissed', '1');
+        }
+    };
+
+    const toggleInfo = () => {
+        setShowInfo((prev) => {
+            const next = !prev;
+            if (!next && typeof window !== 'undefined') {
+                window.localStorage.setItem('smartAlarmInfoDismissed', '1');
+            }
+            return next;
+        });
+    };
+
     const [categoryTree, setCategoryTree] = useState<TreeNode[]>([]);
     const [categorySearch, setCategorySearch] = useState('');
     const [expanded, setExpanded] = useState<Set<string>>(new Set());
     const [selectedCategoryIds, setSelectedCategoryIds] = useState<string[]>([]);
     const [categoryIdToName, setCategoryIdToName] = useState<Record<string, string>>({});
+    const [isCategoryPanelOpen, setIsCategoryPanelOpen] = useState(false);
 
     const [selectedProducts, setSelectedProducts] = useState<AlarmEditProduct[]>([]);
     const [productSearchQ, setProductSearchQ] = useState('');
@@ -86,6 +112,8 @@ function NewAlarmContent() {
         if (selectedCategoryIds.includes(catId)) return;
         setSelectedCategoryIds((prev) => [...prev, catId]);
         setCategoryIdToName((m) => ({ ...m, [catId]: catName }));
+        // Yaprak kategori seçilince paneli kapat, kullanıcı isterse tekrar açıp yeni kategori ekleyebilir.
+        setIsCategoryPanelOpen(false);
     };
 
     const removeCategory = (catId: string) => {
@@ -368,52 +396,98 @@ function NewAlarmContent() {
     // ——— Aşama 1: Liste oluşturma ———
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900">
-            <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 flex flex-col lg:flex-row gap-4">
-                {/* Sol: Kategori seç + Seçilen kategoriler (sadece isim, X ile kaldır) */}
-                <aside className="w-full lg:w-72 shrink-0 space-y-4">
-                    <div className="bg-white rounded-lg border border-gray-200 p-4">
-                        <h2 className="font-semibold text-gray-900 mb-2">Kategori seç</h2>
-                        <div className="relative mb-2">
-                            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                            <Input
-                                type="search"
-                                placeholder="Kategori ara..."
-                                value={categorySearch}
-                                onChange={(e) => setCategorySearch(e.target.value)}
-                                className="pl-8 h-9 text-sm"
-                            />
-                        </div>
-                        <p className="text-xs text-gray-500 mb-2">
-                            Yaprak kategoriye tıklayınca sadece kategori adı listeye eklenir; ürünler şimdilik yüklenmez.
-                        </p>
-                        <div className="max-h-[40vh] overflow-y-auto pr-1 space-y-0.5">
-                            {filteredTree.map((node) => renderNode(node, 0))}
-                        </div>
+            <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4">
+                {/* Üst başlık + Nasıl çalışır? */}
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3">
+                    <h1 className="text-lg sm:text-xl font-semibold text-gray-900">Akıllı fiyat alarmı oluştur</h1>
+                    <button
+                        type="button"
+                        onClick={toggleInfo}
+                        className="self-start inline-flex items-center gap-1 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 hover:bg-blue-100"
+                    >
+                        Nasıl çalışır?
+                    </button>
+                </div>
+                {showInfo && (
+                    <div className="mb-4 relative rounded-lg border border-blue-100 bg-blue-50 px-4 py-3 text-xs sm:text-sm text-blue-900">
+                        <button
+                            type="button"
+                            onClick={handleDismissInfo}
+                            className="absolute right-2 top-2 p-1 rounded hover:bg-blue-100 text-blue-500"
+                            aria-label="Bilgi kutusunu kapat"
+                        >
+                            <X className="h-3 w-3" />
+                        </button>
+                        <ul className="list-disc pl-4 space-y-1">
+                            <li><strong>Tek ürün değil, kategoriye alarm:</strong> Aynı türdeki tüm ürünleri tek alarmda takip edersin.</li>
+                            <li><strong>Örnek:</strong> “Kaşar Peyniri” kategorisine 300 ₺/kg hedef koy → tüm marketlerdeki kaşarlar bu sınırın altına düştüğünde haberin olur.</li>
+                            <li>Böylece marka marka uğraşmak yerine, <strong>ürün tipine göre en iyi fırsatı</strong> yakalarsın.</li>
+                        </ul>
                     </div>
-                    {selectedCategoryIds.length > 0 && (
+                )}
+
+                <div className="flex flex-col lg:flex-row gap-4">
+                    {/* Sol: Kategori seç + Seçilen kategoriler */}
+                    <aside className="w-full lg:w-72 shrink-0 space-y-4">
+                        <div className="bg-white rounded-lg border border-gray-200 p-4">
+                            <h2 className="font-semibold text-gray-900 mb-2">Kategori ile alan seç</h2>
+                            <p className="text-xs text-gray-500 mb-3">
+                                Kategori seçersen alarm bu türdeki <strong>tüm ürünler</strong> için geçerli olur.
+                            </p>
+                            <button
+                                type="button"
+                                onClick={() => setIsCategoryPanelOpen((prev) => !prev)}
+                                className="w-full mb-2 rounded-lg border border-gray-300 bg-gray-50 hover:bg-gray-100 text-sm py-1.5 px-3 text-gray-800 text-left"
+                            >
+                                {isCategoryPanelOpen ? 'Kategori seçim panelini gizle' : 'Kategori seç'}
+                            </button>
+                            {isCategoryPanelOpen && (
+                                <div className="mt-2">
+                                    <div className="relative mb-2">
+                                        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                                        <Input
+                                            type="search"
+                                            placeholder="Kategori ara..."
+                                            value={categorySearch}
+                                            onChange={(e) => setCategorySearch(e.target.value)}
+                                            className="pl-8 h-9 text-sm"
+                                        />
+                                    </div>
+                                    <p className="text-xs text-gray-500 mb-2">
+                                        Yaprak kategoriye tıklayınca sadece kategori adı listeye eklenir; ürünler şimdilik yüklenmez.
+                                    </p>
+                                    <div className="max-h-[40vh] overflow-y-auto pr-1 space-y-0.5">
+                                        {filteredTree.map((node) => renderNode(node, 0))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                         <div className="bg-white rounded-lg border border-gray-200 p-4">
                             <h3 className="text-sm font-semibold text-gray-700 mb-2">Seçilen kategoriler</h3>
-                            <ul className="space-y-1.5">
-                                {selectedCategoryIds.map((catId) => (
-                                    <li key={catId} className="flex items-center justify-between gap-2 py-1.5 px-2 rounded-lg bg-gray-50">
-                                        <span className="text-sm truncate">{categoryIdToName[catId] || catId}</span>
-                                        <button
-                                            type="button"
-                                            onClick={() => removeCategory(catId)}
-                                            className="shrink-0 p-1 rounded hover:bg-red-100 text-gray-500 hover:text-red-600"
-                                            aria-label="Kategoriden çıkar"
-                                        >
-                                            <X className="h-4 w-4" />
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
+                            {selectedCategoryIds.length === 0 ? (
+                                <p className="text-xs text-gray-400">Henüz kategori seçmediniz.</p>
+                            ) : (
+                                <ul className="space-y-1.5">
+                                    {selectedCategoryIds.map((catId) => (
+                                        <li key={catId} className="flex items-center justify-between gap-2 py-1.5 px-2 rounded-lg bg-gray-50">
+                                            <span className="text-sm truncate">{categoryIdToName[catId] || catId}</span>
+                                            <button
+                                                type="button"
+                                                onClick={() => removeCategory(catId)}
+                                                className="shrink-0 p-1 rounded hover:bg-red-100 text-gray-500 hover:text-red-600"
+                                                aria-label="Kategoriden çıkar"
+                                            >
+                                                <X className="h-4 w-4" />
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </div>
-                    )}
-                </aside>
+                    </aside>
 
-                {/* Sağ: Tekil ürün ara + Seçilen ürünler + Listeyi onayla */}
-                <main className="flex-1 min-w-0">
+                    {/* Sağ: Tekil ürün ara + Seçilen ürünler + Listeyi onayla */}
+                    <main className="flex-1 min-w-0">
                     <div className="mb-4 flex flex-wrap items-center gap-2">
                         <div className="relative flex-1 min-w-[200px]">
                             <Input
@@ -522,7 +596,8 @@ function NewAlarmContent() {
                             </p>
                         )}
                     </div>
-                </main>
+                    </main>
+                </div>
             </div>
         </div>
     );

@@ -224,6 +224,8 @@ export default function AdminPage() {
                 <span className="text-gray-500">|</span>
                 <Link href="/admin/suspicious" className="text-blue-400 hover:underline">Şüpheli ürünler</Link>
                 <span className="text-gray-500">|</span>
+                <Link href="/admin/debug-uncategorized" className="text-blue-400 hover:underline">Debug: Kategorisiz ürünler</Link>
+                <span className="text-gray-500">|</span>
                 <button
                     type="button"
                     onClick={async () => {

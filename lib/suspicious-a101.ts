@@ -53,8 +53,11 @@ export async function runSuspiciousA101Check(): Promise<{ marked: number; cleare
         list.push(row);
         byProduct.set(row.productId, list);
     }
-    // Kategori bazında en düşük birim fiyat: her ürün için son 7 gündeki tüm fiyatların (tüm marketler) min birim fiyatı, sonra kategoride min
-    const categoryMinUnitPrice = new Map<string, number>();
+
+    // Kategori bazında referans birim fiyat:
+    // - Her ürün için son 7 gündeki TÜM fiyatlardan min birim fiyatı al
+    // - Kategori içinde bu ürün birim fiyatlarını medyana göre özetle
+    const categoryUnitPrices = new Map<string, number[]>();
     for (const [, rows] of byProduct) {
         const product = rows[0]?.product;
         if (!product?.categoryId) continue;
@@ -65,8 +68,18 @@ export async function runSuspiciousA101Check(): Promise<{ marked: number; cleare
             if (up < minUp) minUp = up;
         }
         if (minUp === Infinity) continue;
-        const cur = categoryMinUnitPrice.get(product.categoryId);
-        categoryMinUnitPrice.set(product.categoryId, cur == null ? minUp : Math.min(cur, minUp));
+        const arr = categoryUnitPrices.get(product.categoryId) || [];
+        arr.push(minUp);
+        categoryUnitPrices.set(product.categoryId, arr);
+    }
+
+    const categoryBaselineUnitPrice = new Map<string, number>();
+    for (const [categoryId, arr] of categoryUnitPrices) {
+        if (!arr.length) continue;
+        const sorted = [...arr].sort((a, b) => a - b);
+        const mid = Math.floor(sorted.length / 2);
+        const median = sorted.length % 2 === 1 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+        categoryBaselineUnitPrice.set(categoryId, median);
     }
 
     // A101 fiyatları: son 7 gün, sadece A101
@@ -85,8 +98,8 @@ export async function runSuspiciousA101Check(): Promise<{ marked: number; cleare
         const product = rows[0]?.product;
         if (!product?.categoryId) continue;
         const distinctAmounts = new Set(rows.map((r) => effectiveAmount(r)));
-        const categoryMin = categoryMinUnitPrice.get(product.categoryId);
-        if (categoryMin == null || categoryMin <= 0) continue;
+        const baseline = categoryBaselineUnitPrice.get(product.categoryId);
+        if (baseline == null || baseline <= 0) continue;
 
         if (distinctAmounts.size > 1) {
             // Son 7 günde farklı fiyat gelmiş → otomatik onay
@@ -97,7 +110,7 @@ export async function runSuspiciousA101Check(): Promise<{ marked: number; cleare
         const latest = rows.reduce((a, b) => (a.date >= b.date ? a : b));
         const amount = effectiveAmount(latest);
         const uPrice = unitPrice(amount, product.quantityAmount);
-        if (uPrice < THRESHOLD_RATIO * categoryMin) {
+        if (uPrice < THRESHOLD_RATIO * baseline) {
             toMark.push(productId);
         } else {
             toClear.push(productId);

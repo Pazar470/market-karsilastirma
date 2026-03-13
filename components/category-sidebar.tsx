@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { ChevronRight, ChevronDown, Search } from 'lucide-react';
+import { ChevronRight, ChevronDown, Search, SlidersHorizontal } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { categorySortIndex, sortCategoriesByOrder } from '@/lib/category-order';
 
 interface CategoryNode {
@@ -20,11 +21,14 @@ export function CategorySidebar() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const selectedCategoryId = searchParams.get('categoryId');
+    const urlSort = searchParams.get('sortBy') || '';
+    const urlMarket = searchParams.get('market') || '';
     const [tree, setTree] = useState<CategoryNode[]>([]);
     const [categorySearch, setCategorySearch] = useState('');
     const [expanded, setExpanded] = useState<Set<string>>(new Set());
     const [loading, setLoading] = useState(true);
     const [isMobileOpen, setIsMobileOpen] = useState(false);
+    const [filterOpen, setFilterOpen] = useState(false);
     const touchStartX = useRef(0);
 
     useEffect(() => {
@@ -135,9 +139,23 @@ export function CategorySidebar() {
         );
     };
 
+    const updateUrl = (newParams: Record<string, string | null>) => {
+        const params = new URLSearchParams(searchParams.toString());
+        Object.entries(newParams).forEach(([key, value]) => {
+            if (value === null || value === '') {
+                params.delete(key);
+            } else {
+                params.set(key, value);
+            }
+        });
+        router.push(`/?${params.toString()}`);
+    };
+
+    const selectClass = 'flex h-11 w-full items-center justify_between rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50';
+
     const sidebarContent = (
         <div className="bg-white rounded-lg border p-4 h-full">
-            <h3 className="font-semibold mb-4 text-lg">Kategoriler</h3>
+            <h3 className="font-semibold mb-4 text-lg text-blue-700">Kategoriler</h3>
             <div className="relative mb-3">
                 <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <Input
@@ -175,16 +193,25 @@ export function CategorySidebar() {
 
     return (
         <>
-            {/* Mobil: silik kitap etiketi / tabela gibi, tıklanınca kategoriler açılır */}
-            <div className="md:hidden mb-3 flex justify-start">
+            {/* Mobil: Kategoriler + Filtrele aynı satırda */}
+            <div className="md:hidden mb-3 flex justify-between items-center gap-2">
                 <button
                     type="button"
                     onClick={() => setIsMobileOpen(true)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm text-gray-400 hover:text-gray-600 hover:bg-gray-100/80 border border-gray-200/60 bg-white/50 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium text-blue-700 hover:text-blue-800 hover:bg-blue-50 border border-blue-100 bg-blue-50/60 transition-colors"
                     aria-label="Kategorileri aç"
                 >
                     <span>Kategoriler</span>
-                    <ChevronRight className="h-3.5 w-3.5 opacity-70" />
+                    <ChevronRight className="h-3.5 w-3.5 opacity-80" />
+                </button>
+                <button
+                    type="button"
+                    onClick={() => setFilterOpen(true)}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm text-gray-700 hover:text-blue-700 hover:bg-gray-100 border border-gray-200 bg-white transition-colors"
+                    aria-label="Filtrele"
+                >
+                    <SlidersHorizontal className="h-4 w-4" />
+                    <span>Filtrele</span>
                 </button>
                 {isMobileOpen && (
                     <div className="fixed inset-0 z-40 bg-black/40 flex">
@@ -224,6 +251,47 @@ export function CategorySidebar() {
             <div className="hidden md:block w-64 flex-shrink-0 h-fit">
                 {sidebarContent}
             </div>
+
+            {/* Mobil: Filtrele drawer (market + sıralama) */}
+            <Dialog open={filterOpen} onOpenChange={setFilterOpen}>
+                <DialogContent className="sm:max-w-[340px] rounded-t-2xl sm:rounded-lg max-h-[85vh] overflow-y-auto p-5">
+                    <DialogHeader>
+                        <DialogTitle className="text-lg">Market ve sıralama</DialogTitle>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-2">
+                        <label className="grid gap-2">
+                            <span className="text-sm font-medium">Market</span>
+                            <select
+                                className={selectClass}
+                                value={urlMarket}
+                                onChange={(e) => updateUrl({ market: e.target.value })}
+                            >
+                                <option value="">Tüm Marketler</option>
+                                <option value="A101">A101</option>
+                                <option value="Şok">Şok</option>
+                                <option value="Migros">Migros</option>
+                                <option value="Carrefour">Carrefour (Yakında)</option>
+                            </select>
+                        </label>
+                        <label className="grid gap-2">
+                            <span className="text-sm font-medium">Sıralama</span>
+                            <select
+                                className={selectClass}
+                                value={urlSort}
+                                onChange={(e) => updateUrl({ sortBy: e.target.value })}
+                            >
+                                <option value="">Varsayılan</option>
+                                <option value="unitPriceAsc">Birim Fiyat (En Ucuz)</option>
+                                <option value="priceAsc">Fiyat (Artan)</option>
+                                <option value="priceDesc">Fiyat (Azalan)</option>
+                            </select>
+                        </label>
+                        <Button onClick={() => setFilterOpen(false)} className="h-11 mt-2">
+                            Tamam
+                        </Button>
+                    </div>
+                </DialogContent>
+            </Dialog>
         </>
     );
 }

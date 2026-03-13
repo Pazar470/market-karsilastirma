@@ -6,9 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { Search, SlidersHorizontal } from 'lucide-react';
+import { Search } from 'lucide-react';
 import Link from 'next/link';
-import { Dialog, DialogContent, DialogTitle, DialogHeader } from '@/components/ui/dialog';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { sortCategoriesByOrder } from '@/lib/category-order';
 import { AddToBasketButton } from './add-to-basket-button';
@@ -61,7 +60,6 @@ export function ProductSearch() {
     // Autocomplete state
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
-    const [filterOpen, setFilterOpen] = useState(false);
     const wrapperRef = useRef<HTMLFormElement>(null);
 
     // Sync local input when URL changes (e.g. back button)
@@ -232,8 +230,8 @@ export function ProductSearch() {
 
     return (
         <div className="w-full max-w-6xl mx-auto space-y-3 sm:space-y-4">
-            {/* Mobil: tek satır (arama + Filtrele). Masaüstü: arama + market/sıra aynı satırda */}
-            <div className="flex flex-col md:flex-row gap-2 sm:gap-3">
+            {/* Masaüstü: arama + market/sıra aynı satırda. Mobilde arama header'da. */}
+            <div className="hidden md:flex flex-row gap-2 sm:gap-3">
                 <form onSubmit={handleSubmit} className="flex gap-1.5 sm:gap-2 flex-1 relative min-w-0" ref={wrapperRef}>
                     <div className="relative flex-1 min-w-0">
                         <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
@@ -290,59 +288,7 @@ export function ProductSearch() {
                     </select>
                 </div>
 
-                {/* Mobil: Filtrele butonu → drawer */}
-                <div className="flex md:hidden">
-                    <Button
-                        type="button"
-                        variant="outline"
-                        className="h-10 px-4 gap-2 shrink-0 min-w-[44px]"
-                        onClick={() => setFilterOpen(true)}
-                    >
-                        <SlidersHorizontal className="h-4 w-4" />
-                        <span className="text-sm">Filtrele</span>
-                    </Button>
-                </div>
             </div>
-
-            <Dialog open={filterOpen} onOpenChange={setFilterOpen}>
-                <DialogContent className="sm:max-w-[340px] rounded-t-2xl sm:rounded-lg max-h-[85vh] overflow-y-auto p-5">
-                    <DialogHeader>
-                        <DialogTitle className="text-lg">Market ve sıralama</DialogTitle>
-                    </DialogHeader>
-                    <div className="grid gap-4 py-2">
-                        <label className="grid gap-2">
-                            <span className="text-sm font-medium">Market</span>
-                            <select
-                                className={selectClass}
-                                value={urlMarket}
-                                onChange={(e) => updateUrl({ market: e.target.value })}
-                            >
-                                <option value="">Tüm Marketler</option>
-                                <option value="A101">A101</option>
-                                <option value="Şok">Şok</option>
-                                <option value="Migros">Migros</option>
-                                <option value="Carrefour">Carrefour (Yakında)</option>
-                            </select>
-                        </label>
-                        <label className="grid gap-2">
-                            <span className="text-sm font-medium">Sıralama</span>
-                            <select
-                                className={selectClass}
-                                value={urlSort}
-                                onChange={(e) => updateUrl({ sortBy: e.target.value })}
-                            >
-                                <option value="">Varsayılan</option>
-                                <option value="unitPriceAsc">Birim Fiyat (En Ucuz)</option>
-                                <option value="priceAsc">Fiyat (Artan)</option>
-                                <option value="priceDesc">Fiyat (Azalan)</option>
-                            </select>
-                        </label>
-                        <Button onClick={() => setFilterOpen(false)} className="h-11 mt-2">
-                            Tamam
-                        </Button>
-                    </div>
-                </DialogContent>
-            </Dialog>
 
             {/* Kategori ile filtrelenmişse: Alarm sayfasına taşı */}
             {urlCategoryId && (
@@ -465,7 +411,8 @@ export function ProductSearch() {
                                                     const price = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount);
                                                     const amount = product.quantityAmount;
                                                     const unit = (product.quantityUnit || '').toLowerCase();
-                                                    if (!amount || !product.quantityUnit || unit === 'adet' || unit === 'ad') {
+                                                    const lengthUnits = ['cm', 'mm', 'm', 'metre', 'inch', 'inç', '"'];
+                                                    if (!amount || !product.quantityUnit || unit === 'adet' || unit === 'ad' || lengthUnits.includes(unit)) {
                                                         return `${price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺ / adet`;
                                                     }
                                                     let unitPrice = price / amount;
