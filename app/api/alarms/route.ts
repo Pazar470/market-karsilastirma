@@ -15,6 +15,7 @@ export async function GET() {
         const formattedAlarms = alarms.map((alarm) => ({
             ...alarm,
             tags: JSON.parse(alarm.tags || '[]'),
+            categoryIds: JSON.parse(alarm.categoryIds || '[]'),
             includedProductIds: JSON.parse(alarm.includedProductIds || '[]'),
             excludedProductIds: JSON.parse(alarm.excludedProductIds || '[]'),
             pendingProductIds: JSON.parse(alarm.pendingProductIds || '[]'),
@@ -34,6 +35,7 @@ export async function POST(request: Request) {
         const {
             name,
             categoryId,
+            categoryIds,
             targetPrice,
             unitType,
             tags,
@@ -42,8 +44,8 @@ export async function POST(request: Request) {
             isAllProducts,
         } = body;
 
-        if (!name || !categoryId || !targetPrice) {
-            return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+        if (!name || targetPrice == null || targetPrice === '') {
+            return NextResponse.json({ error: 'Eksik alan: name veya targetPrice' }, { status: 400 });
         }
 
         const price = parseFloat(String(targetPrice).replace(',', '.'));
@@ -51,10 +53,15 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Geçersiz hedef fiyat' }, { status: 400 });
         }
 
+        const catIds = Array.isArray(categoryIds) ? categoryIds : (categoryId ? [categoryId] : []);
+        const categoryIdsJson = JSON.stringify(catIds);
+        const primaryCategoryId = catIds.length > 0 ? catIds[0] : null;
+
         const alarm = await prisma.smartAlarm.create({
             data: {
                 name,
-                categoryId,
+                categoryId: primaryCategoryId,
+                categoryIds: categoryIdsJson,
                 targetPrice: price,
                 unitType: unitType || 'KG',
                 tags: JSON.stringify(tags || []),

@@ -36,9 +36,9 @@ export function AlarmEditProductCard({ product, actions }: AlarmEditProductCardP
             : null;
 
     return (
-        <Card className="overflow-hidden h-full border border-gray-200 bg-white hover:shadow-md transition-shadow">
+        <Card className="overflow-hidden h-full border border-gray-200 bg-white hover:shadow-md transition-shadow text-[11px]">
             <Link href={`/product/${product.id}`} className="block">
-                <div className="aspect-square relative flex items-center justify-center p-2 bg-white">
+                <div className="aspect-square relative flex items-center justify-center p-1.5 bg-white">
                     <ProductImage
                         src={product.imageUrl}
                         alt={product.name}
@@ -63,15 +63,15 @@ export function AlarmEditProductCard({ product, actions }: AlarmEditProductCardP
                         </div>
                     )}
                 </div>
-                <CardHeader className="p-2 pb-0">
-<div className="inline-flex items-center gap-1.5 px-2 py-1.5 rounded-2xl text-xs font-semibold bg-blue-50 text-blue-700 w-fit">
-                                                        <MarketLogo marketName={priceInfo?.market?.name} size="lg" />
-                                                    </div>
+                <CardHeader className="p-1.5 pb-0">
+                    <div className="inline-flex items-center gap-1 px-1.5 py-1 rounded-2xl text-[10px] font-semibold bg-blue-50 text-blue-700 w-fit">
+                        <MarketLogo marketName={priceInfo?.market?.name} size="md" />
+                    </div>
                     <CardTitle className="text-xs font-medium leading-tight line-clamp-2 mt-1" title={product.name}>
                         {product.name}
                     </CardTitle>
                 </CardHeader>
-                <CardContent className="p-2 pt-0">
+                <CardContent className="p-1.5 pt-0">
                     {price != null ? (
                         <span className="text-sm font-bold text-gray-900">
                             {price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺

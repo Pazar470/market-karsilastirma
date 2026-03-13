@@ -5,6 +5,7 @@ import { runMigrosCategoryDiscovery } from '@/lib/migros-category-discovery';
 import { runA101CategoryDiscovery } from '@/lib/a101-category-discovery';
 import { checkAlarmsAfterScrape } from '@/lib/alarm-engine';
 import { syncMappingToNullProducts } from '@/lib/category-sync';
+import { runSuspiciousA101Check } from '@/lib/suspicious-a101';
 import { prisma } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
@@ -24,6 +25,7 @@ export async function GET(req: Request) {
         await runFullScrapeBatch('Migros', 0);
         await runA101CategoryDiscovery({ silent: true, sitemapCheck: true });
         await runFullScrapeBatch('A101', 0);
+        await runSuspiciousA101Check();
         console.log('⏰ CRON: Şok kategori listesi güncelleniyor...');
         await runSokCategoryDiscovery({ silent: true });
         await runFullScrapeBatch('Sok', 0);

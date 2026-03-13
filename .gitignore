@@ -45,3 +45,5 @@ next-env.d.ts
 # import-category-from-tsv geçici dosyalar
 scripts/_read_ods.py
 docs/_ods_export_temp.tsv
+
+.vercel

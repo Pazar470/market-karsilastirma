@@ -1,0 +1,92 @@
+Tanı: categoryId=null ürünler — 2026-03-10T02:43:51.571Z
+Kesim: son 24 saat = 2026-03-09T02:00:00.000Z ~ şimdi
+
+--- ÖZET ---
+Toplam categoryId=null ürün: 81
+Son 24 saatte fiyatı olan (admin listesinde görünmesi gereken): 81
+Son 24 saatte fiyatı olmayan (admin'de gösterilmez): 0
+Hiç fiyat kaydı olmayan: 0
+
+--- LİSTE (id | ad | market | marketCategoryCode | son fiyat tarihi | son24h) ---
+
+acbebfd8-0214-42c3-b879-3e12639b0a00	Gürsoy Kıyılmış Fındık 100 G	A101	C0606	2026-03-10T01:41:39.417Z	EVET
+044f3b8d-9e76-4227-a620-5566aa2294d6	Sleepy Yüzey Temizlik Havlusu Şakayık 100'lü	A101	C1103	2026-03-10T01:41:44.386Z	EVET
+9ab7db0e-23bd-4041-a13c-bebeeb5c88e9	Verita Yaban Mersini Blueberry 125 G	Migros	egzotik-meyveler-c-3ea	2026-03-10T01:41:58.918Z	EVET
+122961fb-3540-42be-a6de-0d7379582306	M Life Organik Kivi Kg	Migros	egzotik-meyveler-c-3ea	2026-03-10T01:41:58.918Z	EVET
+ba55afa4-33d7-4bf8-b0f9-703634592e55	Verita Gurme Yemeye Hazır Avokado Adet	Migros	egzotik-meyveler-c-3ea	2026-03-10T01:41:58.918Z	EVET
+f9b7bb4f-c812-41f2-836a-254781592441	Eurofresh Yıkanmış Marul Mix Salata 170 G	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+ded41e9b-b07d-47ad-bb00-757a18e7eea8	Eurofresh Fresh Mix 200 G	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+d8166046-3936-46c7-aca9-028bfda01da7	Eurofresh Doğranmış Kırmızı Lahana 300 Gr	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+5d933358-aa11-434b-a5c3-0396dbd53846	Erüst Fesleğen Taze 25 G Paket	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+5d78dea6-9122-41fe-9da5-203549cb9c83	Erüst Ege Salata 125 G	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+a8c1d8a5-d7c6-42da-b3cd-865aabef9613	Eurofresh Yıkanmış Kış Bahçesi 400 Gr	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+0df17f18-977d-47d9-8451-cf3559f0bf5e	Kereviz Sap Adet Erüst	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+cd5d2c8e-60f5-4c69-a484-d3396be48ed4	Eurofresh Yıkanmış Beyaz Lahana 400 Gr	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+81817122-d630-4d00-a496-ea925b4883f2	Kuzu Kulağı Paket 150 G Erüst	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+b9f23aa1-d89a-4501-88d4-ff502574a034	Erüst Kekik 25 G	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+6060dbf5-e0fc-422e-a3fb-e4d0443bfd13	Erüst Soya Filizi 125 G Paket	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+5bf6b389-2f24-41e1-add9-f82e57e8d424	Erüst Salata Karışık 150 G Adet	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+0be4cce8-12e9-4b50-9d98-e5a70de9404a	Soğan Frenk - Şiniklav 25 G	Migros	dogranmis-ayiklanmis-sebzeler-c-3f1	2026-03-10T01:41:58.918Z	EVET
+5ddd5f1c-d612-4402-af60-fc55828dac57	Verita Kuşkonmaz 300 G Paket Adet	Migros	egzotik-sebzeler-c-3f2	2026-03-10T01:41:58.918Z	EVET
+d157ef69-3337-4d62-a18d-bc956c4b082d	Erüst Mini Mini Domates 250 G	Migros	mevsim-sebzeleri-c-3f4	2026-03-10T01:41:58.918Z	EVET
+7a56793e-6620-4b42-badf-838bc00e524e	Domates Kokteyl 500 G Erüst	Migros	mevsim-sebzeleri-c-3f4	2026-03-10T01:41:58.918Z	EVET
+58d9292b-58f4-4952-a583-c36beac0959d	Havuç Siyah Kg	Migros	mevsim-sebzeleri-c-3f4	2026-03-10T01:41:58.918Z	EVET
+25e47765-d59a-4c0c-9b2d-89edb3fce55b	Erüst Salkım Çeri Domates 250 G	Migros	mevsim-sebzeleri-c-3f4	2026-03-10T01:41:58.918Z	EVET
+c22ba81b-834d-462b-a559-9348d1718fd4	M Life Organik Patates Kg	Migros	patates-sogan-sarimsak-c-3f6	2026-03-10T01:41:58.918Z	EVET
+36780ea5-2b36-4bdc-890b-76ff0ca431a3	Uzman Kasap Dana Taze Sosis Köfte Kg	Migros	dana-eti-c-3fa	2026-03-10T01:41:59.454Z	EVET
+669d7533-c1b6-4ace-b48a-b403360c3616	Gedik Piliç Tavuk Çeşni Soslu Göğüs 400 G	Migros	pilic-c-3fe	2026-03-10T01:41:59.454Z	EVET
+d6b25d6c-fa69-46ae-8b0b-c2bebe58e79f	Gedik Soslu Piliç Pirzola Kg	Migros	pilic-c-3fe	2026-03-10T01:41:59.454Z	EVET
+53055ae6-bc0e-43c9-8098-53717342b6db	Gedik İftarlık İri Piliç Kg	Migros	pilic-c-3fe	2026-03-10T01:41:59.454Z	EVET
+7eac4a7d-3fef-4ae3-86e4-5474389c3954	Beypiliç Baget Kg	Migros	pilic-c-3fe	2026-03-10T01:41:59.454Z	EVET
+190996dd-d0de-4276-833a-26b3c2e34ce5	Bolca Hindi Sote But 750 G	Migros	hindi-c-3ff	2026-03-10T01:41:59.454Z	EVET
+1c487abf-a822-449e-907c-26e915229f88	Bolca Hindi Üst Kanat İncik Kg	Migros	hindi-c-3ff	2026-03-10T01:41:59.454Z	EVET
+b5991e24-6071-4903-8934-bb7cefe88be3	Uno Premium Susamlı Hamburger Ekmeği 4'lü 340 G	Migros	ekmek-c-455	2026-03-10T01:42:10.200Z	EVET
+e1a099c5-a994-45c2-9346-0a34836bb0a6	Çavdarlı Ekmek Adet	Migros	ekmek-c-455	2026-03-10T01:42:10.200Z	EVET
+4e5bb57e-9a33-4af1-a1b0-f18d42a1b255	Ekmek Dünyası Favori Ekşi Maya Tam Buğday Unlu Ekmek 475 G	Migros	ekmek-c-455	2026-03-10T01:42:10.200Z	EVET
+4a026d06-b9bc-41d2-bda4-68ed463a0f28	Uno Geleneksel Lavaş 25 Cm 6'lı 390 G	Migros	ekmek-c-455	2026-03-10T01:42:10.200Z	EVET
+55048167-046b-4722-b620-673027d4aaa1	Mis Rulo Kaymak 150 g	Şok	540	2026-03-10T01:42:40.505Z	EVET
+60779d81-cc4b-475a-96a6-2b3f2688a083	Mis Kaymak 200 g	Şok	540	2026-03-10T01:42:40.505Z	EVET
+8f586e9e-c97b-4aa9-81f1-1fb41ba86d8f	Mis Bitkisel Yağlı Krema %20 Yağlı 200 ml	Şok	540	2026-03-10T01:42:40.505Z	EVET
+4ddc08c9-7827-4f07-a6e1-9fb132af8fe2	Mis Uht Krema % 18 Yağlı 200 ml	Şok	540	2026-03-10T01:42:40.505Z	EVET
+6f8f89a7-f084-490b-9902-c1071b9a949a	Yörüksüt Smentana Ekşi Krema 180 g59,90₺	Şok	540	2026-03-10T01:42:40.505Z	EVET
+c90e63b2-d98e-4942-880c-63a5d3b7e6c0	Altınkılıç Kefirix Çilekli 250 ml	Şok	20505	2026-03-09T22:56:10.231Z	EVET
+4fb2ee25-4b1a-4fb0-be57-1a974d4bd3a0	Uno Anadolu 8'li Hamburger Ekmeği 432 g	Şok	1270	2026-03-10T01:42:42.123Z	EVET
+0bab7167-8fa5-4c30-8661-f5b44271737f	Çikolatalı Kare Kruvasan 75 Gr	Şok	1250	2026-03-09T22:36:13.796Z	EVET
+7d34bb34-8fdb-40c0-b36b-f6e4e6d4a1bc	Uno Susamlı Grissini 125 g	Şok	1250	2026-03-09T22:36:13.796Z	EVET
+68bd5101-b1bb-40be-8864-6821ec8cf0ef	Whiskas Kedi Kuru Biftek Ve Havuçlu 300 Gr	Şok	20882	2026-03-10T01:42:44.898Z	EVET
+30612dd1-ad4f-4667-aa51-b7009d1c8360	Uno Tam Buğdaylı Lavaş 325 g	Şok	1250	2026-03-09T22:39:56.310Z	EVET
+73c3ad56-d8a8-4d80-89ee-ffc12f15d9fa	Ariel Parlak Renkler 4.5 Kg	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+f144c8d5-d3a9-45d0-85ba-7ee57f1e900d	Mintax Matik Beyazlar İçin 4.5 Kg	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+48d27589-3361-4f7d-9e12-c3fe532325a4	Vernel Yumuşatıcı 5 Lt Gülün Büyüsü	Şok	20647	2026-03-09T22:39:56.310Z	EVET
+a457c156-ef9a-45a4-94d5-a1d621e8b3ab	Mintax Lilyum Bahçesi Çamaşır Yumuşatıcısı 1440 ml	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+8f79c002-5fbb-44aa-97ce-78997a4bc9f5	Mintax Sensıtıve Çamaşır Yumuşatıcısı 1440 ml	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+1bff0940-e837-464c-912f-ea5cdfe2ba35	Bebeland Sensitive Islak Bebek Havlu 90 Adet	Şok	20875	2026-03-09T22:56:10.737Z	EVET
+07ef07bc-f08f-456f-b2c8-78943d578b97	Sleepy Yüzey Temizlik Havlusu 100 Adet	Şok	20875	2026-03-09T22:56:10.737Z	EVET
+0eecd5ba-1b93-4030-819a-a9beb69417eb	Familia Natural Tuvalet Kağıdı 32'li	Şok	20875	2026-03-09T22:56:10.737Z	EVET
+4c85aef9-2f9a-44a7-9210-13893b50d7d7	Familia Natural Kağıt Havlu 16'lı	Şok	20875	2026-03-09T22:56:10.737Z	EVET
+8154ca0f-aaa4-4159-82a2-41592cd6f607	Mis Uht Krema %35 Yağlı 200 ml	Şok	540	2026-03-10T01:42:40.505Z	EVET
+f9600c3f-93c7-43c3-8a81-1523555729e1	Mintax Konsantre Bahar Ferahlığı Çamaşır Yumuşatcısı 1440 Ml	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+b8d532b0-aca8-4d04-ad07-81d5fec5f59f	Yumoş Extra Amber Yumuşatıcı Pouch 1200 Ml119,00₺	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+2daf71d8-aab7-4005-acf5-d16b908dab83	Peros Konsantre Yumuşatıcı İnci Çiçeği 1440 Ml99,00₺	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+258c0bbf-45d9-495f-ab8a-f68093870f05	Peros Amber Çiçeği&Sandal Ağacı Çamaşır Yumuşatıcısı 1440 Ml…	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+50ba78c4-dd8a-441e-b030-23148df5192b	Yumoş Extra Sakura Çamaşır Yumuşatıcısı 1008 Ml50 TL üzeri 1…	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+4d5062fb-5b9d-473e-b4ec-3e5e88c0a2c6	Yumoş Extra Lilyum Çamaşır Yumuşatıcısı 1440 Ml	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+2b1105db-a00b-45a1-9cfd-f053413fa657	Yumoş Extra Orkide Çamaşır Yumuşatıcısı 1440 Ml	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+7acaa1f2-c2a2-4f95-a3fd-5e0cb15f509b	Yumoş Uzman Renk Koruma Yumuşatıcı 1200 Ml50 TL üzeri 119.00…	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+4dfe78c7-38a9-4394-a05a-7f4bdc4b56b9	Mintax Kireç Önleyici 500 g	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+50c5a7dc-c044-4401-86d6-ca49667481dc	Calgon Ultra Konsantre Kireç Önleyici 250 G.	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+2b535a37-5f21-42ec-87dc-2296f9b3c085	Mintax Tül ve Çamaşır Beyazlatıcı 750 g	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+75e9cafd-f5ff-461b-80fe-6b551280d677	Mintax Sodamatik 500 g	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+b63a5fb1-f76b-45fb-bdd6-d6589d8a5bc4	Omo Express Leke Çıkarıcı Beyazlar 1 L	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+f4151e59-e0a2-4135-b685-ce56ff51b3bd	Vanish Kosla Oxi Action Leke Çıkarıcı Renkli 1 Lt	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+1e001bfa-2d54-4b33-9b30-1fbc50c209cb	Mintax Çamaşır Makinesi Temizleyici 250 ml	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+6eebb0c7-ccdc-41d1-94b9-5735776544be	Peros Yasemin Konsantre Çamaşır Yumuşatıcısı 1440 Ml99,00₺	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+6bad293a-5c59-4841-a796-89a380975d2d	Bingo Toz Deterjan 4.5 Kg	Şok	20649	2026-03-10T01:42:42.660Z	EVET
+48aa093b-42a7-4bab-bf61-07bbcdbda674	Mintax Sirkeli Genel Temizleyici 1 L	Şok	20750	2026-03-10T01:42:43.193Z	EVET
+a24618bc-4aef-43da-ab76-4dde3d9321fa	Mintax Ultra Güç Sprey 1000 ml	Şok	20750	2026-03-10T01:42:43.193Z	EVET
+7e381c8c-098d-4deb-873e-6656fa637c18	Glint Bitkisel Çok Amaçlı Temizleyici 1 L	Şok	20750	2026-03-10T01:42:43.193Z	EVET
+c37b1f62-555b-4130-9d34-874b9eb5d367	Cif Ultra Anında Etki Kir Ve Yağ Çözücü 1025 Ml+30 win Para …	Şok	20750	2026-03-10T01:42:43.193Z	EVET
+3142b2a5-acc8-4ff9-a2f7-ce8997880e67	Asperox Sarı Güç 1 L99,00₺	Şok	20750	2026-03-10T01:42:43.193Z	EVET
+b259289d-0b4d-4d02-8474-5351cf6e7d72	Cif Sprey Ultra Hız Mutfak 1000 Ml	Şok	20750	2026-03-10T01:42:43.193Z	EVET
+b1ce32b2-f850-430b-89a7-bdc03ed2e8fc	Asperox Mavi Güç 1 L99,00₺	Şok	20750	2026-03-10T01:42:43.193Z	EVET
+d6a810c8-c417-4a4a-96bc-6fed350e84fe	Cillit Bang Banyo Sprey 1000 Ml	Şok	20750	2026-03-10T01:42:43.193Z	EVET

@@ -1,9 +1,5 @@
-
-import { PrismaClient } from '@prisma/client';
 import React from 'react';
-
-// Initialize Prisma
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/db';
 
 // Force dynamic rendering so we always get fresh data
 export const dynamic = 'force-dynamic';

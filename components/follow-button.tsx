@@ -19,13 +19,17 @@ export function FollowButton({ productId, categoryId, variant = 'icon', classNam
     const [checked, setChecked] = useState(false);
 
     useEffect(() => {
+        let cancelled = false;
         fetch('/api/follow?idsOnly=1')
             .then((res) => (res.ok ? res.json() : { productIds: [] }))
             .then((data) => {
-                setFollowed(Array.isArray(data.productIds) && data.productIds.includes(productId));
-                setChecked(true);
+                if (!cancelled) {
+                    setFollowed(Array.isArray(data.productIds) && data.productIds.includes(productId));
+                    setChecked(true);
+                }
             })
-            .catch(() => setChecked(true));
+            .catch(() => { if (!cancelled) setChecked(true); });
+        return () => { cancelled = true; };
     }, [productId]);
 
     const handleClick = async (e: React.MouseEvent) => {
@@ -52,7 +56,7 @@ export function FollowButton({ productId, categoryId, variant = 'icon', classNam
         }
     };
 
-    if (!checked) return null;
+    // İkon her zaman görünsün; API cevabı gelene kadar boş yıldız, sonra dolu/boş güncellenir
 
     if (variant === 'text') {
         return (

@@ -34,3 +34,28 @@ export async function PATCH(req: Request) {
         return NextResponse.json({ error: 'Failed to update notifications' }, { status: 500 });
     }
 }
+
+/** Tek bildirim sil: ?id=xxx. Tümünü temizle: ?all=1 */
+export async function DELETE(request: Request) {
+    const session = await requireUserSession();
+    if (session instanceof Response) return session;
+    try {
+        const { searchParams } = new URL(request.url);
+        const id = searchParams.get('id');
+        const all = searchParams.get('all') === '1';
+
+        if (all) {
+            await prisma.notification.deleteMany({ where: { userId: session.userId } });
+            return NextResponse.json({ success: true });
+        }
+        if (id) {
+            await prisma.notification.deleteMany({
+                where: { id, userId: session.userId },
+            });
+            return NextResponse.json({ success: true });
+        }
+        return NextResponse.json({ error: 'id veya all=1 gerekli' }, { status: 400 });
+    } catch (error) {
+        return NextResponse.json({ error: 'Failed to delete notification' }, { status: 500 });
+    }
+}

@@ -107,7 +107,13 @@ export function CategorySidebar() {
                             'flex-1 justify-start text-left whitespace-normal h-auto py-1.5 text-sm',
                             isSelected && 'bg-blue-600 text-white'
                         )}
-                        onClick={() => handleSelectCategory(node.id)}
+                        onClick={() => {
+                            if (hasChildren) {
+                                toggleExpand(node.id);
+                            } else {
+                                handleSelectCategory(node.id);
+                            }
+                        }}
                     >
                         {name}
                     </Button>

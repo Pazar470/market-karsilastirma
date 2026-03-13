@@ -134,9 +134,9 @@ export async function upsertProduct(product: ScrapedProduct, marketId: string, _
 
 const BATCH_SIZE = 200;
 
-/** Toplu yazma: önce mevcut ürünleri bul, yenileri createManyAndReturn ile ekle, fiyatları createMany ile. */
-export async function upsertProductBatch(products: ScrapedProduct[], marketId: string, marketName: string) {
-    if (products.length === 0) return;
+/** Toplu yazma: önce mevcut ürünleri bul, yenileri createManyAndReturn ile ekle, fiyatları createMany ile. Döner: bu turda kaç yeni ürün eklendi. */
+export async function upsertProductBatch(products: ScrapedProduct[], marketId: string, marketName: string): Promise<{ created: number }> {
+    if (products.length === 0) return { created: 0 };
     const links = [...new Set(products.map((p) => p.link))];
     const existing = await prisma.product.findMany({ where: { marketKey: { in: links } }, select: { id: true, marketKey: true } });
     const keyToProduct = new Map<string, { id: string }>(existing.map((p) => [p.marketKey!, p]));
@@ -227,4 +227,5 @@ export async function upsertProductBatch(products: ScrapedProduct[], marketId: s
         const chunk = priceRows.slice(i, i + BATCH_SIZE);
         await prisma.price.createMany({ data: chunk });
     }
+    return { created: uniqueNew.length };
 }

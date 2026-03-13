@@ -17,12 +17,16 @@ export default function LoginPage() {
         setError('');
 
         try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 18_000);
             const res = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
                 body: JSON.stringify({ username: username.trim(), pin }),
+                signal: controller.signal,
             });
+            clearTimeout(timeoutId);
             const data = await res.json().catch(() => ({}));
 
             if (res.ok) {
@@ -32,7 +36,8 @@ export default function LoginPage() {
                 setError(data?.error || 'Giriş yapılamadı.');
             }
         } catch (err) {
-            setError('Bağlantı hatası oluştu.');
+            const isAbort = err instanceof Error && err.name === 'AbortError';
+            setError(isAbort ? 'Bağlantı gecikti. Lütfen tekrar deneyin.' : 'Bağlantı hatası oluştu.');
         } finally {
             setLoading(false);
         }

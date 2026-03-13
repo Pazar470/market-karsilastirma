@@ -16,12 +16,14 @@ export async function GET(
         });
         if (!alarm) return NextResponse.json({ error: 'Not found' }, { status: 404 });
         const tags = JSON.parse(alarm.tags || '[]');
+        const categoryIds = JSON.parse(alarm.categoryIds || '[]');
         const includedProductIds = JSON.parse(alarm.includedProductIds || '[]');
         const excludedProductIds = JSON.parse(alarm.excludedProductIds || '[]');
         const pendingProductIds = JSON.parse(alarm.pendingProductIds || '[]');
         return NextResponse.json({
             ...alarm,
             tags: Array.isArray(tags) ? tags : [],
+            categoryIds: Array.isArray(categoryIds) ? categoryIds : [],
             includedProductIds: Array.isArray(includedProductIds) ? includedProductIds : [],
             excludedProductIds: Array.isArray(excludedProductIds) ? excludedProductIds : [],
             pendingProductIds: Array.isArray(pendingProductIds) ? pendingProductIds : [],
@@ -51,6 +53,7 @@ export async function PATCH(
             targetPrice,
             name,
             tags,
+            categoryIds,
             includedProductIds,
             excludedProductIds,
             pendingProductIds,
@@ -62,6 +65,11 @@ export async function PATCH(
         if (targetPrice !== undefined) updateData.targetPrice = parseFloat(targetPrice);
         if (name !== undefined) updateData.name = name;
         if (tags !== undefined) updateData.tags = typeof tags === 'string' ? tags : JSON.stringify(tags || []);
+        if (categoryIds !== undefined) {
+            const catIds = Array.isArray(categoryIds) ? categoryIds : [];
+            updateData.categoryIds = JSON.stringify(catIds);
+            updateData.categoryId = catIds.length > 0 ? catIds[0] : null;
+        }
         if (includedProductIds !== undefined) updateData.includedProductIds = typeof includedProductIds === 'string' ? includedProductIds : JSON.stringify(includedProductIds || []);
         if (excludedProductIds !== undefined) updateData.excludedProductIds = typeof excludedProductIds === 'string' ? excludedProductIds : JSON.stringify(excludedProductIds || []);
         if (pendingProductIds !== undefined) updateData.pendingProductIds = typeof pendingProductIds === 'string' ? pendingProductIds : JSON.stringify(pendingProductIds || []);

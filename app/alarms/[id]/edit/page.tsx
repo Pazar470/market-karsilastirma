@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import { useRouter, useParams } from 'next/navigation';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { AlarmEditProductCard, type AlarmEditProduct } from '@/components/alarm-edit-product-card';
 import { FollowButton } from '@/components/follow-button';
@@ -32,7 +33,7 @@ export default function EditAlarmPage() {
     const [products, setProducts] = useState<AlarmEditProduct[]>([]);
     const [availableTags, setAvailableTags] = useState<string[]>([]);
 
-    const [selectedCat, setSelectedCat] = useState<string>('');
+    const [selectedCategoryIds, setSelectedCategoryIds] = useState<string[]>([]);
     const [selectedTags, setSelectedTags] = useState<string[]>([]);
     const [excludedIds, setExcludedIds] = useState<string[]>([]);
     const [includedIds, setIncludedIds] = useState<string[]>([]);
@@ -44,50 +45,92 @@ export default function EditAlarmPage() {
     const [pendingIds, setPendingIds] = useState<string[]>([]);
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const [newProductsCount, setNewProductsCount] = useState<number | null>(null);
 
     useEffect(() => {
+        let cancelled = false;
         const init = async () => {
             try {
-                const catRes = await fetch('/api/categories?leafOnly=true');
-                const cats = await catRes.json();
+                const [catRes, alarmRes] = await Promise.all([
+                    fetch('/api/categories?leafOnly=true'),
+                    fetch(`/api/alarms/${id}`),
+                ]);
+
+                if (!catRes.ok || !alarmRes.ok) {
+                    console.error('Init failed', { catStatus: catRes.status, alarmStatus: alarmRes.status });
+                    return;
+                }
+
+                const [cats, alarm] = await Promise.all([catRes.json(), alarmRes.json()]);
+                if (cancelled) return;
+
                 setCategories(cats);
+                setName(alarm.name);
+                const catIds = Array.isArray(alarm.categoryIds) ? alarm.categoryIds : (alarm.categoryId ? [alarm.categoryId] : []);
+                setSelectedCategoryIds(catIds);
+                const tp = alarm.targetPrice?.toString() ?? '';
+                setTargetPrice(tp);
+                setSavedTargetPrice(tp);
+                setUnitType(alarm.unitType || 'KG');
+                setSelectedTags(alarm.tags || []);
+                setIncludedIds(alarm.includedProductIds || []);
+                setExcludedIds(alarm.excludedProductIds || []);
+                setPendingIds(alarm.pendingProductIds || []);
+                setIsAllProducts(alarm.isAllProducts ?? true);
 
-                const alarmRes = await fetch(`/api/alarms/${id}`);
-                if (alarmRes.ok) {
-                    const alarm = await alarmRes.json();
-                    setName(alarm.name);
-                    setSelectedCat(alarm.categoryId);
-                    const tp = alarm.targetPrice?.toString() ?? '';
-                    setTargetPrice(tp);
-                    setSavedTargetPrice(tp);
-                    setUnitType(alarm.unitType || 'KG');
-                    setSelectedTags(alarm.tags || []);
-                    setIncludedIds(alarm.includedProductIds || []);
-                    setExcludedIds(alarm.excludedProductIds || []);
-                    setPendingIds(alarm.pendingProductIds || []);
-                    setIsAllProducts(alarm.isAllProducts ?? true);
+                let prods: AlarmEditProduct[] = [];
+                if (catIds.length > 0) {
+                    const qs = catIds.map((cid: string) => `categoryId=${encodeURIComponent(cid)}`).join('&');
+                    const prodRes = await fetch(`/api/products?${qs}`);
+                    if (prodRes.ok) {
+                        const prodsData = await prodRes.json();
+                        prods = Array.isArray(prodsData) ? prodsData : (prodsData?.products ?? []);
+                    }
+                } else {
+                    const allIds = [...new Set([...(alarm.includedProductIds || []), ...(alarm.excludedProductIds || []), ...(alarm.pendingProductIds || [])])];
+                    if (allIds.length > 0) {
+                        const prodRes = await fetch(`/api/products?productIds=${allIds.join(',')}`);
+                        if (prodRes.ok) {
+                            const prodsData = await prodRes.json();
+                            prods = Array.isArray(prodsData) ? prodsData : (prodsData?.products ?? []);
+                        }
+                    }
+                }
+                if (cancelled) return;
+                setProducts(prods);
 
-                    const prodRes = await fetch(`/api/products?categoryId=${alarm.categoryId}`);
-                    const prodsData = await prodRes.json();
-                    const prods = Array.isArray(prodsData) ? prodsData : (prodsData?.products ?? []);
-                    setProducts(prods);
+                const tags = new Set<string>();
+                prods.forEach((p: AlarmEditProduct & { tags?: string }) => {
+                    try {
+                        const pTags = JSON.parse(p.tags || '[]');
+                        pTags.forEach((t: string) => tags.add(t));
+                    } catch (_) {}
+                });
+                setAvailableTags(Array.from(tags));
 
-                    const tags = new Set<string>();
-                    prods.forEach((p: AlarmEditProduct & { tags?: string }) => {
-                        try {
-                            const pTags = JSON.parse(p.tags || '[]');
-                            pTags.forEach((t: string) => tags.add(t));
-                        } catch (_) {}
-                    });
-                    setAvailableTags(Array.from(tags));
+                // Yeni ürün sayısı: alarmın kategorisi varsa arka planda çek
+                if (catIds.length > 0) {
+                    fetch(`/api/alarms/${id}/new-products`)
+                        .then((r) => r.json())
+                        .then((d) => {
+                            if (!cancelled) setNewProductsCount(Array.isArray(d.products) ? d.products.length : 0);
+                        })
+                        .catch(() => {
+                            if (!cancelled) setNewProductsCount(0);
+                        });
+                } else {
+                    setNewProductsCount(0);
                 }
             } catch (error) {
                 console.error('Initialization error:', error);
             } finally {
-                setLoading(false);
+                if (!cancelled) setLoading(false);
             }
         };
         init();
+        return () => {
+            cancelled = true;
+        };
     }, [id]);
 
     const targetNum = parseFloat(targetPrice.replace(',', '.')) || 0;
@@ -148,6 +191,7 @@ export default function EditAlarmPage() {
                     body: JSON.stringify({
                         targetPrice: parseFloat(targetPrice.replace(',', '.')),
                         name,
+                        categoryIds: selectedCategoryIds,
                         tags: JSON.stringify(selectedTags),
                         includedProductIds: JSON.stringify(includedIds),
                         excludedProductIds: JSON.stringify(excludedIds),
@@ -173,6 +217,7 @@ export default function EditAlarmPage() {
                 body: JSON.stringify({
                     name,
                     targetPrice: parseFloat(targetPrice.replace(',', '.')) || 0,
+                    categoryIds: selectedCategoryIds,
                     tags: JSON.stringify(selectedTags),
                     includedProductIds: JSON.stringify(includedIds),
                     excludedProductIds: JSON.stringify(excludedIds),
@@ -189,7 +234,7 @@ export default function EditAlarmPage() {
         }
     };
 
-    const gridClass = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3';
+    const gridClass = 'grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-1.5 sm:gap-2.5';
 
     if (loading) {
         return (
@@ -228,6 +273,20 @@ export default function EditAlarmPage() {
                     </div>
                 </div>
 
+                {newProductsCount != null && newProductsCount > 0 && (
+                    <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                        <p className="text-sm text-amber-800">
+                            <strong>{name}</strong> alarmınızdaki kategoride {newProductsCount} yeni ürün var.
+                            <Link
+                                href={`/alarms/${id}/new-products`}
+                                className="ml-2 font-medium text-amber-700 hover:text-amber-900 underline"
+                            >
+                                Ürünleri gör →
+                            </Link>
+                        </p>
+                    </div>
+                )}
+
                 {/* Tab bar */}
                 <div className="flex rounded-lg overflow-hidden border border-gray-200 bg-white mb-4">
                     <button
@@ -260,11 +319,28 @@ export default function EditAlarmPage() {
                 {activeTab === 'sonuclar' && (
                     <div className="space-y-6">
                         {/* 1. Hedef fiyatı karşılayan ürünler */}
-                        <section>
-                            <h2 className="text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-green-500" />
-                                Hedef fiyatı karşılayan ürünler ({meeting.length})
-                            </h2>
+                        <section className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
+                            <div className="flex items-center justify-between gap-2 mb-2">
+                                <h2 className="text-sm font-bold text-gray-700 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-green-500 shrink-0" aria-hidden />
+                                    Hedef fiyatı karşılayan ürünler ({meeting.length})
+                                </h2>
+                                {meeting.length > 0 && (
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setExcludedIds((prev) => {
+                                                const set = new Set(prev);
+                                                meeting.forEach((p) => set.add(p.id));
+                                                return Array.from(set);
+                                            })
+                                        }
+                                        className="text-[11px] font-semibold text-gray-500 hover:text-gray-800"
+                                    >
+                                        Tümünü gizle
+                                    </button>
+                                )}
+                            </div>
                             <div className={gridClass}>
                                 {meeting.map((product) => {
                                     const priceInfo = product.prices?.[0];
@@ -277,7 +353,7 @@ export default function EditAlarmPage() {
                                             product={product}
                                             actions={
                                                 <>
-                                                    <FollowButton productId={product.id} categoryId={selectedCat} className="h-7 w-7 shrink-0" />
+                                                    <FollowButton productId={product.id} categoryId={selectedCategoryIds[0] || (product as AlarmEditProduct & { masterCategoryId?: string }).masterCategoryId || ''} className="h-7 w-7 shrink-0" />
                                                     {pendingIds.includes(product.id) ? (
                                                         <>
                                                             <button
@@ -325,10 +401,28 @@ export default function EditAlarmPage() {
                         </section>
 
                         {/* 2. Hedef fiyatın altına düşmemiş ürünler */}
-                        <section>
-                            <h2 className="text-sm font-bold text-gray-700 mb-2">
-                                Hedef fiyatın altına düşmemiş ürünler ({notMeeting.length})
-                            </h2>
+                        <section className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
+                            <div className="flex items-center justify-between gap-2 mb-2">
+                                <h2 className="text-sm font-bold text-gray-700 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" aria-hidden />
+                                    Hedef fiyatın altına düşmemiş ürünler ({notMeeting.length})
+                                </h2>
+                                {notMeeting.length > 0 && (
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setExcludedIds((prev) => {
+                                                const set = new Set(prev);
+                                                notMeeting.forEach((p) => set.add(p.id));
+                                                return Array.from(set);
+                                            })
+                                        }
+                                        className="text-[11px] font-semibold text-gray-500 hover:text-gray-800"
+                                    >
+                                        Tümünü gizle
+                                    </button>
+                                )}
+                            </div>
                             <div className={gridClass}>
                                 {notMeeting.map((product) => {
                                     const priceInfo = product.prices?.[0];
@@ -341,7 +435,7 @@ export default function EditAlarmPage() {
                                             product={product}
                                             actions={
                                                 <>
-                                                    <FollowButton productId={product.id} categoryId={selectedCat} className="h-7 w-7 shrink-0" />
+                                                    <FollowButton productId={product.id} categoryId={selectedCategoryIds[0] || (product as AlarmEditProduct & { masterCategoryId?: string }).masterCategoryId || ''} className="h-7 w-7 shrink-0" />
                                                     <button
                                                         type="button"
                                                         onClick={() => setExcludedIds((prev) => [...prev, product.id])}
@@ -370,9 +464,12 @@ export default function EditAlarmPage() {
                         </section>
 
                         {/* 3. Gizlenen ürünler - dinamik, göster/gizle */}
-                        <section>
+                        <section className="bg-white rounded-xl border border-gray-200 p-3 sm:p-4">
                             <div className="flex justify-between items-center mb-2">
-                                <h2 className="text-sm font-bold text-gray-500">Gizlenen ürünler ({hidden.length})</h2>
+                                <h2 className="text-sm font-bold text-gray-500 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-red-500 shrink-0" aria-hidden />
+                                    Gizlenen ürünler ({hidden.length})
+                                </h2>
                                 {hidden.length > 0 && (
                                     <button
                                         type="button"
@@ -398,7 +495,7 @@ export default function EditAlarmPage() {
                                             product={product}
                                             actions={
                                                 <>
-                                                    <FollowButton productId={product.id} categoryId={selectedCat} className="h-7 w-7 shrink-0" />
+                                                    <FollowButton productId={product.id} categoryId={selectedCategoryIds[0] || (product as AlarmEditProduct & { masterCategoryId?: string }).masterCategoryId || ''} className="h-7 w-7 shrink-0" />
                                                     <button
                                                         type="button"
                                                         onClick={() => setExcludedIds((prev) => prev.filter((x) => x !== product.id))}

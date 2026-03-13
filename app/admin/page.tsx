@@ -220,6 +220,10 @@ export default function AdminPage() {
                 <span className="text-gray-500">|</span>
                 <Link href="/tarama" className="text-blue-400 hover:underline">Tarama izleme</Link>
                 <span className="text-gray-500">|</span>
+                <Link href="/admin/kategori-duzelt" className="text-blue-400 hover:underline">Kategori yolu düzelt</Link>
+                <span className="text-gray-500">|</span>
+                <Link href="/admin/suspicious" className="text-blue-400 hover:underline">Şüpheli ürünler</Link>
+                <span className="text-gray-500">|</span>
                 <button
                     type="button"
                     onClick={async () => {

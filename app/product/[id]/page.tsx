@@ -1,10 +1,20 @@
-import { PrismaClient } from '@prisma/client';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NavigationButtons } from '@/components/navigation-buttons';
+import { prisma } from '@/lib/db';
 
-const prisma = new PrismaClient();
+export const dynamic = 'force-dynamic';
+
+const PARALLEL_FETCH_TIMEOUT_MS = 10_000;
+
+function latestPricePerMarket<T extends { market: { id: string } }>(prices: T[]): T[] {
+    const byMarket = new Map<string, T>();
+    for (const p of prices) {
+        if (!byMarket.has(p.market.id)) byMarket.set(p.market.id, p);
+    }
+    return Array.from(byMarket.values());
+}
 
 async function getProduct(id: string) {
     const product = await prisma.product.findUnique({
@@ -13,21 +23,26 @@ async function getProduct(id: string) {
             prices: {
                 include: { market: true },
                 orderBy: { date: 'desc' },
+                take: 10,
             },
             masterCategory: true,
         },
     });
-    return product as unknown as (typeof product & { quantityAmount: number | null; quantityUnit: string | null });
+    if (!product) return null;
+    const prices = latestPricePerMarket(product.prices);
+    return { ...product, prices } as unknown as (typeof product & { quantityAmount: number | null; quantityUnit: string | null });
 }
 
 async function getCategoryPath(categoryId: string | null): Promise<{ id: string; name: string }[]> {
     if (!categoryId) return [];
+    const all = await prisma.category.findMany({ select: { id: true, name: true, parentId: true } });
+    const byId = new Map(all.map((c) => [c.id, c]));
     const path: { id: string; name: string }[] = [];
     let currentId: string | null = categoryId;
     const seen = new Set<string>();
     while (currentId && !seen.has(currentId)) {
         seen.add(currentId);
-        const cat: { id: string; name: string; parentId: string | null } | null = await prisma.category.findUnique({ where: { id: currentId }, select: { id: true, name: true, parentId: true } });
+        const cat = byId.get(currentId);
         if (!cat) break;
         path.push({ id: cat.id, name: cat.name || 'Diğer' });
         currentId = cat.parentId;
@@ -54,7 +69,7 @@ async function getSimilarProducts(currentProduct: any) {
                 take: 1,
             },
         },
-        take: 500,
+        take: 200,
     });
 
     // 2. Calculate Similarity
@@ -136,17 +151,14 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
             notFound();
         }
 
-        // Fiyat yoksa (tarama/mapping sırasında veya yeni ürün) hata vermeyelim
+        // Fiyat yoksa (tarama/mapping sırasında veya yeni ürün) sayfayı yine göster, sadece fiyat alanını boş bırak
         const effectiveAmount = (p: { amount: unknown; campaignAmount?: unknown }) =>
             Number(p.campaignAmount ?? p.amount) || Number(p.amount);
         const sortedPrices = [...(product.prices || [])].sort((a, b) => effectiveAmount(a) - effectiveAmount(b));
-        const bestPrice = sortedPrices[0];
-        if (!bestPrice?.market) {
-            notFound();
-        }
-        const displayAmount = bestPrice.campaignAmount != null ? Number(bestPrice.campaignAmount) : Number(bestPrice.amount ?? 0);
-        const listAmount = bestPrice?.amount != null ? Number(bestPrice.amount) : null;
-        const hasCampaign = bestPrice?.campaignAmount != null && bestPrice?.campaignCondition;
+        const bestPrice = sortedPrices[0]?.market ? sortedPrices[0] : null;
+        const displayAmount = bestPrice ? (bestPrice.campaignAmount != null ? Number(bestPrice.campaignAmount) : Number(bestPrice.amount ?? 0)) : 0;
+        const listAmount = bestPrice ? (bestPrice.amount != null ? Number(bestPrice.amount) : null) : null;
+        const hasCampaign = bestPrice != null && bestPrice.campaignAmount != null && bestPrice.campaignCondition;
 
         // Unit Price: kampanya varsa kampanya fiyatına göre birim fiyat
         let unitPriceDisplay = null;
@@ -159,14 +171,25 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
             unitPriceDisplay = `${unitPrice.toFixed(2)} ₺ / ${displayUnit}`;
         }
 
-        // Benzer ürünler ve kategori yolu — hata olursa boş dizi ile devam et
+        // Kategori yolu, benzer ürünler ve alternatifler paralel; zaman aşımı ile sayfa takılmaz
         let similarProducts: Awaited<ReturnType<typeof getSimilarProducts>> = [];
         let categoryPath: { id: string; name: string }[] = [];
+        let alternatives: Awaited<ReturnType<typeof getCheaperAlternatives>> = [];
         try {
-            similarProducts = await getSimilarProducts(product);
-            categoryPath = await getCategoryPath(product.categoryId);
+            const race = Promise.race([
+                Promise.all([
+                    getCategoryPath(product.categoryId),
+                    getSimilarProducts(product),
+                    getCheaperAlternatives(product),
+                ]),
+                new Promise<never>((_, rej) => setTimeout(() => rej(new Error('timeout')), PARALLEL_FETCH_TIMEOUT_MS)),
+            ]);
+            const [path, similar, alts] = await race;
+            categoryPath = path;
+            similarProducts = similar;
+            alternatives = alts;
         } catch (_) {
-            // DB timeout vb. — sayfayı yine de göster
+            // Timeout veya DB hatası — sayfa yine gösterilir, benzer/alternatif boş kalır
         }
 
     // ... (imports)
@@ -211,33 +234,41 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
                                 )}
                             </div>
                             <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
-                            <div className="flex items-center gap-2">
-                                <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                                    {bestPrice.market.name}
-                                </span>
-                            </div>
+                            {bestPrice?.market && (
+                                <div className="flex items-center gap-2">
+                                    <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+                                        {bestPrice.market.name}
+                                    </span>
+                                </div>
+                            )}
                         </div>
 
                         <div className="space-y-1">
-                            <div className="text-4xl font-bold text-gray-900">
-                                {displayAmount.toFixed(2)} <span className="text-2xl text-gray-500 font-normal">₺</span>
-                                {hasCampaign && listAmount != null && listAmount !== displayAmount && (
-                                    <span className="ml-2 text-lg font-normal text-gray-500 line-through">{listAmount.toFixed(2)} ₺</span>
-                                )}
-                            </div>
-                            {hasCampaign && bestPrice.campaignCondition && (
-                                <div className="text-sm text-amber-700 font-medium">
-                                    {bestPrice.campaignCondition}: {displayAmount.toFixed(2)} ₺
-                                </div>
+                            {bestPrice ? (
+                                <>
+                                    <div className="text-4xl font-bold text-gray-900">
+                                        {displayAmount.toFixed(2)} <span className="text-2xl text-gray-500 font-normal">₺</span>
+                                        {hasCampaign && listAmount != null && listAmount !== displayAmount && (
+                                            <span className="ml-2 text-lg font-normal text-gray-500 line-through">{listAmount.toFixed(2)} ₺</span>
+                                        )}
+                                    </div>
+                                    {hasCampaign && bestPrice.campaignCondition && (
+                                        <div className="text-sm text-amber-700 font-medium">
+                                            {bestPrice.campaignCondition}: {displayAmount.toFixed(2)} ₺
+                                        </div>
+                                    )}
+                                    {unitPriceDisplay && (
+                                        <div className="text-sm text-gray-500 font-medium">
+                                            Birim Fiyat: {unitPriceDisplay}
+                                        </div>
+                                    )}
+                                    <p className="text-sm text-gray-500">
+                                        Son Güncelleme: {bestPrice.date ? new Date(bestPrice.date).toLocaleDateString('tr-TR') : '—'}
+                                    </p>
+                                </>
+                            ) : (
+                                <p className="text-sm text-gray-500">Fiyat bilgisi henüz yok.</p>
                             )}
-                            {unitPriceDisplay && (
-                                <div className="text-sm text-gray-500 font-medium">
-                                    Birim Fiyat: {unitPriceDisplay}
-                                </div>
-                            )}
-                            <p className="text-sm text-gray-500">
-                                Son Güncelleme: {bestPrice.date ? new Date(bestPrice.date).toLocaleDateString('tr-TR') : '—'}
-                            </p>
                         </div>
 
                         <ProductDetailActions
@@ -248,19 +279,9 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
                                 name: product.name,
                                 imageUrl: product.imageUrl,
                                 price: displayAmount,
-                                marketName: bestPrice.market.name,
+                                marketName: bestPrice?.market?.name ?? 'Market',
                             }}
                         />
-
-                        {/* Simulated Product Details (Content, Storage) */}
-                        <div className="space-y-4">
-                            <h3 className="font-semibold text-xl">Ürün Bilgileri</h3>
-                            <hr className="my-4" />
-                            <div className="grid grid-cols-1 gap-2 text-sm">
-                                <p><span className="font-medium">Saklama Koşulları:</span> Serin ve kuru yerde saklayınız.</p>
-                                <p><span className="font-medium">Menşei:</span> Türkiye</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </Card>

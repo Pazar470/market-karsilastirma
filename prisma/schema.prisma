@@ -54,6 +54,9 @@ model Product {
   categoryId     String?
   masterCategory Category? @relation(fields: [categoryId], references: [id])
   followedBy     UserFollowedProduct[]
+
+  @@index([categoryId])
+  @@index([categoryId, isSuspicious])
 }
 
 model Category {
@@ -127,8 +130,9 @@ model Price {
 model SmartAlarm {
   id          String   @id @default(uuid())
   name        String // Display Name (e.g. "Kaşar Peyniri")
-  categoryId  String
-  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  String?  // Tek kategori (geriye uyum); boşsa categoryIds kullanılır
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryIds String   @default("[]") // JSON array: ["id1","id2"] — sıfır veya çoklu kategori
   targetPrice Float // Desired Unit Price
   unitType    String   @default("KG") // KG, L, ADET
 
@@ -150,6 +154,8 @@ model SmartAlarm {
   updatedAt DateTime @updatedAt
 
   notifications Notification[]
+
+  @@index([userId])
 }
 
 model Notification {
@@ -167,4 +173,6 @@ model Notification {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
+
+  @@index([userId])
 }

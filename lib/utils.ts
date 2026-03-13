@@ -6,15 +6,20 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/** Kampanya / reklam metinlerini isimden temizler (örn. "+15 win Para Kazan" → sayı gram sanılmasın). */
+const CAMPAIGN_PATTERN = /\s*\+?\d+\s*win\s*para(\s*kazan)?\s*/gi;
+
 /**
  * Product name içerisinden gramaj ve birimi ayıklar.
  * Örnekler:
  * "Mis Tam Yağlı Kaşar Peyniri 700 g" -> { amount: 0.7, unit: 'kg' }
  * "La Vache Qui Rit 8'li 100G" -> { amount: 0.1, unit: 'kg' } (gramaj öncelikli)
  * "Nescafe 17,5 g 10'lu" -> { amount: 0.175, unit: 'kg' } (17.5*10=175g toplam)
+ * "Avokado Adet+15 win Para Kazan" -> { amount: 1, unit: 'adet' } (kampanya metni temizlenir, adet kalır)
  */
 export function parseQuantity(name: string): { amount: number | null, unit: string | null } {
-  const lowerName = name.toLowerCase();
+  const cleanedName = name.replace(CAMPAIGN_PATTERN, ' ').replace(/\s+/g, ' ').trim();
+  const lowerName = cleanedName.toLowerCase();
 
   // "X g Y'lu" / "X gr 10'lu" → toplam gram = X * Y (paket başı gram × adet). X büyükse (örn. 170) zaten toplam olabilir, çarpmayalım.
   const perUnitThenCount = /(\d+([.,]\d+)?)\s*(g|gr)\b\s*(\d+)\s*'?lu\b/i.exec(lowerName);
@@ -52,6 +57,13 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
     }
     if (u === 'kg') return { amount, unit: 'kg' };
     if (u === 'l') return { amount, unit: 'l' };
+  }
+
+  // İsimde "adet" geçiyorsa ve gram/kg/litre/ml yoksa → adet fiyatı (birim gram/kg/l/ml kabul etme)
+  const hasAdet = /\badet\b/i.test(cleanedName);
+  const hasWeightOrVolume = /\b(gram|gr?|kg|litre?|liter|ml|mlt)\b/i.test(cleanedName);
+  if (hasAdet && !hasWeightOrVolume) {
+    return { amount: 1, unit: 'adet' };
   }
 
   // Pattern for numbers followed by optional unit

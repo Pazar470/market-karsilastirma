@@ -6,11 +6,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
-import { Search } from 'lucide-react';
+import { Search, SlidersHorizontal } from 'lucide-react';
 import Link from 'next/link';
+import { Dialog, DialogContent, DialogTitle, DialogHeader } from '@/components/ui/dialog';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { sortCategoriesByOrder } from '@/lib/category-order';
 import { AddToBasketButton } from './add-to-basket-button';
-import { AddToAlarmButton } from './add-to-alarm-button';
 import { FollowButton } from './follow-button';
 import { ProductImage } from '@/components/product-image';
 import { MarketLogo } from '@/components/market-logo';
@@ -60,6 +61,7 @@ export function ProductSearch() {
     // Autocomplete state
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
+    const [filterOpen, setFilterOpen] = useState(false);
     const wrapperRef = useRef<HTMLFormElement>(null);
 
     // Sync local input when URL changes (e.g. back button)
@@ -67,10 +69,28 @@ export function ProductSearch() {
         setQuery(urlQuery);
     }, [urlQuery]);
 
-    // Force fresh fetch on mount/param change
+    // Varsayılan: parametre yoksa bizim kategori sıramızdaki ilk kategoriyle aç (karışık ürün gelmesin, sabit olsun)
+    const hasExplicitFilter = !!urlQuery || !!urlCategoryId || (Array.isArray(urlCategory) && urlCategory.length > 0);
     useEffect(() => {
+        if (!hasExplicitFilter) {
+            if (products.length === 0) setLoading(true);
+            fetch('/api/categories/tree')
+                .then((res) => res.json())
+                .then((data) => {
+                    const roots = Array.isArray(data) ? data : [];
+                    const sorted = sortCategoriesByOrder(roots);
+                    const first = sorted[0];
+                    if (first?.id) {
+                        router.replace(`/?categoryId=${encodeURIComponent(first.id)}`);
+                    } else {
+                        fetchProducts();
+                    }
+                })
+                .catch(() => fetchProducts());
+            return;
+        }
         fetchProducts();
-    }, [searchParams]);
+    }, [searchParams, hasExplicitFilter]);
 
     // Close suggestions on click outside
     useEffect(() => {
@@ -208,43 +228,47 @@ export function ProductSearch() {
         router.push(`/?${params.toString()}`);
     };
 
+    const selectClass = 'flex h-11 w-full items-center justify-between rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50';
+
     return (
         <div className="w-full max-w-6xl mx-auto space-y-3 sm:space-y-4">
+            {/* Mobil: tek satır (arama + Filtrele). Masaüstü: arama + market/sıra aynı satırda */}
             <div className="flex flex-col md:flex-row gap-2 sm:gap-3">
                 <form onSubmit={handleSubmit} className="flex gap-1.5 sm:gap-2 flex-1 relative min-w-0" ref={wrapperRef}>
                     <div className="relative flex-1 min-w-0">
-                        <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground" />
+                        <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
                         <Input
                             type="search"
                             placeholder="Ürün ara..."
-                            className="pl-7 h-9 sm:h-10 text-sm"
+                            className="pl-8 h-10 md:h-10 text-sm"
                             value={query}
                             onChange={handleInputChange}
                             onFocus={() => { if (suggestions.length > 0) setShowSuggestions(true); }}
                         />
-                        {/* Autocomplete Suggestions */}
                         {showSuggestions && suggestions.length > 0 && (
-                            <div className="absolute z-10 w-full bg-white border border-gray-200 rounded-md shadow-lg mt-1 max-h-60 overflow-y-auto">
+                            <div className="absolute z-20 w-full bg-white border border-gray-200 rounded-lg shadow-lg mt-1 max-h-56 overflow-y-auto">
                                 {suggestions.map((suggestion, index) => (
-                                    <div
+                                    <button
                                         key={index}
-                                        className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm"
+                                        type="button"
+                                        className="w-full px-4 py-3 text-left text-sm hover:bg-gray-100 active:bg-gray-100"
                                         onClick={() => handleSuggestionClick(suggestion)}
                                     >
                                         {suggestion}
-                                    </div>
+                                    </button>
                                 ))}
                             </div>
                         )}
                     </div>
-                    <Button type="submit" disabled={loading} className="h-9 sm:h-10 shrink-0 text-sm px-3">
+                    <Button type="submit" disabled={loading} className="h-10 shrink-0 text-sm px-4 min-w-[44px]">
                         {loading ? '...' : 'Ara'}
                     </Button>
                 </form>
 
-                <div className="w-full md:w-auto flex gap-1.5 sm:gap-2">
+                {/* Masaüstü: market + sıralama inline */}
+                <div className="hidden md:flex gap-2 w-auto">
                     <select
-                        className="flex h-9 sm:h-10 w-full md:w-36 items-center justify-between rounded-md border border-input bg-background px-2.5 py-1.5 text-xs sm:text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        className={cn(selectClass, 'w-36')}
                         value={urlMarket}
                         onChange={(e) => updateUrl({ market: e.target.value })}
                     >
@@ -254,9 +278,8 @@ export function ProductSearch() {
                         <option value="Migros">Migros</option>
                         <option value="Carrefour">Carrefour (Yakında)</option>
                     </select>
-
                     <select
-                        className="flex h-9 sm:h-10 w-full md:w-44 items-center justify-between rounded-md border border-input bg-background px-2.5 py-1.5 text-xs sm:text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                        className={cn(selectClass, 'w-44')}
                         value={urlSort}
                         onChange={(e) => updateUrl({ sortBy: e.target.value })}
                     >
@@ -266,7 +289,60 @@ export function ProductSearch() {
                         <option value="priceDesc">Fiyat (Azalan)</option>
                     </select>
                 </div>
+
+                {/* Mobil: Filtrele butonu → drawer */}
+                <div className="flex md:hidden">
+                    <Button
+                        type="button"
+                        variant="outline"
+                        className="h-10 px-4 gap-2 shrink-0 min-w-[44px]"
+                        onClick={() => setFilterOpen(true)}
+                    >
+                        <SlidersHorizontal className="h-4 w-4" />
+                        <span className="text-sm">Filtrele</span>
+                    </Button>
+                </div>
             </div>
+
+            <Dialog open={filterOpen} onOpenChange={setFilterOpen}>
+                <DialogContent className="sm:max-w-[340px] rounded-t-2xl sm:rounded-lg max-h-[85vh] overflow-y-auto p-5">
+                    <DialogHeader>
+                        <DialogTitle className="text-lg">Market ve sıralama</DialogTitle>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-2">
+                        <label className="grid gap-2">
+                            <span className="text-sm font-medium">Market</span>
+                            <select
+                                className={selectClass}
+                                value={urlMarket}
+                                onChange={(e) => updateUrl({ market: e.target.value })}
+                            >
+                                <option value="">Tüm Marketler</option>
+                                <option value="A101">A101</option>
+                                <option value="Şok">Şok</option>
+                                <option value="Migros">Migros</option>
+                                <option value="Carrefour">Carrefour (Yakında)</option>
+                            </select>
+                        </label>
+                        <label className="grid gap-2">
+                            <span className="text-sm font-medium">Sıralama</span>
+                            <select
+                                className={selectClass}
+                                value={urlSort}
+                                onChange={(e) => updateUrl({ sortBy: e.target.value })}
+                            >
+                                <option value="">Varsayılan</option>
+                                <option value="unitPriceAsc">Birim Fiyat (En Ucuz)</option>
+                                <option value="priceAsc">Fiyat (Artan)</option>
+                                <option value="priceDesc">Fiyat (Azalan)</option>
+                            </select>
+                        </label>
+                        <Button onClick={() => setFilterOpen(false)} className="h-11 mt-2">
+                            Tamam
+                        </Button>
+                    </div>
+                </DialogContent>
+            </Dialog>
 
             {/* Kategori ile filtrelenmişse: Alarm sayfasına taşı */}
             {urlCategoryId && (
@@ -287,7 +363,7 @@ export function ProductSearch() {
             ) : products.length === 0 ? (
                 <div className="text-center py-6 text-sm text-muted-foreground">Ürün bulunamadı.</div>
             ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
+                <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1.5 sm:gap-3 md:gap-4">
                     {products.map((product) => {
                         const priceInfo = product.prices[0];
                         return (
@@ -299,17 +375,18 @@ export function ProductSearch() {
                                         sessionStorage.setItem(scrollKey, String(window.scrollY));
                                     } catch (_) {}
                                 }}
+                                className="flex flex-col"
                             >
-                                <Card className="overflow-hidden hover:shadow-md transition-shadow cursor-pointer h-full border-blue-100/50" title={product.name}>
-                                    <div className="aspect-square relative flex items-center justify-center p-2 sm:p-3 bg-white">
+                                <Card className="overflow-hidden hover:shadow-md active:scale-[0.98] transition-all cursor-pointer h-full border border-gray-200/80 sm:border-blue-100/50" title={product.name}>
+                                    <div className="aspect-[4/5] sm:aspect-square relative flex items-center justify-center p-1.5 sm:p-3 bg-white">
                                         <ProductImage
                                             src={product.imageUrl}
                                             alt={product.name}
                                             className="max-h-full max-w-full object-contain"
                                         />
                                         {priceInfo && (
-                                            <div className="absolute top-1 right-1 sm:top-1.5 sm:right-1.5 flex flex-col items-end gap-0.5">
-                                                <div className="bg-green-100 text-green-800 text-[10px] sm:text-xs font-bold px-1.5 py-0.5 rounded-full shadow-sm">
+                                            <div className="absolute top-0.5 right-0.5 sm:top-1.5 sm:right-1.5 flex flex-col items-end gap-0.5">
+                                                <div className="bg-green-600 text-white text-[9px] sm:text-xs font-bold px-1 sm:px-1.5 py-0.5 rounded-full shadow-sm">
                                                     {(() => {
                                                         const price = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount);
                                                         const amount = product.quantityAmount;
@@ -328,15 +405,13 @@ export function ProductSearch() {
                                                 </div>
                                             </div>
                                         )}
-                                        {/* Actions Group */}
                                         <div
-                                            className="absolute bottom-1 right-1 sm:bottom-1.5 sm:right-1.5 flex gap-1"
+                                            className="absolute bottom-0.5 right-0.5 sm:bottom-1.5 sm:right-1.5 flex gap-0.5 sm:gap-1 items-center"
                                             onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
                                         >
-                                            <FollowButton productId={product.id} categoryId={product.categoryId ?? product.masterCategory?.id ?? undefined} className="h-8 w-8 shrink-0" />
+                                            <FollowButton productId={product.id} categoryId={product.categoryId ?? product.masterCategory?.id ?? undefined} className="h-11 w-11 sm:h-8 sm:w-8 shrink-0 rounded-full bg-white/95 shadow sm:bg-transparent sm:shadow-none flex items-center justify-center touch-manipulation" />
                                             {priceInfo && (
                                                 <>
-                                                    <AddToAlarmButton productId={product.id} categoryId={product.categoryId ?? product.masterCategory?.id ?? undefined} />
                                                     <AddToBasketButton
                                                         product={{
                                                             id: product.id,
@@ -346,27 +421,27 @@ export function ProductSearch() {
                                                             marketName: priceInfo.market.name
                                                         }}
                                                         variant="icon"
+                                                        className="h-11 w-11 sm:h-8 sm:w-8 touch-manipulation"
                                                     />
                                                 </>
                                             )}
                                         </div>
                                     </div>
-                                    <CardHeader className="p-2 sm:p-3 pb-0">
-                                        <div className="flex justify-between items-start mb-0.5">
-                                            <div className="inline-flex items-center gap-1.5 px-2 py-1.5 rounded-2xl text-xs font-semibold bg-blue-50 text-blue-700 min-w-0 overflow-visible shrink-0">
+                                    <CardHeader className="p-1.5 sm:p-3 pb-0">
+                                        <div className="flex justify-between items-start mb-0">
+                                            <div className="inline-flex items-center gap-1 px-1 sm:px-2 py-0.5 sm:py-1.5 rounded-xl text-[10px] sm:text-xs font-semibold bg-blue-50 text-blue-700 min-w-0 overflow-hidden shrink-0 max-w-[80%]">
                                                 <MarketLogo marketName={priceInfo?.market.name} size="lg" />
                                             </div>
                                         </div>
-
                                         <CardTitle
-                                            className="text-xs sm:text-sm font-medium leading-tight line-clamp-2"
+                                            className="text-[11px] sm:text-sm font-medium leading-tight line-clamp-2 mt-0.5"
                                             title={product.name}
                                         >
                                             {product.name}
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="p-2 sm:p-3 pt-0">
-                                        <div className="text-base sm:text-lg font-bold text-gray-900 mt-1">
+                                    <CardContent className="p-1.5 sm:p-3 pt-0">
+                                        <div className="text-sm sm:text-lg font-bold text-gray-900 mt-0.5 sm:mt-1">
                                             {priceInfo ? (() => {
                                                 const campaign = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : null;
                                                 const list = parseFloat(priceInfo.amount);
@@ -382,10 +457,10 @@ export function ProductSearch() {
                                             })() : '-'}
                                         </div>
                                         {priceInfo?.campaignCondition && (
-                                            <div className="text-[10px] sm:text-xs text-amber-700 font-medium mt-0.5">{priceInfo.campaignCondition}</div>
+                                            <div className="text-[9px] sm:text-xs text-amber-700 font-medium mt-0.5 line-clamp-1">{priceInfo.campaignCondition}</div>
                                         )}
                                         {priceInfo && (
-                                            <div className="text-[10px] sm:text-xs text-gray-500 font-medium mt-0.5">
+                                            <div className="text-[9px] sm:text-xs text-gray-500 font-medium mt-0.5 hidden sm:block">
                                                 {(() => {
                                                     const price = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount);
                                                     const amount = product.quantityAmount;

@@ -32,29 +32,27 @@ export async function GET(request: Request) {
             },
             orderBy: { createdAt: 'desc' },
         });
+        const allCats = await prisma.category.findMany({ select: { id: true, name: true, parentId: true } });
+        const catById = new Map(allCats.map((c) => [c.id, c]));
+        function buildPath(categoryId: string): string {
+            const pathParts: string[] = [];
+            let currentId: string | null = categoryId;
+            const seen = new Set<string>();
+            while (currentId && !seen.has(currentId)) {
+                seen.add(currentId);
+                const c = catById.get(currentId);
+                if (!c) break;
+                pathParts.unshift(c.name || 'Diğer');
+                currentId = c.parentId;
+            }
+            return pathParts.join(' > ') || 'Kategorisiz';
+        }
         const byCategory = new Map<string, { categoryId: string; categoryPath: string; products: typeof list }>();
         for (const row of list) {
             const catId = row.categoryId || row.product.categoryId || '';
             const key = catId || '__no_category__';
             if (!byCategory.has(key)) {
-                let path = 'Kategorisiz';
-                if (row.product.masterCategory?.name) path = row.product.masterCategory.name;
-                else if (catId) {
-                    const pathParts: string[] = [];
-                    let currentId: string | null = catId;
-                    const seen = new Set<string>();
-                    while (currentId && !seen.has(currentId)) {
-                        seen.add(currentId);
-                        const c: { name: string | null; parentId: string | null } | null = await prisma.category.findUnique({
-                            where: { id: currentId },
-                            select: { name: true, parentId: true },
-                        });
-                        if (!c) break;
-                        pathParts.unshift(c.name || 'Diğer');
-                        currentId = c.parentId;
-                    }
-                    path = pathParts.join(' > ') || path;
-                }
+                const path = row.product.masterCategory?.name || (catId ? buildPath(catId) : 'Kategorisiz');
                 byCategory.set(key, { categoryId: catId, categoryPath: path, products: [] });
             }
             byCategory.get(key)!.products.push(row);

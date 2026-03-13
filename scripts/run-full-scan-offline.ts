@@ -7,11 +7,20 @@
  * Rapor: scrape-offline-report.txt (indirme + upload hataları)
  */
 import 'dotenv/config';
+
+// DATABASE_URL'i sadece wrapper (run-offline-scan-with-direct.ts) değiştirir. Doğrudan çalıştırırsanız .env'deki DATABASE_URL (pooler) kullanılır.
+// Direct ağdan erişilemiyorsa (IPv4) doğrudan çalıştırın: npx tsx scripts/run-full-scan-offline.ts → pooler kullanır.
+const url = process.env.DATABASE_URL;
+if (url && !url.includes('connection_limit')) {
+    process.env.DATABASE_URL = url.includes('?') ? url.replace('?', '?connection_limit=1&') : url + '?connection_limit=1';
+}
+
 import fs from 'fs';
 import path from 'path';
 import { runFullScrapeBatch, type ScrapeCollectResult } from '../lib/scraper';
 import { upsertProductBatch } from '../lib/db-utils';
 import { checkAlarmsAfterScrape } from '../lib/alarm-engine';
+import { runSuspiciousA101Check } from '../lib/suspicious-a101';
 import { syncMappingToNullProducts } from '../lib/category-sync';
 import { runSokCategoryDiscovery } from '../lib/sok-category-discovery';
 import { runMigrosCategoryDiscovery } from '../lib/migros-category-discovery';
@@ -66,11 +75,22 @@ async function main() {
     if (fs.existsSync(REPORT_FILE)) fs.unlinkSync(REPORT_FILE);
     writeReport(`Offline tarama raporu — ${new Date().toISOString()}\n${'='.repeat(60)}\n\n`);
 
-    const markets = await prisma.market.findMany({
-        where: { name: { in: ['Migros', 'A101', 'Sok', 'Şok'] } },
-        orderBy: { name: 'asc' },
-        select: { id: true, name: true },
-    });
+    let markets;
+    try {
+        markets = await prisma.market.findMany({
+            where: { name: { in: ['Migros', 'A101', 'Sok', 'Şok'] } },
+            orderBy: { name: 'asc' },
+            select: { id: true, name: true },
+        });
+    } catch (e: unknown) {
+        const msg = e instanceof Error ? e.message : String(e);
+        if (msg.includes('MaxClientsInSessionMode') || msg.includes('max clients')) {
+            console.error('\n❌ Supabase bağlantı limiti dolu. Seçenekler:');
+            console.error('  1) .env dosyasına DIRECT_URL ekle: Supabase → Project Settings → Database → Connection string → "Direct connection" (port 5432)');
+            console.error('  2) Diğer bağlantıları kapat (ör. npm run dev) ve birkaç dakika sonra tekrar dene.\n');
+        }
+        throw e;
+    }
     if (markets.length === 0) {
         throw new Error('Migros, A101 veya Şok market bulunamadı.');
     }
@@ -122,10 +142,14 @@ async function main() {
             status.message = 'Şok kategori listesi güncelleniyor…';
             status.lastUpdated = new Date().toISOString();
             writeStatusJson(status);
-            console.log('\n📂 Şok: Kategori keşfi (19 ana kategori → sok_categories.json)…');
-            writeStatus(['Şok kategori keşfi...']);
+            console.log('\n📂 Şok: Kategori keşfi (recursive, ana + tüm alt yapraklar → sok_categories.json)…');
+            writeStatus(['Şok kategori keşfi (recursive)...']);
             await runSokCategoryDiscovery({ silent: true });
-            console.log('   sok_categories.json güncellendi.');
+            const sokCatPath = path.join(process.cwd(), 'sok_categories.json');
+            const sokCount = fs.existsSync(sokCatPath)
+                ? (JSON.parse(fs.readFileSync(sokCatPath, 'utf-8')).categories?.length ?? 0)
+                : 0;
+            console.log(`   sok_categories.json güncellendi (${sokCount} yaprak kategori).`);
         }
 
         console.log(`\n📥 İndirme: ${market.name}`);
@@ -171,6 +195,21 @@ async function main() {
         writeReport(`İNDİRME HATALARI\n${'-'.repeat(40)}\n`);
         downloadErrors.forEach((e) => writeReport(`  [${e.market}] ${e.category}: ${e.error}\n`));
         writeReport('\n');
+    }
+
+    // Diagnostik mod: SCRAPE_DEBUG=1 ise sadece indirme + debug dosyaları, Supabase'e yazma yok.
+    if (process.env.SCRAPE_DEBUG === '1') {
+        const elapsed = ((Date.now() - start) / 1000).toFixed(1);
+        status.phase = 'bitti';
+        status.currentMarket = null;
+        status.currentCategory = null;
+        status.message = `Diagnostik tarama bitti (SCRAPE_DEBUG=1). Toplam ${totalProducts} ürün, ${elapsed} sn. Supabase'e yazılmadı.`;
+        status.finishedAt = new Date().toISOString();
+        status.lastUpdated = status.finishedAt;
+        writeStatusJson(status);
+        writeReport(`SCRAPE_DEBUG=1 — Supabase'e upload atlandı. Yalnızca indirme ve debug-scrape/* dosyaları üretildi.\n`);
+        console.log('\n⚙️  SCRAPE_DEBUG=1 — Supabase upload ve alarm kontrolü atlandı.');
+        return;
     }
 
     // —— 2. Toplu upload Supabase'e ——
@@ -239,6 +278,11 @@ async function main() {
     writeReport(`ADMİN / KATEGORİ DURUMU\n${'-'.repeat(40)}\n`);
     writeReport(`Admin'e düşen (categoryId=null): ${nullCount} ürün\n`);
     writeReport(`Bu turda yeni eklenen (market bazında): ${JSON.stringify(createdPerMarket, null, 0)}\n\n`);
+
+    // —— 2c. A101 şüpheli ürün kontrolü (7 gün fiyat değişmeyen + kategoride %20 ucuz) ——
+    console.log('\n🔍 A101 şüpheli ürün kontrolü...');
+    const suspiciousResult = await runSuspiciousA101Check();
+    console.log(`   Şüpheli işaretlendi: ${suspiciousResult.marked}, şüpheden çıkarıldı: ${suspiciousResult.cleared}`);
 
     // —— 3. Alarm kontrolü ——
     if (uploadErrors.length === 0) {

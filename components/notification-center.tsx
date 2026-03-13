@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Bell, ExternalLink, X } from 'lucide-react';
+import { Bell, ExternalLink, Trash2, X } from 'lucide-react';
 import Link from 'next/link';
 import { AddToBasketButton } from '@/components/add-to-basket-button';
 import { ProductImage } from '@/components/product-image';
@@ -87,6 +87,18 @@ export function NotificationCenter({ open: controlledOpen, onOpenChange, showTri
         fetchNotifications();
     };
 
+    const deleteNotification = async (e: React.MouseEvent, notificationId: string) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const res = await fetch(`/api/notifications?id=${encodeURIComponent(notificationId)}`, { method: 'DELETE', credentials: 'include' });
+        if (res.ok) setNotifications((prev) => prev.filter((n) => n.id !== notificationId));
+    };
+
+    const clearAllNotifications = async () => {
+        const res = await fetch('/api/notifications?all=1', { method: 'DELETE', credentials: 'include' });
+        if (res.ok) setNotifications([]);
+    };
+
     return (
         <div className="relative">
             {showTrigger && (
@@ -113,13 +125,21 @@ export function NotificationCenter({ open: controlledOpen, onOpenChange, showTri
                     <div className="fixed inset-x-3 top-20 md:top-auto md:right-4 md:left-auto md:inset-y-auto md:mt-3 w-auto md:w-80 bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                         <div className="p-4 border-b border-gray-50 flex justify-between items-center bg-gray-50/50">
                             <h3 className="font-bold text-gray-800">Bildirimler</h3>
-                            <div className="flex gap-3">
+                            <div className="flex items-center gap-2">
                                 <button
                                     onClick={markAllAsRead}
                                     className="text-[10px] font-bold text-blue-600 hover:text-blue-800 uppercase tracking-wider"
                                 >
                                     Hepsini Oku
                                 </button>
+                                {notifications.length > 0 && (
+                                    <button
+                                        onClick={clearAllNotifications}
+                                        className="text-[10px] font-bold text-gray-500 hover:text-red-600 uppercase tracking-wider"
+                                    >
+                                        Tümünü Temizle
+                                    </button>
+                                )}
                                 <button onClick={() => setIsOpen(false)}>
                                     <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
                                 </button>
@@ -141,11 +161,19 @@ export function NotificationCenter({ open: controlledOpen, onOpenChange, showTri
                                     return (
                                         <div
                                             key={n.id}
-                                            className={`block p-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''}`}
+                                            className={`block p-4 pr-10 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors relative ${!n.isRead ? 'bg-blue-50/30' : ''}`}
                                         >
                                             {!n.isRead && (
-                                                <div className="absolute top-4 right-4 w-2 h-2 bg-blue-500 rounded-full" />
+                                                <div className="absolute top-4 right-10 w-2 h-2 bg-blue-500 rounded-full" />
                                             )}
+                                            <button
+                                                type="button"
+                                                onClick={(e) => deleteNotification(e, n.id)}
+                                                className="absolute top-3 right-3 p-1 rounded text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+                                                aria-label="Bildirimi sil"
+                                            >
+                                                <Trash2 className="w-3.5 h-3.5" />
+                                            </button>
 
                                             {product ? (
                                                 <div className="flex gap-3 items-center">

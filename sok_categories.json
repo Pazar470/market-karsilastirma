@@ -1,1392 +1,1413 @@
 {
   "market": "Şok",
-  "totalLeafCategories": 231,
+  "totalLeafCategories": 201,
   "categories": [
     {
+      "id": "20644",
+      "code": "oyuncak-c-20644",
+      "name": "Oyuncak",
+      "path": "Oyuncak",
+      "url": "https://www.sokmarket.com.tr/oyuncak-c-20644"
+    },
+    {
       "id": "1790",
+      "code": "mutfak-seker-c-1790",
       "name": "Mutfak Şeker",
       "path": "Yemeklik Malzemeler > Mutfak Şeker",
       "url": "https://www.sokmarket.com.tr/mutfak-seker-c-1790"
     },
     {
       "id": "1782",
+      "code": "un-c-1782",
       "name": "Un",
       "path": "Yemeklik Malzemeler > Un",
       "url": "https://www.sokmarket.com.tr/un-c-1782"
     },
     {
       "id": "1780",
+      "code": "sivi-yaglar-c-1780",
       "name": "Sıvı Yağlar",
       "path": "Yemeklik Malzemeler > Sıvı Yağlar",
       "url": "https://www.sokmarket.com.tr/sivi-yaglar-c-1780"
     },
     {
       "id": "1810",
+      "code": "pirinc-ve-bulgur-c-1810",
       "name": "Pirinç ve Bulgur",
       "path": "Yemeklik Malzemeler > Pirinç ve Bulgur",
       "url": "https://www.sokmarket.com.tr/pirinc-ve-bulgur-c-1810"
     },
     {
       "id": "1820",
+      "code": "bakliyat-c-1820",
       "name": "Bakliyat",
       "path": "Yemeklik Malzemeler > Bakliyat",
       "url": "https://www.sokmarket.com.tr/bakliyat-c-1820"
     },
     {
       "id": "1800",
+      "code": "makarna-ve-manti-c-1800",
       "name": "Makarna ve Mantı",
       "path": "Yemeklik Malzemeler > Makarna ve Mantı",
       "url": "https://www.sokmarket.com.tr/makarna-ve-manti-c-1800"
     },
     {
       "id": "28733",
-      "name": "Makarna Sosları",
-      "path": "Yemeklik Malzemeler > Makarna Sosları",
-      "url": "https://www.sokmarket.com.tr/makarna-soslari-c-28733"
+      "code": "soslar-c-28733",
+      "name": "Soslar",
+      "path": "Yemeklik Malzemeler > Soslar",
+      "url": "https://www.sokmarket.com.tr/soslar-c-28733"
     },
     {
       "id": "1850",
+      "code": "konserve-c-1850",
       "name": "Konserve",
       "path": "Yemeklik Malzemeler > Konserve",
       "url": "https://www.sokmarket.com.tr/konserve-c-1850"
     },
     {
       "id": "1830",
+      "code": "salca-c-1830",
       "name": "Salça",
       "path": "Yemeklik Malzemeler > Salça",
       "url": "https://www.sokmarket.com.tr/salca-c-1830"
     },
     {
       "id": "1870",
-      "name": "Hazır Yemek ve Meze",
-      "path": "Yemeklik Malzemeler > Hazır Yemek ve Meze",
-      "url": "https://www.sokmarket.com.tr/hazir-yemek-ve-meze-c-1870"
+      "code": "hazir-yemek-meze-c-1870",
+      "name": "Hazır Yemek-Meze",
+      "path": "Yemeklik Malzemeler > Hazır Yemek-Meze",
+      "url": "https://www.sokmarket.com.tr/hazir-yemek-meze-c-1870"
     },
     {
       "id": "31727",
+      "code": "margarin-c-31727",
       "name": "Margarin",
       "path": "Yemeklik Malzemeler > Margarin",
       "url": "https://www.sokmarket.com.tr/margarin-c-31727"
     },
     {
       "id": "31355",
-      "name": "Ketçap",
-      "path": "Yemeklik Malzemeler > Ketçap",
-      "url": "https://www.sokmarket.com.tr/ketcap-c-31355"
-    },
-    {
-      "id": "31356",
-      "name": "Mayonez",
-      "path": "Yemeklik Malzemeler > Mayonez",
-      "url": "https://www.sokmarket.com.tr/mayonez-c-31356"
-    },
-    {
-      "id": "72203",
-      "name": "Lezzetlendirici Sos",
-      "path": "Yemeklik Malzemeler > Lezzetlendirici Sos",
-      "url": "https://www.sokmarket.com.tr/lezzetlendirici-sos-c-72203"
-    },
-    {
-      "id": "31728",
-      "name": "Hardal",
-      "path": "Yemeklik Malzemeler > Hardal",
-      "url": "https://www.sokmarket.com.tr/hardal-c-31728"
+      "code": "ketcap-mayonez-hardal-c-31355",
+      "name": "Ketçap-Mayonez-Hardal",
+      "path": "Yemeklik Malzemeler > Ketçap-Mayonez-Hardal",
+      "url": "https://www.sokmarket.com.tr/ketcap-mayonez-hardal-c-31355"
     },
     {
       "id": "28478",
+      "code": "corba-c-28478",
       "name": "Çorba",
       "path": "Yemeklik Malzemeler > Çorba",
       "url": "https://www.sokmarket.com.tr/corba-c-28478"
     },
     {
       "id": "1890",
-      "name": "Tuz, Baharat",
-      "path": "Yemeklik Malzemeler > Tuz, Baharat",
-      "url": "https://www.sokmarket.com.tr/tuz-baharat-c-1890"
-    },
-    {
-      "id": "27430",
-      "name": "Harç",
-      "path": "Yemeklik Malzemeler > Harç",
-      "url": "https://www.sokmarket.com.tr/harc-c-27430"
-    },
-    {
-      "id": "28477",
-      "name": "Bulyon",
-      "path": "Yemeklik Malzemeler > Bulyon",
-      "url": "https://www.sokmarket.com.tr/bulyon-c-28477"
-    },
-    {
-      "id": "22773",
-      "name": "Balık Konservesi",
-      "path": "Yemeklik Malzemeler > Balık Konservesi",
-      "url": "https://www.sokmarket.com.tr/balik-konservesi-c-22773"
-    },
-    {
-      "id": "34660",
-      "name": "Limon Suyu",
-      "path": "Yemeklik Malzemeler > Limon Suyu",
-      "url": "https://www.sokmarket.com.tr/limon-suyu-c-34660"
-    },
-    {
-      "id": "1900",
-      "name": "Salata Sosu",
-      "path": "Yemeklik Malzemeler > Salata Sosu",
-      "url": "https://www.sokmarket.com.tr/salata-sosu-c-1900"
-    },
-    {
-      "id": "50528",
-      "name": "Nar Ekşisi",
-      "path": "Yemeklik Malzemeler > Nar Ekşisi",
-      "url": "https://www.sokmarket.com.tr/nar-eksisi-c-50528"
-    },
-    {
-      "id": "27178",
-      "name": "Soya ve Diğer Soslar",
-      "path": "Yemeklik Malzemeler > Soya ve Diğer Soslar",
-      "url": "https://www.sokmarket.com.tr/soya-ve-diger-soslar-c-27178"
+      "code": "tuz-baharat-bulyon-ve-harc-c-1890",
+      "name": "Tuz, Baharat, Bulyon ve Harç",
+      "path": "Yemeklik Malzemeler > Tuz, Baharat, Bulyon ve Harç",
+      "url": "https://www.sokmarket.com.tr/tuz-baharat-bulyon-ve-harc-c-1890"
     },
     {
       "id": "20375",
+      "code": "hamur-ve-pasta-malzemeleri-c-20375",
       "name": "Hamur ve Pasta Malzemeleri",
       "path": "Yemeklik Malzemeler > Hamur ve Pasta Malzemeleri",
       "url": "https://www.sokmarket.com.tr/hamur-ve-pasta-malzemeleri-c-20375"
     },
     {
       "id": "1860",
+      "code": "tursu-c-1860",
       "name": "Turşu",
       "path": "Yemeklik Malzemeler > Turşu",
       "url": "https://www.sokmarket.com.tr/tursu-c-1860"
     },
     {
       "id": "28732",
+      "code": "ramazan-kolisi-c-28732",
       "name": "Ramazan Kolisi",
       "path": "Yemeklik Malzemeler > Ramazan Kolisi",
       "url": "https://www.sokmarket.com.tr/ramazan-kolisi-c-28732"
     },
     {
       "id": "28484",
+      "code": "firindan-sicak-c-28484",
       "name": "Fırından Sıcak",
       "path": "Yemeklik Malzemeler > Fırından Sıcak",
       "url": "https://www.sokmarket.com.tr/firindan-sicak-c-28484"
     },
     {
-      "id": "160",
-      "name": "Et & Tavuk & Şarküteri",
-      "path": "Yemeklik Malzemeler > Et & Tavuk & Şarküteri",
-      "url": "https://www.sokmarket.com.tr//et-ve-tavuk-ve-sarkuteri-c-160"
-    },
-    {
-      "id": "20",
-      "name": "Meyve & Sebze",
-      "path": "Yemeklik Malzemeler > Meyve & Sebze",
-      "url": "https://www.sokmarket.com.tr//meyve-ve-sebze-c-20"
-    },
-    {
-      "id": "460",
-      "name": "Süt & Süt Ürünleri",
-      "path": "Yemeklik Malzemeler > Süt & Süt Ürünleri",
-      "url": "https://www.sokmarket.com.tr//sut-ve-sut-urunleri-c-460"
-    },
-    {
-      "id": "890",
-      "name": "Kahvaltılık",
-      "path": "Yemeklik Malzemeler > Kahvaltılık",
-      "url": "https://www.sokmarket.com.tr//kahvaltilik-c-890"
-    },
-    {
-      "id": "20376",
-      "name": "Atıştırmalık",
-      "path": "Yemeklik Malzemeler > Atıştırmalık",
-      "url": "https://www.sokmarket.com.tr//atistirmaliklar-c-20376"
-    },
-    {
-      "id": "20505",
-      "name": "İçecek",
-      "path": "Yemeklik Malzemeler > İçecek",
-      "url": "https://www.sokmarket.com.tr//icecek-c-20505"
-    },
-    {
-      "id": "1250",
-      "name": "Ekmek & Pastane",
-      "path": "Yemeklik Malzemeler > Ekmek & Pastane",
-      "url": "https://www.sokmarket.com.tr//ekmek-ve-pastane-c-1250"
-    },
-    {
-      "id": "1550",
-      "name": "Dondurulmuş Ürünler",
-      "path": "Yemeklik Malzemeler > Dondurulmuş Ürünler",
-      "url": "https://www.sokmarket.com.tr//dondurulmus-urunler-c-1550"
-    },
-    {
-      "id": "31102",
-      "name": "Dondurma",
-      "path": "Yemeklik Malzemeler > Dondurma",
-      "url": "https://www.sokmarket.com.tr//dondurma-c-31102"
-    },
-    {
-      "id": "20647",
-      "name": "Temizlik",
-      "path": "Yemeklik Malzemeler > Temizlik",
-      "url": "https://www.sokmarket.com.tr//temizlik-c-20647"
-    },
-    {
-      "id": "20875",
-      "name": "Kağıt Ürünleri",
-      "path": "Yemeklik Malzemeler > Kağıt Ürünleri",
-      "url": "https://www.sokmarket.com.tr//kagit-urunler-c-20875"
-    },
-    {
-      "id": "20395",
-      "name": "Kişisel Bakım & Kozmetik",
-      "path": "Yemeklik Malzemeler > Kişisel Bakım & Kozmetik",
-      "url": "https://www.sokmarket.com.tr//kisisel-bakim-ve-kozmetik-c-20395"
-    },
-    {
-      "id": "20634",
-      "name": "Anne - Bebek & Çocuk",
-      "path": "Yemeklik Malzemeler > Anne - Bebek & Çocuk",
-      "url": "https://www.sokmarket.com.tr//anne-bebek-ve-cocuk-c-20634"
-    },
-    {
-      "id": "20644",
-      "name": "Oyuncak",
-      "path": "Yemeklik Malzemeler > Oyuncak",
-      "url": "https://www.sokmarket.com.tr//oyuncak-c-20644"
-    },
-    {
-      "id": "20898",
-      "name": "Ev & Yaşam",
-      "path": "Yemeklik Malzemeler > Ev & Yaşam",
-      "url": "https://www.sokmarket.com.tr//ev-ve-yasam-c-20898"
-    },
-    {
-      "id": "20880",
-      "name": "Evcil Dostlar",
-      "path": "Yemeklik Malzemeler > Evcil Dostlar",
-      "url": "https://www.sokmarket.com.tr//evcil-dostlar-c-20880"
-    },
-    {
-      "id": "20886",
-      "name": "Giyim & Aksesuar",
-      "path": "Yemeklik Malzemeler > Giyim & Aksesuar",
-      "url": "https://www.sokmarket.com.tr//giyim-ve-ayakkabi-ve-aksesuar-c-20886"
-    },
-    {
-      "id": "22769",
-      "name": "Elektronik",
-      "path": "Yemeklik Malzemeler > Elektronik",
-      "url": "https://www.sokmarket.com.tr//elektronik-c-22769"
-    },
-    {
       "id": "180",
+      "code": "beyaz-et-c-180",
       "name": "Beyaz Et",
-      "path": "Et & Tavuk & Şarküteri > Beyaz Et",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Beyaz Et",
       "url": "https://www.sokmarket.com.tr/beyaz-et-c-180"
     },
     {
       "id": "31227",
+      "code": "paketli-beyaz-et-c-31227",
       "name": "Paketli Beyaz Et",
-      "path": "Et & Tavuk & Şarküteri > Paketli Beyaz Et",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Paketli Beyaz Et",
       "url": "https://www.sokmarket.com.tr/paketli-beyaz-et-c-31227"
     },
     {
       "id": "170",
+      "code": "kirmizi-et-c-170",
       "name": "Kırmızı Et",
-      "path": "Et & Tavuk & Şarküteri > Kırmızı Et",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Kırmızı Et",
       "url": "https://www.sokmarket.com.tr/kirmizi-et-c-170"
     },
     {
       "id": "190",
+      "code": "yumurta-c-190",
       "name": "Yumurta",
-      "path": "Et & Tavuk & Şarküteri > Yumurta",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Yumurta",
       "url": "https://www.sokmarket.com.tr/yumurta-c-190"
     },
     {
       "id": "200",
+      "code": "sucuk-c-200",
       "name": "Sucuk",
-      "path": "Et & Tavuk & Şarküteri > Sucuk",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Sucuk",
       "url": "https://www.sokmarket.com.tr/sucuk-c-200"
     },
     {
       "id": "31229",
+      "code": "salam-c-31229",
       "name": "Salam",
-      "path": "Et & Tavuk & Şarküteri > Salam",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Salam",
       "url": "https://www.sokmarket.com.tr/salam-c-31229"
     },
     {
       "id": "31228",
+      "code": "sosis-c-31228",
       "name": "Sosis",
-      "path": "Et & Tavuk & Şarküteri > Sosis",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Sosis",
       "url": "https://www.sokmarket.com.tr/sosis-c-31228"
     },
     {
       "id": "31353",
+      "code": "kavurma-c-31353",
       "name": "Kavurma",
-      "path": "Et & Tavuk & Şarküteri > Kavurma",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Kavurma",
       "url": "https://www.sokmarket.com.tr/kavurma-c-31353"
     },
     {
       "id": "29728",
+      "code": "fume-urunler-c-29728",
       "name": "Füme Ürünler",
-      "path": "Et & Tavuk & Şarküteri > Füme Ürünler",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Füme Ürünler",
       "url": "https://www.sokmarket.com.tr/fume-urunler-c-29728"
     },
     {
       "id": "31354",
+      "code": "pastirma-c-31354",
       "name": "Pastırma",
-      "path": "Et & Tavuk & Şarküteri > Pastırma",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Pastırma",
       "url": "https://www.sokmarket.com.tr/pastirma-c-31354"
     },
     {
       "id": "29859",
+      "code": "jambon-urunleri-c-29859",
       "name": "Jambon Ürünleri",
-      "path": "Et & Tavuk & Şarküteri > Jambon Ürünleri",
+      "path": "Et Ve Tavuk Ve Sarkuteri > Jambon Ürünleri",
       "url": "https://www.sokmarket.com.tr/jambon-urunleri-c-29859"
     },
     {
-      "id": "1770",
-      "name": "Yemeklik Malzemeler",
-      "path": "Et & Tavuk & Şarküteri > Yemeklik Malzemeler",
-      "url": "https://www.sokmarket.com.tr//yemeklik-malzemeler-c-1770"
-    },
-    {
       "id": "30",
+      "code": "patates-sogan-sarimsak-c-30",
       "name": "Patates, Soğan, Sarımsak",
-      "path": "Meyve & Sebze > Patates, Soğan, Sarımsak",
+      "path": "Meyve Ve Sebze > Patates, Soğan, Sarımsak",
       "url": "https://www.sokmarket.com.tr/patates-sogan-sarimsak-c-30"
     },
     {
       "id": "50",
+      "code": "meyve-c-50",
       "name": "Meyve",
-      "path": "Meyve & Sebze > Meyve",
+      "path": "Meyve Ve Sebze > Meyve",
       "url": "https://www.sokmarket.com.tr/meyve-c-50"
     },
     {
       "id": "60",
+      "code": "narenciye-c-60",
       "name": "Narenciye",
-      "path": "Meyve & Sebze > Narenciye",
+      "path": "Meyve Ve Sebze > Narenciye",
       "url": "https://www.sokmarket.com.tr/narenciye-c-60"
     },
     {
       "id": "40",
+      "code": "sebze-c-40",
       "name": "Sebze",
-      "path": "Meyve & Sebze > Sebze",
+      "path": "Meyve Ve Sebze > Sebze",
       "url": "https://www.sokmarket.com.tr/sebze-c-40"
     },
     {
       "id": "80",
+      "code": "yesillikler-ve-otlar-c-80",
       "name": "Yeşillikler ve Otlar",
-      "path": "Meyve & Sebze > Yeşillikler ve Otlar",
+      "path": "Meyve Ve Sebze > Yeşillikler ve Otlar",
       "url": "https://www.sokmarket.com.tr/yesillikler-ve-otlar-c-80"
     },
     {
       "id": "90",
+      "code": "kurutulmus-meyve-ve-sebze-c-90",
       "name": "Kurutulmuş  Meyve ve Sebze",
-      "path": "Meyve & Sebze > Kurutulmuş  Meyve ve Sebze",
+      "path": "Meyve Ve Sebze > Kurutulmuş  Meyve ve Sebze",
       "url": "https://www.sokmarket.com.tr/kurutulmus-meyve-ve-sebze-c-90"
     },
     {
       "id": "110",
+      "code": "kabuklu-sert-meyveler-c-110",
       "name": "Kabuklu Sert Meyveler",
-      "path": "Meyve & Sebze > Kabuklu Sert Meyveler",
+      "path": "Meyve Ve Sebze > Kabuklu Sert Meyveler",
       "url": "https://www.sokmarket.com.tr/kabuklu-sert-meyveler-c-110"
     },
     {
       "id": "30728",
+      "code": "hurmalar-c-30728",
       "name": "Hurmalar",
-      "path": "Meyve & Sebze > Hurmalar",
+      "path": "Meyve Ve Sebze > Hurmalar",
       "url": "https://www.sokmarket.com.tr/hurmalar-c-30728"
     },
     {
       "id": "470",
+      "code": "sut-c-470",
       "name": "Süt",
-      "path": "Süt & Süt Ürünleri > Süt",
+      "path": "Sut Ve Sut Urunleri > Süt",
       "url": "https://www.sokmarket.com.tr/sut-c-470"
     },
     {
       "id": "500",
+      "code": "beyaz-peynir-c-500",
       "name": "Beyaz Peynir",
-      "path": "Süt & Süt Ürünleri > Beyaz Peynir",
+      "path": "Sut Ve Sut Urunleri > Beyaz Peynir",
       "url": "https://www.sokmarket.com.tr/beyaz-peynir-c-500"
     },
     {
       "id": "530",
+      "code": "yoresel-peynir-c-530",
       "name": "Yöresel Peynir",
-      "path": "Süt & Süt Ürünleri > Yöresel Peynir",
+      "path": "Sut Ve Sut Urunleri > Yöresel Peynir",
       "url": "https://www.sokmarket.com.tr/yoresel-peynir-c-530"
     },
     {
       "id": "520",
+      "code": "kasar-peynir-c-520",
       "name": "Kaşar Peynir",
-      "path": "Süt & Süt Ürünleri > Kaşar Peynir",
+      "path": "Sut Ve Sut Urunleri > Kaşar Peynir",
       "url": "https://www.sokmarket.com.tr/kasar-peynir-c-520"
     },
     {
       "id": "480",
+      "code": "yogurt-c-480",
       "name": "Yoğurt",
-      "path": "Süt & Süt Ürünleri > Yoğurt",
+      "path": "Sut Ve Sut Urunleri > Yoğurt",
       "url": "https://www.sokmarket.com.tr/yogurt-c-480"
     },
     {
       "id": "31602",
+      "code": "tereyag-c-31602",
       "name": "Tereyağ",
-      "path": "Süt & Süt Ürünleri > Tereyağ",
+      "path": "Sut Ve Sut Urunleri > Tereyağ",
       "url": "https://www.sokmarket.com.tr/tereyag-c-31602"
     },
     {
       "id": "510",
+      "code": "krem-peynir-c-510",
       "name": "Krem Peynir",
-      "path": "Süt & Süt Ürünleri > Krem Peynir",
+      "path": "Sut Ve Sut Urunleri > Krem Peynir",
       "url": "https://www.sokmarket.com.tr/krem-peynir-c-510"
     },
     {
       "id": "540",
+      "code": "kaymak-ve-krema-c-540",
       "name": "Kaymak ve Krema",
-      "path": "Süt & Süt Ürünleri > Kaymak ve Krema",
+      "path": "Sut Ve Sut Urunleri > Kaymak ve Krema",
       "url": "https://www.sokmarket.com.tr/kaymak-ve-krema-c-540"
     },
     {
       "id": "31109",
+      "code": "ayran-c-31109",
       "name": "Ayran",
-      "path": "Süt & Süt Ürünleri > Ayran",
+      "path": "Sut Ve Sut Urunleri > Ayran",
       "url": "https://www.sokmarket.com.tr/ayran-c-31109"
     },
     {
       "id": "590",
+      "code": "cocuk-urunleri-c-590",
       "name": "Çocuk Ürünleri",
-      "path": "Süt & Süt Ürünleri > Çocuk Ürünleri",
+      "path": "Sut Ve Sut Urunleri > Çocuk Ürünleri",
       "url": "https://www.sokmarket.com.tr/cocuk-urunleri-c-590"
     },
     {
       "id": "31110",
+      "code": "kefir-c-31110",
       "name": "Kefir",
-      "path": "Süt & Süt Ürünleri > Kefir",
+      "path": "Sut Ve Sut Urunleri > Kefir",
       "url": "https://www.sokmarket.com.tr/kefir-c-31110"
     },
     {
       "id": "580",
+      "code": "tatli-ve-puding-c-580",
       "name": "Tatlı ve Puding",
-      "path": "Süt & Süt Ürünleri > Tatlı ve Puding",
+      "path": "Sut Ve Sut Urunleri > Tatlı ve Puding",
       "url": "https://www.sokmarket.com.tr/tatli-ve-puding-c-580"
     },
     {
       "id": "895",
+      "code": "yumurta-c-895",
       "name": "Yumurta",
-      "path": "Kahvaltılık > Yumurta",
+      "path": "Kahvaltilik > Yumurta",
       "url": "https://www.sokmarket.com.tr/yumurta-c-895"
     },
     {
       "id": "900",
+      "code": "zeytin-c-900",
       "name": "Zeytin",
-      "path": "Kahvaltılık > Zeytin",
+      "path": "Kahvaltilik > Zeytin",
       "url": "https://www.sokmarket.com.tr/zeytin-c-900"
     },
     {
       "id": "982",
+      "code": "beyaz-peynir-c-982",
       "name": "Beyaz Peynir",
-      "path": "Kahvaltılık > Beyaz Peynir",
+      "path": "Kahvaltilik > Beyaz Peynir",
       "url": "https://www.sokmarket.com.tr/beyaz-peynir-c-982"
     },
     {
       "id": "984",
+      "code": "kasar-peynir-c-984",
       "name": "Kaşar Peynir",
-      "path": "Kahvaltılık > Kaşar Peynir",
+      "path": "Kahvaltilik > Kaşar Peynir",
       "url": "https://www.sokmarket.com.tr/kasar-peynir-c-984"
     },
     {
       "id": "52457",
+      "code": "krem-peynir-c-52457",
       "name": "Krem Peynir",
-      "path": "Kahvaltılık > Krem Peynir",
+      "path": "Kahvaltilik > Krem Peynir",
       "url": "https://www.sokmarket.com.tr/krem-peynir-c-52457"
     },
     {
       "id": "986",
+      "code": "yoresel-peynir-c-986",
       "name": "Yöresel Peynir",
-      "path": "Kahvaltılık > Yöresel Peynir",
+      "path": "Kahvaltilik > Yöresel Peynir",
       "url": "https://www.sokmarket.com.tr/yoresel-peynir-c-986"
     },
     {
       "id": "960",
+      "code": "cay-c-960",
       "name": "Çay",
-      "path": "Kahvaltılık > Çay",
+      "path": "Kahvaltilik > Çay",
       "url": "https://www.sokmarket.com.tr/cay-c-960"
     },
     {
       "id": "43178",
+      "code": "kahve-c-43178",
       "name": "Kahve",
-      "path": "Kahvaltılık > Kahve",
+      "path": "Kahvaltilik > Kahve",
       "url": "https://www.sokmarket.com.tr/kahve-c-43178"
     },
     {
       "id": "45153",
+      "code": "sut-c-45153",
       "name": "Süt",
-      "path": "Kahvaltılık > Süt",
+      "path": "Kahvaltilik > Süt",
       "url": "https://www.sokmarket.com.tr/sut-c-45153"
     },
     {
       "id": "910",
+      "code": "recel-c-910",
       "name": "Reçel",
-      "path": "Kahvaltılık > Reçel",
+      "path": "Kahvaltilik > Reçel",
       "url": "https://www.sokmarket.com.tr/recel-c-910"
     },
     {
       "id": "920",
+      "code": "bal-c-920",
       "name": "Bal",
-      "path": "Kahvaltılık > Bal",
+      "path": "Kahvaltilik > Bal",
       "url": "https://www.sokmarket.com.tr/bal-c-920"
     },
     {
       "id": "940",
+      "code": "tahin-pekmez-ve-helva-c-940",
       "name": "Tahin, Pekmez ve Helva",
-      "path": "Kahvaltılık > Tahin, Pekmez ve Helva",
+      "path": "Kahvaltilik > Tahin, Pekmez ve Helva",
       "url": "https://www.sokmarket.com.tr/tahin-pekmez-ve-helva-c-940"
     },
     {
       "id": "930",
+      "code": "krem-cikolata-ve-ezme-c-930",
       "name": "Krem Çikolata ve Ezme",
-      "path": "Kahvaltılık > Krem Çikolata ve Ezme",
+      "path": "Kahvaltilik > Krem Çikolata ve Ezme",
       "url": "https://www.sokmarket.com.tr/krem-cikolata-ve-ezme-c-930"
     },
     {
       "id": "31603",
+      "code": "sucuk-c-31603",
       "name": "Sucuk",
-      "path": "Kahvaltılık > Sucuk",
+      "path": "Kahvaltilik > Sucuk",
       "url": "https://www.sokmarket.com.tr/sucuk-c-31603"
     },
     {
       "id": "31604",
+      "code": "salam-c-31604",
       "name": "Salam",
-      "path": "Kahvaltılık > Salam",
+      "path": "Kahvaltilik > Salam",
       "url": "https://www.sokmarket.com.tr/salam-c-31604"
     },
     {
       "id": "31605",
+      "code": "sosis-c-31605",
       "name": "Sosis",
-      "path": "Kahvaltılık > Sosis",
+      "path": "Kahvaltilik > Sosis",
       "url": "https://www.sokmarket.com.tr/sosis-c-31605"
     },
     {
       "id": "31118",
+      "code": "kavurma-c-31118",
       "name": "Kavurma",
-      "path": "Kahvaltılık > Kavurma",
+      "path": "Kahvaltilik > Kavurma",
       "url": "https://www.sokmarket.com.tr/kavurma-c-31118"
     },
     {
       "id": "31117",
+      "code": "pastirma-c-31117",
       "name": "Pastırma",
-      "path": "Kahvaltılık > Pastırma",
+      "path": "Kahvaltilik > Pastırma",
       "url": "https://www.sokmarket.com.tr/pastirma-c-31117"
     },
     {
       "id": "950",
+      "code": "kahvaltilik-gevrek-c-950",
       "name": "Kahvaltılık Gevrek",
-      "path": "Kahvaltılık > Kahvaltılık Gevrek",
+      "path": "Kahvaltilik > Kahvaltılık Gevrek",
       "url": "https://www.sokmarket.com.tr/kahvaltilik-gevrek-c-950"
     },
     {
       "id": "989",
+      "code": "kahvaltilik-soslar-c-989",
       "name": "Kahvaltılık Soslar",
-      "path": "Kahvaltılık > Kahvaltılık Soslar",
+      "path": "Kahvaltilik > Kahvaltılık Soslar",
       "url": "https://www.sokmarket.com.tr/kahvaltilik-soslar-c-989"
     },
     {
       "id": "20383",
+      "code": "cips-c-20383",
       "name": "Cips",
-      "path": "Atıştırmalıklar > Cips",
+      "path": "Atistirmaliklar > Cips",
       "url": "https://www.sokmarket.com.tr/cips-c-20383"
     },
     {
       "id": "20382",
+      "code": "kuruyemis-c-20382",
       "name": "Kuruyemiş",
-      "path": "Atıştırmalıklar > Kuruyemiş",
+      "path": "Atistirmaliklar > Kuruyemiş",
       "url": "https://www.sokmarket.com.tr/kuruyemis-c-20382"
     },
     {
       "id": "20377",
+      "code": "cikolata-c-20377",
       "name": "Çikolata",
-      "path": "Atıştırmalıklar > Çikolata",
+      "path": "Atistirmaliklar > Çikolata",
       "url": "https://www.sokmarket.com.tr/cikolata-c-20377"
     },
     {
       "id": "20384",
+      "code": "draje-c-20384",
       "name": "Draje",
-      "path": "Atıştırmalıklar > Draje",
+      "path": "Atistirmaliklar > Draje",
       "url": "https://www.sokmarket.com.tr/draje-c-20384"
     },
     {
       "id": "20379",
+      "code": "gofret-c-20379",
       "name": "Gofret",
-      "path": "Atıştırmalıklar > Gofret",
+      "path": "Atistirmaliklar > Gofret",
       "url": "https://www.sokmarket.com.tr/gofret-c-20379"
     },
     {
       "id": "20378",
+      "code": "biskuvi-c-20378",
       "name": "Bisküvi",
-      "path": "Atıştırmalıklar > Bisküvi",
+      "path": "Atistirmaliklar > Bisküvi",
       "url": "https://www.sokmarket.com.tr/biskuvi-c-20378"
     },
     {
       "id": "20380",
+      "code": "kraker-ve-tuzlu-biskuvi-c-20380",
       "name": "Kraker ve Tuzlu Bisküvi",
-      "path": "Atıştırmalıklar > Kraker ve Tuzlu Bisküvi",
+      "path": "Atistirmaliklar > Kraker ve Tuzlu Bisküvi",
       "url": "https://www.sokmarket.com.tr/kraker-ve-tuzlu-biskuvi-c-20380"
     },
     {
       "id": "20381",
+      "code": "kek-c-20381",
       "name": "Kek",
-      "path": "Atıştırmalıklar > Kek",
+      "path": "Atistirmaliklar > Kek",
       "url": "https://www.sokmarket.com.tr/kek-c-20381"
     },
     {
       "id": "20386",
+      "code": "ikramlik-urunler-c-20386",
       "name": "İkramlık Ürünler",
-      "path": "Atıştırmalıklar > İkramlık Ürünler",
+      "path": "Atistirmaliklar > İkramlık Ürünler",
       "url": "https://www.sokmarket.com.tr/ikramlik-urunler-c-20386"
     },
     {
       "id": "20388",
+      "code": "sekerleme-c-20388",
       "name": "Şekerleme",
-      "path": "Atıştırmalıklar > Şekerleme",
+      "path": "Atistirmaliklar > Şekerleme",
       "url": "https://www.sokmarket.com.tr/sekerleme-c-20388"
     },
     {
       "id": "20387",
+      "code": "sakiz-c-20387",
       "name": "Sakız",
-      "path": "Atıştırmalıklar > Sakız",
+      "path": "Atistirmaliklar > Sakız",
       "url": "https://www.sokmarket.com.tr/sakiz-c-20387"
     },
     {
       "id": "20389",
+      "code": "light-urunler-ve-protein-bar-c-20389",
       "name": "Light Ürünler ve Protein Bar",
-      "path": "Atıştırmalıklar > Light Ürünler ve Protein Bar",
+      "path": "Atistirmaliklar > Light Ürünler ve Protein Bar",
       "url": "https://www.sokmarket.com.tr/light-urunler-ve-protein-bar-c-20389"
     },
     {
       "id": "20506",
+      "code": "su-c-20506",
       "name": "Su",
-      "path": "İçecek > Su",
+      "path": "Icecek > Su",
       "url": "https://www.sokmarket.com.tr/su-c-20506"
     },
     {
       "id": "20507",
+      "code": "maden-suyu-c-20507",
       "name": "Maden Suyu",
-      "path": "İçecek > Maden Suyu",
+      "path": "Icecek > Maden Suyu",
       "url": "https://www.sokmarket.com.tr/maden-suyu-c-20507"
     },
     {
       "id": "20510",
+      "code": "meyve-suyu-c-20510",
       "name": "Meyve Suyu",
-      "path": "İçecek > Meyve Suyu",
+      "path": "Icecek > Meyve Suyu",
       "url": "https://www.sokmarket.com.tr/meyve-suyu-c-20510"
     },
     {
       "id": "20508",
+      "code": "kola-c-20508",
       "name": "Kola",
-      "path": "İçecek > Kola",
+      "path": "Icecek > Kola",
       "url": "https://www.sokmarket.com.tr/kola-c-20508"
     },
     {
       "id": "20509",
+      "code": "gazoz-c-20509",
       "name": "Gazoz",
-      "path": "İçecek > Gazoz",
+      "path": "Icecek > Gazoz",
       "url": "https://www.sokmarket.com.tr/gazoz-c-20509"
     },
     {
       "id": "20391",
+      "code": "cay-c-20391",
       "name": "Çay",
-      "path": "İçecek > Çay",
+      "path": "Icecek > Çay",
       "url": "https://www.sokmarket.com.tr/cay-c-20391"
     },
     {
       "id": "20393",
+      "code": "kahve-c-20393",
       "name": "Kahve",
-      "path": "İçecek > Kahve",
+      "path": "Icecek > Kahve",
       "url": "https://www.sokmarket.com.tr/kahve-c-20393"
     },
     {
       "id": "20512",
+      "code": "enerji-icecegi-c-20512",
       "name": "Enerji İçeceği",
-      "path": "İçecek > Enerji İçeceği",
+      "path": "Icecek > Enerji İçeceği",
       "url": "https://www.sokmarket.com.tr/enerji-icecegi-c-20512"
     },
     {
       "id": "52453",
+      "code": "ayran-c-52453",
       "name": "Ayran",
-      "path": "İçecek > Ayran",
+      "path": "Icecek > Ayran",
       "url": "https://www.sokmarket.com.tr/ayran-c-52453"
     },
     {
       "id": "52454",
+      "code": "kefir-c-52454",
       "name": "Kefir",
-      "path": "İçecek > Kefir",
+      "path": "Icecek > Kefir",
       "url": "https://www.sokmarket.com.tr/kefir-c-52454"
     },
     {
       "id": "20515",
+      "code": "fonksiyonel-icecekler-c-20515",
       "name": "Fonksiyonel İçecekler",
-      "path": "İçecek > Fonksiyonel İçecekler",
+      "path": "Icecek > Fonksiyonel İçecekler",
       "url": "https://www.sokmarket.com.tr/fonksiyonel-icecekler-c-20515"
     },
     {
       "id": "30238",
+      "code": "boza-ve-malt-icecekler-c-30238",
       "name": "Boza ve Malt İçecekler",
-      "path": "İçecek > Boza ve Malt İçecekler",
+      "path": "Icecek > Boza ve Malt İçecekler",
       "url": "https://www.sokmarket.com.tr/boza-ve-malt-icecekler-c-30238"
     },
     {
       "id": "20511",
+      "code": "limonata-salgam-ve-serbet-c-20511",
       "name": "Limonata, Şalgam ve Şerbet",
-      "path": "İçecek > Limonata, Şalgam ve Şerbet",
+      "path": "Icecek > Limonata, Şalgam ve Şerbet",
       "url": "https://www.sokmarket.com.tr/limonata-salgam-ve-serbet-c-20511"
     },
     {
       "id": "31729",
+      "code": "soguk-cay-c-31729",
       "name": "Soğuk Çay",
-      "path": "İçecek > Soğuk Çay",
+      "path": "Icecek > Soğuk Çay",
       "url": "https://www.sokmarket.com.tr/soguk-cay-c-31729"
     },
     {
       "id": "31730",
+      "code": "soguk-kahve-c-31730",
       "name": "Soğuk Kahve",
-      "path": "İçecek > Soğuk Kahve",
+      "path": "Icecek > Soğuk Kahve",
       "url": "https://www.sokmarket.com.tr/soguk-kahve-c-31730"
     },
     {
       "id": "29623",
+      "code": "soguk-toz-icecekler-c-29623",
       "name": "Soğuk Toz İçecekler",
-      "path": "İçecek > Soğuk Toz İçecekler",
+      "path": "Icecek > Soğuk Toz İçecekler",
       "url": "https://www.sokmarket.com.tr/soguk-toz-icecekler-c-29623"
     },
     {
       "id": "1240",
+      "code": "ekmek-c-1240",
       "name": "Ekmek",
-      "path": "Ekmek & Pastane > Ekmek",
+      "path": "Ekmek Ve Pastane > Ekmek",
       "url": "https://www.sokmarket.com.tr/ekmek-c-1240"
     },
     {
       "id": "1260",
+      "code": "firindan-sicak-c-1260",
       "name": "Fırından Sıcak",
-      "path": "Ekmek & Pastane > Fırından Sıcak",
+      "path": "Ekmek Ve Pastane > Fırından Sıcak",
       "url": "https://www.sokmarket.com.tr/firindan-sicak-c-1260"
     },
     {
       "id": "29110",
+      "code": "unlu-mamuller-c-29110",
       "name": "Unlu Mamüller",
-      "path": "Ekmek & Pastane > Unlu Mamüller",
+      "path": "Ekmek Ve Pastane > Unlu Mamüller",
       "url": "https://www.sokmarket.com.tr/unlu-mamuller-c-29110"
     },
     {
       "id": "1270",
+      "code": "paketli-ekmekler-c-1270",
       "name": "Paketli Ekmekler",
-      "path": "Ekmek & Pastane > Paketli Ekmekler",
+      "path": "Ekmek Ve Pastane > Paketli Ekmekler",
       "url": "https://www.sokmarket.com.tr/paketli-ekmekler-c-1270"
     },
     {
       "id": "54427",
+      "code": "hamur-ve-pasta-malzemeleri-c-54427",
       "name": "Hamur ve Pasta Malzemeleri",
-      "path": "Ekmek & Pastane > Hamur ve Pasta Malzemeleri",
+      "path": "Ekmek Ve Pastane > Hamur ve Pasta Malzemeleri",
       "url": "https://www.sokmarket.com.tr/hamur-ve-pasta-malzemeleri-c-54427"
     },
     {
       "id": "1280",
+      "code": "katmer-lavas-ve-bazlama-c-1280",
       "name": "Katmer, Lavaş ve Bazlama",
-      "path": "Ekmek & Pastane > Katmer, Lavaş ve Bazlama",
+      "path": "Ekmek Ve Pastane > Katmer, Lavaş ve Bazlama",
       "url": "https://www.sokmarket.com.tr/katmer-lavas-ve-bazlama-c-1280"
     },
     {
       "id": "52455",
+      "code": "kurabiye-kuruvasan-simit-c-52455",
       "name": "Kurabiye, Kuruvasan, Simit",
-      "path": "Ekmek & Pastane > Kurabiye, Kuruvasan, Simit",
+      "path": "Ekmek Ve Pastane > Kurabiye, Kuruvasan, Simit",
       "url": "https://www.sokmarket.com.tr/kurabiye-kuruvasan-simit-c-52455"
     },
     {
       "id": "1300",
+      "code": "galeta-ve-grissini-c-1300",
       "name": "Galeta ve Grissini",
-      "path": "Ekmek & Pastane > Galeta ve Grissini",
+      "path": "Ekmek Ve Pastane > Galeta ve Grissini",
       "url": "https://www.sokmarket.com.tr/galeta-ve-grissini-c-1300"
     },
     {
       "id": "1590",
+      "code": "dondurulmus-et-urunleri-c-1590",
       "name": "Dondurulmuş Et Ürünleri",
-      "path": "Dondurulmuş Ürünler > Dondurulmuş Et Ürünleri",
+      "path": "Dondurulmus Urunler > Dondurulmuş Et Ürünleri",
       "url": "https://www.sokmarket.com.tr/dondurulmus-et-urunleri-c-1590"
     },
     {
       "id": "1580",
+      "code": "dondurulmus-pizzalar-c-1580",
       "name": "Dondurulmuş Pizzalar",
-      "path": "Dondurulmuş Ürünler > Dondurulmuş Pizzalar",
+      "path": "Dondurulmus Urunler > Dondurulmuş Pizzalar",
       "url": "https://www.sokmarket.com.tr/dondurulmus-pizzalar-c-1580"
     },
     {
       "id": "1610",
+      "code": "dondurulmus-hamur-isleri-c-1610",
       "name": "Dondurulmuş Hamur İşleri",
-      "path": "Dondurulmuş Ürünler > Dondurulmuş Hamur İşleri",
+      "path": "Dondurulmus Urunler > Dondurulmuş Hamur İşleri",
       "url": "https://www.sokmarket.com.tr/dondurulmus-hamur-isleri-c-1610"
     },
     {
+      "id": "1620",
+      "code": "dondurulmus-pasta-ve-tatli-c-1620",
+      "name": "Dondurulmuş Pasta ve Tatlı",
+      "path": "Dondurulmus Urunler > Dondurulmuş Pasta ve Tatlı",
+      "url": "https://www.sokmarket.com.tr/dondurulmus-pasta-ve-tatli-c-1620"
+    },
+    {
       "id": "1570",
+      "code": "dondurulmus-sebze-meyve-c-1570",
       "name": "Dondurulmuş Sebze Meyve",
-      "path": "Dondurulmuş Ürünler > Dondurulmuş Sebze Meyve",
+      "path": "Dondurulmus Urunler > Dondurulmuş Sebze Meyve",
       "url": "https://www.sokmarket.com.tr/dondurulmus-sebze-meyve-c-1570"
     },
     {
       "id": "1600",
+      "code": "dondurulmus-deniz-urunleri-c-1600",
       "name": "Dondurulmuş Deniz Ürünleri",
-      "path": "Dondurulmuş Ürünler > Dondurulmuş Deniz Ürünleri",
+      "path": "Dondurulmus Urunler > Dondurulmuş Deniz Ürünleri",
       "url": "https://www.sokmarket.com.tr/dondurulmus-deniz-urunleri-c-1600"
     },
     {
       "id": "31103",
+      "code": "tek-dondurma-c-31103",
       "name": "Tek Dondurma",
       "path": "Dondurma > Tek Dondurma",
       "url": "https://www.sokmarket.com.tr/tek-dondurma-c-31103"
     },
     {
       "id": "31104",
+      "code": "kap-dondurma-c-31104",
       "name": "Kap Dondurma",
       "path": "Dondurma > Kap Dondurma",
       "url": "https://www.sokmarket.com.tr/kap-dondurma-c-31104"
     },
     {
       "id": "31105",
+      "code": "coklu-paket-c-31105",
       "name": "Çoklu Paket",
       "path": "Dondurma > Çoklu Paket",
       "url": "https://www.sokmarket.com.tr/coklu-paket-c-31105"
     },
     {
       "id": "20649",
+      "code": "camasir-c-20649",
       "name": "Çamaşır",
       "path": "Temizlik > Çamaşır",
       "url": "https://www.sokmarket.com.tr/camasir-c-20649"
     },
     {
       "id": "20648",
+      "code": "bulasik-c-20648",
       "name": "Bulaşık",
       "path": "Temizlik > Bulaşık",
       "url": "https://www.sokmarket.com.tr/bulasik-c-20648"
     },
     {
       "id": "20518",
+      "code": "camasir-suyu-c-20518",
       "name": "Çamaşır Suyu",
       "path": "Temizlik > Çamaşır Suyu",
       "url": "https://www.sokmarket.com.tr/camasir-suyu-c-20518"
     },
     {
       "id": "20750",
+      "code": "ev-ve-yuzey-temizleyicileri-c-20750",
       "name": "Ev ve Yüzey Temizleyicileri",
       "path": "Temizlik > Ev ve Yüzey Temizleyicileri",
       "url": "https://www.sokmarket.com.tr/ev-ve-yuzey-temizleyicileri-c-20750"
     },
     {
       "id": "20521",
+      "code": "genel-temizlik-malzemeleri-c-20521",
       "name": "Genel Temizlik Malzemeleri",
       "path": "Temizlik > Genel Temizlik Malzemeleri",
       "url": "https://www.sokmarket.com.tr/genel-temizlik-malzemeleri-c-20521"
     },
     {
       "id": "78927",
+      "code": "temizlik-havlusu-c-78927",
       "name": "Temizlik Havlusu",
       "path": "Temizlik > Temizlik Havlusu",
       "url": "https://www.sokmarket.com.tr/temizlik-havlusu-c-78927"
     },
     {
       "id": "20517",
+      "code": "banyo-ve-sabun-c-20517",
       "name": "Banyo ve Sabun",
       "path": "Temizlik > Banyo ve Sabun",
       "url": "https://www.sokmarket.com.tr/banyo-ve-sabun-c-20517"
     },
     {
       "id": "20523",
+      "code": "oda-kokulari-c-20523",
       "name": "Oda Kokuları",
       "path": "Temizlik > Oda Kokuları",
       "url": "https://www.sokmarket.com.tr/oda-kokulari-c-20523"
     },
     {
       "id": "30732",
+      "code": "ayakkabi-bakim-c-30732",
       "name": "Ayakkabı Bakım",
       "path": "Temizlik > Ayakkabı Bakım",
       "url": "https://www.sokmarket.com.tr/ayakkabi-bakim-c-30732"
     },
     {
       "id": "20522",
+      "code": "hasere-kovar-c-20522",
       "name": "Haşere Kovar",
       "path": "Temizlik > Haşere Kovar",
       "url": "https://www.sokmarket.com.tr/hasere-kovar-c-20522"
     },
     {
       "id": "31869",
+      "code": "temizlik-bezleri-c-31869",
       "name": "Temizlik Bezleri",
       "path": "Temizlik > Temizlik Bezleri",
       "url": "https://www.sokmarket.com.tr/temizlik-bezleri-c-31869"
     },
     {
       "id": "20751",
+      "code": "tuvalet-kagidi-c-20751",
       "name": "Tuvalet Kağıdı",
-      "path": "Kağıt Ürünler > Tuvalet Kağıdı",
+      "path": "Kagit Urunler > Tuvalet Kağıdı",
       "url": "https://www.sokmarket.com.tr/tuvalet-kagidi-c-20751"
     },
     {
       "id": "20753",
+      "code": "pecete-c-20753",
       "name": "Peçete",
-      "path": "Kağıt Ürünler > Peçete",
+      "path": "Kagit Urunler > Peçete",
       "url": "https://www.sokmarket.com.tr/pecete-c-20753"
     },
     {
       "id": "20752",
+      "code": "kagit-havlu-c-20752",
       "name": "Kağıt Havlu",
-      "path": "Kağıt Ürünler > Kağıt Havlu",
+      "path": "Kagit Urunler > Kağıt Havlu",
       "url": "https://www.sokmarket.com.tr/kagit-havlu-c-20752"
     },
     {
       "id": "20876",
+      "code": "kagit-mendil-c-20876",
       "name": "Kağıt Mendil",
-      "path": "Kağıt Ürünler > Kağıt Mendil",
+      "path": "Kagit Urunler > Kağıt Mendil",
       "url": "https://www.sokmarket.com.tr/kagit-mendil-c-20876"
     },
     {
       "id": "20877",
+      "code": "islak-havlu-ve-mendil-c-20877",
       "name": "Islak Havlu ve Mendil",
-      "path": "Kağıt Ürünler > Islak Havlu ve Mendil",
+      "path": "Kagit Urunler > Islak Havlu ve Mendil",
       "url": "https://www.sokmarket.com.tr/islak-havlu-ve-mendil-c-20877"
     },
     {
       "id": "51154",
+      "code": "hijyenik-ped-c-51154",
       "name": "Hijyenik Ped",
-      "path": "Kağıt Ürünler > Hijyenik Ped",
+      "path": "Kagit Urunler > Hijyenik Ped",
       "url": "https://www.sokmarket.com.tr/hijyenik-ped-c-51154"
     },
     {
       "id": "60728",
+      "code": "temizlik-havlusu-c-60728",
       "name": "Temizlik Havlusu",
-      "path": "Kağıt Ürünler > Temizlik Havlusu",
+      "path": "Kagit Urunler > Temizlik Havlusu",
       "url": "https://www.sokmarket.com.tr/temizlik-havlusu-c-60728"
     },
     {
       "id": "100539",
+      "code": "yatak-ortusu-koruyucu-c-100539",
       "name": "Yatak Örtüsü-Koruyucu",
-      "path": "Kağıt Ürünler > Yatak Örtüsü-Koruyucu",
+      "path": "Kagit Urunler > Yatak Örtüsü-Koruyucu",
       "url": "https://www.sokmarket.com.tr/yatak-ortusu-koruyucu-c-100539"
     },
     {
       "id": "30122",
+      "code": "sampuan-c-30122",
       "name": "Şampuan",
-      "path": "Kişisel Bakım & Kozmetik > Şampuan",
+      "path": "Kisisel Bakim Ve Kozmetik > Şampuan",
       "url": "https://www.sokmarket.com.tr/sampuan-c-30122"
     },
     {
       "id": "20398",
+      "code": "banyo-ve-sabun-c-20398",
       "name": "Banyo ve Sabun",
-      "path": "Kişisel Bakım & Kozmetik > Banyo ve Sabun",
+      "path": "Kisisel Bakim Ve Kozmetik > Banyo ve Sabun",
       "url": "https://www.sokmarket.com.tr/banyo-ve-sabun-c-20398"
     },
     {
       "id": "20626",
+      "code": "yuz-vucut-el-bakim-ve-krem-c-20626",
       "name": "Yüz, Vücut, El Bakım ve Krem",
-      "path": "Kişisel Bakım & Kozmetik > Yüz, Vücut, El Bakım ve Krem",
+      "path": "Kisisel Bakim Ve Kozmetik > Yüz, Vücut, El Bakım ve Krem",
       "url": "https://www.sokmarket.com.tr/yuz-vucut-el-bakim-ve-krem-c-20626"
     },
     {
       "id": "20627",
+      "code": "makyaj-c-20627",
       "name": "Makyaj",
-      "path": "Kişisel Bakım & Kozmetik > Makyaj",
+      "path": "Kisisel Bakim Ve Kozmetik > Makyaj",
       "url": "https://www.sokmarket.com.tr/makyaj-c-20627"
     },
     {
       "id": "20632",
+      "code": "erkek-bakim-ve-tiras-c-20632",
       "name": "Erkek Bakım ve Tıraş",
-      "path": "Kişisel Bakım & Kozmetik > Erkek Bakım ve Tıraş",
+      "path": "Kisisel Bakim Ve Kozmetik > Erkek Bakım ve Tıraş",
       "url": "https://www.sokmarket.com.tr/erkek-bakim-ve-tiras-c-20632"
     },
     {
       "id": "20397",
+      "code": "agiz-bakim-c-20397",
       "name": "Ağız Bakım",
-      "path": "Kişisel Bakım & Kozmetik > Ağız Bakım",
+      "path": "Kisisel Bakim Ve Kozmetik > Ağız Bakım",
       "url": "https://www.sokmarket.com.tr/agiz-bakim-c-20397"
     },
     {
       "id": "30247",
+      "code": "sac-bakim-c-30247",
       "name": "Saç Bakım",
-      "path": "Kişisel Bakım & Kozmetik > Saç Bakım",
+      "path": "Kisisel Bakim Ve Kozmetik > Saç Bakım",
       "url": "https://www.sokmarket.com.tr/sac-bakim-c-30247"
     },
     {
       "id": "30120",
+      "code": "sac-boyasi-c-30120",
       "name": "Saç Boyası",
-      "path": "Kişisel Bakım & Kozmetik > Saç Boyası",
+      "path": "Kisisel Bakim Ve Kozmetik > Saç Boyası",
       "url": "https://www.sokmarket.com.tr/sac-boyasi-c-30120"
     },
     {
       "id": "30121",
+      "code": "sac-sekillendirici-c-30121",
       "name": "Saç Şekillendirici",
-      "path": "Kişisel Bakım & Kozmetik > Saç Şekillendirici",
+      "path": "Kisisel Bakim Ve Kozmetik > Saç Şekillendirici",
       "url": "https://www.sokmarket.com.tr/sac-sekillendirici-c-30121"
     },
     {
       "id": "20399",
+      "code": "deodorant-ve-parfum-c-20399",
       "name": "Deodorant ve Parfüm",
-      "path": "Kişisel Bakım & Kozmetik > Deodorant ve Parfüm",
+      "path": "Kisisel Bakim Ve Kozmetik > Deodorant ve Parfüm",
       "url": "https://www.sokmarket.com.tr/deodorant-ve-parfum-c-20399"
     },
     {
       "id": "20625",
+      "code": "kolonya-c-20625",
       "name": "Kolonya",
-      "path": "Kişisel Bakım & Kozmetik > Kolonya",
+      "path": "Kisisel Bakim Ve Kozmetik > Kolonya",
       "url": "https://www.sokmarket.com.tr/kolonya-c-20625"
     },
     {
       "id": "20629",
+      "code": "hijyenik-ped-c-20629",
       "name": "Hijyenik Ped",
-      "path": "Kişisel Bakım & Kozmetik > Hijyenik Ped",
+      "path": "Kisisel Bakim Ve Kozmetik > Hijyenik Ped",
       "url": "https://www.sokmarket.com.tr/hijyenik-ped-c-20629"
     },
     {
       "id": "20631",
+      "code": "epilasyon-ve-agda-c-20631",
       "name": "Epilasyon ve Ağda",
-      "path": "Kişisel Bakım & Kozmetik > Epilasyon ve Ağda",
+      "path": "Kisisel Bakim Ve Kozmetik > Epilasyon ve Ağda",
       "url": "https://www.sokmarket.com.tr/epilasyon-ve-agda-c-20631"
     },
     {
       "id": "29501",
+      "code": "saglik-urunleri-c-29501",
       "name": "Sağlık Ürünleri",
-      "path": "Kişisel Bakım & Kozmetik > Sağlık Ürünleri",
+      "path": "Kisisel Bakim Ve Kozmetik > Sağlık Ürünleri",
       "url": "https://www.sokmarket.com.tr/saglik-urunleri-c-29501"
     },
     {
       "id": "20633",
+      "code": "gunes-kremleri-c-20633",
       "name": "Güneş Kremleri",
-      "path": "Kişisel Bakım & Kozmetik > Güneş Kremleri",
+      "path": "Kisisel Bakim Ve Kozmetik > Güneş Kremleri",
       "url": "https://www.sokmarket.com.tr/gunes-kremleri-c-20633"
     },
     {
       "id": "31731",
+      "code": "hasta-bezi-c-31731",
       "name": "Hasta Bezi",
-      "path": "Kişisel Bakım & Kozmetik > Hasta Bezi",
+      "path": "Kisisel Bakim Ve Kozmetik > Hasta Bezi",
       "url": "https://www.sokmarket.com.tr/hasta-bezi-c-31731"
     },
     {
       "id": "20635",
+      "code": "bebek-bezi-c-20635",
       "name": "Bebek Bezi",
-      "path": "Anne - Bebek & Çocuk > Bebek Bezi",
+      "path": "Anne Bebek Ve Cocuk > Bebek Bezi",
       "url": "https://www.sokmarket.com.tr/bebek-bezi-c-20635"
     },
     {
       "id": "28621",
+      "code": "kulot-bez-c-28621",
       "name": "Külot Bez",
-      "path": "Anne - Bebek & Çocuk > Külot Bez",
+      "path": "Anne Bebek Ve Cocuk > Külot Bez",
       "url": "https://www.sokmarket.com.tr/kulot-bez-c-28621"
     },
     {
       "id": "20637",
+      "code": "bebek-islak-havlu-ve-mendil-c-20637",
       "name": "Bebek Islak Havlu ve Mendil",
-      "path": "Anne - Bebek & Çocuk > Bebek Islak Havlu ve Mendil",
+      "path": "Anne Bebek Ve Cocuk > Bebek Islak Havlu ve Mendil",
       "url": "https://www.sokmarket.com.tr/bebek-islak-havlu-ve-mendil-c-20637"
     },
     {
       "id": "20638",
+      "code": "bebek-mama-c-20638",
       "name": "Bebek Mama",
-      "path": "Anne - Bebek & Çocuk > Bebek Mama",
+      "path": "Anne Bebek Ve Cocuk > Bebek Mama",
       "url": "https://www.sokmarket.com.tr/bebek-mama-c-20638"
     },
     {
       "id": "20639",
+      "code": "bebek-biskuvisi-c-20639",
       "name": "Bebek Bisküvisi",
-      "path": "Anne - Bebek & Çocuk > Bebek Bisküvisi",
+      "path": "Anne Bebek Ve Cocuk > Bebek Bisküvisi",
       "url": "https://www.sokmarket.com.tr/bebek-biskuvisi-c-20639"
     },
     {
       "id": "20640",
+      "code": "bebek-sampuani-c-20640",
       "name": "Bebek Şampuanı",
-      "path": "Anne - Bebek & Çocuk > Bebek Şampuanı",
+      "path": "Anne Bebek Ve Cocuk > Bebek Şampuanı",
       "url": "https://www.sokmarket.com.tr/bebek-sampuani-c-20640"
     },
     {
       "id": "20643",
+      "code": "bebek-gerecleri-c-20643",
       "name": "Bebek Gereçleri",
-      "path": "Anne - Bebek & Çocuk > Bebek Gereçleri",
+      "path": "Anne Bebek Ve Cocuk > Bebek Gereçleri",
       "url": "https://www.sokmarket.com.tr/bebek-gerecleri-c-20643"
     },
     {
       "id": "20642",
+      "code": "bebek-deterjan-ve-yumusaticisi-c-20642",
       "name": "Bebek Deterjan ve Yumuşatıcısı",
-      "path": "Anne - Bebek & Çocuk > Bebek Deterjan ve Yumuşatıcısı",
+      "path": "Anne Bebek Ve Cocuk > Bebek Deterjan ve Yumuşatıcısı",
       "url": "https://www.sokmarket.com.tr/bebek-deterjan-ve-yumusaticisi-c-20642"
     },
     {
       "id": "20641",
+      "code": "bebek-bakim-urunleri-c-20641",
       "name": "Bebek Bakım Ürünleri",
-      "path": "Anne - Bebek & Çocuk > Bebek Bakım Ürünleri",
+      "path": "Anne Bebek Ve Cocuk > Bebek Bakım Ürünleri",
       "url": "https://www.sokmarket.com.tr/bebek-bakim-urunleri-c-20641"
     },
     {
       "id": "22877",
+      "code": "bebek-cocuk-giyim-ve-tekstil-c-22877",
       "name": "Bebek, Çocuk Giyim ve Tekstil",
-      "path": "Anne - Bebek & Çocuk > Bebek, Çocuk Giyim ve Tekstil",
+      "path": "Anne Bebek Ve Cocuk > Bebek, Çocuk Giyim ve Tekstil",
       "url": "https://www.sokmarket.com.tr/bebek-cocuk-giyim-ve-tekstil-c-22877"
     },
     {
-      "id": "20644",
-      "name": "Oyuncak",
-      "path": "Anne - Bebek & Çocuk > Oyuncak",
-      "url": "https://www.sokmarket.com.tr/oyuncak-c-20644"
-    },
-    {
       "id": "20646",
+      "code": "cocuk-kitaplari-c-20646",
       "name": "Çocuk Kitapları",
-      "path": "Anne - Bebek & Çocuk > Çocuk Kitapları",
+      "path": "Anne Bebek Ve Cocuk > Çocuk Kitapları",
       "url": "https://www.sokmarket.com.tr/cocuk-kitaplari-c-20646"
     },
     {
       "id": "21000",
+      "code": "ev-tekstili-c-21000",
       "name": "Ev Tekstili",
-      "path": "Ev & Yaşam > Ev Tekstili",
+      "path": "Ev Ve Yasam > Ev Tekstili",
       "url": "https://www.sokmarket.com.tr/ev-tekstili-c-21000"
     },
     {
       "id": "32480",
+      "code": "ev-ve-ofis-mobilya-c-32480",
       "name": "Ev ve Ofis Mobilya",
-      "path": "Ev & Yaşam > Ev ve Ofis Mobilya",
+      "path": "Ev Ve Yasam > Ev ve Ofis Mobilya",
       "url": "https://www.sokmarket.com.tr/ev-ve-ofis-mobilya-c-32480"
     },
     {
       "id": "21001",
+      "code": "mutfak-gerecleri-c-21001",
       "name": "Mutfak Gereçleri",
-      "path": "Ev & Yaşam > Mutfak Gereçleri",
+      "path": "Ev Ve Yasam > Mutfak Gereçleri",
       "url": "https://www.sokmarket.com.tr/mutfak-gerecleri-c-21001"
     },
     {
       "id": "21002",
+      "code": "banyo-gerecleri-c-21002",
       "name": "Banyo Gereçleri",
-      "path": "Ev & Yaşam > Banyo Gereçleri",
+      "path": "Ev Ve Yasam > Banyo Gereçleri",
       "url": "https://www.sokmarket.com.tr/banyo-gerecleri-c-21002"
     },
     {
       "id": "21006",
+      "code": "dekorasyon-c-21006",
       "name": "Dekorasyon",
-      "path": "Ev & Yaşam > Dekorasyon",
+      "path": "Ev Ve Yasam > Dekorasyon",
       "url": "https://www.sokmarket.com.tr/dekorasyon-c-21006"
     },
     {
       "id": "29367",
+      "code": "spor-urunleri-c-29367",
       "name": "Spor Ürünleri",
-      "path": "Ev & Yaşam > Spor Ürünleri",
+      "path": "Ev Ve Yasam > Spor Ürünleri",
       "url": "https://www.sokmarket.com.tr/spor-urunleri-c-29367"
     },
     {
       "id": "21004",
+      "code": "hirdavat-c-21004",
       "name": "Hırdavat",
-      "path": "Ev & Yaşam > Hırdavat",
+      "path": "Ev Ve Yasam > Hırdavat",
       "url": "https://www.sokmarket.com.tr/hirdavat-c-21004"
     },
     {
       "id": "28998",
+      "code": "ev-gerecleri-c-28998",
       "name": "Ev Gereçleri",
-      "path": "Ev & Yaşam > Ev Gereçleri",
+      "path": "Ev Ve Yasam > Ev Gereçleri",
       "url": "https://www.sokmarket.com.tr/ev-gerecleri-c-28998"
     },
     {
       "id": "29863",
+      "code": "okul-ve-kirtasiye-c-29863",
       "name": "Okul ve Kırtasiye",
-      "path": "Ev & Yaşam > Okul ve Kırtasiye",
+      "path": "Ev Ve Yasam > Okul ve Kırtasiye",
       "url": "https://www.sokmarket.com.tr/okul-ve-kirtasiye-c-29863"
     },
     {
+      "id": "32481",
+      "code": "dis-mekan-mobilya-c-32481",
+      "name": "Dış Mekan Mobilya",
+      "path": "Ev Ve Yasam > Dış Mekan Mobilya",
+      "url": "https://www.sokmarket.com.tr/dis-mekan-mobilya-c-32481"
+    },
+    {
       "id": "32373",
+      "code": "bahce-ve-cicek-c-32373",
       "name": "Bahçe ve Çiçek",
-      "path": "Ev & Yaşam > Bahçe ve Çiçek",
+      "path": "Ev Ve Yasam > Bahçe ve Çiçek",
       "url": "https://www.sokmarket.com.tr/bahce-ve-cicek-c-32373"
     },
     {
       "id": "32605",
+      "code": "kamp-ve-piknik-c-32605",
       "name": "Kamp ve Piknik",
-      "path": "Ev & Yaşam > Kamp ve Piknik",
+      "path": "Ev Ve Yasam > Kamp ve Piknik",
       "url": "https://www.sokmarket.com.tr/kamp-ve-piknik-c-32605"
     },
     {
       "id": "32483",
+      "code": "cop-torbasi-strec-ve-folyo-c-32483",
       "name": "Çöp Torbası, Streç ve Folyo",
-      "path": "Ev & Yaşam > Çöp Torbası, Streç ve Folyo",
+      "path": "Ev Ve Yasam > Çöp Torbası, Streç ve Folyo",
       "url": "https://www.sokmarket.com.tr/cop-torbasi-strec-ve-folyo-c-32483"
     },
     {
       "id": "21010",
+      "code": "otomobil-ve-motorsiklet-c-21010",
       "name": "Otomobil ve Motorsiklet",
-      "path": "Ev & Yaşam > Otomobil ve Motorsiklet",
+      "path": "Ev Ve Yasam > Otomobil ve Motorsiklet",
       "url": "https://www.sokmarket.com.tr/otomobil-ve-motorsiklet-c-21010"
     },
     {
       "id": "21013",
+      "code": "parti-malzemeleri-c-21013",
       "name": "Parti Malzemeleri",
-      "path": "Ev & Yaşam > Parti Malzemeleri",
+      "path": "Ev Ve Yasam > Parti Malzemeleri",
       "url": "https://www.sokmarket.com.tr/parti-malzemeleri-c-21013"
     },
     {
       "id": "32372",
+      "code": "tatil-ve-deniz-c-32372",
       "name": "Tatil ve Deniz",
-      "path": "Ev & Yaşam > Tatil ve Deniz",
+      "path": "Ev Ve Yasam > Tatil ve Deniz",
       "url": "https://www.sokmarket.com.tr/tatil-ve-deniz-c-32372"
     },
     {
       "id": "20882",
+      "code": "kedi-mamasi-c-20882",
       "name": "Kedi Maması",
       "path": "Evcil Dostlar > Kedi Maması",
       "url": "https://www.sokmarket.com.tr/kedi-mamasi-c-20882"
     },
     {
       "id": "20881",
+      "code": "kopek-mamasi-c-20881",
       "name": "Köpek Maması",
       "path": "Evcil Dostlar > Köpek Maması",
       "url": "https://www.sokmarket.com.tr/kopek-mamasi-c-20881"
     },
     {
       "id": "20885",
+      "code": "pet-aksesuarlari-c-20885",
       "name": "Pet Aksesuarları",
       "path": "Evcil Dostlar > Pet Aksesuarları",
       "url": "https://www.sokmarket.com.tr/pet-aksesuarlari-c-20885"
     },
     {
       "id": "29875",
+      "code": "diger-mama-c-29875",
       "name": "Diğer Mama",
       "path": "Evcil Dostlar > Diğer Mama",
       "url": "https://www.sokmarket.com.tr/diger-mama-c-29875"
     },
     {
       "id": "20883",
+      "code": "kedi-kumu-ve-poset-c-20883",
       "name": "Kedi Kumu ve Poşet",
       "path": "Evcil Dostlar > Kedi Kumu ve Poşet",
       "url": "https://www.sokmarket.com.tr/kedi-kumu-ve-poset-c-20883"
     },
     {
       "id": "72204",
+      "code": "pet-hijyen-bakim-c-72204",
       "name": "Pet Hijyen Bakım",
       "path": "Evcil Dostlar > Pet Hijyen Bakım",
       "url": "https://www.sokmarket.com.tr/pet-hijyen-bakim-c-72204"
     },
     {
       "id": "32233",
+      "code": "giyim-c-32233",
       "name": "Giyim",
-      "path": "Giyim & Aksesuar > Giyim",
+      "path": "Giyim Ayakkabi Ve Aksesuar > Giyim",
       "url": "https://www.sokmarket.com.tr/giyim-c-32233"
     },
     {
       "id": "31230",
+      "code": "ayakkabi-ve-bot-c-31230",
       "name": "Ayakkabı ve Bot",
-      "path": "Giyim & Aksesuar > Ayakkabı ve Bot",
+      "path": "Giyim Ayakkabi Ve Aksesuar > Ayakkabı ve Bot",
       "url": "https://www.sokmarket.com.tr/ayakkabi-ve-bot-c-31230"
     },
     {
       "id": "32477",
+      "code": "terlik-c-32477",
       "name": "Terlik",
-      "path": "Giyim & Aksesuar > Terlik",
+      "path": "Giyim Ayakkabi Ve Aksesuar > Terlik",
       "url": "https://www.sokmarket.com.tr/terlik-c-32477"
     },
     {
       "id": "23005",
+      "code": "aksesuar-c-23005",
       "name": "Aksesuar",
-      "path": "Giyim & Aksesuar > Aksesuar",
+      "path": "Giyim Ayakkabi Ve Aksesuar > Aksesuar",
       "url": "https://www.sokmarket.com.tr/aksesuar-c-23005"
     },
     {
       "id": "32232",
+      "code": "corap-c-32232",
       "name": "Çorap",
-      "path": "Giyim & Aksesuar > Çorap",
+      "path": "Giyim Ayakkabi Ve Aksesuar > Çorap",
       "url": "https://www.sokmarket.com.tr/corap-c-32232"
     },
     {
       "id": "20897",
+      "code": "canta-ve-valiz-c-20897",
       "name": "Çanta ve Valiz",
-      "path": "Giyim & Aksesuar > Çanta ve Valiz",
+      "path": "Giyim Ayakkabi Ve Aksesuar > Çanta ve Valiz",
       "url": "https://www.sokmarket.com.tr/canta-ve-valiz-c-20897"
     },
     {
       "id": "30102",
+      "code": "ic-giyim-c-30102",
       "name": "İç Giyim",
-      "path": "Giyim & Aksesuar > İç Giyim",
+      "path": "Giyim Ayakkabi Ve Aksesuar > İç Giyim",
       "url": "https://www.sokmarket.com.tr/ic-giyim-c-30102"
     },
     {
       "id": "22639",
+      "code": "beyaz-esya-c-22639",
       "name": "Beyaz Eşya",
       "path": "Elektronik > Beyaz Eşya",
       "url": "https://www.sokmarket.com.tr/beyaz-esya-c-22639"
     },
     {
       "id": "28987",
+      "code": "televizyon-c-28987",
       "name": "Televizyon",
       "path": "Elektronik > Televizyon",
       "url": "https://www.sokmarket.com.tr/televizyon-c-28987"
     },
     {
       "id": "22770",
+      "code": "telefon-ve-aksesuarlari-c-22770",
       "name": "Telefon ve Aksesuarları",
       "path": "Elektronik > Telefon ve Aksesuarları",
       "url": "https://www.sokmarket.com.tr/telefon-ve-aksesuarlari-c-22770"
     },
     {
       "id": "22644",
+      "code": "bilgisayar-ve-aksesuarlari-c-22644",
       "name": "Bilgisayar ve Aksesuarları",
       "path": "Elektronik > Bilgisayar ve Aksesuarları",
       "url": "https://www.sokmarket.com.tr/bilgisayar-ve-aksesuarlari-c-22644"
     },
     {
       "id": "22642",
+      "code": "elektrikli-kucuk-ev-aletleri-c-22642",
       "name": "Elektrikli Küçük Ev Aletleri",
       "path": "Elektronik > Elektrikli Küçük Ev Aletleri",
       "url": "https://www.sokmarket.com.tr/elektrikli-kucuk-ev-aletleri-c-22642"
     },
     {
       "id": "22643",
+      "code": "elektrikli-kisisel-bakim-c-22643",
       "name": "Elektrikli Kişisel Bakım",
       "path": "Elektronik > Elektrikli Kişisel Bakım",
       "url": "https://www.sokmarket.com.tr/elektrikli-kisisel-bakim-c-22643"
     },
     {
       "id": "31119",
+      "code": "goruntu-ses-ve-aksesuar-c-31119",
       "name": "Görüntü Ses ve Aksesuar",
       "path": "Elektronik > Görüntü Ses ve Aksesuar",
       "url": "https://www.sokmarket.com.tr/goruntu-ses-ve-aksesuar-c-31119"
     },
     {
       "id": "22646",
+      "code": "pil-c-22646",
       "name": "Pil",
       "path": "Elektronik > Pil",
       "url": "https://www.sokmarket.com.tr/pil-c-22646"
     },
     {
       "id": "22645",
+      "code": "ampul-ve-aydinlatma-c-22645",
       "name": "Ampul ve Aydınlatma",
       "path": "Elektronik > Ampul ve Aydınlatma",
       "url": "https://www.sokmarket.com.tr/ampul-ve-aydinlatma-c-22645"
     },
     {
       "id": "22771",
+      "code": "kablo-priz-ve-adaptor-c-22771",
       "name": "Kablo, Priz ve Adaptör",
       "path": "Elektronik > Kablo, Priz ve Adaptör",
       "url": "https://www.sokmarket.com.tr/kablo-priz-ve-adaptor-c-22771"
     },
     {
       "id": "25877",
+      "code": "digital-urunler-c-25877",
       "name": "Digital Ürünler",
       "path": "Elektronik > Digital Ürünler",
       "url": "https://www.sokmarket.com.tr/digital-urunler-c-25877"
-    },
-    {
-      "id": "data-sarj-kablosu-p-643885",
-      "name": "Neowise X706 Type-C To Type-C Data+Şarj Kablosu75,00₺",
-      "path": "Elektronik > Neowise X706 Type-C To Type-C Data+Şarj Kablosu75,00₺",
-      "url": "https://www.sokmarket.com.tr//neowise-x706-type-c-to-type-c-data-sarj-kablosu-p-643885"
-    },
-    {
-      "id": "to-lightning-sarj-kablosu-p-644801",
-      "name": "Neowise X806 Type-C To Lightning Şarj Kablosu75,00₺",
-      "path": "Elektronik > Neowise X806 Type-C To Lightning Şarj Kablosu75,00₺",
-      "url": "https://www.sokmarket.com.tr//neowise-x806-type-c-to-lightning-sarj-kablosu-p-644801"
-    },
-    {
-      "id": "data-sarj-kablosu-p-642975",
-      "name": "Neowise X406 Usb - Type-C Data+Şarj Kablosu50,00₺",
-      "path": "Elektronik > Neowise X406 Usb - Type-C Data+Şarj Kablosu50,00₺",
-      "url": "https://www.sokmarket.com.tr//neowise-x406-usb-type-c-data-sarj-kablosu-p-642975"
     }
   ]
 }

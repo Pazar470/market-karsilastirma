@@ -20,13 +20,27 @@ const MARKET_FALLBACK_COLOR: Record<string, string> = {
 interface MarketLogoProps {
     marketName: string | null | undefined;
     className?: string;
-    /** sm: küçük (listeler), md: orta, lg: kartlarda belirgin (daha büyük + yuvarlak) */
+    /** sm: küçük (listeler), md: orta, lg: kartlarda belirgin, düz tek satır */
     size?: 'sm' | 'md' | 'lg';
 }
 
 const SIZE_CLASSES = {
-    icon: { sm: 'h-3 w-3', md: 'h-4 w-4', lg: 'h-7 w-7' },
-    text: { sm: 'text-[10px]', md: 'text-xs', lg: 'text-xs' },
+    icon: {
+        sm: 'h-3 w-auto',
+        md: 'h-3.5 w-auto',
+        lg: 'h-4 w-auto',
+    },
+    text: {
+        sm: 'text-[10px]',
+        md: 'text-xs',
+        lg: 'text-xs',
+    },
+} as const;
+
+const WRAPPER_CLASSES = {
+    sm: 'h-3 w-8',
+    md: 'h-3.5 w-10',
+    lg: 'h-4 w-12',
 } as const;
 
 export function MarketLogo({ marketName, className, size = 'sm' }: MarketLogoProps) {
@@ -36,21 +50,24 @@ export function MarketLogo({ marketName, className, size = 'sm' }: MarketLogoPro
     const fallbackColor = (name && MARKET_FALLBACK_COLOR[name]) || 'bg-gray-400';
     const iconClass = SIZE_CLASSES.icon[size];
     const textClass = SIZE_CLASSES.text[size];
-    const isRounded = size === 'lg';
+
+    const showLogoOnly = size === 'lg' && slug && !imgFailed;
 
     const content = (
         <>
             {(!slug || imgFailed) ? (
-                <span className={cn('inline-block shrink-0', iconClass, fallbackColor, isRounded ? 'rounded-xl' : 'rounded-sm')} />
+                <span className={cn('inline-block shrink-0', size === 'lg' ? 'h-5 w-12' : iconClass, fallbackColor)} />
             ) : (
-                <img
-                    src={`/logos/${slug}.png`}
-                    alt=""
-                    className={cn('shrink-0 object-contain', iconClass, isRounded ? 'rounded-xl' : 'rounded-sm')}
-                    onError={() => setImgFailed(true)}
-                />
+                <span className={cn('inline-flex items-center justify-center shrink-0 bg-white overflow-hidden', WRAPPER_CLASSES[size])}>
+                    <img
+                        src={`/logos/${slug}.png`}
+                        alt=""
+                        className={cn('object-contain object-center', iconClass)}
+                        onError={() => setImgFailed(true)}
+                    />
+                </span>
             )}
-            <span className={cn('whitespace-nowrap', textClass)}>{name}</span>
+            {!showLogoOnly && <span className={cn('whitespace-nowrap', textClass)}>{name}</span>}
         </>
     );
 

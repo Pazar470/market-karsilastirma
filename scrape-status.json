@@ -4,22 +4,22 @@
   "currentCategory": null,
   "markets": {
     "A101": {
-      "urunSayisi": 6607,
+      "urunSayisi": 6751,
       "hataSayisi": 0
     },
     "Migros": {
-      "urunSayisi": 11730,
+      "urunSayisi": 11891,
       "hataSayisi": 0
     },
     "Şok": {
-      "urunSayisi": 1198,
+      "urunSayisi": 2749,
       "hataSayisi": 0
     }
   },
-  "toplamUrun": 19535,
+  "toplamUrun": 21391,
   "toplamHata": 0,
-  "message": "Tarama bitti. Toplam 19535 ürün, 1430.9 sn.",
-  "lastUpdated": "2026-03-08T23:54:21.885Z",
-  "startedAt": "2026-03-08T23:30:32.410Z",
-  "finishedAt": "2026-03-08T23:54:21.885Z"
+  "message": "Tarama bitti. Toplam 21391 ürün, 2788.4 sn.",
+  "lastUpdated": "2026-03-12T23:26:23.627Z",
+  "startedAt": "2026-03-12T22:39:56.394Z",
+  "finishedAt": "2026-03-12T23:26:23.627Z"
 }

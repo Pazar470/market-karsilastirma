@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
-import { Search, ChevronRight, ChevronDown } from 'lucide-react';
+import { Suspense, useState, useEffect, useMemo } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Search, ChevronRight, ChevronDown, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -17,19 +17,29 @@ interface TreeNode {
     children?: TreeNode[];
 }
 
-export default function NewAlarmPage() {
+function NewAlarmContent() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const [listConfirmed, setListConfirmed] = useState(false);
+
     const [categoryTree, setCategoryTree] = useState<TreeNode[]>([]);
     const [categorySearch, setCategorySearch] = useState('');
     const [expanded, setExpanded] = useState<Set<string>>(new Set());
-    const [selectedCat, setSelectedCat] = useState<string | null>(null);
-    const [selectedCatName, setSelectedCatName] = useState('');
-    const [products, setProducts] = useState<AlarmEditProduct[]>([]);
-    const [loading, setLoading] = useState(false);
+    const [selectedCategoryIds, setSelectedCategoryIds] = useState<string[]>([]);
+    const [categoryIdToName, setCategoryIdToName] = useState<Record<string, string>>({});
+
+    const [selectedProducts, setSelectedProducts] = useState<AlarmEditProduct[]>([]);
+    const [productSearchQ, setProductSearchQ] = useState('');
+    const [productSearchResults, setProductSearchResults] = useState<AlarmEditProduct[]>([]);
+    const [productSearchLoading, setProductSearchLoading] = useState(false);
+
+    const [finalProducts, setFinalProducts] = useState<AlarmEditProduct[]>([]);
+    const [finalProductsLoading, setFinalProductsLoading] = useState(false);
+    const [excludedIds, setExcludedIds] = useState<string[]>([]);
+
     const [name, setName] = useState('');
     const [targetPrice, setTargetPrice] = useState('');
     const [unitType, setUnitType] = useState('KG');
-    const [excludedIds, setExcludedIds] = useState<string[]>([]);
     const [submitting, setSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
 
@@ -45,6 +55,21 @@ export default function NewAlarmPage() {
             .catch(() => setCategoryTree([]));
     }, []);
 
+    const productIdFromQuery = searchParams.get('productId');
+    useEffect(() => {
+        if (!productIdFromQuery?.trim()) return;
+        fetch(`/api/products?productIds=${encodeURIComponent(productIdFromQuery.trim())}`)
+            .then((res) => res.json())
+            .then((data) => {
+                const list = Array.isArray(data) ? data : (data?.products ?? []);
+                const product = list[0];
+                if (product && product.id) {
+                    setSelectedProducts((prev) => (prev.some((p) => p.id === product.id) ? prev : [...prev, product]));
+                }
+            })
+            .catch(() => {});
+    }, [productIdFromQuery]);
+
     const filteredTree = useMemo(() => {
         const q = categorySearch.trim().toLowerCase();
         if (!q) return categoryTree;
@@ -57,20 +82,67 @@ export default function NewAlarmPage() {
         return categoryTree.map(filterNode).filter((n): n is TreeNode => n !== null);
     }, [categoryTree, categorySearch]);
 
-    const handleSelectCategory = async (catId: string, catName: string) => {
-        setSelectedCat(catId);
-        setSelectedCatName(catName);
-        setName(`${catName} Alarmı`);
-        setLoading(true);
-        setExcludedIds([]);
-        try {
-            const res = await fetch(`/api/products?categoryId=${catId}`);
-            const data = await res.json();
-            const list = Array.isArray(data) ? data : (data?.products ?? []);
-            setProducts(list);
-        } finally {
-            setLoading(false);
+    const addCategory = (catId: string, catName: string) => {
+        if (selectedCategoryIds.includes(catId)) return;
+        setSelectedCategoryIds((prev) => [...prev, catId]);
+        setCategoryIdToName((m) => ({ ...m, [catId]: catName }));
+    };
+
+    const removeCategory = (catId: string) => {
+        setSelectedCategoryIds((prev) => prev.filter((id) => id !== catId));
+    };
+
+    const searchProducts = () => {
+        const q = productSearchQ.trim();
+        if (!q) return;
+        setProductSearchLoading(true);
+        fetch(`/api/products?q=${encodeURIComponent(q)}`)
+            .then((res) => res.json())
+            .then((data) => {
+                const list = Array.isArray(data) ? data : (data?.products ?? []);
+                setProductSearchResults(list);
+            })
+            .finally(() => setProductSearchLoading(false));
+    };
+
+    const clearProductSearch = () => {
+        setProductSearchQ('');
+        setProductSearchResults([]);
+    };
+
+    const addProductToSelection = (product: AlarmEditProduct) => {
+        if (selectedProducts.some((p) => p.id === product.id)) return;
+        setSelectedProducts((prev) => [...prev, product]);
+    };
+
+    const removeProductFromSelection = (productId: string) => {
+        setSelectedProducts((prev) => prev.filter((p) => p.id !== productId));
+    };
+
+    const canConfirmList = selectedCategoryIds.length > 0 || selectedProducts.length > 0;
+
+    const confirmList = () => {
+        if (!canConfirmList) return;
+        setListConfirmed(true);
+        setFinalProductsLoading(true);
+        const productIds = selectedProducts.map((p) => p.id);
+        const promises: Promise<AlarmEditProduct[]>[] = [];
+        if (selectedCategoryIds.length > 0) {
+            const qs = selectedCategoryIds.map((id) => `categoryId=${encodeURIComponent(id)}`).join('&');
+            promises.push(
+                fetch(`/api/products?${qs}`).then((r) => r.json()).then((d) => Array.isArray(d) ? d : (d?.products ?? []))
+            );
         }
+        Promise.all(promises)
+            .then((results) => {
+                const fromCategories = results.flat();
+                const byId = new Map<string, AlarmEditProduct>();
+                selectedProducts.forEach((p) => byId.set(p.id, p));
+                fromCategories.forEach((p) => byId.set(p.id, p));
+                setFinalProducts(Array.from(byId.values()));
+                setExcludedIds([]);
+            })
+            .finally(() => setFinalProductsLoading(false));
     };
 
     const handleSubmit = async () => {
@@ -79,13 +151,14 @@ export default function NewAlarmPage() {
             setSubmitError('Alarm ismi girin.');
             return;
         }
-        if (!selectedCat) {
-            setSubmitError('Kategori seçin.');
-            return;
-        }
         const price = parseFloat(String(targetPrice).replace(',', '.'));
         if (Number.isNaN(price) || price < 0) {
             setSubmitError('Geçerli bir hedef birim fiyat girin.');
+            return;
+        }
+        const includedProductIds = finalProducts.filter((p) => !excludedIds.includes(p.id)).map((p) => p.id);
+        if (includedProductIds.length === 0) {
+            setSubmitError('En az bir ürün listede kalmalı (hepsini gizlemiş olmayın).');
             return;
         }
         setSubmitting(true);
@@ -95,11 +168,11 @@ export default function NewAlarmPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     name: name.trim(),
-                    categoryId: selectedCat,
+                    categoryIds: selectedCategoryIds,
                     targetPrice: price,
                     unitType,
                     tags: [],
-                    includedProductIds: products.filter((p) => !excludedIds.includes(p.id)).map((p) => p.id),
+                    includedProductIds,
                     excludedProductIds: excludedIds,
                     isAllProducts: true,
                 }),
@@ -130,6 +203,7 @@ export default function NewAlarmPage() {
         const hasChildren = node.children && node.children.length > 0;
         const isExpanded = expanded.has(node.id);
         const name = node.name || 'Diğer';
+        const isLeaf = !hasChildren;
         return (
             <div key={node.id} style={{ paddingLeft: depth * 12 }} className="py-0.5">
                 <div className="flex items-center gap-0.5 min-w-0">
@@ -146,10 +220,13 @@ export default function NewAlarmPage() {
                     )}
                     <button
                         type="button"
-                        onClick={() => handleSelectCategory(node.id, name)}
+                        onClick={() => {
+                            if (isLeaf) addCategory(node.id, name);
+                            else toggleExpand(node.id);
+                        }}
                         className={cn(
                             'flex-1 text-left text-sm py-1.5 px-2 rounded-lg truncate',
-                            selectedCat === node.id ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
+                            selectedCategoryIds.includes(node.id) ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
                         )}
                     >
                         {name}
@@ -162,51 +239,13 @@ export default function NewAlarmPage() {
     };
 
     const gridClass = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 sm:gap-3';
-    const visibleProducts = products.filter((p) => !excludedIds.includes(p.id));
 
-    return (
-        <div className="min-h-screen bg-gray-50 text-gray-900">
-            <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 flex flex-col md:flex-row gap-4">
-                {/* Sol: Kategoriler (ana sayfa stili) */}
-                <aside className="w-full md:w-64 shrink-0">
-                    <div className="bg-white rounded-lg border border-gray-200 p-4 sticky top-20">
-                        <h2 className="font-semibold text-gray-900 mb-3">Kategoriler</h2>
-                        <div className="relative mb-3">
-                            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                            <Input
-                                type="search"
-                                placeholder="Kategori ara..."
-                                value={categorySearch}
-                                onChange={(e) => setCategorySearch(e.target.value)}
-                                className="pl-8 h-9 text-sm"
-                            />
-                        </div>
-                        <p className="text-xs text-gray-500 mb-3">
-                            Ürünler ve fiyatlar marketlerin online sitelerinden günlük taramalarla alınır.
-                        </p>
-                        <div className="max-h-[60vh] overflow-y-auto pr-1 space-y-0.5">
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setSelectedCat(null);
-                                    setProducts([]);
-                                    setSelectedCatName('');
-                                }}
-                                className={cn(
-                                    'w-full text-left text-sm py-2 px-2 rounded-lg',
-                                    !selectedCat ? 'bg-blue-600 text-white' : 'hover:bg-gray-100'
-                                )}
-                            >
-                                Tüm Ürünler
-                            </button>
-                            {filteredTree.map((node) => renderNode(node, 0))}
-                        </div>
-                    </div>
-                </aside>
-
-                {/* Sağ: Ürünler + hedef fiyat + Alarmı kaydet */}
-                <main className="flex-1 min-w-0">
-                    {/* Sağ üst: hedef fiyat + Alarmı kaydet */}
+    // ——— Aşama 2: Listeyi onayladıktan sonra ———
+    if (listConfirmed) {
+        const visibleProducts = finalProducts.filter((p) => !excludedIds.includes(p.id));
+        return (
+            <div className="min-h-screen bg-gray-50 text-gray-900">
+                <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                         <div className="flex items-center gap-2 flex-wrap">
                             <label className="text-sm font-medium text-gray-700">Alarm ismi</label>
@@ -230,7 +269,7 @@ export default function NewAlarmPage() {
                             <span className="text-sm text-gray-500">/ {unitType}</span>
                             <Button
                                 onClick={handleSubmit}
-                                disabled={submitting || !selectedCat}
+                                disabled={submitting || finalProductsLoading}
                                 className="bg-blue-600 hover:bg-blue-700 text-white"
                             >
                                 {submitting ? 'Kaydediliyor...' : 'Alarmı kaydet'}
@@ -239,62 +278,264 @@ export default function NewAlarmPage() {
                     </div>
                     {submitError && <p className="text-red-600 text-sm mb-2">{submitError}</p>}
 
-                    {!selectedCat ? (
-                        <div className="py-16 text-center text-gray-500 bg-white rounded-xl border border-gray-200">
-                            Soldan bir kategori seçin; ürünler burada listelenecek.
-                        </div>
-                    ) : loading ? (
+                    <div className="mb-4 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+                        <p className="text-sm text-amber-800">
+                            <strong>Listedeki ürünlerden istediğinizi gizleyerek liste dışı bırakabilirsiniz.</strong> Gizlediğiniz ürünler bu alarma dahil edilmez; isterseniz sonradan düzenleme sayfasından tekrar ekleyebilirsiniz.
+                        </p>
+                    </div>
+
+                    {finalProductsLoading ? (
                         <div className="py-16 flex justify-center">
                             <div className="animate-spin rounded-full h-10 w-10 border-2 border-gray-200 border-t-blue-600" />
                         </div>
                     ) : (
                         <>
                             <p className="text-sm text-gray-600 mb-2">
-                                {selectedCatName} — {visibleProducts.length} ürün (gizlenenler alarm dışı)
+                                {visibleProducts.length} ürün alarmda — {excludedIds.length} gizli
                             </p>
                             <div className={gridClass}>
-                                {visibleProducts.map((product) => (
+                                {visibleProducts.map((product) => {
+                                    const priceInfo = product.prices?.[0];
+                                    const price = priceInfo
+                                        ? (priceInfo.campaignAmount != null ? parseFloat(String(priceInfo.campaignAmount)) : parseFloat(String(priceInfo.amount)))
+                                        : 0;
+                                    return (
+                                        <AlarmEditProductCard
+                                            key={product.id}
+                                            product={product}
+                                            actions={
+                                                <>
+                                                    <FollowButton
+                                                        productId={product.id}
+                                                        categoryId={selectedCategoryIds[0] || (product as { masterCategoryId?: string }).masterCategoryId || ''}
+                                                        className="h-7 w-7 shrink-0"
+                                                    />
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setExcludedIds((prev) => [...prev, product.id])}
+                                                        className="h-7 min-w-[52px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
+                                                    >
+                                                        Gizle
+                                                    </button>
+                                                    {priceInfo && (
+                                                        <AddToBasketButton
+                                                            product={{
+                                                                id: product.id,
+                                                                name: product.name,
+                                                                imageUrl: product.imageUrl || '',
+                                                                price,
+                                                                marketName: priceInfo.market?.name || 'Market',
+                                                            }}
+                                                            variant="icon"
+                                                        />
+                                                    )}
+                                                </>
+                                            }
+                                        />
+                                    );
+                                })}
+                            </div>
+                            {excludedIds.length > 0 && (
+                                <details className="mt-4">
+                                    <summary className="text-sm font-medium text-gray-600 cursor-pointer">
+                                        Gizlenen ürünler ({excludedIds.length}) — Göster
+                                    </summary>
+                                    <div className="mt-2 flex flex-wrap gap-2">
+                                        {finalProducts
+                                            .filter((p) => excludedIds.includes(p.id))
+                                            .map((p) => (
+                                                <span key={p.id} className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 rounded text-xs">
+                                                    {p.name}
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setExcludedIds((prev) => prev.filter((id) => id !== p.id))}
+                                                        className="text-blue-600 hover:underline"
+                                                    >
+                                                        Göster
+                                                    </button>
+                                                </span>
+                                            ))}
+                                    </div>
+                                </details>
+                            )}
+                        </>
+                    )}
+                </div>
+            </div>
+        );
+    }
+
+    // ——— Aşama 1: Liste oluşturma ———
+    return (
+        <div className="min-h-screen bg-gray-50 text-gray-900">
+            <div className="max-w-6xl mx-auto px-3 sm:px-4 py-4 flex flex-col lg:flex-row gap-4">
+                {/* Sol: Kategori seç + Seçilen kategoriler (sadece isim, X ile kaldır) */}
+                <aside className="w-full lg:w-72 shrink-0 space-y-4">
+                    <div className="bg-white rounded-lg border border-gray-200 p-4">
+                        <h2 className="font-semibold text-gray-900 mb-2">Kategori seç</h2>
+                        <div className="relative mb-2">
+                            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                            <Input
+                                type="search"
+                                placeholder="Kategori ara..."
+                                value={categorySearch}
+                                onChange={(e) => setCategorySearch(e.target.value)}
+                                className="pl-8 h-9 text-sm"
+                            />
+                        </div>
+                        <p className="text-xs text-gray-500 mb-2">
+                            Yaprak kategoriye tıklayınca sadece kategori adı listeye eklenir; ürünler şimdilik yüklenmez.
+                        </p>
+                        <div className="max-h-[40vh] overflow-y-auto pr-1 space-y-0.5">
+                            {filteredTree.map((node) => renderNode(node, 0))}
+                        </div>
+                    </div>
+                    {selectedCategoryIds.length > 0 && (
+                        <div className="bg-white rounded-lg border border-gray-200 p-4">
+                            <h3 className="text-sm font-semibold text-gray-700 mb-2">Seçilen kategoriler</h3>
+                            <ul className="space-y-1.5">
+                                {selectedCategoryIds.map((catId) => (
+                                    <li key={catId} className="flex items-center justify-between gap-2 py-1.5 px-2 rounded-lg bg-gray-50">
+                                        <span className="text-sm truncate">{categoryIdToName[catId] || catId}</span>
+                                        <button
+                                            type="button"
+                                            onClick={() => removeCategory(catId)}
+                                            className="shrink-0 p-1 rounded hover:bg-red-100 text-gray-500 hover:text-red-600"
+                                            aria-label="Kategoriden çıkar"
+                                        >
+                                            <X className="h-4 w-4" />
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </aside>
+
+                {/* Sağ: Tekil ürün ara + Seçilen ürünler + Listeyi onayla */}
+                <main className="flex-1 min-w-0">
+                    <div className="mb-4 flex flex-wrap items-center gap-2">
+                        <div className="relative flex-1 min-w-[200px]">
+                            <Input
+                                type="search"
+                                placeholder="Ürün ara (isme göre)..."
+                                value={productSearchQ}
+                                onChange={(e) => setProductSearchQ(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), searchProducts())}
+                                className="pr-8 h-10 text-sm"
+                            />
+                            {(productSearchQ.length > 0 || productSearchResults.length > 0) && (
+                                <button
+                                    type="button"
+                                    onClick={clearProductSearch}
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded hover:bg-gray-200 text-gray-500"
+                                    aria-label="Aramayı temizle"
+                                >
+                                    <X className="h-4 w-4" />
+                                </button>
+                            )}
+                        </div>
+                        <Button
+                            type="button"
+                            variant="outline"
+                            size="sm"
+                            onClick={searchProducts}
+                            disabled={productSearchLoading || !productSearchQ.trim()}
+                            className="h-10"
+                        >
+                            {productSearchLoading ? 'Aranıyor...' : 'Ara'}
+                        </Button>
+                        {productSearchResults.length > 0 && (
+                            <span className="text-xs text-gray-500">{productSearchResults.length} sonuç</span>
+                        )}
+                    </div>
+
+                    {productSearchResults.length > 0 && (
+                        <div className="mb-4 p-3 bg-white rounded-lg border border-gray-200">
+                            <p className="text-xs font-medium text-gray-600 mb-2">Arama sonuçları — Alarma ekle:</p>
+                            <div className={gridClass}>
+                                {productSearchResults.slice(0, 12).map((product) => (
                                     <AlarmEditProductCard
                                         key={product.id}
                                         product={product}
                                         actions={
-                                            <>
-                                                <FollowButton
-                                                    productId={product.id}
-                                                    categoryId={selectedCat}
-                                                    className="h-7 w-7 rounded-full bg-amber-50 hover:bg-amber-100 text-amber-600 shrink-0"
-                                                />
+                                            selectedProducts.some((p) => p.id === product.id) ? (
+                                                <span className="h-7 px-2 rounded-md bg-green-100 text-green-800 text-[10px] font-bold inline-flex items-center">
+                                                    Eklendi
+                                                </span>
+                                            ) : (
                                                 <button
                                                     type="button"
-                                                    onClick={() => setExcludedIds((prev) => [...prev, product.id])}
-                                                    className="h-7 min-w-[52px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
+                                                    onClick={() => addProductToSelection(product)}
+                                                    className="h-7 min-w-[60px] px-2 rounded-md bg-blue-100 text-blue-700 text-[10px] font-bold hover:bg-blue-200"
                                                 >
-                                                    Gizle
+                                                    Alarma ekle
                                                 </button>
-                                                {product.prices?.[0] && (
-                                                    <AddToBasketButton
-                                                        product={{
-                                                            id: product.id,
-                                                            name: product.name,
-                                                            imageUrl: product.imageUrl || '',
-                                                            price:
-                                                                product.prices[0].campaignAmount != null
-                                                                    ? parseFloat(product.prices[0].campaignAmount)
-                                                                    : parseFloat(product.prices[0].amount),
-                                                            marketName: product.prices[0].market?.name || 'Market',
-                                                        }}
-                                                        variant="icon"
-                                                    />
-                                                )}
-                                            </>
+                                            )
                                         }
                                     />
                                 ))}
                             </div>
-                        </>
+                        </div>
                     )}
+
+                    {selectedProducts.length > 0 && (
+                        <div className="mb-4 p-3 bg-white rounded-lg border border-gray-200">
+                            <h3 className="text-sm font-semibold text-gray-700 mb-2">Seçilen tekil ürünler</h3>
+                            <div className={gridClass}>
+                                {selectedProducts.map((product) => (
+                                    <AlarmEditProductCard
+                                        key={product.id}
+                                        product={product}
+                                        actions={
+                                            <button
+                                                type="button"
+                                                onClick={() => removeProductFromSelection(product.id)}
+                                                className="h-7 min-w-[52px] px-2 rounded-md bg-gray-100 text-gray-700 text-[10px] font-bold hover:bg-gray-200"
+                                            >
+                                                Çıkar
+                                            </button>
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {!canConfirmList && (
+                        <div className="py-12 text-center text-gray-500 bg-white rounded-xl border border-gray-200">
+                            Kategori ekleyin ve/veya yukarıdan ürün arayıp tekil ürün ekleyin. Ardından &quot;Listeyi onayla&quot; ile devam edin.
+                        </div>
+                    )}
+
+                    <div className="mt-6">
+                        <Button
+                            onClick={confirmList}
+                            disabled={!canConfirmList}
+                            className="w-full sm:w-auto h-10 px-6 bg-green-600 hover:bg-green-700 text-white font-medium"
+                        >
+                            Listeyi onayla
+                        </Button>
+                        {canConfirmList && (
+                            <p className="text-xs text-gray-500 mt-2">
+                                {selectedCategoryIds.length} kategori, {selectedProducts.length} tekil ürün seçildi. Onaylayınca tüm ürünler tek listede açılacak; gizle / fiyat / kayıt orada yapılacak.
+                            </p>
+                        )}
+                    </div>
                 </main>
             </div>
         </div>
+    );
+}
+
+export default function NewAlarmPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="animate-spin rounded-full h-10 w-10 border-2 border-gray-200 border-t-blue-600" />
+            </div>
+        }>
+            <NewAlarmContent />
+        </Suspense>
     );
 }

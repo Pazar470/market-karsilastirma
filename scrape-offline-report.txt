@@ -1,15 +1,60 @@
-Offline tarama raporu — 2026-03-08T23:30:31.024Z
+Offline tarama raporu — 2026-03-12T22:39:55.185Z
 ============================================================
 
+  A101: 6751 ürün, 0 kategori hatası
+  Migros: 11891 ürün, 0 kategori hatası
+  Şok: 2749 ürün, 0 kategori hatası
 İNDİRME ÖZET
 ----------------------------------------
-Toplam ürün: 19535
+Toplam ürün (tüm marketler): 21391
+Şok getirdiği ürün sayısı: 2749
 İndirme hatası (kategori): 0
 
 UPLOAD ÖZET
 ----------------------------------------
+  A101: 6751 ürün yazıldı, 0 yeni
+  Migros: 11891 ürün yazıldı, 97 yeni
+  Şok: 2749 ürün yazıldı, 10 yeni
 Upload hatası: 0
 
-Mapping senkronu: 1 ürün
+Mapping senkronu
+----------------------------------------
+  Öncesi categoryId=null: 6
+  Mapping ile güncellenen: 0
+  Sonrası categoryId=null (admin'de onay bekleyen): 6
 
-Toplam süre: 1430.9 sn
+ADMİN / KATEGORİ DURUMU
+----------------------------------------
+Admin'e düşen (categoryId=null): 6 ürün
+Bu turda yeni eklenen (market bazında): {"A101":0,"Migros":97,"Şok":10}
+
+
+============================================================
+TARAMA DETAYLI SONUÇ
+============================================================
+═══════════════════════════════════════════════════════════
+  TARAMA DETAYLI SONUÇ
+═══════════════════════════════════════════════════════════
+  İNDİRME (market bazında):
+    A101: 6751 ürün, 0 kategori hatası
+    Migros: 11891 ürün, 0 kategori hatası
+    Şok: 2749 ürün, 0 kategori hatası
+    TOPLAM: 21391 ürün, 0 indirme hatası
+  ŞOK:
+    Getirilen ürün: 2749
+  SUPABASE UPLOAD:
+    A101: 6751 ürün yazıldı (0 yeni)
+    Migros: 11891 ürün yazıldı (97 yeni)
+    Şok: 2749 ürün yazıldı (10 yeni)
+    Upload hatası: 0 market
+  MAPPING SENKRONU:
+    Öncesi categoryId=null: 6
+    Güncellenen: 0
+    Sonrası categoryId=null: 6
+  ADMİN:
+    Onay bekleyen (categoryId=null): 6 ürün
+  SÜRE: 2788.4 sn
+  RAPOR DOSYASI: C:\Users\Muhammet\Desktop\market karşılaştırma cursor\scrape-offline-report.txt
+═══════════════════════════════════════════════════════════
+
+Toplam süre: 2788.4 sn

@@ -27,9 +27,19 @@ const SIDEBAR_TO_ANA: Record<string, string> = {
 };
 const ANA_SET = new Set(Object.values(ANA_KATEGORILER));
 
+const CATEGORY_CACHE_TTL_MS = 60_000;
+let categoryListCache: { data: { id: string; parentId: string | null }[]; ts: number } | null = null;
+
+async function getCategoryList(): Promise<{ id: string; parentId: string | null }[]> {
+    if (categoryListCache && Date.now() - categoryListCache.ts < CATEGORY_CACHE_TTL_MS) return categoryListCache.data;
+    const data = await prisma.category.findMany({ select: { id: true, parentId: true } });
+    categoryListCache = { data, ts: Date.now() };
+    return data;
+}
+
 /** categoryId ve tüm alt kategori id'lerini döndürür (yaprak seçilince sadece o, ana seçilince altları da). */
 async function categoryIdAndDescendants(categoryId: string): Promise<string[]> {
-    const all = await prisma.category.findMany({ select: { id: true, parentId: true } });
+    const all = await getCategoryList();
     const ids = new Set<string>([categoryId]);
     let added = true;
     while (added) {
@@ -44,11 +54,22 @@ async function categoryIdAndDescendants(categoryId: string): Promise<string[]> {
     return Array.from(ids);
 }
 
+/** Sadece her market için en son fiyatı bırakır (prices zaten date desc). */
+function latestPricePerMarket<T extends { market: { id: string } }>(prices: T[]): T[] {
+    const byMarket = new Map<string, T>();
+    for (const p of prices) {
+        if (!byMarket.has(p.market.id)) byMarket.set(p.market.id, p);
+    }
+    return Array.from(byMarket.values());
+}
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const query = searchParams.get('q');
     const categories = searchParams.getAll('category');
     const categoryId = searchParams.get('categoryId');
+    const categoryIdsParam = searchParams.getAll('categoryId'); // Çoklu kategori: ?categoryId=x&categoryId=y
+    const productIdsParam = searchParams.get('productIds'); // Virgülle ayrılmış id listesi (alarm düzenleme için)
     const market = searchParams.get('market');
     const sortBy = searchParams.get('sortBy');
 
@@ -65,7 +86,19 @@ export async function GET(request: Request) {
         ? { category: { in: resolvedAna } }
         : {};
 
-    const categoryIdIn = categoryId ? await categoryIdAndDescendants(categoryId) : null;
+    const idsToExpand = categoryIdsParam.length > 0 ? categoryIdsParam : (categoryId ? [categoryId] : []);
+    let categoryIdIn: string[] | null = null;
+    if (idsToExpand.length > 0) {
+        const sets = await Promise.all(idsToExpand.map((id) => categoryIdAndDescendants(id)));
+        const union = new Set(sets.flat());
+        categoryIdIn = Array.from(union);
+    }
+    // Arama metni (q) varsa kategori filtresini uygulama — tüm kategorilerde ara
+    if (terms.length > 0) categoryIdIn = null;
+
+    const productIdsFilter = productIdsParam
+        ? { id: { in: productIdsParam.split(',').map((s) => s.trim()).filter(Boolean) } }
+        : {};
 
     try {
         // Sadece güncel market: son taramada fiyatı gelen ürünler. Markette o gün yoksa göstermiyoruz.
@@ -74,12 +107,13 @@ export async function GET(request: Request) {
         let products = await prisma.product.findMany({
             where: {
                 AND: [
-                    { categoryId: { not: null } },
+                    productIdsParam ? {} : { categoryId: { not: null } },
                     { prices: { some: { date: { gte: priceMinDate } } } },
                     ...nameConditions,
                     categoryCondition,
                     { isSuspicious: false },
                     categoryIdIn ? { categoryId: { in: categoryIdIn } } : {},
+                    Object.keys(productIdsFilter).length > 0 ? productIdsFilter : {},
                     market ? {
                         prices: {
                             some: {
@@ -93,26 +127,18 @@ export async function GET(request: Request) {
             },
             include: {
                 prices: {
-                    include: {
-                        market: true,
-                    },
-                    orderBy: {
-                        date: 'desc',
-                    },
-                    // If market filter is applied, we ideally want to show the price FROM that market.
-                    // But our UI takes prices[0]. 
-                    // Let's filter the prices relation too if market is set, so prices[0] is the correct one.
-                    where: market ? {
-                        market: {
-                            name: market
-                        }
-                    } : undefined,
+                    include: { market: true },
+                    orderBy: { date: 'desc' },
+                    take: 10, // En son 10 fiyat (3–4 market × birkaç gün); sonra market başına 1'e indirilecek
+                    where: market ? { market: { name: market } } : undefined,
                 },
-                masterCategory: true, // Include master category for sorting/filtering debugging
+                masterCategory: true,
             },
-            // Fetch all if sorting, otherwise page (increased to 300 to cover all markets)
-            take: sortBy ? undefined : 300,
+            take: sortBy ? 500 : 300, // Sıralama olsa bile üst sınır (önceden sınırsız çekiliyordu)
         });
+
+        // Her ürün için sadece market başına en son fiyatı bırak (günlük tarama = o günkü fiyat)
+        products = products.map((p) => ({ ...p, prices: latestPricePerMarket(p.prices) }));
 
         // Smart Sort: Prioritize Products with Exact Category Match
         // E.g. Query "Kaşar" -> if product.masterCategory.name includes "Kaşar" -> Boost it

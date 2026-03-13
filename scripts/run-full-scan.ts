@@ -10,6 +10,7 @@ import fs from 'fs';
 import path from 'path';
 import { runFullScrapeBatch } from '../lib/scraper';
 import { checkAlarmsAfterScrape } from '../lib/alarm-engine';
+import { runSuspiciousA101Check } from '../lib/suspicious-a101';
 import { runSokCategoryDiscovery } from '../lib/sok-category-discovery';
 import { runMigrosCategoryDiscovery } from '../lib/migros-category-discovery';
 import { runA101CategoryDiscovery } from '../lib/a101-category-discovery';
@@ -48,6 +49,7 @@ async function main() {
     await runA101CategoryDiscovery({ silent: true, sitemapCheck: true });
     writeStatus([` ⏱️  Geçen: ${fmt(Date.now() - start)}`, ' A101 taranıyor...']);
     await runFullScrapeBatch('A101', 0);
+    await runSuspiciousA101Check();
     const pc2 = await prisma.product.count();
     writeStatus([` ⏱️  Geçen: ${fmt(Date.now() - start)}`, ` 📦 Ürün: ${pc2}`, ' ✅ A101 bitti. Şok kategori güncelleniyor...']);
 

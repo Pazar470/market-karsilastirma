@@ -1,5 +1,4 @@
-
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, Prisma } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
@@ -10,7 +9,7 @@ export async function checkSingleAlarm(alarmId: string) {
         include: { category: true }
     });
     if (!alarm) return;
-    await runAlarmCheck(alarm);
+    await runAlarmCheck(alarm as AlarmRow);
 }
 
 export async function checkAlarmsAfterScrape() {
@@ -20,29 +19,47 @@ export async function checkAlarmsAfterScrape() {
         include: { category: true }
     });
     for (const alarm of alarms) {
-        await runAlarmCheck(alarm);
+        await runAlarmCheck(alarm as AlarmRow);
     }
 }
 
-async function runAlarmCheck(alarm: { id: string; name: string; categoryId: string; targetPrice: number; unitType: string; tags: string; includedProductIds: string; excludedProductIds: string; pendingProductIds: string | null; isAllProducts: boolean; userId: string }) {
-    const tags = JSON.parse(alarm.tags) as string[];
-        const includedIds = JSON.parse(alarm.includedProductIds) as string[];
-        const excludedIds = JSON.parse(alarm.excludedProductIds) as string[];
+type AlarmRow = {
+    id: string; name: string; categoryId: string | null; categoryIds: string; targetPrice: number; unitType: string;
+    tags: string; includedProductIds: string; excludedProductIds: string; pendingProductIds: string | null;
+    isAllProducts: boolean; userId: string;
+};
 
-        // Build product query
-        const products = await prisma.product.findMany({
-            where: {
-                OR: [
-                    { id: { in: includedIds } }, // Explicitly included
-                    {
-                        AND: [
-                            { categoryId: alarm.categoryId },
-                            { id: { notIn: excludedIds } }, // Not excluded
-                            alarm.isAllProducts ? {} : { id: { in: includedIds } }
-                        ]
-                    }
-                ]
-            },
+function getEffectiveCategoryIds(alarm: AlarmRow): string[] {
+    const ids = JSON.parse(alarm.categoryIds || '[]') as string[];
+    if (ids.length > 0) return ids;
+    if (alarm.categoryId) return [alarm.categoryId];
+    return [];
+}
+
+async function runAlarmCheck(alarm: AlarmRow) {
+    const tags = JSON.parse(alarm.tags) as string[];
+    const includedIds = JSON.parse(alarm.includedProductIds) as string[];
+    const excludedIds = JSON.parse(alarm.excludedProductIds) as string[];
+    const categoryIds = getEffectiveCategoryIds(alarm);
+
+    // Ürün sorgusu: dahil edilenler + (kategori varsa o kategorilerdeki ürünler)
+    const orConditions: Prisma.ProductWhereInput[] = [];
+    if (includedIds.length > 0) orConditions.push({ id: { in: includedIds } });
+    if (categoryIds.length > 0) {
+        orConditions.push({
+            AND: [
+                { categoryId: { in: categoryIds } },
+                { id: { notIn: excludedIds } },
+                alarm.isAllProducts ? {} : { id: { in: includedIds } },
+            ],
+        });
+    }
+    const productWhere: Prisma.ProductWhereInput = orConditions.length > 0
+        ? { OR: orConditions }
+        : { id: { in: [] } }; // Kategori ve dahil ürün yoksa hiç ürün getirme
+
+    const products = await prisma.product.findMany({
+        where: productWhere,
             include: {
                 prices: {
                     orderBy: { date: 'desc' },

@@ -7,7 +7,8 @@ import fs from 'fs';
 import path from 'path';
 
 const BASE = 'https://www.sokmarket.com.tr';
-const FETCH_DELAY_MS = 250;
+const FETCH_DELAY_MS = 350;
+const FETCH_RETRIES = 2;
 
 const DEFAULT_ANA_SAYFA_URL = 'https://www.sokmarket.com.tr/';
 const DEFAULT_MAIN_CATEGORY_URLS = [
@@ -135,13 +136,94 @@ async function discoverMainCategoryIds(anaSayfaUrl: string): Promise<Set<string>
 
 export type SokCategoryDiscoveryOptions = { silent?: boolean };
 
+const FETCH_HEADERS = {
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+};
+
+/** Bir URL'i en fazla FETCH_RETRIES+1 kez dene; başarılı HTML dönerse { ok: true, html }, yoksa { ok: false }. */
+async function fetchCategoryPage(url: string): Promise<{ ok: true; html: string } | { ok: false }> {
+  for (let attempt = 0; attempt <= FETCH_RETRIES; attempt++) {
+    try {
+      const res = await fetch(url, { headers: FETCH_HEADERS });
+      if (res.ok) {
+        const html = await res.text();
+        return { ok: true, html };
+      }
+      if (attempt < FETCH_RETRIES) await new Promise((r) => setTimeout(r, 500 + attempt * 300));
+    } catch (_) {
+      if (attempt < FETCH_RETRIES) await new Promise((r) => setTimeout(r, 500 + attempt * 300));
+    }
+  }
+  return { ok: false };
+}
+
+/** Recursive keşif: Her kategori sayfasını açıp alt -c- linklerini bulur; alt kategorisi olmayanlar yaprak sayılır. */
+async function discoverLeavesRecursive(
+  mainCategoryUrls: string[],
+  mainCategoryIds: Set<string>,
+  silent: boolean
+): Promise<{ leaves: SokCategory[]; failedAsLeaf: number }> {
+  const leaves: SokCategory[] = [];
+  const visited = new Set<string>();
+  let failedAsLeaf = 0;
+  type QueueItem = { url: string; path: string; name: string };
+  const queue: QueueItem[] = mainCategoryUrls.map((url) => {
+    const slug = slugFromUrl(url);
+    const name = slug.replace(/-c-\d+$/, '').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+    return { url, path: name, name };
+  });
+  let processed = 0;
+
+  while (queue.length > 0) {
+    const item = queue.shift()!;
+    if (visited.has(item.url)) continue;
+    visited.add(item.url);
+    processed++;
+    if (!silent && processed % 30 === 0) console.log(`   Şok keşif: ${processed} sayfa, ${leaves.length} yaprak...`);
+
+    const result = await fetchCategoryPage(item.url);
+    if (!result.ok) {
+      failedAsLeaf++;
+      leaves.push({
+        id: categoryIdFromUrl(item.url) || item.url,
+        code: slugFromUrl(item.url),
+        name: item.name,
+        path: item.path,
+        url: item.url,
+      });
+      await new Promise((r) => setTimeout(r, FETCH_DELAY_MS));
+      continue;
+    }
+    const $ = cheerio.load(result.html);
+    const subs = parseSubcategoriesFromHtml(item.url, item.path, $, mainCategoryIds);
+    const newSubs = subs.filter((s) => !visited.has(s.url));
+    if (newSubs.length === 0) {
+      leaves.push({
+        id: categoryIdFromUrl(item.url) || item.url,
+        code: slugFromUrl(item.url),
+        name: item.name,
+        path: item.path,
+        url: item.url,
+      });
+    } else {
+      for (const sub of newSubs) {
+        queue.push({ url: sub.url, path: sub.path, name: sub.name });
+      }
+    }
+    await new Promise((r) => setTimeout(r, FETCH_DELAY_MS));
+  }
+
+  return { leaves, failedAsLeaf };
+}
+
 /**
- * 19 ana kategori + ana sayfa ile sok_categories.json üretir. Şok taramasından önce otomatik çağrılır.
+ * Ana kategoriler + recursive keşif ile gerçek yaprak kategorileri çıkarır, sok_categories.json yazar.
+ * Böylece 2300+ ürün hedeflenir (önceki tek seviye ~199 kategoride kalıyordu).
  */
 export async function runSokCategoryDiscovery(opts?: SokCategoryDiscoveryOptions): Promise<void> {
   const silent = opts?.silent ?? false;
   const config = loadConfig();
-  if (!silent) console.log('Şok kategori keşfi:', config.mainCategoryUrls.length, 'ana kategori');
+  if (!silent) console.log('Şok kategori keşfi (recursive):', config.mainCategoryUrls.length, 'ana kategori');
 
   const userMainIds = new Set(config.mainCategoryUrls.map((u) => categoryIdFromUrl(u)).filter((id): id is string => !!id));
   const anaUrl = config.anaSayfaUrl || BASE + '/';
@@ -149,36 +231,13 @@ export async function runSokCategoryDiscovery(opts?: SokCategoryDiscoveryOptions
   const allMainCategoryIds = new Set([...userMainIds, ...fromAna]);
   await new Promise((r) => setTimeout(r, FETCH_DELAY_MS));
 
-  const allSubs: SokCategory[] = [];
-  const seenUrls = new Set<string>();
+  const { leaves, failedAsLeaf } = await discoverLeavesRecursive(config.mainCategoryUrls, allMainCategoryIds, silent);
 
-  for (const mainUrl of config.mainCategoryUrls) {
-    const mainId = categoryIdFromUrl(mainUrl);
-    if (!mainId) continue;
-    try {
-      const res = await fetch(mainUrl, {
-        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36' },
-      });
-      if (!res.ok) {
-        await new Promise((r) => setTimeout(r, FETCH_DELAY_MS));
-        continue;
-      }
-      const html = await res.text();
-      const $ = cheerio.load(html);
-      const parentName = getParentNameFromHtml(html, $, mainUrl);
-      const subs = parseSubcategoriesFromHtml(mainUrl, parentName, $, allMainCategoryIds);
-      for (const sub of subs) {
-        if (!seenUrls.has(sub.url)) {
-          seenUrls.add(sub.url);
-          allSubs.push(sub);
-        }
-      }
-    } catch (_) {}
-    await new Promise((r) => setTimeout(r, FETCH_DELAY_MS));
-  }
-
-  const output = { market: 'Şok', totalLeafCategories: allSubs.length, categories: allSubs };
+  const output = { market: 'Şok', totalLeafCategories: leaves.length, categories: leaves };
   const outPath = path.join(process.cwd(), 'sok_categories.json');
   fs.writeFileSync(outPath, JSON.stringify(output, null, 2));
-  if (!silent) console.log('Şok:', allSubs.length, 'yaprak kategori → sok_categories.json');
+  if (!silent) {
+    console.log('Şok:', leaves.length, 'yaprak kategori → sok_categories.json');
+    if (failedAsLeaf > 0) console.log('   (Keşifte fetch başarısız olduğu için yaprak sayılan:', failedAsLeaf, '— bunlar üst kategori olabilir, az ürün dönebilir.)');
+  }
 }

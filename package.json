@@ -9,6 +9,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "migrate": "prisma migrate deploy",
+    "migrate:direct": "node scripts/migrate-with-direct.cjs",
+    "scan:direct": "npx tsx scripts/run-offline-scan-with-direct.ts",
+    "debug:migros": "npx tsx scripts/debug-migros-discovery.ts",
+    "debug:sok": "npx tsx scripts/debug-sok-discovery.ts",
+    "debug:sok:detail": "npx tsx scripts/debug-sok-product-details.ts",
     "export:category-list": "node --experimental-vm-modules --no-warnings node_modules/ts-node/dist/bin.js --esm scripts/export-market-category-product-list.ts"
   },
   "dependencies": {
