@@ -7,13 +7,43 @@ function isCountLikeUnit(rawUnit: string | null | undefined): boolean {
     return lengthUnits.includes(unit);
 }
 
+/**
+ * Ürün adına göre DB'de kg/litre kayıtlı olsa bile birim fiyatı "adet" göstermeli mi?
+ * TV/ekran: inç/cm yanlış kg sanılmış; Avokado Adet: adet olması gerekirken kg gelmiş.
+ */
+export function shouldDisplayAsAdet(
+    productName: string | null | undefined,
+    quantityAmount: number | null,
+    quantityUnit: string | null
+): boolean {
+    const name = (productName ?? '').toLowerCase();
+    const unit = (quantityUnit ?? '').toLowerCase();
+    if (!quantityAmount || !quantityUnit) return true;
+    if (unit === 'adet' || unit === 'ad') return true;
+    const lengthUnits = ['cm', 'mm', 'm', 'metre', 'inch', 'inç', '"'];
+    if (lengthUnits.includes(unit)) return true;
+
+    if (unit === 'kg') {
+        const looksLikeTv = /\bekran\b|inç|inch|"\s*\d|\d+\s*cm\b/i.test(name);
+        if (looksLikeTv && (quantityAmount < 0.1 || (quantityAmount >= 10 && quantityAmount <= 500))) return true;
+        const hasAdet = /\badet\b/i.test(name);
+        const hasWeightOrVolume = /\b(gram|gr?|kg|litre?|liter|ml|mlt|lt)\b/i.test(name);
+        if (hasAdet && !hasWeightOrVolume && quantityAmount > 0 && quantityAmount < 1) return true;
+    }
+    return false;
+}
+
 /** Ürünün birim fiyatını hesaplar (₺/kg veya ₺/L veya ₺/adet). */
 export function getUnitPrice(
     priceAmount: number,
     quantityAmount: number | null,
-    quantityUnit: string | null
+    quantityUnit: string | null,
+    productName?: string | null
 ): { value: number; displayUnit: string } {
     const unit = (quantityUnit || '').toLowerCase();
+    if (productName != null && shouldDisplayAsAdet(productName, quantityAmount, quantityUnit)) {
+        return { value: priceAmount, displayUnit: 'adet' };
+    }
     if (!quantityAmount || !quantityUnit || isCountLikeUnit(unit)) {
         return { value: priceAmount, displayUnit: 'adet' };
     }

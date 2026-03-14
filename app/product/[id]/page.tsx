@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NavigationButtons } from '@/components/navigation-buttons';
 import { prisma } from '@/lib/db';
+import { shouldDisplayAsAdet } from '@/lib/unit-price';
 
 export const dynamic = 'force-dynamic';
 
@@ -164,9 +165,8 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
         let unitPriceDisplay = null;
         const unit = (product.quantityUnit || '').toLowerCase();
         const lengthUnits = ['cm', 'mm', 'm', 'metre', 'inch', 'inç', '"'];
-        const looksLikeTvOrDimension = /ekran|inç|inch|"\s*\d|\d+\s*cm\b/i.test(product.name ?? '');
-        const wrongKgForTv = unit === 'kg' && product.quantityAmount != null && product.quantityAmount > 0 && product.quantityAmount < 0.1 && looksLikeTvOrDimension;
-        if (unit === 'adet' || unit === 'ad' || lengthUnits.includes(unit) || !product.quantityAmount || !product.quantityUnit || wrongKgForTv) {
+        const showAsAdet = shouldDisplayAsAdet(product.name, product.quantityAmount, product.quantityUnit);
+        if (unit === 'adet' || unit === 'ad' || lengthUnits.includes(unit) || !product.quantityAmount || !product.quantityUnit || showAsAdet) {
             unitPriceDisplay = `${displayAmount.toFixed(2)} ₺ / adet`;
         } else if (product.quantityAmount && product.quantityUnit) {
             const unitPrice = displayAmount / product.quantityAmount;

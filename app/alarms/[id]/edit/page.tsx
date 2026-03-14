@@ -20,7 +20,7 @@ function productUnitPrice(p: AlarmEditProduct): number | null {
     const priceInfo = p.prices?.[0];
     if (!priceInfo) return null;
     const price = priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount);
-    const { value } = getUnitPrice(price, p.quantityAmount, p.quantityUnit);
+    const { value } = getUnitPrice(price, p.quantityAmount, p.quantityUnit, p.name);
     return value;
 }
 

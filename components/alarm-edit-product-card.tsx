@@ -31,8 +31,8 @@ export function AlarmEditProductCard({ product, actions }: AlarmEditProductCardP
         ? (priceInfo.campaignAmount != null ? parseFloat(priceInfo.campaignAmount) : parseFloat(priceInfo.amount))
         : null;
     const unitPriceInfo =
-        price != null && product.quantityAmount
-            ? getUnitPrice(price, product.quantityAmount, product.quantityUnit)
+        price != null
+            ? getUnitPrice(price, product.quantityAmount, product.quantityUnit, product.name)
             : null;
 
     return (

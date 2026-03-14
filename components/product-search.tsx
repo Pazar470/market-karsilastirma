@@ -14,6 +14,7 @@ import { AddToBasketButton } from './add-to-basket-button';
 import { FollowButton } from './follow-button';
 import { ProductImage } from '@/components/product-image';
 import { MarketLogo } from '@/components/market-logo';
+import { shouldDisplayAsAdet } from '@/lib/unit-price';
 
 interface Facet {
     name: string;
@@ -356,8 +357,7 @@ export function ProductSearch() {
                                                         if (!amount || !product.quantityUnit || unit === 'adet' || unit === 'ad') {
                                                             return `${price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺/adet`;
                                                         }
-                                                        const looksLikeTvOrDimension = /ekran|inç|inch|"\s*\d|\d+\s*cm\b/i.test(product.name ?? '');
-                                                        if (unit === 'kg' && amount > 0 && amount < 0.1 && looksLikeTvOrDimension) {
+                                                        if (shouldDisplayAsAdet(product.name, amount, product.quantityUnit)) {
                                                             return `${price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺/adet`;
                                                         }
                                                         let unitPrice = price / amount;
@@ -435,8 +435,7 @@ export function ProductSearch() {
                                                     if (!amount || !product.quantityUnit || unit === 'adet' || unit === 'ad' || lengthUnits.includes(unit)) {
                                                         return `${price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺ / adet`;
                                                     }
-                                                    const looksLikeTvOrDimension = /ekran|inç|inch|"\s*\d|\d+\s*cm\b/i.test(product.name ?? '');
-                                                    if (unit === 'kg' && amount > 0 && amount < 0.1 && looksLikeTvOrDimension) {
+                                                    if (shouldDisplayAsAdet(product.name, amount, product.quantityUnit)) {
                                                         return `${price.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ₺ / adet`;
                                                     }
                                                     let unitPrice = price / amount;

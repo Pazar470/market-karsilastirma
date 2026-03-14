@@ -63,8 +63,8 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
     }
   }
 
-  // Diğer ağırlık/hacim (g, kg, ml, L) — "8'li 100G" gibi ifadelerde 100g kullanılır
-  const weightVolumeRegex = /(\d+([.,]\d+)?)\s*(kg|g|gr|ml|mlt|l)\b/gi;
+  // Diğer ağırlık/hacim (g, kg, ml, L, Lt, litre) — "3 Lt", "8'li 100G" gibi
+  const weightVolumeRegex = /(\d+([.,]\d+)?)\s*(kg|g|gr|ml|mlt|l|lt|litre|liter)\b/gi;
   const wvMatch = weightVolumeRegex.exec(lowerName);
   if (wvMatch) {
     let amount = parseFloat(wvMatch[1].replace(',', '.'));
@@ -78,18 +78,18 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
       return { amount, unit: 'l' };
     }
     if (u === 'kg') return { amount, unit: 'kg' };
-    if (u === 'l') return { amount, unit: 'l' };
+    if (u === 'l' || u === 'lt' || u === 'litre' || u === 'liter') return { amount, unit: 'l' };
   }
 
   // İsimde "adet" geçiyorsa ve gram/kg/litre/ml yoksa → adet fiyatı (birim gram/kg/l/ml kabul etme)
   const hasAdet = /\badet\b/i.test(cleanedName);
-  const hasWeightOrVolume = /\b(gram|gr?|kg|litre?|liter|ml|mlt)\b/i.test(cleanedName);
+  const hasWeightOrVolume = /\b(gram|gr?|kg|litre?|liter|ml|mlt|lt)\b/i.test(cleanedName);
   if (hasAdet && !hasWeightOrVolume) {
     return { amount: 1, unit: 'adet' };
   }
 
   // Pattern for numbers followed by optional unit
-  const regex = /(\d+([.,]\d+)?)\s*(kg|g|gr|l|ml|mlt|ad|adet)?\b/i;
+  const regex = /(\d+([.,]\d+)?)\s*(kg|g|gr|l|lt|litre|liter|ml|mlt|ad|adet)?\b/i;
   const match = lowerName.match(regex);
 
   if (match) {
@@ -135,6 +135,8 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
       unit = 'l';
     } else if (unit === 'kg' || unit === 'l') {
       // keep
+    } else if (unit === 'lt' || unit === 'litre' || unit === 'liter') {
+      unit = 'l';
     } else if (unit === 'ad' || unit === 'adet') {
       unit = 'adet';
       if (!amount || amount <= 0) amount = 1;
