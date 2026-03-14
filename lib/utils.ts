@@ -10,6 +10,26 @@ export function cn(...inputs: ClassValue[]) {
 const CAMPAIGN_PATTERN = /\s*\+?\d+\s*win\s*para(\s*kazan)?\s*/gi;
 
 /**
+ * Sadece yumurta kategorisindeki ürünlerde kullanılır (bizim kategori ağacında slug=yumurta).
+ * İsimde "30'lu", "20'li", "6'lı" veya "30 adet", "20 adet" gibi ifade varsa adet döner.
+ * Sürpriz yumurta vb. için kullanılmaz; kategori kontrolü çağıran tarafta yapılır.
+ */
+export function parseQuantityForEggCategory(name: string): { amount: number; unit: 'adet' } | null {
+  const cleaned = name.replace(CAMPAIGN_PATTERN, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+  const liMatch = /(\d+)\s*'?(?:lu|li|lü|lı)\b/i.exec(cleaned);
+  if (liMatch) {
+    const count = parseInt(liMatch[1], 10);
+    if (count > 0 && count <= 100) return { amount: count, unit: 'adet' };
+  }
+  const adetMatch = /(\d+)\s+adet\b/i.exec(cleaned);
+  if (adetMatch) {
+    const count = parseInt(adetMatch[1], 10);
+    if (count > 0 && count <= 100) return { amount: count, unit: 'adet' };
+  }
+  return null;
+}
+
+/**
  * Product name içerisinden gramaj ve birimi ayıklar.
  * Örnekler:
  * "Mis Tam Yağlı Kaşar Peyniri 700 g" -> { amount: 0.7, unit: 'kg' }
@@ -21,17 +41,7 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
   const cleanedName = name.replace(CAMPAIGN_PATTERN, ' ').replace(/\s+/g, ' ').trim();
   const lowerName = cleanedName.toLowerCase();
 
-  // Özel kural: Yumurta kategorisinde "30'lu / 15'li / 10'lu" gibi ifadeler → adet bazlı koli
-  // Örn: "M Boy Yumurta 30'lu 53-63 g" -> { amount: 30, unit: 'adet' } (gramaj yok sayılır)
-  if (/\byumurta\b/i.test(lowerName)) {
-    const countMatch = /(\d+)\s*'?lu\b/i.exec(lowerName);
-    if (countMatch) {
-      const count = parseInt(countMatch[1], 10);
-      if (count > 0 && count <= 100) {
-        return { amount: count, unit: 'adet' };
-      }
-    }
-  }
+  // Yumurta adet kuralı artık sadece bizim kategori ağacında "yumurta" olan ürünlerde uygulanıyor (db-utils, parseQuantityForEggCategory).
 
   // "X g Y'lu" / "X gr 10'lu" → toplam gram = X * Y (paket başı gram × adet). X büyükse (örn. 170) zaten toplam olabilir, çarpmayalım.
   const perUnitThenCount = /(\d+([.,]\d+)?)\s*(g|gr)\b\s*(\d+)\s*'?lu\b/i.exec(lowerName);
@@ -86,9 +96,13 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
     const matchIndex = match.index ?? 0;
     const matchLength = match[0].length;
     const textAfter = lowerName.slice(matchIndex + matchLength).trim();
+    const charRightAfter = lowerName[matchIndex + matchLength];
 
-    // Ölçü birimi "cm" (boyut) — adet fiyatı alınmalı, birim fiyat kg/L değil
+    // Ölçü birimi "cm" veya inç (") — TV/ekran boyutu, gramaj değil; birim fiyat adet olmalı
     if (textAfter.startsWith('cm') || /^\s*cm\b/.test(' ' + textAfter)) {
+      return { amount: null, unit: null };
+    }
+    if (charRightAfter === '"' || charRightAfter === '″' || charRightAfter === '\'' || /^["″']\s*/.test(textAfter) || textAfter.startsWith('inç') || textAfter.startsWith('inch')) {
       return { amount: null, unit: null };
     }
 
@@ -96,11 +110,17 @@ export function parseQuantity(name: string): { amount: number | null, unit: stri
     let unit = match[3] ? match[3].toLowerCase() : null;
 
     // RULE: If no unit is specified but number is > 10, assume Grams (common in Migros)
-    // BUT check for counting suffixes like "li", "lu", "dilim" to avoid (e.g. "Kürdan 50'li")
+    // BUT sayıdan hemen sonra inç (") veya cm geliyorsa gram sayma (TV/ekran boyutu)
+    // Ve: tipik ekran boyutu (10–250) + isimde ekran/inç/cm geçiyorsa gram sayma
+    // AND check for counting suffixes like "li", "lu", "dilim" to avoid (e.g. "Kürdan 50'li")
     if (!unit && amount > 10) {
       const countSuffixes = ['li', 'lu', 'lü', 'lı', "'li", "'lu", "'lü", "'lı", "-li", "-lu", "-lü", "-lı", "dilim", "adet"];
       const isCount = countSuffixes.some(s => textAfter.startsWith(s));
       if (isCount) {
+        return { amount: null, unit: null };
+      }
+      const looksLikeScreenSize = amount <= 250 && /\bekran\b|inç|inch|"\s*\d|\d+\s*cm\b/i.test(cleanedName);
+      if (looksLikeScreenSize) {
         return { amount: null, unit: null };
       }
       unit = 'g';

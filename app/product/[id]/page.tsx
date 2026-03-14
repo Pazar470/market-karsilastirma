@@ -164,7 +164,9 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
         let unitPriceDisplay = null;
         const unit = (product.quantityUnit || '').toLowerCase();
         const lengthUnits = ['cm', 'mm', 'm', 'metre', 'inch', 'inç', '"'];
-        if (unit === 'adet' || unit === 'ad' || lengthUnits.includes(unit) || !product.quantityAmount || !product.quantityUnit) {
+        const looksLikeTvOrDimension = /ekran|inç|inch|"\s*\d|\d+\s*cm\b/i.test(product.name ?? '');
+        const wrongKgForTv = unit === 'kg' && product.quantityAmount != null && product.quantityAmount > 0 && product.quantityAmount < 0.1 && looksLikeTvOrDimension;
+        if (unit === 'adet' || unit === 'ad' || lengthUnits.includes(unit) || !product.quantityAmount || !product.quantityUnit || wrongKgForTv) {
             unitPriceDisplay = `${displayAmount.toFixed(2)} ₺ / adet`;
         } else if (product.quantityAmount && product.quantityUnit) {
             const unitPrice = displayAmount / product.quantityAmount;

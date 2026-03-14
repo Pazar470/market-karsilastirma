@@ -1,7 +1,15 @@
 
 import { PrismaClient } from '@prisma/client';
+import { parseQuantityForEggCategory } from './utils';
 
 const prisma = new PrismaClient();
+
+/** categoryId'nin slug'ını döndürür (yumurta kategorisi kontrolü için). */
+async function getCategorySlug(categoryId: string | null | undefined): Promise<string | null> {
+    if (!categoryId) return null;
+    const c = await prisma.category.findUnique({ where: { id: categoryId }, select: { slug: true } });
+    return c?.slug ?? null;
+}
 
 /** categoryId'nin ağaçta kök (ana) kategori adını döndürür. Kategori yolu sadece ODS/Category kaynaklı. */
 async function getRootCategoryName(categoryId: string): Promise<string | null> {
@@ -72,6 +80,16 @@ export async function upsertProduct(product: ScrapedProduct, marketId: string, _
                 }
             }
         }
+        // Bizim kategori ağacında yumurta (slug=yumurta) ise, isimden X'lu/X adet çıkarıp birim adet yazıyoruz.
+        let quantityAmount = product.quantityAmount;
+        let quantityUnit = product.quantityUnit;
+        if (categoryId && (await getCategorySlug(categoryId)) === 'yumurta') {
+            const egg = parseQuantityForEggCategory(validName);
+            if (egg) {
+                quantityAmount = egg.amount;
+                quantityUnit = egg.unit;
+            }
+        }
         // Ana kategori sadece ODS/Category ağacından: categoryId varsa kök adı, yoksa null (senaryo: kullanıcıya göstermeden önce).
         const category = categoryId ? await getRootCategoryName(categoryId) : null;
         try {
@@ -82,8 +100,8 @@ export async function upsertProduct(product: ScrapedProduct, marketId: string, _
                     imageUrl: product.imageUrl,
                     category,
                     categoryId: categoryId ?? null,
-                    quantityAmount: product.quantityAmount,
-                    quantityUnit: product.quantityUnit,
+                    quantityAmount,
+                    quantityUnit,
                     isSuspicious: false,
                     tags: '[]'
                 }
@@ -100,6 +118,16 @@ export async function upsertProduct(product: ScrapedProduct, marketId: string, _
     }
     if (dbProduct && !didCreate) {
         // Mevcut ürün: category ve categoryId ODS/import'tan gelir; taramada güncellenmez. Tags mapper'dan güncellenmez.
+        // Bizim kategori ağacında yumurta ise quantity'yi isimden (X'lu / X adet) alıyoruz.
+        let updateQuantityAmount = product.quantityAmount;
+        let updateQuantityUnit = product.quantityUnit;
+        if (dbProduct.categoryId && (await getCategorySlug(dbProduct.categoryId)) === 'yumurta') {
+            const egg = parseQuantityForEggCategory(validName);
+            if (egg) {
+                updateQuantityAmount = egg.amount;
+                updateQuantityUnit = egg.unit;
+            }
+        }
         dbProduct = await prisma.product.update({
             where: { id: dbProduct.id },
             data: {
@@ -107,8 +135,8 @@ export async function upsertProduct(product: ScrapedProduct, marketId: string, _
                 name: validName,
                 category: dbProduct.category,
                 categoryId: dbProduct.categoryId,
-                quantityAmount: product.quantityAmount,
-                quantityUnit: product.quantityUnit,
+                quantityAmount: updateQuantityAmount,
+                quantityUnit: updateQuantityUnit,
                 updatedAt: new Date()
             }
         });

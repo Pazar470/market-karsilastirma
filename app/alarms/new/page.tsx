@@ -413,15 +413,18 @@ function NewAlarmContent() {
                         <button
                             type="button"
                             onClick={handleDismissInfo}
-                            className="absolute right-2 top-2 p-1 rounded hover:bg-blue-100 text-blue-500"
+                            className="absolute right-2 top-2 p-1.5 rounded hover:bg-red-50 text-red-600 border border-red-200"
                             aria-label="Bilgi kutusunu kapat"
                         >
-                            <X className="h-3 w-3" />
+                            <X className="h-4 w-4 stroke-[2.5]" />
                         </button>
                         <ul className="list-disc pl-4 space-y-1">
                             <li><strong>Tek ürün değil, kategoriye alarm:</strong> Aynı türdeki tüm ürünleri tek alarmda takip edersin.</li>
                             <li><strong>Örnek:</strong> “Kaşar Peyniri” kategorisine 300 ₺/kg hedef koy → tüm marketlerdeki kaşarlar bu sınırın altına düştüğünde haberin olur.</li>
                             <li>Böylece marka marka uğraşmak yerine, <strong>ürün tipine göre en iyi fırsatı</strong> yakalarsın.</li>
+                            <li><strong>Birden fazla kategori</strong> seçebilirsin; aynı alarm farklı ürün türleri için geçerli olur.</li>
+                            <li><strong>Kategori + tekil ürün:</strong> Hem kategori(ler) hem de tek tek ürünler ekleyebilirsin — hepsi tek alarmda takip edilir.</li>
+                            <li><strong>Örnek:</strong> Ali’nin 200 ₺’si var; şekerpare, kap dondurma ve donuk lahmacun almak istiyor ama hepsi 200 ₺’den pahalı. Ali Fiyat Radar’da bu üç ürün için “200 ₺ altına düşünce haber ver” alarmını kuruyor. Fiyat bu seviyeye indiğinde bildirim alma olasılığı: <strong>%100</strong>.</li>
                         </ul>
                     </div>
                 )}
