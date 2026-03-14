@@ -62,6 +62,9 @@ export function ProductSearch() {
     const [showSuggestions, setShowSuggestions] = useState(false);
     const wrapperRef = useRef<HTMLFormElement>(null);
 
+    // Kategori seçiliyken "Sadece bu kategoride ara" — açıksa Ara'da categoryId korunur
+    const [searchOnlyInCategory, setSearchOnlyInCategory] = useState(false);
+
     // Sync local input when URL changes (e.g. back button)
     useEffect(() => {
         setQuery(urlQuery);
@@ -204,13 +207,15 @@ export function ProductSearch() {
     const handleSuggestionClick = (suggestion: string) => {
         setQuery(suggestion);
         setShowSuggestions(false);
-        updateUrl({ q: suggestion });
+        const keepCategory = searchOnlyInCategory && !!urlCategoryId;
+        updateUrl({ q: suggestion, categoryId: keepCategory ? urlCategoryId : null });
     };
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
         setShowSuggestions(false);
-        updateUrl({ q: query });
+        const keepCategory = searchOnlyInCategory && !!urlCategoryId;
+        updateUrl({ q: query, categoryId: keepCategory ? urlCategoryId : null });
     };
 
     const toggleCategory = (category: string) => {
@@ -258,6 +263,17 @@ export function ProductSearch() {
                             </div>
                         )}
                     </div>
+                    {urlCategoryId && (
+                        <label className="flex items-center gap-1.5 shrink-0 text-xs text-muted-foreground whitespace-nowrap cursor-pointer">
+                            <input
+                                type="checkbox"
+                                checked={searchOnlyInCategory}
+                                onChange={(e) => setSearchOnlyInCategory(e.target.checked)}
+                                className="rounded border-gray-300"
+                            />
+                            Sadece bu kategoride ara
+                        </label>
+                    )}
                     <Button type="submit" disabled={loading} className="h-10 shrink-0 text-sm px-4 min-w-[44px]">
                         {loading ? '...' : 'Ara'}
                     </Button>

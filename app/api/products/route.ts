@@ -93,8 +93,7 @@ export async function GET(request: Request) {
         const union = new Set(sets.flat());
         categoryIdIn = Array.from(union);
     }
-    // Arama metni (q) varsa kategori filtresini uygulama — tüm kategorilerde ara
-    if (terms.length > 0) categoryIdIn = null;
+    // q ve categoryId birlikte gelirse ikisini de uygula (sadece bu kategoride ara)
 
     const productIdsFilter = productIdsParam
         ? { id: { in: productIdsParam.split(',').map((s) => s.trim()).filter(Boolean) } }

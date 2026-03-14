@@ -47,6 +47,7 @@ export function CategorySidebar() {
         if (categoryId) params.set('categoryId', categoryId);
         else params.delete('categoryId');
         params.delete('category'); // eski ana kategori filtresini kaldır
+        params.delete('q'); // Kategori seçilince arama temizlensin (birbirini ezsin)
         router.push(`/?${params.toString()}`);
         setIsMobileOpen(false); // Seçim yapınca panel kapansın, ürünler ekrana düşsün
     };
