@@ -3,11 +3,32 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { NavigationButtons } from '@/components/navigation-buttons';
 import { prisma } from '@/lib/db';
+import { getA101DisplayUrl } from '@/lib/utils';
 import { shouldDisplayAsAdet } from '@/lib/unit-price';
 
 export const dynamic = 'force-dynamic';
 
 const PARALLEL_FETCH_TIMEOUT_MS = 10_000;
+
+const ALLOWED_MARKET_HOSTS = ['a101.com.tr', 'migros.com.tr', 'sokmarket.com.tr'];
+
+function isAllowedProductUrl(url: string | null | undefined): boolean {
+    if (!url || typeof url !== 'string') return false;
+    try {
+        const host = new URL(url).hostname.toLowerCase();
+        return ALLOWED_MARKET_HOSTS.some((h) => host === h || host.endsWith('.' + h));
+    } catch {
+        return false;
+    }
+}
+
+function marketLinkLabel(marketName: string): string {
+    const name = (marketName || '').trim();
+    if (!name) return 'Markette gör';
+    const last = name.slice(-1).toLowerCase();
+    const vowel = /[aeıioöuüâîû]/i.test(last);
+    return `${name}'${vowel ? 'de' : 'ta'} gör`;
+}
 
 function latestPricePerMarket<T extends { market: { id: string } }>(prices: T[]): T[] {
     const byMarket = new Map<string, T>();
@@ -30,7 +51,13 @@ async function getProduct(id: string) {
         },
     });
     if (!product) return null;
-    const prices = latestPricePerMarket(product.prices);
+    let prices = latestPricePerMarket(product.prices);
+    // A101: Markette gör linki /kapida/u/ID 404 veriyor; gösterimde /kapida/[slug]_p-[id] kullan
+    prices = prices.map((p: any) =>
+        p.market?.name === 'A101' && product.marketKey
+            ? { ...p, productUrl: getA101DisplayUrl(product.marketKey, product.name) ?? p.productUrl }
+            : p
+    );
     return { ...product, prices } as unknown as (typeof product & { quantityAmount: number | null; quantityUnit: string | null });
 }
 
@@ -238,10 +265,20 @@ export default async function ProductPage(props: { params: Promise<{ id: string 
                             </div>
                             <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
                             {bestPrice?.market && (
-                                <div className="flex items-center gap-2">
+                                <div className="flex flex-wrap items-center gap-2">
                                     <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
                                         {bestPrice.market.name}
                                     </span>
+                                    {(bestPrice as { productUrl?: string | null }).productUrl && isAllowedProductUrl((bestPrice as { productUrl?: string | null }).productUrl) && (
+                                        <a
+                                            href={(bestPrice as { productUrl: string }).productUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer nofollow sponsored"
+                                            className="text-xs font-medium text-blue-600 hover:text-blue-800 hover:underline"
+                                        >
+                                            {marketLinkLabel(bestPrice.market.name)}
+                                        </a>
+                                    )}
                                 </div>
                             )}
                         </div>

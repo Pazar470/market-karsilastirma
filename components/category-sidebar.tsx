@@ -42,14 +42,14 @@ export function CategorySidebar() {
             .finally(() => setLoading(false));
     }, []);
 
-    const handleSelectCategory = (categoryId: string | null) => {
+    const handleSelectCategory = (categoryId: string | null, closeMobilePanel: boolean) => {
         const params = new URLSearchParams(searchParams.toString());
         if (categoryId) params.set('categoryId', categoryId);
         else params.delete('categoryId');
         params.delete('category'); // eski ana kategori filtresini kaldır
         params.delete('q'); // Kategori seçilince arama temizlensin (birbirini ezsin)
         router.push(`/?${params.toString()}`);
-        setIsMobileOpen(false); // Seçim yapınca panel kapansın, ürünler ekrana düşsün
+        if (closeMobilePanel) setIsMobileOpen(false);
     };
 
     const toggleExpand = (id: string) => {
@@ -114,9 +114,12 @@ export function CategorySidebar() {
                         )}
                         onClick={() => {
                             if (hasChildren) {
-                                toggleExpand(node.id);
+                                // Üst/orta kategori: seç, alt kategorileri aç, paneli kapatma
+                                handleSelectCategory(node.id, false);
+                                setExpanded((prev) => new Set(prev).add(node.id));
                             } else {
-                                handleSelectCategory(node.id);
+                                // Yaprak: seç ve mobilde paneli kapat
+                                handleSelectCategory(node.id, true);
                             }
                         }}
                     >
@@ -176,7 +179,7 @@ export function CategorySidebar() {
                     <Button
                         variant={selectedCategoryId === null || selectedCategoryId === '' ? 'default' : 'ghost'}
                         className={cn('w-full justify-start', (!selectedCategoryId || selectedCategoryId === '') && 'bg-blue-600 text-white')}
-                        onClick={() => handleSelectCategory(null)}
+                        onClick={() => handleSelectCategory(null, true)}
                     >
                         Tüm Ürünler
                     </Button>
@@ -271,7 +274,6 @@ export function CategorySidebar() {
                                 <option value="A101">A101</option>
                                 <option value="Şok">Şok</option>
                                 <option value="Migros">Migros</option>
-                                <option value="Carrefour">Carrefour (Yakında)</option>
                             </select>
                         </label>
                         <label className="grid gap-2">

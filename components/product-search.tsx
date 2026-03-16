@@ -16,6 +16,18 @@ import { ProductImage } from '@/components/product-image';
 import { MarketLogo } from '@/components/market-logo';
 import { shouldDisplayAsAdet } from '@/lib/unit-price';
 
+const ALLOWED_MARKET_HOSTS = ['a101.com.tr', 'migros.com.tr', 'sokmarket.com.tr'];
+
+function isAllowedProductUrl(url: string | null | undefined): boolean {
+    if (!url || typeof url !== 'string') return false;
+    try {
+        const host = new URL(url).hostname.toLowerCase();
+        return ALLOWED_MARKET_HOSTS.some((h) => host === h || host.endsWith('.' + h));
+    } catch {
+        return false;
+    }
+}
+
 interface Facet {
     name: string;
     count: number;
@@ -37,6 +49,7 @@ interface Product {
         currency: string;
         market: { name: string };
         date: string;
+        productUrl?: string | null;
     }[];
 }
 
@@ -291,7 +304,6 @@ export function ProductSearch() {
                         <option value="A101">A101</option>
                         <option value="Şok">Şok</option>
                         <option value="Migros">Migros</option>
-                        <option value="Carrefour">Carrefour (Yakında)</option>
                     </select>
                     <select
                         className={cn(selectClass, 'w-44')}
@@ -424,6 +436,17 @@ export function ProductSearch() {
                                         </div>
                                         {priceInfo?.campaignCondition && (
                                             <div className="text-[9px] sm:text-xs text-amber-700 font-medium mt-0.5 line-clamp-1">{priceInfo.campaignCondition}</div>
+                                        )}
+                                        {priceInfo?.productUrl && isAllowedProductUrl(priceInfo.productUrl) && (
+                                            <a
+                                                href={priceInfo.productUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer nofollow sponsored"
+                                                onClick={(e) => e.stopPropagation()}
+                                                className="text-[9px] sm:text-xs text-blue-600 hover:underline mt-0.5 inline-block"
+                                            >
+                                                Markette gör
+                                            </a>
                                         )}
                                         {priceInfo && (
                                             <div className="text-[9px] sm:text-xs text-gray-500 font-medium mt-0.5 hidden sm:block">

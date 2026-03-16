@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
 import { upsertProductBatch, type ScrapedProduct } from './db-utils';
-import { parseQuantity } from './utils';
+import { parseQuantity, isWeightOrVolumeUnit } from './utils';
 
 const prisma = new PrismaClient();
 
@@ -187,72 +187,89 @@ export async function runMigrosDebugDiscovery(maxCategories: number = 5): Promis
     console.log('✅ Migros debug discovery bitti (ham JSON için debug-scrape klasörüne bakın).');
 }
 
+const MIGROS_MAX_PAGES_PER_CATEGORY = 50;
+
 async function scrapeMigros(cat: any, market: any): Promise<ScrapedProduct[]> {
-    const url = `https://www.migros.com.tr/rest/search/screens/${cat.prettyName}?page=1`;
-    const res = await fetchWithTimeout(url, { headers: HEADERS });
-    if (!res.ok) return [];
-    const json: any = await res.json();
-    const items = json.data?.storeProductInfos || json.data?.searchInfo?.storeProductInfos || [];
     const products: ScrapedProduct[] = [];
-    for (const item of items) {
-        pushDebugRaw(debugMigrosRaw, market.name ?? 'Migros', cat, item);
-        const shown = Number(item.shownPrice || 0);
-        const regular = Number(item.regularPrice || 0);
-        const baseCents = regular || shown || 0;
-        const campaignCents = shown > 0 && regular > 0 && shown < regular ? shown : 0;
-        const listPrice = baseCents / 100;
-        const campaignPrice = campaignCents > 0 ? campaignCents / 100 : undefined;
-        if (!item.name || listPrice <= 0) continue;
+    let page = 1;
+    let hasMore = true;
 
-        // Migros bize hazır unit/unitAmount veriyor — önce onları kullan, yoksa isimden parse.
-        const unitAmount = Number(item.unitAmount || 0) || undefined;
-        const unitCode: string | undefined = item.unit || undefined;
-        let quantityAmount: number | undefined;
-        let quantityUnit: string | undefined;
-        if (unitCode != null && unitCode !== '') {
-            const u = String(unitCode).toUpperCase();
-            quantityUnit = u === 'PIECE' ? 'adet' : u === 'KG' ? 'kg' : (u === 'L' || u === 'LT' || u === 'LITER') ? 'l' : u.toLowerCase();
-            quantityAmount = unitAmount ?? undefined;
-        }
-        if (quantityAmount == null || quantityUnit == null) {
+    while (hasMore && page <= MIGROS_MAX_PAGES_PER_CATEGORY) {
+        const url = `https://www.migros.com.tr/rest/search/screens/${cat.prettyName}?page=${page}&reid=123456789`;
+        const res = await fetchWithTimeout(url, { headers: HEADERS });
+        if (!res.ok) break;
+        const json: any = await res.json();
+        const items = json.data?.storeProductInfos || json.data?.searchInfo?.storeProductInfos || [];
+        if (items.length === 0) break;
+
+        for (const item of items) {
+            pushDebugRaw(debugMigrosRaw, market.name ?? 'Migros', cat, item);
+            const shown = Number(item.shownPrice || 0);
+            const regular = Number(item.regularPrice || 0);
+            const baseCents = regular || shown || 0;
+            const campaignCents = shown > 0 && regular > 0 && shown < regular ? shown : 0;
+            const listPrice = baseCents / 100;
+            const campaignPrice = campaignCents > 0 ? campaignCents / 100 : undefined;
+            if (!item.name || listPrice <= 0) continue;
+
             const qtyFromName = parseQuantity(item.name);
-            if (quantityAmount == null) quantityAmount = qtyFromName.amount || undefined;
-            if (quantityUnit == null) quantityUnit = qtyFromName.unit || undefined;
-        }
-
-        // Kategori ağacından market kategori yolu üret (Süt & Kahvaltılık > Beyaz Peynir > İnek Peyniri vb.)
-        const pathParts: string[] = [];
-        if (Array.isArray(item.categoryAscendants)) {
-            for (const asc of item.categoryAscendants) {
-                if (asc?.name) pathParts.push(String(asc.name));
+            let quantityAmount: number | undefined;
+            let quantityUnit: string | undefined;
+            const useQtyFromName = qtyFromName.amount != null && qtyFromName.unit != null
+                && (isWeightOrVolumeUnit(qtyFromName.unit) || (qtyFromName.unit === 'adet' && (qtyFromName.amount ?? 0) >= 2));
+            if (useQtyFromName) {
+                quantityAmount = qtyFromName.amount ?? undefined;
+                quantityUnit = qtyFromName.unit ?? undefined;
+            } else {
+                const unitAmount = Number(item.unitAmount || 0) || undefined;
+                const unitCode: string | undefined = item.unit || undefined;
+                if (unitCode != null && unitCode !== '') {
+                    const u = String(unitCode).toUpperCase();
+                    quantityUnit = u === 'PIECE' ? 'adet' : u === 'KG' ? 'kg' : (u === 'L' || u === 'LT' || u === 'LITER') ? 'l' : u.toLowerCase();
+                    quantityAmount = unitAmount ?? undefined;
+                    if (quantityUnit === 'kg' && quantityAmount === 1000) quantityAmount = 1;
+                }
+                if (quantityAmount == null || quantityUnit == null) {
+                    if (quantityAmount == null) quantityAmount = qtyFromName.amount ?? undefined;
+                    if (quantityUnit == null) quantityUnit = qtyFromName.unit ?? undefined;
+                }
             }
-        }
-        if (item.category?.name) pathParts.push(String(item.category.name));
-        const categoryPath = pathParts.length > 0 ? pathParts.join(' > ') : undefined;
 
-        // Kampanya koşulu: CRM etiketi veya indirim oranından üretilmiş kısa metin
-        let campaignCondition: string | undefined;
-        const tag = Array.isArray(item.crmDiscountTags) && item.crmDiscountTags[0]?.tag;
-        if (tag && typeof tag === 'string' && tag.trim() !== '') {
-            campaignCondition = tag.trim();
-        } else if (typeof item.discountRate === 'number' && item.discountRate > 0) {
-            campaignCondition = `%${item.discountRate} indirim`;
-        }
+            const pathParts: string[] = [];
+            if (Array.isArray(item.categoryAscendants)) {
+                for (const asc of item.categoryAscendants) {
+                    if (asc?.name) pathParts.push(String(asc.name));
+                }
+            }
+            if (item.category?.name) pathParts.push(String(item.category.name));
+            const categoryPath = pathParts.length > 0 ? pathParts.join(' > ') : undefined;
 
-        products.push({
-            name: item.name,
-            price: listPrice,
-            imageUrl: item.images?.[0]?.urls?.PRODUCT_DETAIL || item.images?.[0]?.urls?.PRODUCT_LIST || '',
-            link: `https://www.migros.com.tr/${item.prettyName}`,
-            store: 'MIGROS',
-            categoryCode: cat.prettyName,
-            categoryName: cat.name,
-            categoryPath,
-            quantityAmount,
-            quantityUnit,
-            campaignAmount: campaignPrice,
-            campaignCondition,
-        });
+            let campaignCondition: string | undefined;
+            const tag = Array.isArray(item.crmDiscountTags) && item.crmDiscountTags[0]?.tag;
+            if (tag && typeof tag === 'string' && tag.trim() !== '') {
+                campaignCondition = tag.trim();
+            } else if (typeof item.discountRate === 'number' && item.discountRate > 0) {
+                campaignCondition = `%${item.discountRate} indirim`;
+            }
+
+            products.push({
+                name: item.name,
+                price: listPrice,
+                imageUrl: item.images?.[0]?.urls?.PRODUCT_DETAIL || item.images?.[0]?.urls?.PRODUCT_LIST || '',
+                link: `https://www.migros.com.tr/${item.prettyName}`,
+                store: 'MIGROS',
+                categoryCode: cat.prettyName,
+                categoryName: cat.name,
+                categoryPath,
+                quantityAmount,
+                quantityUnit,
+                campaignAmount: campaignPrice,
+                campaignCondition,
+            });
+        }
+        page++;
+        if (items.length < 24) hasMore = false;
+        else await new Promise((r) => setTimeout(r, 200));
     }
     return products;
 }
@@ -289,40 +306,48 @@ async function scrapeA101ByParent(parentId: string, leafCategories: { id: string
         if (!matchedLeafId) continue;
         const leaf = leafMap[matchedLeafId];
 
-        // A101 bize netWeight + salesUnitOfMeasure veriyor — önce onları kullan (30 cm, inç vb. isimden çıkmaz).
-        const attrs = item.attributes || {};
-        const netWeight = attrs.netWeight != null ? Number(attrs.netWeight) : NaN;
-        const salesUnit = (attrs.salesUnitOfMeasure || attrs.baseUnitOfMeasure || '').toString().toUpperCase().trim();
+        // Öncelik isim: İsimde sayı + ağırlık/hacim birimi varsa birim fiyat oradan. A101 API arada hata yapıyor; isimde net birim varsa onu kullan.
+        const qtyFromName = parseQuantity(name);
         let quantityAmount: number | undefined;
         let quantityUnit: string | undefined;
-        if (salesUnit && !Number.isNaN(netWeight) && netWeight >= 0) {
-            if (salesUnit === 'KG') {
-                quantityUnit = 'kg';
-                quantityAmount = netWeight >= 1000 ? netWeight / 1000 : netWeight; // A101 gram gönderiyor → kg
-            } else if (salesUnit === 'ML') {
-                quantityUnit = 'l';
-                quantityAmount = netWeight / 1000;
-            } else if (salesUnit === 'L' || salesUnit === 'LT' || salesUnit === 'LITER') {
-                quantityUnit = 'l';
-                quantityAmount = netWeight >= 1000 ? netWeight / 1000 : netWeight;
-            } else if (salesUnit === 'ADT' || salesUnit === 'PIECE' || salesUnit === 'ADET') {
-                quantityUnit = 'adet';
-                quantityAmount = netWeight > 0 ? netWeight : 1;
-            } else {
-                quantityUnit = salesUnit.toLowerCase();
-                quantityAmount = netWeight;
+        const useQtyFromName = qtyFromName.amount != null && qtyFromName.unit != null
+            && (isWeightOrVolumeUnit(qtyFromName.unit) || (qtyFromName.unit === 'adet' && (qtyFromName.amount ?? 0) >= 2));
+        if (useQtyFromName) {
+            quantityAmount = qtyFromName.amount ?? undefined;
+            quantityUnit = qtyFromName.unit ?? undefined;
+        } else {
+            const attrs = item.attributes || {};
+            const netWeight = attrs.netWeight != null ? Number(attrs.netWeight) : NaN;
+            const salesUnit = (attrs.salesUnitOfMeasure || attrs.baseUnitOfMeasure || '').toString().toUpperCase().trim();
+            if (salesUnit && !Number.isNaN(netWeight) && netWeight >= 0) {
+                if (salesUnit === 'KG') {
+                    quantityUnit = 'kg';
+                    quantityAmount = netWeight >= 1000 ? netWeight / 1000 : netWeight;
+                } else if (salesUnit === 'ML') {
+                    quantityUnit = 'l';
+                    quantityAmount = netWeight / 1000;
+                } else if (salesUnit === 'L' || salesUnit === 'LT' || salesUnit === 'LITER') {
+                    quantityUnit = 'l';
+                    quantityAmount = netWeight >= 1000 ? netWeight / 1000 : netWeight;
+                } else if (salesUnit === 'ADT' || salesUnit === 'PIECE' || salesUnit === 'ADET') {
+                    quantityUnit = 'adet';
+                    quantityAmount = netWeight > 0 ? netWeight : 1;
+                } else {
+                    quantityUnit = salesUnit.toLowerCase();
+                    quantityAmount = netWeight;
+                }
             }
-        }
-        if (quantityAmount == null || quantityUnit == null) {
-            const qty = parseQuantity(name);
-            if (quantityAmount == null) quantityAmount = qty.amount || undefined;
-            if (quantityUnit == null) quantityUnit = qty.unit || undefined;
+            if (quantityAmount == null || quantityUnit == null) {
+                if (quantityAmount == null) quantityAmount = qtyFromName.amount ?? undefined;
+                if (quantityUnit == null) quantityUnit = qtyFromName.unit ?? undefined;
+            }
         }
 
         const unwantedImg = ['yerli', 'dondurulmus', 'donuk', 'badge', 'yerliuretim', 'donukurun', 'glutensiz', 'vegan', 'helal'];
         const imgArr = item.images || [];
         const validImg = imgArr.find((im: any) => im?.url && !unwantedImg.some(kw => (im.url || '').toLowerCase().includes(kw)));
         const img = (validImg?.url || imgArr[0]?.url || '').trim();
+        const nitelikAdi = item.attributes?.nitelikAdi ?? undefined;
         products.push({
             name,
             price: listPrice,
@@ -335,6 +360,7 @@ async function scrapeA101ByParent(parentId: string, leafCategories: { id: string
             quantityUnit,
             campaignAmount: campaignPrice,
             campaignCondition: campaignText,
+            nitelikAdi,
         });
     }
     return products;
@@ -382,15 +408,21 @@ function parseSokProductsFromHtml(html: string, $: ReturnType<typeof cheerio.loa
             for (const p of list) {
                 pushDebugRaw(debugSokRaw, 'SOK', cat, p);
                 const name = p.name ?? p.productName ?? p.title ?? '';
-                const priceVal = p.price ?? p.shownPrice ?? p.salePrice ?? p.listPrice;
-                const price = typeof priceVal === 'number' ? priceVal : parseFloat(String(priceVal).replace(/\./g, '').replace(',', '.')) || 0;
+                const toNum = (v: unknown) => (typeof v === 'number' ? v : parseFloat(String(v || 0).replace(/\./g, '').replace(',', '.')) || 0);
+                const listVal = p.listPrice ?? p.regularPrice ?? p.price;
+                const campaignVal = p.salePrice ?? p.shownPrice ?? p.discountedPrice;
+                const listPrice = toNum(listVal);
+                const campaignPrice = campaignVal != null ? toNum(campaignVal) : null;
+                const hasCampaign = campaignPrice != null && campaignPrice > 0 && listPrice > 0 && campaignPrice < listPrice;
+                const price = listPrice || campaignPrice || toNum(p.price ?? p.shownPrice ?? p.salePrice ?? p.listPrice);
+                const campaignAmount = hasCampaign ? campaignPrice : undefined;
                 const href = p.slug ?? p.url ?? p.link ?? (p.id ? `p-${p.id}` : '');
                 const link = href && !href.startsWith('http')
                     ? `https://www.sokmarket.com.tr/${href.startsWith('/') ? href.slice(1) : href}`
                     : (href || '');
                 const img = p.imageUrl ?? p.image ?? p.images?.[0]?.url ?? '';
                 if (!name || price <= 0) continue;
-                const key = `${name}|${price}`;
+                const key = `${name}|${price}|${campaignAmount ?? ''}`;
                 if (seen.has(key)) continue;
                 seen.add(key);
                 const qty = parseQuantity(name);
@@ -405,6 +437,8 @@ function parseSokProductsFromHtml(html: string, $: ReturnType<typeof cheerio.loa
                     categoryName: cat.name,
                     quantityAmount: qty.amount || undefined,
                     quantityUnit: qty.unit || undefined,
+                    ...(campaignAmount != null && { campaignAmount }),
+                    ...(campaignAmount != null && price > 0 && { campaignCondition: `%${Math.round((1 - campaignAmount / price) * 100)} indirim` }),
                 });
             }
             if (out.length > 0) return out;
@@ -434,15 +468,24 @@ function parseSokProductsFromHtml(html: string, $: ReturnType<typeof cheerio.loa
             }
         }
         if (!text) text = candidates.join(' ');
-        const priceMatch = text.match(/(\d{1,3}(?:[.]\d{3})*(?:,\d{1,2})?)\s*(?:₺|TL)/i);
-        if (!priceMatch) continue;
-        const price = parseFloat(priceMatch[1].replace(/\./g, '').replace(',', '.'));
-        if (price <= 0) continue;
-        let name = text.replace(priceMatch[0], '').replace(/\s+/g, ' ').trim();
-        // Gürültü kelimeleri kes (Filtreleme, Marka, Sepete Ekle vb.)
+        const priceRegex = /(\d{1,3}(?:[.]\d{3})*(?:,\d{1,2})?)\s*(?:₺|TL)/gi;
+        const priceMatches = text.match(priceRegex);
+        if (!priceMatches || priceMatches.length === 0) continue;
+        const parsedPrices = priceMatches.map((m) => {
+            const numStr = m.replace(/\s*(?:₺|TL)/gi, '').trim().replace(/\./g, '').replace(',', '.');
+            return parseFloat(numStr) || 0;
+        }).filter((n) => n > 0);
+        if (parsedPrices.length === 0) continue;
+        const listPrice = Math.max(...parsedPrices);
+        const campaignPrice = parsedPrices.length >= 2 ? Math.min(...parsedPrices) : undefined;
+        const price = listPrice;
+        const campaignAmount = campaignPrice != null && campaignPrice < listPrice ? campaignPrice : undefined;
+        let name = text;
+        priceMatches.forEach((m) => { name = name.replace(m, ''); });
+        name = name.replace(/₺/g, '').replace(/tl/gi, '').replace(/\s+/g, ' ').trim();
         name = name.replace(/\b(?:Filtreleme|Marka|Temizle|Sepete Ekle|Kampanyalı|Önerilen)\b/gi, '').replace(/\s+/g, ' ').trim();
         if (!name || name.length < 2) name = href.replace(/.*\/([^/]+)-p-\d+$/, '$1').replace(/-/g, ' ') || 'Ürün';
-        const key = `${name}|${price}`;
+        const key = `${name}|${price}|${campaignAmount ?? ''}`;
         if (seen.has(key)) continue;
         seen.add(key);
         const qty = parseQuantity(name);
@@ -456,6 +499,8 @@ function parseSokProductsFromHtml(html: string, $: ReturnType<typeof cheerio.loa
             categoryName: cat.name,
             quantityAmount: qty.amount || undefined,
             quantityUnit: qty.unit || undefined,
+            ...(campaignAmount != null && { campaignAmount }),
+            ...(campaignAmount != null && listPrice > 0 && { campaignCondition: `%${Math.round((1 - campaignAmount / listPrice) * 100)} indirim` }),
         });
     }
     return out;

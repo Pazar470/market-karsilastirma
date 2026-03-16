@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import * as cheerio from 'cheerio';
-import { parseUnit } from '../unit-parser';
+import { parseQuantity } from '../utils';
 import { isProductValid } from '../product-sanity-check';
 
 interface ScrapedProduct {
@@ -181,7 +181,7 @@ export async function scrapeSok(): Promise<ScrapedProduct[]> {
                         const img = $(element).find('img').attr('src');
 
                         if (name && price > 0) {
-                            const unitInfo = parseUnit(name);
+                            const qty = parseQuantity(name);
 
                             // Check for redundancy:
                             // We might scrape the same product from 'Süt' and 'Peynir'.
@@ -199,8 +199,8 @@ export async function scrapeSok(): Promise<ScrapedProduct[]> {
                                     link: `https://www.sokmarket.com.tr${href}`,
                                     store: 'Şok',
                                     category: cat.path, // Use the full path!
-                                    quantityAmount: unitInfo?.amount,
-                                    quantityUnit: unitInfo?.unit
+                                    quantityAmount: qty.amount ?? undefined,
+                                    quantityUnit: qty.unit ?? undefined
                                 });
                                 pageProductsCount++;
                             } else {

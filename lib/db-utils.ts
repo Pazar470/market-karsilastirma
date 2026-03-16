@@ -1,5 +1,5 @@
 
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 import { parseQuantityForEggCategory } from './utils';
 
 const prisma = new PrismaClient();
@@ -35,6 +35,8 @@ export interface ScrapedProduct {
     campaignAmount?: number;
     /** Kampanya koşulu (örn. "10 TL ve üzeri alışverişlerinizde") */
     campaignCondition?: string;
+    /** A101: item.attributes.nitelikAdi (zombi filtresi için) */
+    nitelikAdi?: string;
 }
 
 export async function upsertProduct(product: ScrapedProduct, marketId: string, _dbCategoryId?: string) {
@@ -162,11 +164,17 @@ export async function upsertProduct(product: ScrapedProduct, marketId: string, _
 
 const BATCH_SIZE = 200;
 
+/** A101 zombi nitelikleri: sadece sitede çıkmayanlar şüpheli listesine alınır (gözleme göre GeçiciDelist, GrupSpot). */
+const A101_ZOMBIE_NITELIK = new Set(['GeçiciDelist', 'GrupSpot']);
+
 /** Toplu yazma: önce mevcut ürünleri bul, yenileri createManyAndReturn ile ekle, fiyatları createMany ile. Döner: bu turda kaç yeni ürün eklendi. */
 export async function upsertProductBatch(products: ScrapedProduct[], marketId: string, marketName: string): Promise<{ created: number }> {
     if (products.length === 0) return { created: 0 };
     const links = [...new Set(products.map((p) => p.link))];
-    const existing = await prisma.product.findMany({ where: { marketKey: { in: links } }, select: { id: true, marketKey: true } });
+    const existing = await prisma.product.findMany({
+        where: { marketKey: { in: links } },
+        select: { id: true, marketKey: true, isSuspicious: true, suspiciousAtPrice: true },
+    });
     const keyToProduct = new Map<string, { id: string }>(existing.map((p) => [p.marketKey!, p]));
 
     const toCreate = products.filter((p) => !keyToProduct.has(p.link));
@@ -233,6 +241,31 @@ export async function upsertProductBatch(products: ScrapedProduct[], marketId: s
         }
     }
 
+    // A101: Şüpheden çıkar: (1) Fiyat değiştiyse → satışa dönmüş kabul et; (2) Nitelik artık zombi değilse → doğru sınıflandırma. Toplu update (tek sorgu).
+    const a101SuspiciousByLink = new Map<string, { id: string; suspiciousAtPrice: number }>();
+    if (marketName === 'A101') {
+        for (const p of existing) {
+            if (p.marketKey && p.isSuspicious && p.suspiciousAtPrice != null)
+                a101SuspiciousByLink.set(p.marketKey, { id: p.id, suspiciousAtPrice: Number(p.suspiciousAtPrice) });
+        }
+    }
+    if (marketName === 'A101' && a101SuspiciousByLink.size > 0) {
+        const idsToClear: string[] = [];
+        for (const p of products) {
+            const row = a101SuspiciousByLink.get(p.link);
+            if (!row) continue;
+            const priceChanged = p.price !== row.suspiciousAtPrice;
+            const nitelikNotZombie = !p.nitelikAdi || !A101_ZOMBIE_NITELIK.has(p.nitelikAdi);
+            if (priceChanged || nitelikNotZombie) idsToClear.push(row.id);
+        }
+        if (idsToClear.length > 0) {
+            await prisma.product.updateMany({
+                where: { id: { in: idsToClear } },
+                data: { isSuspicious: false, suspiciousAtPrice: null },
+            });
+        }
+    }
+
     const priceRows = products
         .map((p) => {
             const product = keyToProduct.get(p.link);
@@ -255,5 +288,26 @@ export async function upsertProductBatch(products: ScrapedProduct[], marketId: s
         const chunk = priceRows.slice(i, i + BATCH_SIZE);
         await prisma.price.createMany({ data: chunk });
     }
+
+    // A101: Zombi nitelikteki ürünleri şüpheli listesine al (o anki fiyatla). Toplu update: tek raw SQL (VALUES) ile.
+    if (marketName === 'A101' && products.length > 0) {
+        const zombieRows: { id: string; price: number }[] = [];
+        for (const p of products) {
+            if (!p.nitelikAdi || !A101_ZOMBIE_NITELIK.has(p.nitelikAdi)) continue;
+            const prod = keyToProduct.get(p.link);
+            if (!prod) continue;
+            zombieRows.push({ id: prod.id, price: p.price });
+        }
+        if (zombieRows.length > 0) {
+            const values = Prisma.join(
+                zombieRows.map((r) => Prisma.sql`(${r.id}::uuid, ${r.price}::decimal)`),
+                ', '
+            );
+            await prisma.$executeRaw(
+                Prisma.sql`UPDATE "Product" AS p SET "isSuspicious" = true, "suspiciousAtPrice" = v.price FROM (VALUES ${values}) AS v(id, price) WHERE (p.id)::uuid = (v.id)::uuid`
+            );
+        }
+    }
+
     return { created: uniqueNew.length };
 }

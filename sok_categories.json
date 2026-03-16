@@ -1,6 +1,6 @@
 {
   "market": "Şok",
-  "totalLeafCategories": 201,
+  "totalLeafCategories": 200,
   "categories": [
     {
       "id": "20644",
@@ -764,13 +764,6 @@
       "name": "Dondurulmuş Hamur İşleri",
       "path": "Dondurulmus Urunler > Dondurulmuş Hamur İşleri",
       "url": "https://www.sokmarket.com.tr/dondurulmus-hamur-isleri-c-1610"
-    },
-    {
-      "id": "1620",
-      "code": "dondurulmus-pasta-ve-tatli-c-1620",
-      "name": "Dondurulmuş Pasta ve Tatlı",
-      "path": "Dondurulmus Urunler > Dondurulmuş Pasta ve Tatlı",
-      "url": "https://www.sokmarket.com.tr/dondurulmus-pasta-ve-tatli-c-1620"
     },
     {
       "id": "1570",

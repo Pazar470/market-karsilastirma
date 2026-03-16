@@ -20,7 +20,6 @@ import path from 'path';
 import { runFullScrapeBatch, type ScrapeCollectResult } from '../lib/scraper';
 import { upsertProductBatch } from '../lib/db-utils';
 import { checkAlarmsAfterScrape } from '../lib/alarm-engine';
-import { runSuspiciousA101Check } from '../lib/suspicious-a101';
 import { syncMappingToNullProducts } from '../lib/category-sync';
 import { runSokCategoryDiscovery } from '../lib/sok-category-discovery';
 import { runMigrosCategoryDiscovery } from '../lib/migros-category-discovery';
@@ -134,9 +133,9 @@ async function main() {
             status.message = 'A101 kategori listesi güncelleniyor…';
             status.lastUpdated = new Date().toISOString();
             writeStatusJson(status);
-            console.log('\n📂 A101: Kategori keşfi (15 ana kategori → yaprak liste + sitemap uyarısı)...');
+            console.log('\n📂 A101: Kategori keşfi (sitemap/fallback → id çözümleme → yaprak liste)...');
             const a101Result = await runA101CategoryDiscovery({ silent: true, sitemapCheck: true });
-            console.log(`   a101_categories.json güncellendi (${a101Result.leafCount} yaprak).`);
+            console.log(`   ${a101Result.rootCount} ana kategori, ${a101Result.leafCount} yaprak → a101_categories.json güncellendi.`);
         }
         if (market.name === 'Sok' || market.name === 'Şok') {
             status.message = 'Şok kategori listesi güncelleniyor…';
@@ -180,6 +179,34 @@ async function main() {
             products: result.products,
             errors: result.errors,
         });
+
+        // İsteğe bağlı checkpoint: normalize edilmiş ürün listesi (Supabase'e yazmadan önce)
+        if (process.env.SCRAPE_SAVE_NORMALIZED === '1') {
+            try {
+                const logsDir = path.join(process.cwd(), 'logs');
+                if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir, { recursive: true });
+                const ts = new Date().toISOString().replace(/[:.]/g, '-');
+                const file = path.join(logsDir, `normalized-${market.name.toLowerCase()}-${ts}.json`);
+                fs.writeFileSync(
+                    file,
+                    JSON.stringify(
+                        {
+                            generatedAt: new Date().toISOString(),
+                            market: market.name,
+                            productCount: result.products.length,
+                            products: result.products,
+                            errors: result.errors,
+                        },
+                        null,
+                        2
+                    ),
+                    'utf-8'
+                );
+                console.log(`   ↳ Normalize checkpoint yazıldı: ${path.basename(file)}`);
+            } catch (e) {
+                console.warn('Normalize checkpoint yazılamadı:', e);
+            }
+        }
         result.errors.forEach((e) => downloadErrors.push({ market: market.name, category: e.category, error: e.error }));
         console.log(`   → ${market.name}: ${result.products.length} ürün indirildi, ${result.errors.length} kategori hatası`);
         writeReport(`  ${market.name}: ${result.products.length} ürün, ${result.errors.length} kategori hatası\n`);
@@ -221,6 +248,7 @@ async function main() {
     writeStatusJson(status);
 
     writeStatus(['Aşama 2: Supabase\'e toplu yazma...']);
+    console.log('\n📤 Aşama 2: Veritabanına yükleme başlıyor… (bağlantı kurulamazsa burada takılabilir)');
     const uploadErrors: { market: string; error: string }[] = [];
     const createdPerMarket: Record<string, number> = {};
     const uploadedPerMarket: Record<string, number> = {};
@@ -234,6 +262,7 @@ async function main() {
         status.message = `${marketName} yükleniyor (${products.length} ürün)…`;
         status.lastUpdated = new Date().toISOString();
         writeStatusJson(status);
+        console.log(`   → ${marketName}: ${products.length} ürün yazılıyor…`);
         try {
             const { created } = await upsertProductBatch(products, marketId, marketName);
             createdPerMarket[marketName] = created;
@@ -278,11 +307,6 @@ async function main() {
     writeReport(`ADMİN / KATEGORİ DURUMU\n${'-'.repeat(40)}\n`);
     writeReport(`Admin'e düşen (categoryId=null): ${nullCount} ürün\n`);
     writeReport(`Bu turda yeni eklenen (market bazında): ${JSON.stringify(createdPerMarket, null, 0)}\n\n`);
-
-    // —— 2c. A101 şüpheli ürün kontrolü (7 gün fiyat değişmeyen + kategoride %20 ucuz) ——
-    console.log('\n🔍 A101 şüpheli ürün kontrolü...');
-    const suspiciousResult = await runSuspiciousA101Check();
-    console.log(`   Şüpheli işaretlendi: ${suspiciousResult.marked}, şüpheden çıkarıldı: ${suspiciousResult.cleared}`);
 
     // —— 3. Alarm kontrolü ——
     if (uploadErrors.length === 0) {

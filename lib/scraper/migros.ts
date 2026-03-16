@@ -1,6 +1,6 @@
 
 import fetch from 'node-fetch';
-import { parseUnit } from '../unit-parser';
+import { parseQuantity } from '../utils';
 
 interface ScrapedProduct {
     name: string;
@@ -134,7 +134,7 @@ export async function scrapeMigros(): Promise<ScrapedProduct[]> {
                     // Use the specific category from Migros if available, else fallback to our Query Name
                     const category = p.category?.name || cat.name;
 
-                    const unitInfo = parseUnit(p.name);
+                    const qty = parseQuantity(p.name);
 
                     allProducts.push({
                         name: p.name,
@@ -143,8 +143,8 @@ export async function scrapeMigros(): Promise<ScrapedProduct[]> {
                         link: `https://www.migros.com.tr/${p.prettyName}`,
                         store: 'Migros',
                         category: category,
-                        quantityAmount: unitInfo?.amount,
-                        quantityUnit: unitInfo?.unit
+                        quantityAmount: qty.amount ?? undefined,
+                        quantityUnit: qty.unit ?? undefined
                     });
                 }
 

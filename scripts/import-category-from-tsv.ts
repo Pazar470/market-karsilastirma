@@ -1,19 +1,12 @@
 /**
- * Manuel kategori TSV'yi okuyup: (1) Ana > Yaprak > İnce Category ağacı oluşturur,
- * (2) Her ürünü (market + ürün adı ile eşleştirip) ilgili leaf category'ye bağlar.
- *
- * Veri kaynağı: ODS (tum_urunler_manuel.ods) doldurduktan sonra LibreOffice'ten
- * "Farklı Kaydet → Metin CSV (.csv)" ile TSV olarak dışa aktarın (sütun ayırıcı: Sekme, UTF-8).
- * Sütun sırası: Market, Market Kategori Kodu, Market Kategori, Ürün Adı, Ana Kategori, Yaprak Kategori, İnce Yaprak Kategori, Manuel
- *
- * Çalıştırma:
- *   npx tsx scripts/import-category-from-tsv.ts                    # varsayılan TSV ile import
- *   npx tsx scripts/import-category-from-tsv.ts --check           # sadece istatistik (DB yazmaz)
- *   npx tsx scripts/import-category-from-tsv.ts dosya.tsv         # belirtilen dosyadan import
+ * Manuel kategori TSV importu.
+ * NOT: Bu script Category / Mapping tarafında deleteMany kullanır; production'da
+ * sadece BİLİNÇLİ olarak çalıştırılmalıdır. CONFIRM_DESTROY_PROD=1 olmadan çalıştırılmaz.
  */
 
 import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
+import { requireDestructiveConfirm } from '../lib/destructive-guard';
 import * as fs from 'fs';
 import * as path from 'path';
 import { execSync } from 'child_process';
@@ -164,6 +157,7 @@ function reportStats(content: string, rows: TsvRowResolved[]) {
 }
 
 async function main() {
+    requireDestructiveConfirm('scripts/import-category-from-tsv.ts');
     const args = process.argv.slice(2);
     const checkOnly = args.includes('--check');
     const fileArg = args.find((a) => a !== '--check' && !a.startsWith('-'));

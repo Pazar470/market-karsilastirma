@@ -1,3 +1,5 @@
+import { parseQuantityForEggCategory } from './utils';
+
 /** TV vb. için adet say: uzunluk birimleri (inç, cm, m, metre) adet fiyatı olarak kabul edilir. */
 function isCountLikeUnit(rawUnit: string | null | undefined): boolean {
     const unit = (rawUnit || '').toLowerCase();
@@ -42,12 +44,28 @@ export function getUnitPrice(
 ): { value: number; displayUnit: string } {
     const unit = (quantityUnit || '').toLowerCase();
     if (productName != null && shouldDisplayAsAdet(productName, quantityAmount, quantityUnit)) {
-        return { value: priceAmount, displayUnit: 'adet' };
+        const adetValue = (quantityAmount != null && quantityAmount > 1 && (unit === 'adet' || unit === 'ad'))
+            ? priceAmount / quantityAmount
+            : priceAmount;
+        return { value: adetValue, displayUnit: 'adet' };
     }
     if (!quantityAmount || !quantityUnit || isCountLikeUnit(unit)) {
-        return { value: priceAmount, displayUnit: 'adet' };
+        const adetValue = (quantityAmount != null && quantityAmount > 1 && (unit === 'adet' || unit === 'ad'))
+            ? priceAmount / quantityAmount
+            : priceAmount;
+        return { value: adetValue, displayUnit: 'adet' };
     }
-    let unitPrice = priceAmount / quantityAmount;
+    // Yumurta: DB'de kg kayıtlı olsa bile isimde 10'lu/12 Adet varsa adet fiyatı göster (toplam / adet)
+    if (productName != null && /\byumurta\b/i.test(productName)) {
+        const eggQty = parseQuantityForEggCategory(productName);
+        if (eggQty != null && eggQty.amount >= 2) {
+            return { value: priceAmount / eggQty.amount, displayUnit: 'adet' };
+        }
+    }
+    // Kg biriminde 1000 değeri genelde gram olarak gelip yanlışlıkla kg yazılmıştır (Görsel 3 hatası)
+    let effectiveQty = quantityAmount;
+    if (unit === 'kg' && quantityAmount === 1000) effectiveQty = 1;
+    let unitPrice = priceAmount / effectiveQty;
     let displayUnit = unit === 'l' || unit === 'lt' ? 'L' : 'kg';
     if (unit === 'g' || unit === 'gr' || unit === 'ml') {
         unitPrice = unitPrice * 1000;

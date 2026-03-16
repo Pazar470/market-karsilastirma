@@ -47,3 +47,13 @@ scripts/_read_ods.py
 docs/_ods_export_temp.tsv
 
 .vercel
+
+# Tarama / scrape çıktıları (her çalıştırmada yeniden oluşur)
+scrape-status.txt
+scrape-status.json
+scrape-offline-report.txt
+scrape-report.txt
+scrape-failed-urls.txt
+debug-scrape/
+logs/*.json
+a101_root_ids.json

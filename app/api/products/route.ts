@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
+import { getA101DisplayUrl } from '@/lib/utils';
 import { ANA_KATEGORILER, type AnaKategori } from '@/lib/category-mapper';
 
 export const dynamic = 'force-dynamic'; // Prevent caching of new products
@@ -220,8 +221,18 @@ export async function GET(request: Request) {
             .map(([name, count]) => ({ name, count }))
             .sort((a, b) => b.count - a.count);
 
+        // A101: Markette gör linki /kapida/u/ID 404 veriyor; gösterimde /kapida/[slug]_p-[id] kullan
+        const productsWithDisplayUrls = products.map((p) => ({
+            ...p,
+            prices: p.prices.map((pr: any) =>
+                pr.market?.name === 'A101' && p.marketKey
+                    ? { ...pr, productUrl: getA101DisplayUrl(p.marketKey, p.name) ?? pr.productUrl }
+                    : pr
+            ),
+        }));
+
         return NextResponse.json({
-            products,
+            products: productsWithDisplayUrls,
             facets
         });
     } catch (error) {

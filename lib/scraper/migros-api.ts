@@ -1,6 +1,6 @@
 
 import fetch from 'node-fetch';
-import { parseUnit } from '../unit-parser';
+import { parseQuantity } from '../utils';
 
 interface MigrosCategoryRaw {
     data: {
@@ -129,7 +129,7 @@ export async function getProductsByCategory(leaf: { id: number, path: string, pr
                 const priceVal = item.shownPrice || item.regularPrice || 0;
                 const price = priceVal / 100;
                 const img = item.images?.[0]?.urls?.PRODUCT_DETAIL || item.images?.[0]?.urls?.PRODUCT_LIST || '';
-                const unitInfo = parseUnit(item.name);
+                const qty = parseQuantity(item.name);
 
                 // CRITICAL: Use the FULL PATH from our breadcrumb logic
                 // The API's 'item.category.name' is usually just the leaf (e.g. "Domates").
@@ -144,8 +144,8 @@ export async function getProductsByCategory(leaf: { id: number, path: string, pr
                         link: `https://www.migros.com.tr/${item.prettyName}`,
                         store: 'Migros',
                         category: finalCategory,
-                        quantityAmount: unitInfo?.amount,
-                        quantityUnit: unitInfo?.unit
+                        quantityAmount: qty.amount ?? undefined,
+                        quantityUnit: qty.unit ?? undefined
                     });
                 }
             }

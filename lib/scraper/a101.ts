@@ -12,9 +12,11 @@ export interface ScrapedProduct {
     category?: string;
     quantityAmount?: number;
     quantityUnit?: string;
+    /** A101 API nitelikAdi; db-utils zombi mantığı (şüpheli işaretleme/çıkarma) için gerekli */
+    nitelikAdi?: string;
 }
 
-import { parseUnit } from '../unit-parser';
+import { parseQuantity } from '../utils';
 import { isProductValid } from '../product-sanity-check';
 
 // Category IDs mapping
@@ -85,14 +87,7 @@ export async function scrapeA101(): Promise<ScrapedProduct[]> {
                         // MAP FIELDS
                         const name = item.name || (item.attributes ? item.attributes.name : '') || '';
 
-                        // Filter out unstable stock (KasaAktivitesi, etc.)
-                        // 'Regüler': Standard stock.
-                        // 'GrupSpot': Weekly specials (Aldın Aldın), usually buyable.
-                        // We exclude 'KasaAktivitesi' which is conditional.
-                        const validNitelik = ['Regüler', 'GrupSpot'];
-                        if (!validNitelik.includes(item.attributes?.nitelikAdi)) {
-                            continue;
-                        }
+                        // Tüm nitelikAdi grupları içeri alınır; zombi/şüpheli işaretleme db-utils'te niteliğe göre yapılır.
 
                         // PRICE PARSING
                         let price = 0;
@@ -145,8 +140,8 @@ export async function scrapeA101(): Promise<ScrapedProduct[]> {
                             category = item.attributes.category;
                         }
 
-                        // UNIT PARSING
-                        const unitInfo = parseUnit(name);
+                        // UNIT PARSING — global kurallar (kampanya temizliği, N x M, Sayı/Sayı Kg vb.) utils.parseQuantity ile tüm marketlerde aynı
+                        const qty = parseQuantity(name);
 
                         // IMAGE PARSING
                         let imageUrl = '';
@@ -190,8 +185,9 @@ export async function scrapeA101(): Promise<ScrapedProduct[]> {
                                 link,
                                 store: 'A101',
                                 category: category, // Use validated deep category
-                                quantityAmount: unitInfo ? unitInfo.amount : undefined,
-                                quantityUnit: unitInfo ? unitInfo.unit : undefined
+                                quantityAmount: qty.amount ?? undefined,
+                                quantityUnit: qty.unit ?? undefined,
+                                nitelikAdi: item.attributes?.nitelikAdi ?? undefined,
                             });
                         }
 

@@ -1,6 +1,6 @@
 {
   "market": "Migros",
-  "totalLeafCategories": 868,
+  "totalLeafCategories": 858,
   "categories": [
     {
       "id": 20000000072311,
@@ -27,46 +27,22 @@
       "path": "Migroscope"
     },
     {
-      "id": 20000000073889,
-      "name": "Ramazan Paketi",
-      "prettyName": "ramazan-paketi-c-120a1",
-      "path": "Ramadan > Ramazan Paketi"
+      "id": 20000000074056,
+      "name": "Candy & Chocolate",
+      "prettyName": "seker-cikolata-c-12148",
+      "path": "Eid > Candy & Chocolate"
     },
     {
-      "id": 20000000071887,
-      "name": "Ramadan Pack",
-      "prettyName": "ramazan-paketi-c-118cf",
-      "path": "Ramadan > Ramadan Pack"
+      "id": 20000000074160,
+      "name": "Bayram Özel",
+      "prettyName": "bayram-ozel-c-121b0",
+      "path": "Eid > Bayram Özel"
     },
     {
-      "id": 20000000073883,
-      "name": "Ramazan Pidesi",
-      "prettyName": "ramazan-pidesi-c-1209b",
-      "path": "Ramadan > Ramazan Pidesi"
-    },
-    {
-      "id": 20000000073884,
-      "name": "İftar",
-      "prettyName": "iftar-c-1209c",
-      "path": "Ramadan > İftar"
-    },
-    {
-      "id": 20000000073885,
-      "name": "Sahur",
-      "prettyName": "sahur-c-1209d",
-      "path": "Ramadan > Sahur"
-    },
-    {
-      "id": 20000000073886,
-      "name": "İçecekler",
-      "prettyName": "icecekler-c-1209e",
-      "path": "Ramadan > İçecekler"
-    },
-    {
-      "id": 20000000073887,
-      "name": "Tatlılar",
-      "prettyName": "tatlilar-c-1209f",
-      "path": "Ramadan > Tatlılar"
+      "id": 20000000074057,
+      "name": "Bayram Kahvaltısı",
+      "prettyName": "bayram-kahvaltisi-c-12149",
+      "path": "Eid > Bayram Kahvaltısı"
     },
     {
       "id": 20000000001001,
@@ -1323,12 +1299,6 @@
       "path": "Beverages > Sparkling Water"
     },
     {
-      "id": 20000000074683,
-      "name": "Ürünler",
-      "prettyName": "urunler-c-123bb",
-      "path": "Reis > Ürünler"
-    },
-    {
       "id": 20000000010249,
       "name": "Mixed Nuts",
       "prettyName": "karisik-kuruyemis-c-2809",
@@ -1713,18 +1683,6 @@
       "path": "Ice Cream > Ice"
     },
     {
-      "id": 20000000074699,
-      "name": "Ürünler",
-      "prettyName": "urunler-c-123cb",
-      "path": "Pastavilla > Ürünler"
-    },
-    {
-      "id": 20000000074306,
-      "name": "Ürünler",
-      "prettyName": "urunler-c-12242",
-      "path": "Kırmızı Halı Seçkileri > Ürünler"
-    },
-    {
       "id": 20000000001109,
       "name": "Bread",
       "prettyName": "ekmek-c-455",
@@ -1753,12 +1711,6 @@
       "name": "Mince Pie",
       "prettyName": "borek-c-45c",
       "path": "Bakery, Pastry > Patisserie for Breakfast > Mince Pie"
-    },
-    {
-      "id": 20000000010348,
-      "name": "Other Patisserie for Breakfast",
-      "prettyName": "diger-sabah-sicaklari-c-286c",
-      "path": "Bakery, Pastry > Patisserie for Breakfast > Other Patisserie for Breakfast"
     },
     {
       "id": 20000000010381,
@@ -2703,12 +2655,6 @@
       "path": "Personal Care, Cosmetics, Health > Shaving Products > Shaving Foam"
     },
     {
-      "id": 20000000001200,
-      "name": "Shaving Cream",
-      "prettyName": "tiras-kremi-c-4b0",
-      "path": "Personal Care, Cosmetics, Health > Shaving Products > Shaving Cream"
-    },
-    {
       "id": 20000000001201,
       "name": "Shaving Soap",
       "prettyName": "tiras-sabunu-c-4b1",
@@ -3085,12 +3031,6 @@
       "name": "Other Health Products",
       "prettyName": "diger-saglik-urunleri-c-11249",
       "path": "Personal Care, Cosmetics, Health > Health Products > Other Health Products"
-    },
-    {
-      "id": 20000000074702,
-      "name": "Ürünler",
-      "prettyName": "urunler-c-123ce",
-      "path": "Elidor İpeksi Terapi Serisi’ni Keşfet! > Ürünler"
     },
     {
       "id": 20000000001182,
@@ -4323,12 +4263,6 @@
       "path": "Home, Living > Hardware > Locks and Security Products"
     },
     {
-      "id": 20000000071851,
-      "name": "Car Maintenance PNR",
-      "prettyName": "oto-bakim-pnr-c-118ab",
-      "path": "Home, Living > Car Accessories > Car PNR > Car Maintenance PNR"
-    },
-    {
       "id": 20000000010757,
       "name": "Car Maintenance Products",
       "prettyName": "oto-bakim-urunleri-c-2a05",
@@ -4411,6 +4345,12 @@
       "name": "Art, Design",
       "prettyName": "sanat-tasarim-c-11887",
       "path": "Books, Stationery, Toys > Books, Magazines, Newspapers > Books for Adults > Art, Design"
+    },
+    {
+      "id": 20000000010908,
+      "name": "Textbook",
+      "prettyName": "ders-kitaplari-c-2a9c",
+      "path": "Books, Stationery, Toys > Books, Magazines, Newspapers > Books for Adults > Textbook"
     },
     {
       "id": 20000000071814,

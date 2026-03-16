@@ -5,7 +5,8 @@ export function parseUnit(name: string) {
     // Regex to capture amount and unit (e.g. 500 g, 1 kg, 6x200 ml, 350 (implicit g))
     // Added support for case-insensitive 'Kg' at end, and bare numbers for specific contexts (handled loosely here)
     // Regex to capture amount and unit (e.g. 500 g, 1.5 kg, 1,5 kg, 6x200 ml)
-    const quantityRegex = /(\d+(?:[.,]\d+)?)\s*(?:x\s*(\d+(?:[.,]\d+)?))?\s*(')?\s*(kg|gr|g|gram|litre|lt|l|ml|cl|adet|li|lu|lü|ad)\b/i;
+    // N x M birimi: x/X/× ve boşluk varyasyonları (2 x 60 g, 2x140G, 2×60 g) — global (ton balığı, jambon, peynir vb.)
+    const quantityRegex = /(\d+(?:[.,]\d+)?)\s*(?:[xX×]\s*(\d+(?:[.,]\d+)?))?\s*(')?\s*(kg|gr|g|gram|litre|lt|l|ml|cl|adet|li|lu|lü|ad)\b/i;
 
     // Check for "Kg" at end of string acting as "1 Kg" e.g. "Kelle Kaşar Kg"
     // Check for "Kg" at end of string acting as "1 Kg" e.g. "Kelle Kaşar Kg"

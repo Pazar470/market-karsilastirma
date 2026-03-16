@@ -44,8 +44,9 @@ model Product {
   category       String?
   quantityAmount Float? // 0.2, 1, 1.5 gibi
   quantityUnit   String? // kg, l, ad gibi
-  isSuspicious   Boolean  @default(false)
-  tags           String? // JSON string array: ["Biber", "Acı"]
+  isSuspicious     Boolean   @default(false)
+  suspiciousAtPrice Decimal? // A101 zombi: işaret anındaki fiyat; farklı fiyat gelince şüpheden çıkar
+  tags             String?  // JSON string array: ["Biber", "Acı"]
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
   prices         Price[]
